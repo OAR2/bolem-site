@@ -325,7 +325,7 @@
         }
         .home-hero__title {
             font-family: var(--font-display);
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: clamp(2.25rem, 8vw, 6rem);
             font-weight: var(--weight-medium);
             color: var(--color-white);
             line-height: 0.95;
@@ -337,12 +337,13 @@
         }
         .home-hero__subtitle {
             font-family: var(--font-body);
-            font-size: clamp(1rem, 2vw, 1.125rem);
+            font-size: clamp(0.9375rem, 2.5vw, 1.125rem);
             color: rgba(255,255,255,0.6);
             margin-top: 2rem;
             max-width: 480px;
             margin-left: auto;
             margin-right: auto;
+            max-width: 90vw;
             line-height: 1.7;
             letter-spacing: 0.03em;
         }
@@ -438,7 +439,7 @@
         }
         .home-marquee__text {
             font-family: var(--font-display);
-            font-size: clamp(1.125rem, 2vw, 1.25rem);
+            font-size: clamp(0.875rem, 2vw, 1.25rem);
             color: rgba(212,168,83,0.25);
             letter-spacing: 0.3em;
             text-transform: uppercase;
@@ -460,7 +461,7 @@
         }
         .home-filosofia__header {
             text-align: center;
-            margin-bottom: 5rem;
+            margin-bottom: clamp(2.5rem, 6vw, 5rem);
         }
         .home-filosofia__title {
             font-family: var(--font-display);
@@ -558,7 +559,7 @@
         }
         .home-editorial__quote {
             font-family: var(--font-display);
-            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            font-size: clamp(1.25rem, 3.5vw, 2.25rem);
             color: var(--color-warm);
             margin-top: 1rem;
             line-height: 1.35;
@@ -613,7 +614,7 @@
         }
         .home-lookbook__header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: clamp(2rem, 5vw, 4rem);
         }
         .home-lookbook__title {
             font-family: var(--font-display);
@@ -629,6 +630,10 @@
         }
         @media (min-width: 768px) {
             .home-lookbook__grid { grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        }
+        @media (max-width: 479px) {
+            .home-lookbook__grid { grid-template-columns: 1fr; gap: 0.5rem; }
+            .lookbook-item--large { grid-column: span 1; grid-row: span 1; }
         }
         .lookbook-item {
             position: relative;
@@ -745,7 +750,7 @@
         .home-vip__text {
             font-family: var(--font-body);
             color: rgba(245,240,235,0.5);
-            font-size: clamp(var(--text-small), 2vw, 1rem);
+            font-size: clamp(0.875rem, 2.5vw, 1rem);
             margin-top: 1.5rem;
             max-width: 28rem;
             margin-left: auto;
@@ -810,7 +815,7 @@
         }
         .home-instagram__header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: clamp(2rem, 5vw, 4rem);
         }
         .home-instagram__title {
             font-family: var(--font-display);
@@ -919,6 +924,10 @@
         }
         .home-tallas__help a:hover { color: var(--color-gold-dark); }
         .home-tallas__help svg { width: 1rem; height: 1rem; }
+        @media (max-width: 480px) {
+            .home-tallas__table { font-size: var(--text-micro); }
+            .home-tallas__table th, .home-tallas__table td { padding: 0.75rem 0.5rem; }
+        }
 
         /* --- FAQ --- */
         .home-faq {
@@ -931,7 +940,7 @@
         }
         .home-faq__header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: clamp(2rem, 5vw, 4rem);
         }
         .home-faq__title {
             font-family: var(--font-display);
@@ -970,6 +979,10 @@
             flex-shrink: 0;
         }
         .home-faq details[open] summary svg { transform: rotate(45deg); }
+        @media (max-width: 768px) {
+            .home-faq summary { padding: 1rem 0; min-height: 44px; }
+            .home-faq summary svg { width: 1.5rem; height: 1.5rem; }
+        }
         .home-faq details p {
             padding-bottom: 1.25rem;
             font-family: var(--font-body);
@@ -1071,6 +1084,9 @@
         @media (min-width: 640px) {
             .home-cta__actions { flex-direction: row; }
         }
+        @media (max-width: 639px) {
+            .home-cta__btn-wa, .home-cta__btn-ig { width: 100%; text-align: center; justify-content: center; }
+        }
         .home-cta__btn-wa {
             display: inline-flex;
             align-items: center;
@@ -1142,6 +1158,9 @@
         }
         @media (min-width: 768px) {
             .home-comunidad__grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 479px) {
+            .home-comunidad__grid { grid-template-columns: 1fr; }
         }
         .home-comunidad__slot {
             aspect-ratio: 1 / 1;
