@@ -69,23 +69,76 @@
     /* ─── HERO ─── */
     .hero {
       min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--color-cream);
+      padding-top: var(--nav-height);
+      position: relative;
+    }
+
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, rgba(212,168,83,0.08) 0%, var(--color-warm) 50%, rgba(212,168,83,0.05) 100%);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background:
-        radial-gradient(ellipse 80% 50% at 50% 50%, rgba(212,168,83,0.06), transparent),
-        var(--color-cream);
-      padding-top: var(--nav-height);
-      padding-bottom: 5rem;
-      position: relative;
+      gap: 1.5rem;
+    }
+
+    .hero-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .hero-image-placeholder {
+      color: var(--color-ink);
+      opacity: 0.12;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding: 2rem;
+      text-align: center;
+    }
+    .hero-image-placeholder svg { width: 64px; height: 64px; }
+    .hero-image-placeholder span {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: var(--text-body);
+    }
+
+    /* Gold corner accents on hero image */
+    .hero-image::before, .hero-image::after {
+      content: '';
+      position: absolute;
+      width: 3rem;
+      height: 3rem;
+      z-index: 2;
+    }
+    .hero-image::before {
+      top: 2rem; left: 2rem;
+      border-top: 2px solid var(--color-gold);
+      border-left: 2px solid var(--color-gold);
+    }
+    .hero-image::after {
+      bottom: 2rem; right: 2rem;
+      border-bottom: 2px solid var(--color-gold);
+      border-right: 2px solid var(--color-gold);
     }
 
     .hero-content {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      padding: 0 var(--content-padding);
+      justify-content: center;
+      align-items: flex-start;
+      padding: 4rem var(--content-padding) 4rem clamp(2rem, 5vw, 5rem);
     }
 
     .hero-eyebrow {
@@ -99,9 +152,9 @@
 
     .hero-headline {
       font-family: var(--font-display);
-      font-size: var(--text-hero);
+      font-size: clamp(2.5rem, 5.5vw, 6rem);
       font-weight: var(--weight-semibold);
-      text-align: center;
+      text-align: left;
       line-height: 0.95;
       color: var(--color-ink);
       overflow: hidden;
@@ -115,7 +168,7 @@
       color: var(--color-ink);
       opacity: 0.6;
       margin-top: var(--space-element);
-      text-align: center;
+      text-align: left;
     }
 
     .hero-stats {
@@ -375,12 +428,14 @@
       font-size: var(--text-body);
       color: var(--color-ink);
       margin-bottom: 0.25rem;
+      flex: 1;
     }
 
     .product-meta {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-top: auto;
     }
 
     .product-sizes {
@@ -441,7 +496,7 @@
         justify-content: center;
       }
       .product-info { padding: 0.75rem 0.125rem; }
-      .product-name { font-size: 0.9375rem; min-height: 2.5em; }
+      .product-name { font-size: 0.9375rem; }
       .product-price { font-size: var(--text-micro); }
     }
 
@@ -1030,16 +1085,34 @@
 
     @media (max-width: 768px) {
       .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
         padding-top: var(--nav-height-mobile);
+      }
+
+      .hero-image {
+        aspect-ratio: 3 / 4;
+        max-height: 65vh;
+      }
+
+      .hero-image::before { top: 1rem; left: 1rem; width: 2rem; height: 2rem; }
+      .hero-image::after { bottom: 1rem; right: 1rem; width: 2rem; height: 2rem; }
+
+      .hero-content {
+        align-items: center;
+        text-align: center;
+        padding: 2.5rem var(--content-padding);
       }
 
       .hero-headline {
         font-size: clamp(2.5rem, 11vw, 3.5rem);
+        text-align: center;
       }
 
       .hero-subtitle {
         font-size: clamp(1rem, 4vw, 1.25rem);
         max-width: 90vw;
+        text-align: center;
       }
 
       .hero-stats {
@@ -1153,6 +1226,14 @@
 
   <!-- HERO -->
   <section class="hero">
+    <!-- Hero image — replace placeholder with real hero photo when ready -->
+    <div class="hero-image" data-reveal>
+      <!-- <img src="../assets/hero-coleccion-ss26.webp" alt="Modelo BOLEM vistiendo la nueva colección SS26" loading="eager"> -->
+      <div class="hero-image-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span>Foto Estrella SS26</span>
+      </div>
+    </div>
     <div class="hero-content">
       <p class="hero-eyebrow" data-reveal>SS26 Collection</p>
       <h1 class="hero-headline">
