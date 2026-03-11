@@ -1,0 +1,26 @@
+# BOLEM — bolemsv.com
+User-agent: *
+Allow: /
+Disallow:
+
+# Sitemap
+Sitemap: https://bolemsv.com/sitemap.xml
+
+# AI Crawlers — welcome
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /

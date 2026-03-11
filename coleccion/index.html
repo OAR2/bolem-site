@@ -1,0 +1,2102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOLEM — Nueva Colección SS26 | Moda Plus Size El Salvador</title>
+  <meta name="description" content="Nueva colección primavera-verano 2026. 25 estilos en vestidos, tops, jeans y más. Ropa plus size tallas XL a 3XL. Pedidos por WhatsApp.">
+  <meta name="keywords" content="colección plus size 2026, ropa tallas grandes El Salvador, moda curvy nueva temporada, vestidos plus size, BOLEM SS26">
+  <link rel="canonical" href="https://bolemsv.com/coleccion">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="BOLEM — Nueva Colección SS26">
+  <meta property="og:description" content="Donde tu estilo no tiene talla. 25 estilos, tallas XL a 3XL. Nueva colección primavera-verano 2026.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bolemsv.com/coleccion">
+  <meta property="og:locale" content="es_SV">
+  <meta property="og:site_name" content="BOLEM">
+  <meta property="og:image" content="https://bolemsv.com/assets/og-coleccion-ss26.webp">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BOLEM — Nueva Colección SS26">
+  <meta name="twitter:description" content="25 estilos plus size. Tallas XL a 3XL. Desde $22.">
+
+  <!-- Schema: CollectionPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "BOLEM — Nueva Colección SS26",
+    "description": "Colección primavera-verano 2026 de ropa plus size para mujer. 25 estilos en tallas XL a 3XL.",
+    "url": "https://bolemsv.com/coleccion",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "BOLEM",
+      "url": "https://bolemsv.com/"
+    },
+    "provider": {
+      "@type": "ClothingStore",
+      "name": "BOLEM",
+      "url": "https://bolemsv.com/",
+      "telephone": "+503-6859-0899",
+      "areaServed": "SV"
+    }
+  }
+  </script>
+
+  <!-- Fonts preconnect + preload -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"></noscript>
+
+  <!-- Shared Stylesheet -->
+  <link rel="stylesheet" href="../styles.css">
+
+  <!-- CDN Dependencies -->
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* ═══════════════════════════════════════════
+       COLLECTION PAGE — Page-specific styles
+       Shared tokens, reset, nav, footer, scrollbar,
+       noise texture all come from ../styles.css
+       ═══════════════════════════════════════════ */
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 50%, rgba(212,168,83,0.06), transparent),
+        var(--color-cream);
+      padding-top: var(--nav-height);
+      padding-bottom: 5rem;
+      position: relative;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 var(--content-padding);
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--color-gold);
+      font-size: var(--text-micro);
+      margin-bottom: var(--space-element);
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: var(--text-hero);
+      font-weight: var(--weight-semibold);
+      text-align: center;
+      line-height: 0.95;
+      color: var(--color-ink);
+      overflow: hidden;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-body);
+      font-weight: var(--weight-light);
+      font-size: var(--text-subtitle);
+      color: var(--color-ink);
+      opacity: 0.6;
+      margin-top: var(--space-element);
+      text-align: center;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: clamp(2rem, 5vw, 4rem);
+      margin-top: var(--space-block);
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-number {
+      font-family: var(--font-display);
+      font-size: var(--text-title);
+      font-weight: var(--weight-semibold);
+      color: var(--color-ink);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-family: var(--font-accent);
+      font-size: var(--text-micro);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-gold);
+      margin-top: 0.5rem;
+    }
+
+    .hero-line {
+      width: 60px;
+      height: 1px;
+      background: var(--color-gold);
+      margin-top: var(--space-block);
+      border: none;
+    }
+
+    /* ─── SCROLL INDICATOR ─── */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-micro);
+      opacity: 0.6;
+      cursor: pointer;
+    }
+
+    .scroll-indicator-text {
+      font-family: var(--font-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      font-size: var(--text-micro);
+      color: var(--color-gold);
+    }
+
+    .scroll-indicator-arrow {
+      width: 12px;
+      height: 12px;
+      border-right: 1px solid var(--color-gold);
+      border-bottom: 1px solid var(--color-gold);
+      transform: rotate(45deg);
+      animation: bounceArrow 2s var(--ease-smooth) infinite;
+    }
+
+    @keyframes bounceArrow {
+      0%, 100% { transform: rotate(45deg) translateY(0) translateX(0); }
+      50% { transform: rotate(45deg) translateY(4px) translateX(4px); }
+    }
+
+    /* ─── MANIFIESTO ─── */
+    .manifiesto {
+      min-height: 40vh;
+      background: var(--color-warm);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: var(--space-section) var(--content-padding);
+      position: relative;
+    }
+
+    .manifiesto::before {
+      content: '';
+      width: 60px;
+      height: 1px;
+      background: var(--color-gold);
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .manifiesto-text {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: var(--text-subtitle);
+      font-weight: var(--weight-regular);
+      text-align: center;
+      line-height: 1.6;
+      max-width: 700px;
+      color: var(--color-ink);
+    }
+
+    /* ─── CATEGORY FILTERS ─── */
+    .catalog {
+      background: var(--color-cream);
+      padding: var(--space-section) var(--content-padding);
+    }
+
+    .catalog-header {
+      text-align: center;
+      margin-bottom: var(--space-block);
+    }
+
+    .catalog-eyebrow {
+      font-family: var(--font-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      font-size: var(--text-micro);
+      color: var(--color-gold);
+      margin-bottom: var(--space-element);
+    }
+
+    .catalog-title {
+      font-family: var(--font-display);
+      font-size: var(--text-title);
+      font-weight: var(--weight-semibold);
+      color: var(--color-ink);
+    }
+
+    .catalog-filters {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-tight);
+      margin-bottom: var(--space-block);
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      font-family: var(--font-accent);
+      font-size: var(--text-micro);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 0.6rem 1.5rem;
+      border: 1px solid var(--color-gold-soft);
+      color: var(--color-ink);
+      background: transparent;
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease-smooth);
+      opacity: 0.5;
+    }
+
+    .filter-btn:hover {
+      opacity: 0.8;
+      border-color: var(--color-gold);
+    }
+
+    .filter-btn.active {
+      opacity: 1;
+      background: var(--color-gold);
+      color: var(--color-ink);
+      border-color: var(--color-gold);
+    }
+
+    /* ─── PRODUCT GRID ─── */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-element);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .product-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform var(--duration-fast) var(--ease-smooth);
+    }
+
+    .product-card[hidden] {
+      display: none;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .product-image-wrap {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background: var(--color-warm);
+      border: var(--border-thin);
+    }
+
+    /* Placeholder — shown until real photo is added */
+    .product-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.75rem;
+      background: linear-gradient(145deg, var(--color-warm) 0%, var(--color-cream) 100%);
+    }
+
+    .product-placeholder-icon {
+      width: 48px;
+      height: 48px;
+      color: var(--color-gold-soft);
+    }
+
+    .product-placeholder-text {
+      font-family: var(--font-display);
+      font-size: var(--text-body);
+      font-style: italic;
+      color: var(--color-ink);
+      opacity: 0.25;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    /* Real image — covers placeholder when present */
+    .product-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .product-info {
+      padding: 1rem 0.25rem;
+    }
+
+    .product-name {
+      font-family: var(--font-display);
+      font-size: var(--text-body);
+      color: var(--color-ink);
+      margin-bottom: 0.25rem;
+    }
+
+    .product-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .product-sizes {
+      font-family: var(--font-accent);
+      font-size: var(--text-micro);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-ink);
+      opacity: 0.4;
+    }
+
+    .product-price {
+      font-family: var(--font-accent);
+      font-size: var(--text-small);
+      font-weight: var(--weight-semibold);
+      color: var(--color-gold);
+      letter-spacing: 0.05em;
+    }
+
+    .product-cta {
+      display: block;
+      text-align: center;
+      font-family: var(--font-accent);
+      font-size: var(--text-micro);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      border: 1px solid var(--color-gold-soft);
+      color: var(--color-ink);
+      background: transparent;
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease-smooth);
+      opacity: 0;
+    }
+
+    .product-card:hover .product-cta {
+      opacity: 1;
+    }
+
+    .product-cta:hover {
+      background: var(--color-gold);
+      border-color: var(--color-gold);
+    }
+
+    /* Mobile: always show CTA */
+    @media (pointer: coarse) {
+      .product-cta { opacity: 1; }
+    }
+
+    /* ─── CATEGORY DIVIDER ─── */
+    .category-divider {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: var(--space-element) 0;
+    }
+
+    .category-divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-gold-soft), transparent);
+    }
+
+    .category-divider-label {
+      font-family: var(--font-accent);
+      font-size: var(--text-micro);
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--color-gold);
+      white-space: nowrap;
+    }
+
+    /* ─── PIEZA DESTACADA ─── */
+    .featured {
+      background: var(--color-warm);
+      padding: var(--space-section) var(--content-padding);
+    }
+
+    .featured-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: var(--space-block);
+      max-width: var(--max-width);
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    .featured-image {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background: linear-gradient(145deg, var(--color-cream) 0%, var(--color-warm) 100%);
+      border: var(--border-thin);
+    }
+
+    .featured-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .featured-placeholder-text {
+      font-family: var(--font-display);
+      font-size: var(--text-subtitle);
+      font-style: italic;
+      color: var(--color-ink);
+      opacity: 0.15;
+      text-align: center;
+      padding: 0 2rem;
+    }
+
+    .featured-info {
+      padding: var(--space-block) 0;
+    }
+
+    .featured-label {
+      font-family: var(--font-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      font-size: var(--text-micro);
+      color: var(--color-gold);
+      margin-bottom: var(--space-element);
+    }
+
+    .featured-name {
+      font-family: var(--font-display);
+      font-size: var(--text-title);
+      font-weight: var(--weight-semibold);
+      color: var(--color-ink);
+      line-height: 1.1;
+      margin-bottom: var(--space-element);
+    }
+
+    .featured-desc {
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      color: var(--color-ink);
+      opacity: 0.7;
+      line-height: 1.7;
+      margin-bottom: var(--space-block);
+    }
+
+    .featured-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-element);
+      margin-bottom: var(--space-block);
+    }
+
+    .featured-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .featured-detail-label {
+      font-family: var(--font-accent);
+      font-size: var(--text-micro);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-ink);
+      opacity: 0.4;
+    }
+
+    .featured-detail-value {
+      font-family: var(--font-accent);
+      font-size: var(--text-body);
+      font-weight: var(--weight-semibold);
+      color: var(--color-ink);
+    }
+
+    .featured-cta {
+      display: inline-block;
+      font-family: var(--font-accent);
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 1.1rem 2.5rem;
+      background: var(--color-gold);
+      color: var(--color-ink);
+      transition: all var(--duration-mid) var(--ease-smooth);
+      cursor: pointer;
+    }
+
+    .featured-cta:hover {
+      background: var(--color-ink);
+      color: var(--color-gold);
+    }
+
+    /* ─── VIP ─── */
+    .vip {
+      background: var(--color-warm);
+      padding: var(--space-section) var(--content-padding);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vip-headline {
+      font-family: var(--font-display);
+      font-size: var(--text-title);
+      font-weight: var(--weight-semibold);
+      color: var(--color-ink);
+      text-align: center;
+      margin-bottom: var(--space-element);
+    }
+
+    .vip-subtext {
+      font-family: var(--font-body);
+      font-weight: var(--weight-light);
+      font-size: var(--text-body);
+      color: var(--color-ink);
+      opacity: 0.6;
+      text-align: center;
+      margin-bottom: var(--space-block);
+      max-width: 500px;
+    }
+
+    .vip-form {
+      display: flex;
+      gap: var(--space-element);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .vip-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--color-gold-soft);
+      padding: 0.75rem 0;
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      color: var(--color-ink);
+      outline: none;
+      transition: border-color var(--duration-fast) var(--ease-smooth);
+    }
+
+    .vip-input::placeholder {
+      color: rgba(26, 26, 26, 0.35);
+      font-family: var(--font-accent);
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .vip-input:focus {
+      border-bottom-color: var(--color-gold);
+    }
+
+    .vip-submit {
+      font-family: var(--font-accent);
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 0.75rem 2rem;
+      background: var(--color-gold);
+      color: var(--color-ink);
+      border: none;
+      transition: all var(--duration-mid) var(--ease-smooth);
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .vip-submit:hover {
+      background: var(--color-ink);
+      color: var(--color-gold);
+    }
+
+    /* ─── QUICK VIEW MODAL ─── */
+    .qv-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 26, 26, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 9000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--duration-mid) var(--ease-smooth), visibility var(--duration-mid);
+    }
+
+    .qv-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .qv-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.95);
+      z-index: 9001;
+      background: var(--color-cream);
+      max-width: 900px;
+      width: calc(100% - 2rem);
+      max-height: 90vh;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--duration-mid) var(--ease-smooth),
+                  visibility var(--duration-mid),
+                  transform var(--duration-mid) var(--ease-smooth);
+    }
+
+    .qv-modal.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .qv-image {
+      aspect-ratio: 3 / 4;
+      background: linear-gradient(145deg, var(--color-warm) 0%, var(--color-cream) 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .qv-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity var(--duration-fast) var(--ease-smooth);
+    }
+
+    .qv-image img.active {
+      opacity: 1;
+    }
+
+    .qv-image-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--color-ink);
+      opacity: 0.2;
+    }
+
+    .qv-image-placeholder svg {
+      width: 64px;
+      height: 64px;
+    }
+
+    .qv-image-placeholder span {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: var(--text-body);
+    }
+
+    /* Gallery arrows */
+    .qv-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background: var(--color-cream);
+      border: var(--border-thin);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2;
+      transition: background var(--duration-fast) var(--ease-smooth);
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .qv-arrow.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .qv-arrow:hover {
+      background: var(--color-gold);
+    }
+
+    .qv-arrow svg {
+      width: 16px;
+      height: 16px;
+      color: var(--color-ink);
+    }
+
+    .qv-arrow--prev {
+      left: 0.75rem;
+    }
+
+    .qv-arrow--next {
+      right: 0.75rem;
+    }
+
+    /* Dot indicators */
+    .qv-dots {
+      position: absolute;
+      bottom: 0.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.5rem;
+      z-index: 2;
+    }
+
+    .qv-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-ink);
+      opacity: 0.2;
+      cursor: pointer;
+      transition: opacity var(--duration-fast), background var(--duration-fast);
+      border: none;
+      padding: 0;
+    }
+
+    .qv-dot.active {
+      opacity: 1;
+      background: var(--color-gold);
+    }
+
+    .qv-content {
+      padding: clamp(1.5rem, 4vw, 3rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .qv-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 40px;
+      height: 40px;
+      background: var(--color-cream);
+      border: var(--border-thin);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2;
+      transition: background var(--duration-fast) var(--ease-smooth);
+    }
+
+    .qv-close:hover {
+      background: var(--color-gold);
+    }
+
+    .qv-close svg {
+      width: 16px;
+      height: 16px;
+      color: var(--color-ink);
+    }
+
+    .qv-eyebrow {
+      font-family: var(--font-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      font-size: var(--text-micro);
+      color: var(--color-gold);
+      margin-bottom: var(--space-tight);
+    }
+
+    .qv-name {
+      font-family: var(--font-display);
+      font-size: var(--text-title);
+      font-weight: var(--weight-semibold);
+      color: var(--color-ink);
+      line-height: 1.1;
+      margin-bottom: var(--space-element);
+    }
+
+    .qv-desc {
+      font-family: var(--font-body);
+      font-weight: var(--weight-light);
+      font-size: var(--text-body);
+      color: var(--color-ink);
+      opacity: 0.65;
+      line-height: 1.7;
+      margin-bottom: var(--space-element);
+    }
+
+    .qv-details {
+      display: flex;
+      gap: clamp(1rem, 3vw, 2rem);
+      margin-bottom: var(--space-block);
+      padding-top: var(--space-element);
+      border-top: 1px solid var(--color-gold-soft);
+    }
+
+    .qv-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .qv-detail-label {
+      font-family: var(--font-accent);
+      font-size: var(--text-micro);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-ink);
+      opacity: 0.4;
+    }
+
+    .qv-detail-value {
+      font-family: var(--font-accent);
+      font-size: var(--text-body);
+      font-weight: var(--weight-semibold);
+      color: var(--color-ink);
+    }
+
+    .qv-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      font-family: var(--font-accent);
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 1.1rem 2.5rem;
+      background: var(--color-gold);
+      color: var(--color-ink);
+      transition: all var(--duration-mid) var(--ease-smooth);
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .qv-cta:hover {
+      background: var(--color-ink);
+      color: var(--color-gold);
+    }
+
+    .qv-cta svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .qv-continue {
+      display: block;
+      text-align: center;
+      margin-top: var(--space-tight);
+      font-family: var(--font-accent);
+      font-size: var(--text-micro);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-ink);
+      opacity: 0.4;
+      cursor: pointer;
+      padding: 0.5rem;
+      background: none;
+      border: none;
+      transition: opacity var(--duration-fast);
+    }
+
+    .qv-continue:hover {
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .qv-modal {
+        grid-template-columns: 1fr;
+        max-height: 95vh;
+        width: calc(100% - 1rem);
+      }
+
+      .qv-image {
+        aspect-ratio: 4 / 3;
+      }
+
+      .qv-name {
+        font-size: var(--text-subtitle);
+      }
+    }
+
+    /* ─── PAGE LOADER ─── */
+    .page-loader {
+      position: fixed;
+      inset: 0;
+      background: var(--color-cream);
+      z-index: 9998;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.8s var(--ease-smooth), visibility 0.8s;
+    }
+
+    .page-loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .page-loader-text {
+      font-family: var(--font-display);
+      font-size: var(--text-subtitle);
+      color: var(--color-ink);
+      opacity: 0;
+      animation: loaderFade 1s var(--ease-smooth) forwards;
+    }
+
+    @keyframes loaderFade {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding-top: var(--nav-height-mobile);
+      }
+
+      .hero-headline {
+        font-size: clamp(2.5rem, 12vw, 3.5rem);
+      }
+
+      .hero-subtitle {
+        font-size: clamp(1rem, 4vw, 1.25rem);
+        max-width: 90vw;
+      }
+
+      .hero-stats {
+        gap: 1.5rem;
+      }
+
+      .hero-stat-number {
+        font-size: var(--text-subtitle);
+      }
+
+      .hero-eyebrow {
+        font-size: 0.625rem;
+      }
+
+      .manifiesto-text {
+        font-size: clamp(1.1rem, 4vw, 1.5rem);
+      }
+
+      .featured-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-image {
+        aspect-ratio: 4 / 3;
+      }
+
+      .featured-info {
+        padding: 0;
+      }
+
+      .vip-form {
+        flex-direction: column;
+      }
+
+      .vip-submit {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .hero-headline {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div class="page-loader">
+    <span class="page-loader-text">BOLEM</span>
+  </div>
+
+  <!-- NAV -->
+  <nav class="site-nav site-nav--transparent">
+    <a href="../index.html" class="nav-logo">BOL<span class="accent">E</span>M</a>
+    <div class="nav-links">
+      <a href="../index.html" class="nav-link">Inicio</a>
+      <a href="index.html" class="nav-link active">Colección</a>
+      <a href="../guia-de-tallas.html" class="nav-link">Guía de Tallas</a>
+      <a href="../nosotros.html" class="nav-link">Nosotras</a>
+      <a href="../blog/index.html" class="nav-link">Blog</a>
+      <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20más%20info" class="nav-cta desktop-only" target="_blank" rel="noopener">
+        WhatsApp
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+      </a>
+    </div>
+    <button class="nav-menu-btn" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-mobile">
+      <div class="nav-mobile-inner">
+        <a href="../index.html" class="nav-mobile-link">Inicio</a>
+        <a href="index.html" class="nav-mobile-link">Colección</a>
+        <a href="../guia-de-tallas.html" class="nav-mobile-link">Guía de Tallas</a>
+        <a href="../nosotros.html" class="nav-mobile-link">Nosotras</a>
+        <a href="../blog/index.html" class="nav-mobile-link">Blog</a>
+        <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20más%20info" class="nav-mobile-link">WhatsApp</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow" data-reveal>SS26 Collection</p>
+      <h1 class="hero-headline" data-text-split="chars">NUEVA COLECCIÓN</h1>
+      <p class="hero-subtitle" data-reveal>Donde tu estilo no tiene talla</p>
+      <div class="hero-stats" data-reveal>
+        <div class="hero-stat">
+          <span class="hero-stat-number">25</span>
+          <span class="hero-stat-label">Estilos</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-number">4</span>
+          <span class="hero-stat-label">Categorías</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-number">$22–58</span>
+          <span class="hero-stat-label">Rango</span>
+        </div>
+      </div>
+      <hr class="hero-line" data-reveal>
+    </div>
+
+    <div class="scroll-indicator">
+      <span class="scroll-indicator-text">Scroll</span>
+      <span class="scroll-indicator-arrow"></span>
+    </div>
+  </section>
+
+  <!-- MANIFIESTO -->
+  <section id="manifiesto" class="manifiesto">
+    <p class="manifiesto-text" data-text-split>
+      No diseñamos ropa para que te quede. Diseñamos ropa para que te sientas imparable. Cada pieza es una declaración: tu cuerpo es perfecto, y merece estilo sin compromiso.
+    </p>
+  </section>
+
+  <!-- CATÁLOGO -->
+  <section id="catalogo" class="catalog">
+    <div class="catalog-header" data-reveal>
+      <p class="catalog-eyebrow">Lote 1 — Los Ángeles</p>
+      <h2 class="catalog-title">25 Estilos, Tu Elección</h2>
+    </div>
+
+    <!-- Filters -->
+    <div class="catalog-filters" data-reveal>
+      <button class="filter-btn active" data-filter="all">Todas (25)</button>
+      <button class="filter-btn" data-filter="vestido">Vestidos (13)</button>
+      <button class="filter-btn" data-filter="bottom">Bottoms (5)</button>
+      <button class="filter-btn" data-filter="top">Tops (4)</button>
+      <button class="filter-btn" data-filter="body">Bodys (1)</button>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="product-grid" data-reveal-stagger>
+
+      <!-- ═══ VESTIDOS (13) ═══ -->
+      <div class="category-divider" data-category="vestido">
+        <span class="category-divider-line"></span>
+        <span class="category-divider-label">Vestidos</span>
+        <span class="category-divider-line"></span>
+      </div>
+
+      <div class="product-card" data-category="vestido" data-id="vestido-azul">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/vestido-azul.webp" alt="Vestido Azul — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Vestido Azul</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL / 1XL / 2XL</span>
+            <span class="product-price">$45</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Azul" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="vestido" data-id="vestido-taupe">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/vestido-taupe.webp" alt="Vestido Taupe — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Vestido Taupe</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL / 1XL / 2XL</span>
+            <span class="product-price">$45</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Taupe" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="vestido" data-id="midi-dress-ivory-sage">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/midi-dress-ivory-sage.webp" alt="Midi Dress Ivory Sage — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Midi Dress Ivory Sage</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL / 1XL / 2XL</span>
+            <span class="product-price">$48</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Midi%20Dress%20Ivory%20Sage" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="vestido" data-id="midi-dress-ivory-rose">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/midi-dress-ivory-rose.webp" alt="Midi Dress Ivory Rose — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Midi Dress Ivory Rose</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL / 1XL / 2XL</span>
+            <span class="product-price">$48</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Midi%20Dress%20Ivory%20Rose" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="vestido" data-id="flair-midi-dress-denim">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/flair-midi-dress-denim.webp" alt="Flair Midi Dress Denim — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Flair Midi Dress Denim</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL / 1XL / 2XL</span>
+            <span class="product-price">$49</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Flair%20Midi%20Dress%20Denim" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="vestido" data-id="vestido-beige-botones">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/vestido-beige-botones.webp" alt="Vestido Beige Botones — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Vestido Beige Botones</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL / 1XL / 2XL</span>
+            <span class="product-price">$38</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Beige%20Botones" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="vestido" data-id="vestido-smocked-cream">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/vestido-smocked-cream.webp" alt="Vestido Smocked Cream — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Vestido Smocked Cream</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL / 1XL / 2XL</span>
+            <span class="product-price">$52</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Smocked%20Cream" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="vestido" data-id="vestido-smocked-lt-taupe">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/vestido-smocked-lt-taupe.webp" alt="Vestido Smocked Lt Taupe — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Vestido Smocked Lt Taupe</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL / 1XL / 2XL</span>
+            <span class="product-price">$52</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Smocked%20Lt%20Taupe" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="vestido" data-id="vestido-smocked-mauve">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/vestido-smocked-mauve.webp" alt="Vestido Smocked Mauve — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Vestido Smocked Mauve</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL / 1XL / 2XL</span>
+            <span class="product-price">$52</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Smocked%20Mauve" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="vestido" data-id="vestido-smocked-periwinkle">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/vestido-smocked-periwinkle.webp" alt="Vestido Smocked Periwinkle — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Vestido Smocked Periwinkle</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL / 1XL / 2XL</span>
+            <span class="product-price">$52</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Smocked%20Periwinkle" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="vestido" data-id="vestido-poplin-lt-blue">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/vestido-poplin-lt-blue.webp" alt="Vestido Poplin Lt Blue — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Vestido Poplin Lt Blue</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL / 1XL / 2XL</span>
+            <span class="product-price">$55</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Poplin%20Lt%20Blue" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="vestido" data-id="vestido-poplin-pastel-yellow">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/vestido-poplin-pastel-yellow.webp" alt="Vestido Poplin Pastel Yellow — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Vestido Poplin Pastel Yellow</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL / 1XL / 2XL</span>
+            <span class="product-price">$55</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Poplin%20Pastel%20Yellow" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="vestido" data-id="vestido-poplin-taupe">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/vestido-poplin-taupe.webp" alt="Vestido Poplin Taupe — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Vestido Poplin Taupe</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL / 1XL / 2XL</span>
+            <span class="product-price">$55</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Poplin%20Taupe" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <!-- Missing: Vestido Poplin Navy ($55, XL/1XL/2XL) — included below as hidden until confirmed -->
+
+      <!-- ═══ BOTTOMS (5) ═══ -->
+      <div class="category-divider" data-category="bottom">
+        <span class="category-divider-line"></span>
+        <span class="category-divider-label">Bottoms</span>
+        <span class="category-divider-line"></span>
+      </div>
+
+      <div class="product-card" data-category="bottom" data-id="pantalon-lino">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/pantalon-lino.webp" alt="Pantalón de Lino — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Pantalón de Lino</h3>
+          <div class="product-meta">
+            <span class="product-sizes">1X / 2X / 3X</span>
+            <span class="product-price">$34</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Pantalón%20de%20Lino" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="bottom" data-id="pantalon-negro">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/pantalon-negro.webp" alt="Pantalón Negro — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Pantalón Negro</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL / 1XL / 2XL</span>
+            <span class="product-price">$35</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Pantalón%20Negro" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="bottom" data-id="pantalon-ivory">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/pantalon-ivory.webp" alt="Pantalón Ivory — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Pantalón Ivory</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL / 1XL / 2XL</span>
+            <span class="product-price">$35</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Pantalón%20Ivory" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="bottom" data-id="jean-high-rise-flare">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/jean-high-rise-flare.webp" alt="Jean High Rise Flare Dark — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Jean High Rise Flare Dark</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL / 2XL / 3XL</span>
+            <span class="product-price">$58</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Jean%20High%20Rise%20Flare%20Dark" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="bottom" data-id="jean-petite-flare">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/jean-petite-flare.webp" alt="Jean Mid Rise Petite Flare — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Jean Mid Rise Petite Flare</h3>
+          <div class="product-meta">
+            <span class="product-sizes">16W — 22W</span>
+            <span class="product-price">$55</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Jean%20Mid%20Rise%20Petite%20Flare" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <!-- ═══ TOPS (4) ═══ -->
+      <div class="category-divider" data-category="top">
+        <span class="category-divider-line"></span>
+        <span class="category-divider-label">Tops</span>
+        <span class="category-divider-line"></span>
+      </div>
+
+      <div class="product-card" data-category="top" data-id="blusa-negra">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/blusa-negra.webp" alt="Blusa Negra — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Blusa Negra</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL / 1XL / 2XL</span>
+            <span class="product-price">$30</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20la%20Blusa%20Negra" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="top" data-id="blusa-blanca">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/blusa-blanca.webp" alt="Blusa Blanca — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Blusa Blanca</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL / 1XL / 2XL</span>
+            <span class="product-price">$28</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20la%20Blusa%20Blanca" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="top" data-id="blusa-rosada">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/blusa-rosada.webp" alt="Blusa Rosada — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Blusa Rosada</h3>
+          <div class="product-meta">
+            <span class="product-sizes">1XL / 2XL / 3XL</span>
+            <span class="product-price">$22</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20la%20Blusa%20Rosada" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="top" data-id="blusa-blanca-2">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/blusa-blanca-2.webp" alt="Blusa Blanca One Size — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Blusa Blanca One Size</h3>
+          <div class="product-meta">
+            <span class="product-sizes">1XL / One Size</span>
+            <span class="product-price">$22</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20la%20Blusa%20Blanca%20One%20Size" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <!-- ═══ BODY (1) ═══ -->
+      <div class="category-divider" data-category="body">
+        <span class="category-divider-line"></span>
+        <span class="category-divider-label">Bodys</span>
+        <span class="category-divider-line"></span>
+      </div>
+
+      <div class="product-card" data-category="body" data-id="chaleco-blanco">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/catalog/chaleco-blanco.webp" alt="Chaleco Blanco — BOLEM SS26" class="product-img" width="600" height="800" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Chaleco Blanco</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL / 1XL / 2XL</span>
+            <span class="product-price">$34</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Chaleco%20Blanco" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PIEZA DESTACADA -->
+  <section id="destacada" class="featured">
+    <div class="featured-inner">
+      <div class="featured-image" data-reveal>
+        <div class="featured-placeholder">
+          <svg class="product-placeholder-icon" style="width:64px;height:64px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span class="featured-placeholder-text">Foto sesión editorial</span>
+        </div>
+        <!-- <img src="../assets/vestido-poplin-lt-blue-hero.webp" alt="Vestido Poplin Lt Blue — Pieza Destacada" class="product-img" width="600" height="800" loading="lazy"> -->
+      </div>
+      <div class="featured-info">
+        <p class="featured-label" data-reveal>Pieza Destacada</p>
+        <h2 class="featured-name" data-text-split>Vestido Poplin Lt Blue</h2>
+        <p class="featured-desc" data-reveal>Corte poplin ligero en un azul cielo que respira frescura. Diseñado para las que quieren verse elegantes sin esfuerzo — de un brunch a una cena, sin cambiarte.</p>
+        <div class="featured-details" data-reveal>
+          <div class="featured-detail">
+            <span class="featured-detail-label">Precio</span>
+            <span class="featured-detail-value">$55.00</span>
+          </div>
+          <div class="featured-detail">
+            <span class="featured-detail-label">Tallas</span>
+            <span class="featured-detail-value">XL — 2XL</span>
+          </div>
+          <div class="featured-detail">
+            <span class="featured-detail-label">Tela</span>
+            <span class="featured-detail-value">Poplin</span>
+          </div>
+        </div>
+        <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Poplin%20Lt%20Blue" class="featured-cta" data-magnetic>Apartar via WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LISTA VIP -->
+  <section id="vip" class="vip">
+    <h2 class="vip-headline" data-text-split>Sé la primera en saber</h2>
+    <p class="vip-subtext" data-reveal>Acceso anticipado a nuevas colecciones, descuentos exclusivos y contenido detrás de cámaras.</p>
+    <form class="vip-form" data-reveal onsubmit="var n=this.querySelector('[name=nombre]').value,w=this.querySelector('[name=whatsapp]').value;if(n&&w){window.open('https://wa.me/50368590899?text='+encodeURIComponent('Hola! Soy '+n+' y quiero unirme a la lista VIP de BOLEM. Mi WhatsApp: '+w),'_blank');}return false;">
+      <input type="text" name="nombre" class="vip-input" placeholder="Tu nombre" required aria-label="Tu nombre">
+      <input type="tel" name="whatsapp" class="vip-input" placeholder="WhatsApp" required aria-label="Número de WhatsApp">
+      <button type="submit" class="vip-submit" data-magnetic>Unirme</button>
+    </form>
+  </section>
+
+  <!-- QUICK VIEW MODAL -->
+  <div class="qv-overlay" id="qvOverlay"></div>
+  <div class="qv-modal" id="qvModal">
+    <button class="qv-close" id="qvClose" aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="qv-image" id="qvImage">
+      <div class="qv-image-placeholder" id="qvPlaceholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        <span>Foto próximamente</span>
+      </div>
+      <button class="qv-arrow qv-arrow--prev" id="qvPrev" aria-label="Foto anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="qv-arrow qv-arrow--next" id="qvNext" aria-label="Siguiente foto">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <div class="qv-dots" id="qvDots"></div>
+    </div>
+    <div class="qv-content">
+      <span class="qv-eyebrow">SS26 Collection</span>
+      <h3 class="qv-name" id="qvName"></h3>
+      <p class="qv-desc" id="qvDesc"></p>
+      <div class="qv-details">
+        <div class="qv-detail">
+          <span class="qv-detail-label">Precio</span>
+          <span class="qv-detail-value" id="qvPrice"></span>
+        </div>
+        <div class="qv-detail">
+          <span class="qv-detail-label">Tallas</span>
+          <span class="qv-detail-value" id="qvSizes"></span>
+        </div>
+        <div class="qv-detail">
+          <span class="qv-detail-label">Categoría</span>
+          <span class="qv-detail-value" id="qvCategory"></span>
+        </div>
+      </div>
+      <a class="qv-cta" id="qvCta" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Apartar via WhatsApp
+      </a>
+      <button class="qv-continue" id="qvContinue">Seguir viendo</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <span class="footer-logo">BOL<span class="accent">E</span>M</span>
+    <div class="footer-links">
+      <span class="footer-copy">2026 BOLEM</span>
+      <nav class="footer-nav">
+        <a href="../privacidad.html">Privacidad</a>
+        <a href="../terminos.html">Términos</a>
+        <a href="../guia-de-tallas.html">Guía de Tallas</a>
+      </nav>
+    </div>
+    <div class="footer-social">
+      <a href="https://instagram.com/bolem_sv" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://wa.me/50368590899" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // ─── MOTION LIBRARY ───
+    function initMotion() {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      document.querySelectorAll('[data-reveal]').forEach(function(el) {
+        gsap.from(el, {
+          y: 40, opacity: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+        });
+      });
+
+      document.querySelectorAll('[data-reveal-stagger]').forEach(function(container) {
+        var cards = container.querySelectorAll('.product-card:not([hidden])');
+        gsap.from(cards, {
+          y: 30, opacity: 0, duration: 0.7, stagger: 0.06, ease: 'power3.out',
+          scrollTrigger: { trigger: container, start: 'top 85%', once: true }
+        });
+      });
+
+      if (!window.matchMedia('(pointer: coarse)').matches) {
+        document.querySelectorAll('[data-magnetic]').forEach(function(el) {
+          var strength = 0.3;
+          el.addEventListener('mousemove', function(e) {
+            var rect = el.getBoundingClientRect();
+            var x = e.clientX - rect.left - rect.width / 2;
+            var y = e.clientY - rect.top - rect.height / 2;
+            gsap.to(el, { x: x * strength, y: y * strength, duration: 0.4, ease: 'power2.out' });
+          });
+          el.addEventListener('mouseleave', function() {
+            gsap.to(el, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1, 0.5)' });
+          });
+        });
+      }
+    }
+
+    // ─── TYPOGRAPHY LIBRARY ───
+    function initTypography() {
+      if (typeof gsap === 'undefined') return;
+
+      document.querySelectorAll('[data-text-split]').forEach(function(el) {
+        var mode = el.dataset.textSplit || 'lines';
+        if (mode === 'chars') {
+          var text = el.textContent.trim();
+          el.innerHTML = '';
+          el.setAttribute('aria-label', text);
+          for (var i = 0; i < text.length; i++) {
+            var span = document.createElement('span');
+            span.style.display = 'inline-block';
+            span.style.opacity = '0';
+            span.style.transform = 'translateY(100%)';
+            span.textContent = text[i] === ' ' ? '\u00A0' : text[i];
+            span.setAttribute('aria-hidden', 'true');
+            el.appendChild(span);
+          }
+          gsap.to(el.children, {
+            y: 0, opacity: 1, duration: 0.8, stagger: 0.04, ease: 'power3.out',
+            scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+          });
+        } else {
+          var lineText = el.textContent.trim();
+          var words = lineText.split(/\s+/);
+          el.innerHTML = '';
+          var temp = document.createElement('div');
+          var computed = window.getComputedStyle(el);
+          temp.style.fontFamily = computed.fontFamily;
+          temp.style.fontSize = computed.fontSize;
+          temp.style.fontWeight = computed.fontWeight;
+          temp.style.fontStyle = computed.fontStyle;
+          temp.style.letterSpacing = computed.letterSpacing;
+          temp.style.position = 'absolute';
+          temp.style.visibility = 'hidden';
+          temp.style.whiteSpace = 'nowrap';
+          document.body.appendChild(temp);
+          var elWidth = el.offsetWidth || 700;
+          var lines = [];
+          var currentLine = '';
+          words.forEach(function(word) {
+            var testLine = currentLine ? currentLine + ' ' + word : word;
+            temp.textContent = testLine;
+            if (temp.offsetWidth > elWidth && currentLine) {
+              lines.push(currentLine);
+              currentLine = word;
+            } else {
+              currentLine = testLine;
+            }
+          });
+          if (currentLine) lines.push(currentLine);
+          document.body.removeChild(temp);
+          if (lines.length === 0) lines = [lineText];
+          lines.forEach(function(line) {
+            var wrapper = document.createElement('div');
+            wrapper.style.overflow = 'hidden';
+            var inner = document.createElement('div');
+            inner.style.transform = 'translateY(105%)';
+            inner.textContent = line;
+            wrapper.appendChild(inner);
+            el.appendChild(wrapper);
+          });
+          gsap.to(el.querySelectorAll('div > div'), {
+            y: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out',
+            scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+          });
+        }
+      });
+    }
+
+    // ─── QUICK VIEW ───
+    function initQuickView() {
+      var overlay = document.getElementById('qvOverlay');
+      var modal = document.getElementById('qvModal');
+      var closeBtn = document.getElementById('qvClose');
+      var continueBtn = document.getElementById('qvContinue');
+      var qvName = document.getElementById('qvName');
+      var qvDesc = document.getElementById('qvDesc');
+      var qvPrice = document.getElementById('qvPrice');
+      var qvSizes = document.getElementById('qvSizes');
+      var qvCategory = document.getElementById('qvCategory');
+      var qvCta = document.getElementById('qvCta');
+      var qvImage = document.getElementById('qvImage');
+      var qvPlaceholder = document.getElementById('qvPlaceholder');
+      var qvPrev = document.getElementById('qvPrev');
+      var qvNext = document.getElementById('qvNext');
+      var qvDots = document.getElementById('qvDots');
+
+      var currentImages = [];
+      var currentIndex = 0;
+
+      var categoryLabels = {
+        vestido: 'Vestido',
+        bottom: 'Bottom',
+        top: 'Top',
+        body: 'Body'
+      };
+
+      var descriptions = {
+        vestido: 'Diseñado para moverte con confianza. Tela fluida que abraza cada curva con intención — de un brunch a una cena, sin cambiarte.',
+        bottom: 'Corte que estiliza y tela que se adapta. Pensado para que te sientas cómoda todo el día sin sacrificar estilo.',
+        top: 'Versátil y femenina. Combinala con todo — jeans, faldas, o sola con actitud.',
+        body: 'Silueta definida con comodidad total. La base perfecta para cualquier outfit.'
+      };
+
+      function showImage(index) {
+        currentIndex = index;
+        var imgs = qvImage.querySelectorAll('img');
+        imgs.forEach(function(img, i) {
+          img.classList.toggle('active', i === index);
+        });
+        var dots = qvDots.querySelectorAll('.qv-dot');
+        dots.forEach(function(dot, i) {
+          dot.classList.toggle('active', i === index);
+        });
+      }
+
+      function buildGallery(imageSources, productName) {
+        // Clear previous images
+        qvImage.querySelectorAll('img').forEach(function(img) { img.remove(); });
+        qvDots.innerHTML = '';
+
+        if (!imageSources || imageSources.length === 0) {
+          // No images — show placeholder, hide arrows
+          qvPlaceholder.style.display = 'flex';
+          qvPrev.classList.remove('visible');
+          qvNext.classList.remove('visible');
+          currentImages = [];
+          return;
+        }
+
+        qvPlaceholder.style.display = 'none';
+        currentImages = imageSources;
+
+        // Create image elements
+        imageSources.forEach(function(src, i) {
+          var img = document.createElement('img');
+          img.src = src;
+          img.alt = productName + ' — foto ' + (i + 1);
+          img.loading = 'lazy';
+          if (i === 0) img.classList.add('active');
+          qvImage.appendChild(img);
+        });
+
+        // Show/hide arrows
+        if (imageSources.length > 1) {
+          qvPrev.classList.add('visible');
+          qvNext.classList.add('visible');
+
+          // Create dots
+          imageSources.forEach(function(_, i) {
+            var dot = document.createElement('button');
+            dot.className = 'qv-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', 'Foto ' + (i + 1));
+            dot.addEventListener('click', function(e) {
+              e.stopPropagation();
+              showImage(i);
+            });
+            qvDots.appendChild(dot);
+          });
+        } else {
+          qvPrev.classList.remove('visible');
+          qvNext.classList.remove('visible');
+        }
+
+        currentIndex = 0;
+      }
+
+      function openModal(card) {
+        var name = card.querySelector('.product-name').textContent;
+        var price = card.querySelector('.product-price').textContent;
+        var sizes = card.querySelector('.product-sizes').textContent;
+        var category = card.dataset.category;
+        var ctaLink = card.querySelector('.product-cta').href;
+
+        qvName.textContent = name;
+        qvPrice.textContent = price;
+        qvSizes.textContent = sizes;
+        qvCategory.textContent = categoryLabels[category] || category;
+        qvCta.href = ctaLink;
+        qvDesc.textContent = descriptions[category] || descriptions.vestido;
+
+        // Build gallery from data-images or single product-img
+        var imagesAttr = card.dataset.images;
+        var imageSources = [];
+
+        if (imagesAttr) {
+          // Multiple images: data-images="foto1.webp,foto2.webp,foto3.webp"
+          imageSources = imagesAttr.split(',').map(function(s) { return s.trim(); });
+        } else {
+          // Single image from <img> tag
+          var singleImg = card.querySelector('.product-img');
+          if (singleImg) {
+            imageSources = [singleImg.src];
+          }
+        }
+
+        buildGallery(imageSources, name);
+
+        overlay.classList.add('active');
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        overlay.classList.remove('active');
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      // Arrow navigation
+      qvPrev.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (currentImages.length < 2) return;
+        var newIndex = currentIndex <= 0 ? currentImages.length - 1 : currentIndex - 1;
+        showImage(newIndex);
+      });
+
+      qvNext.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (currentImages.length < 2) return;
+        var newIndex = currentIndex >= currentImages.length - 1 ? 0 : currentIndex + 1;
+        showImage(newIndex);
+      });
+
+      // Keyboard arrow navigation when modal is open
+      document.addEventListener('keydown', function(e) {
+        if (!modal.classList.contains('active')) return;
+        if (e.key === 'ArrowLeft') {
+          qvPrev.click();
+        } else if (e.key === 'ArrowRight') {
+          qvNext.click();
+        } else if (e.key === 'Escape') {
+          closeModal();
+        }
+      });
+
+      // Touch swipe support
+      var touchStartX = 0;
+      qvImage.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].clientX;
+      }, { passive: true });
+
+      qvImage.addEventListener('touchend', function(e) {
+        if (currentImages.length < 2) return;
+        var diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) {
+          if (diff > 0) {
+            qvNext.click(); // swipe left = next
+          } else {
+            qvPrev.click(); // swipe right = prev
+          }
+        }
+      }, { passive: true });
+
+      // Click on product card opens modal
+      document.querySelectorAll('.product-card').forEach(function(card) {
+        card.addEventListener('click', function(e) {
+          if (e.target.closest('.product-cta')) return;
+          e.preventDefault();
+          openModal(card);
+        });
+      });
+
+      // Close modal
+      closeBtn.addEventListener('click', closeModal);
+      continueBtn.addEventListener('click', closeModal);
+      overlay.addEventListener('click', closeModal);
+    }
+
+    // ─── CATALOG FILTERS ───
+    function initFilters() {
+      var buttons = document.querySelectorAll('.filter-btn');
+      var cards = document.querySelectorAll('.product-card');
+      var dividers = document.querySelectorAll('.category-divider');
+
+      buttons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var filter = btn.dataset.filter;
+
+          buttons.forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+
+          cards.forEach(function(card) {
+            if (filter === 'all' || card.dataset.category === filter) {
+              card.removeAttribute('hidden');
+            } else {
+              card.setAttribute('hidden', '');
+            }
+          });
+
+          dividers.forEach(function(div) {
+            if (filter === 'all' || div.dataset.category === filter) {
+              div.removeAttribute('hidden');
+            } else {
+              div.setAttribute('hidden', '');
+            }
+          });
+        });
+      });
+    }
+
+    // ─── INIT ───
+    document.addEventListener('DOMContentLoaded', function() {
+      var lenis = new Lenis({
+        duration: 1.4,
+        easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }
+      });
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+
+      initMotion();
+      initTypography();
+      initFilters();
+      initQuickView();
+
+      // Nav scroll
+      var nav = document.querySelector('.site-nav');
+      window.addEventListener('scroll', function() {
+        nav.classList.toggle('scrolled', window.scrollY > 50);
+      });
+
+      // Mobile menu
+      var menuBtn = document.querySelector('.nav-menu-btn');
+      var mobileMenu = document.querySelector('.nav-mobile');
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function() {
+          var isOpen = mobileMenu.style.maxHeight && mobileMenu.style.maxHeight !== '0px';
+          mobileMenu.style.maxHeight = isOpen ? '0px' : '300px';
+        });
+      }
+
+      // Scroll indicator fade
+      var scrollIndicator = document.querySelector('.scroll-indicator');
+      if (scrollIndicator) {
+        window.addEventListener('scroll', function() {
+          scrollIndicator.style.opacity = Math.max(0, 1 - window.scrollY / (window.innerHeight * 0.5));
+        });
+      }
+
+      // Page loader
+      var loader = document.querySelector('.page-loader');
+      if (loader) {
+        setTimeout(function() { loader.classList.add('hidden'); }, 800);
+        setTimeout(function() { loader.remove(); }, 1600);
+      }
+    });
+  </script>
+
+</body>
+</html>
