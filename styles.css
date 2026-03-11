@@ -236,6 +236,20 @@ body::before {
 }
 .nav-mobile-link:hover { color: var(--color-gold); }
 
+/* Dark nav variant (for pages with dark hero) */
+.site-nav--dark .nav-logo,
+.site-nav--dark .nav-link { color: var(--color-white); }
+.site-nav--dark .nav-logo .accent { color: var(--color-gold); }
+.site-nav--dark .nav-link { opacity: 0.6; }
+.site-nav--dark .nav-link:hover { opacity: 1; color: var(--color-gold); }
+.site-nav--dark .nav-link.active { opacity: 0.9; color: var(--color-gold); }
+.site-nav--dark .nav-menu-btn span { background: var(--color-white); }
+.site-nav--dark.scrolled .nav-logo,
+.site-nav--dark.scrolled .nav-link { color: var(--color-ink); }
+.site-nav--dark.scrolled .nav-link { opacity: 0.5; }
+.site-nav--dark.scrolled .nav-link:hover { opacity: 1; color: var(--color-gold); }
+.site-nav--dark.scrolled .nav-menu-btn span { background: var(--color-ink); }
+
 @media (max-width: 768px) {
   .site-nav { height: var(--nav-height-mobile); }
   .nav-logo { font-size: 1.25rem; }
