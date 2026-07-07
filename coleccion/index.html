@@ -555,6 +555,138 @@
       white-space: nowrap;
     }
 
+
+    /* ─── CATEGORY TILES (puertas de entrada) ─── */
+    .category-tiles {
+      padding: 0 var(--content-padding) var(--space-block);
+      background: var(--color-cream);
+    }
+    .category-tiles-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-element);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .category-tile {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      display: block;
+      cursor: pointer;
+    }
+    .category-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s var(--ease-smooth);
+    }
+    .category-tile:hover img { transform: scale(1.05); }
+    .category-tile-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.55) 0%, transparent 55%);
+      transition: background var(--duration-fast);
+    }
+    .category-tile:hover .category-tile-overlay {
+      background: linear-gradient(to top, rgba(10,10,10,0.7) 0%, rgba(212,168,83,0.1) 100%);
+    }
+    .category-tile-label {
+      position: absolute;
+      left: 1.25rem;
+      bottom: 1.25rem;
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      z-index: 1;
+    }
+    .category-tile-label small {
+      font-family: var(--font-accent);
+      font-size: var(--text-micro);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-gold);
+    }
+    @media (max-width: 768px) {
+      .category-tiles-inner { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+      .category-tile-label { font-size: 1rem; left: 0.875rem; bottom: 0.875rem; }
+    }
+
+    /* ─── MOSAICO: tarjeta protagonista ─── */
+    .product-card--large {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    .product-card--large .product-name { font-size: var(--text-subtitle); }
+    @media (max-width: 480px) {
+      .product-card--large { grid-column: 1 / -1; grid-row: auto; }
+    }
+
+    /* ─── CORTE EDITORIAL entre categorías ─── */
+    .catalog-editorial {
+      grid-column: 1 / -1;
+      background: var(--color-ink);
+      padding: clamp(2.5rem, 6vw, 4.5rem) var(--content-padding);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      margin: var(--space-element) 0;
+    }
+    .catalog-editorial .gold-line {
+      display: block;
+      width: 3rem;
+      height: 1px;
+      background: var(--color-gold);
+    }
+    .catalog-editorial-text {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 3vw, 1.875rem);
+      color: var(--color-warm);
+      line-height: 1.4;
+      max-width: 28ch;
+    }
+    .catalog-editorial-text em {
+      font-style: italic;
+      color: var(--color-gold);
+    }
+
+    /* ─── HOVER: segunda foto (otro color) ─── */
+    .product-img--alt {
+      opacity: 0;
+      transition: opacity 0.45s var(--ease-smooth);
+      z-index: 2;
+    }
+    .product-card:hover .product-img--alt { opacity: 1; }
+    @media (prefers-reduced-motion: reduce) {
+      .product-img--alt { transition: none; }
+    }
+
+    /* ─── FILTROS STICKY (píldora flotante) ─── */
+    .catalog-filters {
+      position: sticky;
+      top: 0.75rem;
+      z-index: 30;
+      padding: 0.5rem 0.75rem;
+      margin-left: auto;
+      margin-right: auto;
+      width: fit-content;
+      max-width: 100%;
+      background: rgba(250, 247, 242, 0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--color-gold-soft);
+      border-radius: 999px;
+    }
+    .filter-btn { border-radius: 999px; }
+    @media (max-width: 768px) {
+      .catalog-filters { border-radius: 1.25rem; }
+    }
+
     /* ─── PIEZA DESTACADA ─── */
     .featured {
       background: var(--color-warm);
@@ -1277,6 +1409,32 @@
     </p>
   </section>
 
+  <!-- PUERTAS DE ENTRADA -->
+  <section id="categorias" class="category-tiles">
+    <div class="category-tiles-inner" data-reveal-stagger>
+      <a href="#catalogo" class="category-tile" data-filter-target="vestido">
+        <img src="../assets/productos/vestido-verano-rojo.webp" alt="Vestidos plus size BOLEM" loading="lazy" width="600" height="800">
+        <span class="category-tile-overlay"></span>
+        <span class="category-tile-label">Vestidos<small>10 estilos</small></span>
+      </a>
+      <a href="#catalogo" class="category-tile" data-filter-target="blusa">
+        <img src="../assets/productos/chaleco-elegante-marfil.webp" alt="Blusas plus size BOLEM" loading="lazy" width="600" height="800">
+        <span class="category-tile-overlay"></span>
+        <span class="category-tile-label">Blusas<small>16 estilos</small></span>
+      </a>
+      <a href="#catalogo" class="category-tile" data-filter-target="pantalon">
+        <img src="../assets/productos/pantalon-lino.webp" alt="Jeans y Pantalones plus size BOLEM" loading="lazy" width="600" height="800">
+        <span class="category-tile-overlay"></span>
+        <span class="category-tile-label">Jeans y Pantalones<small>3 estilos</small></span>
+      </a>
+      <a href="#catalogo" class="category-tile" data-filter-target="conjunto">
+        <img src="../assets/productos/conjunto-burdeos.webp" alt="Conjuntos plus size BOLEM" loading="lazy" width="600" height="800">
+        <span class="category-tile-overlay"></span>
+        <span class="category-tile-label">Conjuntos<small>4 estilos</small></span>
+      </a>
+    </div>
+  </section>
+
   <!-- CATÁLOGO -->
   <section id="catalogo" class="catalog">
     <div class="catalog-header" data-reveal>
@@ -1301,6 +1459,25 @@
         <span class="category-divider-label">Vestidos</span>
         <span class="category-divider-line"></span>
       </div>
+      <div class="product-card product-card--large" data-category="vestido" data-id="vestido-maxi-smocked" data-images="../assets/productos/vestido-maxi-smocked-blanco.webp,../assets/productos/vestido-maxi-smocked-crema.webp,../assets/productos/vestido-maxi-smocked-fucsia.webp,../assets/productos/vestido-maxi-smocked-lavanda.webp">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/productos/vestido-maxi-smocked-blanco.webp" alt="Vestido Maxi Smocked plus size, tallas XL–2XL — BOLEM El Salvador" class="product-img" width="600" height="900" loading="lazy">
+          <img src="../assets/productos/vestido-maxi-smocked-crema.webp" alt="" aria-hidden="true" class="product-img product-img--alt" width="600" height="900" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Vestido Maxi Smocked</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL–2XL · 4 colores</span>
+            <span class="product-price">$74.5</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Maxi%20Smocked" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
       <div class="product-card" data-category="vestido" data-id="vestido-shirtdress" data-images="../assets/productos/vestido-shirtdress-crema.webp,../assets/productos/vestido-shirtdress-camel.webp">
         <div class="product-image-wrap">
           <div class="product-placeholder">
@@ -1308,6 +1485,7 @@
             <span class="product-placeholder-text">Foto próximamente</span>
           </div>
           <img src="../assets/productos/vestido-shirtdress-crema.webp" alt="Vestido Shirtdress plus size, tallas XL–1XL — BOLEM El Salvador" class="product-img" width="600" height="900" loading="lazy">
+          <img src="../assets/productos/vestido-shirtdress-camel.webp" alt="" aria-hidden="true" class="product-img product-img--alt" width="600" height="900" loading="lazy">
         </div>
         <div class="product-info">
           <h3 class="product-name">Vestido Shirtdress</h3>
@@ -1380,6 +1558,7 @@
             <span class="product-placeholder-text">Foto próximamente</span>
           </div>
           <img src="../assets/productos/vestido-midi-algodon-indigo.webp" alt="Vestido Midi de Algodón plus size, tallas 1XL–3XL — BOLEM El Salvador" class="product-img" width="600" height="900" loading="lazy">
+          <img src="../assets/productos/vestido-midi-algodon-beige.webp" alt="" aria-hidden="true" class="product-img product-img--alt" width="600" height="900" loading="lazy">
         </div>
         <div class="product-info">
           <h3 class="product-name">Vestido Midi de Algodón</h3>
@@ -1416,6 +1595,7 @@
             <span class="product-placeholder-text">Foto próximamente</span>
           </div>
           <img src="../assets/productos/vestido-batik-coral.webp" alt="Vestido Batik de Algodón plus size, tallas 1XL–3XL — BOLEM El Salvador" class="product-img" width="600" height="900" loading="lazy">
+          <img src="../assets/productos/vestido-batik-olivo.webp" alt="" aria-hidden="true" class="product-img product-img--alt" width="600" height="900" loading="lazy">
         </div>
         <div class="product-info">
           <h3 class="product-name">Vestido Batik de Algodón</h3>
@@ -1445,24 +1625,6 @@
         </div>
       </div>
 
-      <div class="product-card" data-category="vestido" data-id="vestido-maxi-smocked" data-images="../assets/productos/vestido-maxi-smocked-blanco.webp,../assets/productos/vestido-maxi-smocked-crema.webp,../assets/productos/vestido-maxi-smocked-fucsia.webp,../assets/productos/vestido-maxi-smocked-lavanda.webp">
-        <div class="product-image-wrap">
-          <div class="product-placeholder">
-            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            <span class="product-placeholder-text">Foto próximamente</span>
-          </div>
-          <img src="../assets/productos/vestido-maxi-smocked-blanco.webp" alt="Vestido Maxi Smocked plus size, tallas XL–2XL — BOLEM El Salvador" class="product-img" width="600" height="900" loading="lazy">
-        </div>
-        <div class="product-info">
-          <h3 class="product-name">Vestido Maxi Smocked</h3>
-          <div class="product-meta">
-            <span class="product-sizes">XL–2XL · 4 colores</span>
-            <span class="product-price">$74.5</span>
-          </div>
-          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Maxi%20Smocked" class="product-cta" target="_blank" rel="noopener">Apartar</a>
-        </div>
-      </div>
-
       <div class="product-card" data-category="vestido" data-id="vestido-mangas-globo" data-images="../assets/productos/vestido-mangas-globo-amarillo.webp,../assets/productos/vestido-mangas-globo-celeste.webp,../assets/productos/vestido-mangas-globo-beige.webp">
         <div class="product-image-wrap">
           <div class="product-placeholder">
@@ -1470,6 +1632,7 @@
             <span class="product-placeholder-text">Foto próximamente</span>
           </div>
           <img src="../assets/productos/vestido-mangas-globo-amarillo.webp" alt="Vestido Mangas Globo plus size, tallas XL–2XL — BOLEM El Salvador" class="product-img" width="600" height="900" loading="lazy">
+          <img src="../assets/productos/vestido-mangas-globo-celeste.webp" alt="" aria-hidden="true" class="product-img product-img--alt" width="600" height="900" loading="lazy">
         </div>
         <div class="product-info">
           <h3 class="product-name">Vestido Mangas Globo</h3>
@@ -1481,6 +1644,11 @@
         </div>
       </div>
 
+      <div class="catalog-editorial" data-category="vestido">
+        <span class="gold-line" aria-hidden="true"></span>
+        <p class="catalog-editorial-text">El vestido no te tiene que quedar. <em>Te tiene que celebrar.</em></p>
+      </div>
+
 
       <!-- ═══ BLUSAS (16) ═══ -->
       <div class="category-divider" data-category="blusa">
@@ -1488,6 +1656,24 @@
         <span class="category-divider-label">Blusas</span>
         <span class="category-divider-line"></span>
       </div>
+      <div class="product-card product-card--large" data-category="blusa" data-id="chaleco-elegante-marfil">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/productos/chaleco-elegante-marfil.webp" alt="Chaleco Elegante en marfil plus size, tallas XL–3XL — BOLEM El Salvador" class="product-img" width="600" height="900" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Chaleco Elegante</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL–3XL</span>
+            <span class="product-price">$55</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Chaleco%20Elegante" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
       <div class="product-card" data-category="blusa" data-id="blusa-off-shoulder">
         <div class="product-image-wrap">
           <div class="product-placeholder">
@@ -1747,6 +1933,7 @@
             <span class="product-placeholder-text">Foto próximamente</span>
           </div>
           <img src="../assets/productos/chaleco-sastre-blanco.webp" alt="Chaleco Sastre plus size, tallas XL–3XL — BOLEM El Salvador" class="product-img" width="600" height="900" loading="lazy">
+          <img src="../assets/productos/chaleco-sastre-negro.webp" alt="" aria-hidden="true" class="product-img product-img--alt" width="600" height="900" loading="lazy">
         </div>
         <div class="product-info">
           <h3 class="product-name">Chaleco Sastre</h3>
@@ -1758,22 +1945,9 @@
         </div>
       </div>
 
-      <div class="product-card" data-category="blusa" data-id="chaleco-elegante-marfil">
-        <div class="product-image-wrap">
-          <div class="product-placeholder">
-            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            <span class="product-placeholder-text">Foto próximamente</span>
-          </div>
-          <img src="../assets/productos/chaleco-elegante-marfil.webp" alt="Chaleco Elegante en marfil plus size, tallas XL–3XL — BOLEM El Salvador" class="product-img" width="600" height="900" loading="lazy">
-        </div>
-        <div class="product-info">
-          <h3 class="product-name">Chaleco Elegante</h3>
-          <div class="product-meta">
-            <span class="product-sizes">XL–3XL</span>
-            <span class="product-price">$55</span>
-          </div>
-          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Chaleco%20Elegante" class="product-cta" target="_blank" rel="noopener">Apartar</a>
-        </div>
+      <div class="catalog-editorial" data-category="blusa">
+        <span class="gold-line" aria-hidden="true"></span>
+        <p class="catalog-editorial-text">Combinala con todo. <em>O solo con actitud.</em></p>
       </div>
 
 
@@ -1783,6 +1957,24 @@
         <span class="category-divider-label">Jeans y Pantalones</span>
         <span class="category-divider-line"></span>
       </div>
+      <div class="product-card product-card--large" data-category="pantalon" data-id="pantalon-formal-crema">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/productos/pantalon-formal-crema.webp" alt="Pantalón Formal Palazzo en crema plus size, tallas XL–3XL — BOLEM El Salvador" class="product-img" width="600" height="900" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Pantalón Formal Palazzo</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL–3XL</span>
+            <span class="product-price">$45</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Pantal%C3%B3n%20Formal%20Palazzo" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
       <div class="product-card" data-category="pantalon" data-id="pantalon-lino">
         <div class="product-image-wrap">
           <div class="product-placeholder">
@@ -1798,24 +1990,6 @@
             <span class="product-price">$35</span>
           </div>
           <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Pantal%C3%B3n%20de%20Lino" class="product-cta" target="_blank" rel="noopener">Apartar</a>
-        </div>
-      </div>
-
-      <div class="product-card" data-category="pantalon" data-id="pantalon-formal-crema">
-        <div class="product-image-wrap">
-          <div class="product-placeholder">
-            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            <span class="product-placeholder-text">Foto próximamente</span>
-          </div>
-          <img src="../assets/productos/pantalon-formal-crema.webp" alt="Pantalón Formal Palazzo en crema plus size, tallas XL–3XL — BOLEM El Salvador" class="product-img" width="600" height="900" loading="lazy">
-        </div>
-        <div class="product-info">
-          <h3 class="product-name">Pantalón Formal Palazzo</h3>
-          <div class="product-meta">
-            <span class="product-sizes">XL–3XL</span>
-            <span class="product-price">$45</span>
-          </div>
-          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Pantal%C3%B3n%20Formal%20Palazzo" class="product-cta" target="_blank" rel="noopener">Apartar</a>
         </div>
       </div>
 
@@ -1837,6 +2011,11 @@
         </div>
       </div>
 
+      <div class="catalog-editorial" data-category="pantalon">
+        <span class="gold-line" aria-hidden="true"></span>
+        <p class="catalog-editorial-text">Comodidad que <em>no pide disculpas.</em></p>
+      </div>
+
 
       <!-- ═══ CONJUNTOS (4) ═══ -->
       <div class="category-divider" data-category="conjunto">
@@ -1844,25 +2023,7 @@
         <span class="category-divider-label">Conjuntos</span>
         <span class="category-divider-line"></span>
       </div>
-      <div class="product-card" data-category="conjunto" data-id="conjunto-chaleco-short" data-images="../assets/productos/conjunto-chaleco-short-crema.webp,../assets/productos/conjunto-chaleco-short-chocolate.webp">
-        <div class="product-image-wrap">
-          <div class="product-placeholder">
-            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            <span class="product-placeholder-text">Foto próximamente</span>
-          </div>
-          <img src="../assets/productos/conjunto-chaleco-short-crema.webp" alt="Conjunto Chaleco + Short plus size, tallas XL–4XL — BOLEM El Salvador" class="product-img" width="600" height="900" loading="lazy">
-        </div>
-        <div class="product-info">
-          <h3 class="product-name">Conjunto Chaleco + Short</h3>
-          <div class="product-meta">
-            <span class="product-sizes">XL–4XL · 2 colores</span>
-            <span class="product-price">$35</span>
-          </div>
-          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Conjunto%20Chaleco%20%2B%20Short" class="product-cta" target="_blank" rel="noopener">Apartar</a>
-        </div>
-      </div>
-
-      <div class="product-card" data-category="conjunto" data-id="conjunto-burdeos">
+      <div class="product-card product-card--large" data-category="conjunto" data-id="conjunto-burdeos">
         <div class="product-image-wrap">
           <div class="product-placeholder">
             <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
@@ -1877,6 +2038,25 @@
             <span class="product-price">$45</span>
           </div>
           <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Conjunto%20Palazzo%20Burdeos" class="product-cta" target="_blank" rel="noopener">Apartar</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="conjunto" data-id="conjunto-chaleco-short" data-images="../assets/productos/conjunto-chaleco-short-crema.webp,../assets/productos/conjunto-chaleco-short-chocolate.webp">
+        <div class="product-image-wrap">
+          <div class="product-placeholder">
+            <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="product-placeholder-text">Foto próximamente</span>
+          </div>
+          <img src="../assets/productos/conjunto-chaleco-short-crema.webp" alt="Conjunto Chaleco + Short plus size, tallas XL–4XL — BOLEM El Salvador" class="product-img" width="600" height="900" loading="lazy">
+          <img src="../assets/productos/conjunto-chaleco-short-chocolate.webp" alt="" aria-hidden="true" class="product-img product-img--alt" width="600" height="900" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Conjunto Chaleco + Short</h3>
+          <div class="product-meta">
+            <span class="product-sizes">XL–4XL · 2 colores</span>
+            <span class="product-price">$35</span>
+          </div>
+          <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Conjunto%20Chaleco%20%2B%20Short" class="product-cta" target="_blank" rel="noopener">Apartar</a>
         </div>
       </div>
 
@@ -2338,7 +2518,7 @@
     function initFilters() {
       var buttons = document.querySelectorAll('.filter-btn');
       var cards = document.querySelectorAll('.product-card');
-      var dividers = document.querySelectorAll('.category-divider');
+      var dividers = document.querySelectorAll('.category-divider, .catalog-editorial');
 
       buttons.forEach(function(btn) {
         btn.addEventListener('click', function() {
@@ -2366,6 +2546,20 @@
       });
     }
 
+    // ─── CATEGORY TILES → filtro ───
+    function initCategoryTiles() {
+      document.querySelectorAll('.category-tile').forEach(function(tile) {
+        tile.addEventListener('click', function(e) {
+          e.preventDefault();
+          var target = tile.dataset.filterTarget;
+          var btn = document.querySelector('.filter-btn[data-filter="' + target + '"]');
+          if (btn) btn.click();
+          var grid = document.getElementById('catalogo');
+          if (grid) grid.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+    }
+
     // ─── INIT ───
     document.addEventListener('DOMContentLoaded', function() {
       var lenis = new Lenis({
@@ -2378,6 +2572,7 @@
       initMotion();
       initTypography();
       initFilters();
+      initCategoryTiles();
       initQuickView();
 
       // Nav scroll
