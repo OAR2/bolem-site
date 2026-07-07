@@ -31,7 +31,7 @@
         "@type": "ClothingStore",
         "name": "BOLEM",
         "alternateName": "BOLEM SV",
-        "description": "Primera marca salvadoreña especializada en moda plus size. Tallas 1XL a 3XL con diseños modernos para clima cálido. Asesoría de talla personalizada por WhatsApp y envíos a todo El Salvador.",
+        "description": "Marca salvadoreña especializada en moda plus size. Tallas 1XL a 3XL con diseños modernos para clima cálido. Asesoría de talla personalizada por WhatsApp y envíos a todo El Salvador.",
         "url": "https://bolemsv.com",
         "logo": "https://bolemsv.com/favicon.svg",
         "image": "https://bolemsv.com/assets/photo-portrait-monica.webp",
@@ -200,7 +200,7 @@
                 "name": "¿Dónde puedo comprar ropa plus size en El Salvador?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "BOLEM es la primera marca salvadoreña especializada en moda plus size, con tallas 1XL a 3XL y diseños modernos para clima cálido. Comprá directamente por WhatsApp con envío a todo El Salvador. Precios desde $35."
+                    "text": "BOLEM es la marca salvadoreña especializada en moda plus size, con tallas 1XL a 3XL y diseños modernos para clima cálido. Comprá directamente por WhatsApp con envío a todo El Salvador. Precios desde $35."
                 }
             },
             {
@@ -216,7 +216,7 @@
                 "name": "¿Cómo sé qué talla soy en BOLEM?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Medite busto, cintura y cadera con cinta métrica y compará con nuestra tabla de tallas: 1XL (busto 104-110 cm), 2XL (110-118 cm), 3XL (118-126 cm). Si tenés dudas, mandanos tus medidas por WhatsApp y te asesoramos gratis."
+                    "text": "Medí busto, cintura y cadera con cinta métrica y compará con nuestra tabla de tallas: 1XL (busto 104-110 cm), 2XL (110-118 cm), 3XL (118-126 cm). Si tenés dudas, mandanos tus medidas por WhatsApp y te asesoramos gratis."
                 }
             },
             {
@@ -340,10 +340,9 @@
             font-size: clamp(0.9375rem, 2.5vw, 1.125rem);
             color: rgba(255,255,255,0.6);
             margin-top: 2rem;
-            max-width: 480px;
+            max-width: min(480px, 90vw);
             margin-left: auto;
             margin-right: auto;
-            max-width: 90vw;
             line-height: 1.7;
             letter-spacing: 0.03em;
         }
@@ -1225,8 +1224,7 @@
     <nav id="mainNav" class="site-nav site-nav--transparent site-nav--dark">
         <a href="#" class="nav-logo">BOL<span class="accent">E</span>M</a>
         <div class="nav-links">
-            <a href="coleccion/index.html" class="nav-link active">Nueva Colección</a>
-            <a href="#lookbook" class="nav-link">Colección</a>
+            <a href="coleccion/index.html" class="nav-link active">Colección</a>
             <a href="#tallas" class="nav-link">Tallas</a>
             <a href="#faq" class="nav-link">FAQ</a>
             <a href="nosotros.html" class="nav-link">Nosotras</a>
@@ -1239,9 +1237,8 @@
         </button>
         <div id="mobileMenu" class="nav-mobile">
             <div class="nav-mobile-inner">
-                <a href="coleccion/index.html" class="nav-mobile-link" style="color:var(--color-gold);font-weight:var(--weight-medium)">Nueva Colección</a>
-                <a href="#lookbook" class="nav-mobile-link">Colección</a>
-                <a href="#filosofia" class="nav-mobile-link">Nosotras</a>
+                <a href="coleccion/index.html" class="nav-mobile-link" style="color:var(--color-gold);font-weight:var(--weight-medium)">Colección</a>
+                <a href="#lookbook" class="nav-mobile-link">Lookbook</a>
                 <a href="#tallas" class="nav-mobile-link">Tallas</a>
                 <a href="#faq" class="nav-mobile-link">FAQ</a>
                 <a href="nosotros.html" class="nav-mobile-link">Nosotras</a>
@@ -1470,9 +1467,9 @@
             <p class="home-vip__text reveal delay-2">
                 Nuevas piezas, descuentos exclusivos y contenido detrás de cámaras. Directo a tu WhatsApp.
             </p>
-            <form class="home-vip__form reveal delay-3" onsubmit="return false;">
-                <input type="text" placeholder="Tu nombre" required class="home-vip__input" aria-label="Tu nombre">
-                <input type="tel" placeholder="WhatsApp" required class="home-vip__input" aria-label="Número de WhatsApp">
+            <form id="vipForm" class="home-vip__form reveal delay-3">
+                <label for="vipNombre" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Tu nombre</label>
+                <input type="text" id="vipNombre" placeholder="Tu nombre" required class="home-vip__input" aria-label="Tu nombre">
                 <button type="submit" class="home-vip__submit">Unirme</button>
             </form>
         </div>
@@ -1519,7 +1516,7 @@
                     Encontrá tu <em>talla perfecta</em>
                 </h2>
                 <p class="home-tallas__desc">
-                    Medite con cinta métrica sobre la ropa interior. Si estás entre dos tallas, elegí la más grande para mayor comodidad.
+                    Medí con cinta métrica sobre la ropa interior. Si estás entre dos tallas, elegí la más grande para mayor comodidad.
                 </p>
             </div>
 
@@ -1589,7 +1586,7 @@
                         ¿Cómo sé qué talla soy en BOLEM?
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"/></svg>
                     </summary>
-                    <p>Medite busto, cintura y cadera con cinta métrica y compará con nuestra <a href="guia-de-tallas.html" style="color: var(--color-gold);">tabla de tallas</a>: 1XL (busto 104-110 cm), 2XL (110-118 cm), 3XL (118-126 cm). Si tenés dudas, mandanos tus medidas por WhatsApp y te asesoramos gratis.</p>
+                    <p>Medí busto, cintura y cadera con cinta métrica y compará con nuestra <a href="guia-de-tallas.html" style="color: var(--color-gold);">tabla de tallas</a>: 1XL (busto 104-110 cm), 2XL (110-118 cm), 3XL (118-126 cm). Si tenés dudas, mandanos tus medidas por WhatsApp y te asesoramos gratis.</p>
                 </details>
 
                 <details>
@@ -1653,7 +1650,7 @@
                         ¿Dónde puedo comprar ropa plus size en El Salvador?
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"/></svg>
                     </summary>
-                    <p>BOLEM es la primera marca salvadoreña especializada en moda plus size, con tallas 1XL a 3XL y precios desde $35. Comprá directamente por WhatsApp con envío a todo El Salvador.</p>
+                    <p>BOLEM es la marca salvadoreña especializada en moda plus size, con tallas 1XL a 3XL y precios desde $35. Comprá directamente por WhatsApp con envío a todo El Salvador.</p>
                 </details>
 
                 <details>
@@ -1786,9 +1783,11 @@
             <div class="footer-nav">
                 <a href="#faq">Envíos</a>
                 <span>&bull;</span>
-                <a href="#faq">Cambios</a>
+                <a href="cambios.html">Cambios</a>
                 <span>&bull;</span>
                 <a href="#faq">Pagos</a>
+                <span>&bull;</span>
+                <a href="guia-de-tallas.html">Guía de Tallas</a>
                 <span>&bull;</span>
                 <a href="nosotros.html">Nosotras</a>
                 <span>&bull;</span>
@@ -1833,6 +1832,14 @@
 
         document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
             observer.observe(el);
+        });
+
+        // === Lista VIP → WhatsApp ===
+        document.getElementById('vipForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nombre = document.getElementById('vipNombre').value.trim();
+            const msg = encodeURIComponent(`Hola, soy ${nombre} y quiero unirme a la Lista VIP de BOLEM`);
+            window.open(`https://wa.me/50368590899?text=${msg}`, '_blank');
         });
 
         // === Mobile Menu ===
