@@ -611,6 +611,115 @@
             border-right: 2px solid var(--color-gold);
         }
 
+
+        /* --- El Vestidor de Colores --- */
+        .home-vestidor {
+            padding: 5rem var(--content-padding);
+            background: var(--color-ink);
+            position: relative;
+            overflow: hidden;
+        }
+        @media (min-width: 768px) {
+            .home-vestidor { padding: 8rem var(--content-padding); }
+        }
+        .home-vestidor__inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        @media (min-width: 768px) {
+            .home-vestidor__inner { grid-template-columns: 1fr 1fr; gap: 5rem; }
+        }
+        .home-vestidor__title {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 4.5vw, 3rem);
+            color: var(--color-warm);
+            margin-top: 1rem;
+            line-height: 1.15;
+        }
+        .home-vestidor__title em { font-style: italic; color: var(--color-gold); }
+        .home-vestidor__info {
+            font-family: var(--font-accent);
+            font-size: var(--text-small);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(212,168,83,0.9);
+        }
+        .home-vestidor__body {
+            font-family: var(--font-body);
+            color: rgba(245,240,235,0.55);
+            font-size: var(--text-small);
+            line-height: 1.7;
+            margin-top: 0.75rem;
+            max-width: 26rem;
+        }
+        .home-vestidor__swatches {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.75rem;
+        }
+        .vestidor-swatch {
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: 50%;
+            background: var(--sw);
+            border: 2px solid rgba(245,240,235,0.25);
+            cursor: pointer;
+            transition: transform var(--duration-fast), border-color var(--duration-fast), box-shadow var(--duration-fast);
+            padding: 0;
+        }
+        .vestidor-swatch:hover { transform: scale(1.12); border-color: rgba(212,168,83,0.6); }
+        .vestidor-swatch.active {
+            border-color: var(--color-gold);
+            box-shadow: 0 0 0 3px rgba(212,168,83,0.35);
+        }
+        .home-vestidor__color-name {
+            font-family: var(--font-body);
+            color: rgba(245,240,235,0.4);
+            font-size: var(--text-micro);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-top: 0.9rem;
+        }
+        .home-vestidor__color-name span { color: var(--color-gold); }
+        .home-vestidor__cta {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 1rem 2.25rem;
+            background: var(--color-gold);
+            color: var(--color-ink);
+            font-family: var(--font-accent);
+            font-size: var(--text-micro);
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            font-weight: var(--weight-semibold);
+            transition: background var(--duration-fast);
+        }
+        .home-vestidor__cta:hover { background: var(--color-gold-light); }
+        .home-vestidor__image {
+            aspect-ratio: 3/4;
+            position: relative;
+            overflow: hidden;
+        }
+        .vestidor-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.6s var(--ease-out-expo);
+        }
+        .vestidor-img.active { opacity: 1; }
+        @media (prefers-reduced-motion: reduce) {
+            .vestidor-img, .vestidor-swatch { transition: none; }
+        }
+
         /* --- Lookbook --- */
         .home-lookbook {
             padding: var(--space-section) var(--content-padding);
@@ -1343,28 +1452,36 @@
         </div>
     </section>
 
-    <!-- ============ EDITORIAL BREAK ============ -->
-    <section class="home-editorial">
+    <!-- ============ EL VESTIDOR DE COLORES ============ -->
+    <section class="home-vestidor">
         <div class="home-editorial__gradient"></div>
-        <div class="home-editorial__inner">
+        <div class="home-vestidor__inner">
             <div class="reveal-left">
-                <span class="home-editorial__eyebrow">La Fundadora</span>
-                <h3 class="home-editorial__quote">
-                    "Yo encontraba ropa que me encantaba. Mi mamá y mi hermana salían con las manos vacías."
+                <span class="home-editorial__eyebrow">El Vestidor</span>
+                <h3 class="home-vestidor__title">
+                    Un vestido.<br><em>Cuatro humores.</em>
                 </h3>
                 <div class="gold-line-long" style="margin:1.5rem 0"></div>
-                <p class="home-editorial__body">
-                    BOLEM nació del amor. Mónica creció viendo a las mujeres que más quiere darse
-                    contra la pared en cada tienda. Un día decidió que si la moda no llegaba a ellas,
-                    ella se la traería — a su familia, y a todas.
+                <p class="home-vestidor__info">Vestido Maxi Smocked &mdash; $74.50 &middot; Tallas XL&ndash;2XL</p>
+                <p class="home-vestidor__body">
+                    Tirantes delicados, busto smocked que se adapta a tu cuerpo, y una caída que se mueve con vos.
+                    Tocá un color y decidí con cuál te lo llevás.
                 </p>
-                <p class="home-editorial__signature">— Monica Claros, Fundadora</p>
+                <div class="home-vestidor__swatches" role="group" aria-label="Elegir color del vestido">
+                    <button class="vestidor-swatch active" data-color="Blanco" data-idx="0" style="--sw:#F2EEE6" aria-label="Blanco"></button>
+                    <button class="vestidor-swatch" data-color="Crema" data-idx="1" style="--sw:#E4D5BD" aria-label="Crema"></button>
+                    <button class="vestidor-swatch" data-color="Fucsia" data-idx="2" style="--sw:#C4487C" aria-label="Fucsia"></button>
+                    <button class="vestidor-swatch" data-color="Lavanda" data-idx="3" style="--sw:#A9B4D4" aria-label="Lavanda"></button>
+                </div>
+                <p class="home-vestidor__color-name">Color: <span id="vestidorColorName">Blanco</span></p>
+                <a id="vestidorCta" href="https://wa.me/50368590899?text=Hola%2C%20quiero%20el%20Vestido%20Maxi%20Smocked%20en%20Blanco.%20Mi%20talla%20es%3A%20" target="_blank" rel="noopener" class="home-vestidor__cta">Lo quiero en este color</a>
             </div>
             <div class="reveal-right">
-                <div class="home-editorial__image">
-                    <img src="assets/monica-fundadora.webp"
-                         alt="Mónica Claros, fundadora de BOLEM"
-                         loading="lazy" width="600" height="800">
+                <div class="home-vestidor__image">
+                    <img src="assets/productos/vestido-maxi-smocked-blanco.webp" alt="Vestido Maxi Smocked blanco" class="vestidor-img active" width="600" height="900" loading="lazy">
+                    <img src="assets/productos/vestido-maxi-smocked-crema.webp" alt="Vestido Maxi Smocked crema" class="vestidor-img" width="600" height="900" loading="lazy">
+                    <img src="assets/productos/vestido-maxi-smocked-fucsia.webp" alt="Vestido Maxi Smocked fucsia" class="vestidor-img" width="600" height="900" loading="lazy">
+                    <img src="assets/productos/vestido-maxi-smocked-lavanda.webp" alt="Vestido Maxi Smocked lavanda" class="vestidor-img" width="600" height="900" loading="lazy">
                     <div class="home-editorial__corner home-editorial__corner--tl"></div>
                     <div class="home-editorial__corner home-editorial__corner--br"></div>
                 </div>
@@ -1845,6 +1962,20 @@
             const nombre = document.getElementById('vipNombre').value.trim();
             const msg = encodeURIComponent(`Hola, soy ${nombre} y quiero unirme a la Lista VIP de BOLEM`);
             window.open(`https://wa.me/50368590899?text=${msg}`, '_blank');
+        });
+
+        // === El Vestidor de Colores ===
+        const vestidorImgs = document.querySelectorAll('.vestidor-img');
+        const vestidorName = document.getElementById('vestidorColorName');
+        const vestidorCta = document.getElementById('vestidorCta');
+        document.querySelectorAll('.vestidor-swatch').forEach(sw => {
+            sw.addEventListener('click', () => {
+                document.querySelectorAll('.vestidor-swatch').forEach(b => b.classList.remove('active'));
+                sw.classList.add('active');
+                vestidorImgs.forEach((img, i) => img.classList.toggle('active', i === Number(sw.dataset.idx)));
+                vestidorName.textContent = sw.dataset.color;
+                vestidorCta.href = 'https://wa.me/50368590899?text=' + encodeURIComponent('Hola, quiero el Vestido Maxi Smocked en ' + sw.dataset.color + '. Mi talla es: ');
+            });
         });
 
         // === Mobile Menu ===
