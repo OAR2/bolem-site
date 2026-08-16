@@ -1,0 +1,674 @@
+{
+  "_nota": "Fuente unica del catalogo. Se edita ESTE archivo y se reconstruye el HTML con _tools/construir_catalogo.py — nunca al reves. Las lineas editoriales y las portadas de categoria son texto escrito a mano: viven aca, no se derivan.",
+  "escala_tallas": [
+    "XL",
+    "1XL",
+    "2XL",
+    "3XL",
+    "4XL"
+  ],
+  "productos": [
+    {
+      "id": "vestido-maxi-smocked",
+      "nombre": "Vestido Maxi Smocked",
+      "categoria": "vestido",
+      "precio": 74.5,
+      "tallas": [
+        "XL",
+        "1XL",
+        "2XL"
+      ],
+      "tallas_texto_original": "XL–2XL · 4 colores",
+      "colores": 4,
+      "fotos": [
+        "vestido-maxi-smocked-blanco.webp",
+        "vestido-maxi-smocked-crema.webp",
+        "vestido-maxi-smocked-fucsia.webp",
+        "vestido-maxi-smocked-lavanda.webp"
+      ],
+      "destacada": true,
+      "alt": "Vestido Maxi Smocked plus size, tallas XL–2XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Maxi%20Smocked.%20Mi%20talla%20es%3A%20____%20y%20lo%20quiero%20en%20color%3A%20"
+    },
+    {
+      "id": "vestido-shirtdress",
+      "nombre": "Vestido Shirtdress",
+      "categoria": "vestido",
+      "precio": 29.0,
+      "tallas": [
+        "XL",
+        "1XL"
+      ],
+      "tallas_texto_original": "XL–1XL · 2 colores",
+      "colores": 2,
+      "fotos": [
+        "vestido-shirtdress-crema.webp",
+        "vestido-shirtdress-camel.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido Shirtdress plus size, tallas XL–1XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Shirtdress.%20Mi%20talla%20es%3A%20____%20y%20lo%20quiero%20en%20color%3A%20"
+    },
+    {
+      "id": "vestido-verano-rojo",
+      "nombre": "Vestido de Verano",
+      "categoria": "vestido",
+      "precio": 29.9,
+      "tallas": [
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "2XL–3XL",
+      "colores": 1,
+      "fotos": [
+        "vestido-verano-rojo.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido de Verano en rojo estampado plus size, tallas 2XL–3XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20de%20Verano.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "vestido-broderie-rojo",
+      "nombre": "Vestido Broderie",
+      "categoria": "vestido",
+      "precio": 34.9,
+      "tallas": [
+        "2XL",
+        "3XL",
+        "4XL"
+      ],
+      "tallas_texto_original": "2XL–4XL",
+      "colores": 1,
+      "fotos": [
+        "vestido-broderie-rojo.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido Broderie en rojo plus size, tallas 2XL–4XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Broderie.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "vestido-utilitario-crema",
+      "nombre": "Vestido Utilitario",
+      "categoria": "vestido",
+      "precio": 35.9,
+      "tallas": [
+        "XL"
+      ],
+      "tallas_texto_original": "XL",
+      "colores": 1,
+      "fotos": [
+        "vestido-utilitario-crema.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido Utilitario en crema plus size, tallas XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Utilitario.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "vestido-midi-algodon",
+      "nombre": "Vestido Midi de Algodón",
+      "categoria": "vestido",
+      "precio": 44.9,
+      "tallas": [
+        "1XL",
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "1XL–3XL · 2 colores",
+      "colores": 2,
+      "fotos": [
+        "vestido-midi-algodon-indigo.webp",
+        "vestido-midi-algodon-beige.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido Midi de Algodón plus size, tallas 1XL–3XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Midi%20de%20Algod%C3%B3n.%20Mi%20talla%20es%3A%20____%20y%20lo%20quiero%20en%20color%3A%20"
+    },
+    {
+      "id": "vestido-eventos-sage",
+      "nombre": "Vestido para Eventos",
+      "categoria": "vestido",
+      "precio": 45.0,
+      "tallas": [
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "2XL–3XL",
+      "colores": 1,
+      "fotos": [
+        "vestido-eventos-sage.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido para Eventos en verde salvia plus size, tallas 2XL–3XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20para%20Eventos.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "vestido-batik",
+      "nombre": "Vestido Batik de Algodón",
+      "categoria": "vestido",
+      "precio": 55.0,
+      "tallas": [
+        "1XL",
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "1XL–3XL · 2 colores",
+      "colores": 2,
+      "fotos": [
+        "vestido-batik-coral.webp",
+        "vestido-batik-olivo.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido Batik de Algodón plus size, tallas 1XL–3XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Batik%20de%20Algod%C3%B3n.%20Mi%20talla%20es%3A%20____%20y%20lo%20quiero%20en%20color%3A%20"
+    },
+    {
+      "id": "vestido-cobalto",
+      "nombre": "Vestido Maxi Cobalto",
+      "categoria": "vestido",
+      "precio": 65.0,
+      "tallas": [
+        "XL",
+        "1XL",
+        "2XL"
+      ],
+      "tallas_texto_original": "XL–2XL",
+      "colores": 1,
+      "fotos": [
+        "vestido-cobalto.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido Maxi Cobalto en azul cobalto plus size, tallas XL–2XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Maxi%20Cobalto.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "vestido-mangas-globo",
+      "nombre": "Vestido Mangas Globo",
+      "categoria": "vestido",
+      "precio": 85.0,
+      "tallas": [
+        "XL",
+        "1XL",
+        "2XL"
+      ],
+      "tallas_texto_original": "XL–2XL · 3 colores",
+      "colores": 3,
+      "fotos": [
+        "vestido-mangas-globo-amarillo.webp",
+        "vestido-mangas-globo-celeste.webp",
+        "vestido-mangas-globo-beige.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido Mangas Globo plus size, tallas XL–2XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Mangas%20Globo.%20Mi%20talla%20es%3A%20____%20y%20lo%20quiero%20en%20color%3A%20"
+    },
+    {
+      "id": "chaleco-elegante-marfil",
+      "nombre": "Chaleco Elegante",
+      "categoria": "blusa",
+      "precio": 55.0,
+      "tallas": [
+        "XL",
+        "1XL",
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "XL–3XL",
+      "colores": 1,
+      "fotos": [
+        "chaleco-elegante-marfil.webp"
+      ],
+      "destacada": true,
+      "alt": "Chaleco Elegante en marfil plus size, tallas XL–3XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Chaleco%20Elegante.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "blusa-off-shoulder",
+      "nombre": "Blusa Off Shoulder",
+      "categoria": "blusa",
+      "precio": 22.0,
+      "tallas": [
+        "XL"
+      ],
+      "tallas_texto_original": "XL",
+      "colores": 1,
+      "fotos": [
+        "blusa-off-shoulder.webp"
+      ],
+      "destacada": false,
+      "alt": "Blusa Off Shoulder en rojo plus size, tallas XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Off%20Shoulder.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "blusa-peplum-rayas",
+      "nombre": "Blusa Peplum de Rayas",
+      "categoria": "blusa",
+      "precio": 22.0,
+      "tallas": [
+        "XL",
+        "1XL"
+      ],
+      "tallas_texto_original": "XL–1XL",
+      "colores": 1,
+      "fotos": [
+        "blusa-peplum-rayas.webp"
+      ],
+      "destacada": false,
+      "alt": "Blusa Peplum de Rayas en blanco · rosa plus size, tallas XL–1XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Peplum%20de%20Rayas.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "camisa-fucsia",
+      "nombre": "Camisa Oversize",
+      "categoria": "blusa",
+      "precio": 23.0,
+      "tallas": [
+        "XL",
+        "1XL",
+        "2XL",
+        "3XL",
+        "4XL"
+      ],
+      "tallas_texto_original": "XL–4XL",
+      "colores": 1,
+      "fotos": [
+        "camisa-fucsia.webp"
+      ],
+      "destacada": false,
+      "alt": "Camisa Oversize en fucsia plus size, tallas XL–4XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Camisa%20Oversize.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "blusa-blazer-negro",
+      "nombre": "Blusa Blazer",
+      "categoria": "blusa",
+      "precio": 24.0,
+      "tallas": [
+        "1XL",
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "1XL–3XL",
+      "colores": 1,
+      "fotos": [
+        "blusa-blazer-negro.webp"
+      ],
+      "destacada": false,
+      "alt": "Blusa Blazer en negro plus size, tallas 1XL–3XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Blazer.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "top-peplum-negro",
+      "nombre": "Top Peplum Elegante",
+      "categoria": "blusa",
+      "precio": 24.0,
+      "tallas": [
+        "XL",
+        "1XL",
+        "2XL"
+      ],
+      "tallas_texto_original": "XL–2XL",
+      "colores": 1,
+      "fotos": [
+        "top-peplum-negro.webp"
+      ],
+      "destacada": false,
+      "alt": "Top Peplum Elegante en negro plus size, tallas XL–2XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Top%20Peplum%20Elegante.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "blusa-wrap-marino",
+      "nombre": "Blusa Cruzada",
+      "categoria": "blusa",
+      "precio": 25.0,
+      "tallas": [
+        "1XL",
+        "2XL",
+        "3XL",
+        "4XL"
+      ],
+      "tallas_texto_original": "1XL–4XL",
+      "colores": 1,
+      "fotos": [
+        "blusa-wrap-marino.webp"
+      ],
+      "destacada": false,
+      "alt": "Blusa Cruzada en azul marino plus size, tallas 1XL–4XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Cruzada.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "blusa-balloon",
+      "nombre": "Blusa Balloon Halter",
+      "categoria": "blusa",
+      "precio": 25.0,
+      "tallas": [
+        "1XL",
+        "2XL",
+        "3XL",
+        "4XL"
+      ],
+      "tallas_texto_original": "1XL–4XL",
+      "colores": 1,
+      "fotos": [
+        "blusa-balloon.webp"
+      ],
+      "destacada": false,
+      "alt": "Blusa Balloon Halter en champagne plus size, tallas 1XL–4XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Balloon%20Halter.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "blusa-halter-olivo",
+      "nombre": "Blusa Halter",
+      "categoria": "blusa",
+      "precio": 25.0,
+      "tallas": [
+        "1XL"
+      ],
+      "tallas_texto_original": "1XL",
+      "colores": 1,
+      "fotos": [
+        "blusa-halter-olivo.webp"
+      ],
+      "destacada": false,
+      "alt": "Blusa Halter en verde olivo plus size, tallas 1XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Halter.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "chaleco-cardigan-beige",
+      "nombre": "Chaleco Cardigan",
+      "categoria": "blusa",
+      "precio": 25.0,
+      "tallas": [
+        "XL",
+        "1XL",
+        "2XL"
+      ],
+      "tallas_texto_original": "XL–2XL",
+      "colores": 1,
+      "fotos": [
+        "chaleco-cardigan-beige.webp"
+      ],
+      "destacada": false,
+      "alt": "Chaleco Cardigan en beige plus size, tallas XL–2XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Chaleco%20Cardigan.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "blusa-negra-botones",
+      "nombre": "Blusa Manga Larga",
+      "categoria": "blusa",
+      "precio": 25.0,
+      "tallas": [
+        "XL",
+        "1XL",
+        "2XL",
+        "3XL",
+        "4XL"
+      ],
+      "tallas_texto_original": "XL–4XL",
+      "colores": 1,
+      "fotos": [
+        "blusa-negra-botones.webp"
+      ],
+      "destacada": false,
+      "alt": "Blusa Manga Larga en negro plus size, tallas XL–4XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Manga%20Larga.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "blusa-peplum-blush",
+      "nombre": "Blusa Peplum Blush",
+      "categoria": "blusa",
+      "precio": 25.0,
+      "tallas": [
+        "XL",
+        "1XL"
+      ],
+      "tallas_texto_original": "XL–1XL",
+      "colores": 1,
+      "fotos": [
+        "blusa-peplum-blush.webp"
+      ],
+      "destacada": false,
+      "alt": "Blusa Peplum Blush en rosa claro plus size, tallas XL–1XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Peplum%20Blush.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "blusa-peplum-crema",
+      "nombre": "Blusa Peplum",
+      "categoria": "blusa",
+      "precio": 26.0,
+      "tallas": [
+        "XL",
+        "1XL",
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "XL–3XL",
+      "colores": 1,
+      "fotos": [
+        "blusa-peplum-crema.webp"
+      ],
+      "destacada": false,
+      "alt": "Blusa Peplum en crema plus size, tallas XL–3XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Peplum.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "blusa-peplum-gingham",
+      "nombre": "Blusa Peplum Gingham",
+      "categoria": "blusa",
+      "precio": 26.0,
+      "tallas": [
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "2XL–3XL",
+      "colores": 1,
+      "fotos": [
+        "blusa-peplum-gingham.webp"
+      ],
+      "destacada": false,
+      "alt": "Blusa Peplum Gingham en fucsia vichy plus size, tallas 2XL–3XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Peplum%20Gingham.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "blusa-denim-peplum",
+      "nombre": "Blusa Denim Peplum",
+      "categoria": "blusa",
+      "precio": 29.0,
+      "tallas": [
+        "1XL"
+      ],
+      "tallas_texto_original": "1XL",
+      "colores": 1,
+      "fotos": [
+        "blusa-denim-peplum.webp"
+      ],
+      "destacada": false,
+      "alt": "Blusa Denim Peplum en denim azul plus size, tallas 1XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Denim%20Peplum.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "chaleco-sastre",
+      "nombre": "Chaleco Sastre",
+      "categoria": "blusa",
+      "precio": 45.0,
+      "tallas": [
+        "XL",
+        "1XL",
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "XL–3XL · 2 colores",
+      "colores": 2,
+      "fotos": [
+        "chaleco-sastre-blanco.webp",
+        "chaleco-sastre-negro.webp"
+      ],
+      "destacada": false,
+      "alt": "Chaleco Sastre plus size, tallas XL–3XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Chaleco%20Sastre.%20Mi%20talla%20es%3A%20____%20y%20lo%20quiero%20en%20color%3A%20"
+    },
+    {
+      "id": "pantalon-formal-crema",
+      "nombre": "Pantalón Formal Palazzo",
+      "categoria": "pantalon",
+      "precio": 45.0,
+      "tallas": [
+        "XL",
+        "1XL",
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "XL–3XL",
+      "colores": 1,
+      "fotos": [
+        "pantalon-formal-crema.webp"
+      ],
+      "destacada": true,
+      "alt": "Pantalón Formal Palazzo en crema plus size, tallas XL–3XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Pantal%C3%B3n%20Formal%20Palazzo.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "pantalon-lino",
+      "nombre": "Pantalón de Lino",
+      "categoria": "pantalon",
+      "precio": 35.0,
+      "tallas": [
+        "1XL",
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "1XL–3XL",
+      "colores": 1,
+      "fotos": [
+        "pantalon-lino.webp"
+      ],
+      "destacada": false,
+      "alt": "Pantalón de Lino en crema plus size, tallas 1XL–3XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Pantal%C3%B3n%20de%20Lino.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "jeans-flare",
+      "nombre": "Jeans Flare",
+      "categoria": "pantalon",
+      "precio": 65.0,
+      "tallas": [
+        "1XL",
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "1XL–3XL",
+      "colores": 1,
+      "fotos": [
+        "jeans-flare.webp"
+      ],
+      "destacada": false,
+      "alt": "Jeans Flare en azul oscuro plus size, tallas 1XL–3XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Jeans%20Flare.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "conjunto-burdeos",
+      "nombre": "Conjunto Palazzo Burdeos",
+      "categoria": "conjunto",
+      "precio": 45.0,
+      "tallas": [
+        "1XL",
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "1XL–3XL",
+      "colores": 1,
+      "fotos": [
+        "conjunto-burdeos.webp"
+      ],
+      "destacada": true,
+      "alt": "Conjunto Palazzo Burdeos en burdeos plus size, tallas 1XL–3XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Conjunto%20Palazzo%20Burdeos.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "conjunto-chaleco-short",
+      "nombre": "Conjunto Chaleco + Short",
+      "categoria": "conjunto",
+      "precio": 35.0,
+      "tallas": [
+        "XL",
+        "1XL",
+        "2XL",
+        "3XL",
+        "4XL"
+      ],
+      "tallas_texto_original": "XL–4XL · 2 colores",
+      "colores": 2,
+      "fotos": [
+        "conjunto-chaleco-short-crema.webp",
+        "conjunto-chaleco-short-chocolate.webp"
+      ],
+      "destacada": false,
+      "alt": "Conjunto Chaleco + Short plus size, tallas XL–4XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Conjunto%20Chaleco%20%2B%20Short.%20Mi%20talla%20es%3A%20____%20y%20lo%20quiero%20en%20color%3A%20"
+    },
+    {
+      "id": "conjunto-negro-satinado",
+      "nombre": "Conjunto Satinado",
+      "categoria": "conjunto",
+      "precio": 55.0,
+      "tallas": [
+        "1XL",
+        "2XL",
+        "3XL",
+        "4XL"
+      ],
+      "tallas_texto_original": "1XL–4XL",
+      "colores": 1,
+      "fotos": [
+        "conjunto-negro-satinado.webp"
+      ],
+      "destacada": false,
+      "alt": "Conjunto Satinado en negro plus size, tallas 1XL–4XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Conjunto%20Satinado.%20Mi%20talla%20es%3A%20"
+    },
+    {
+      "id": "conjunto-blanco-palazzo",
+      "nombre": "Conjunto Palazzo Blanco",
+      "categoria": "conjunto",
+      "precio": 55.0,
+      "tallas": [
+        "2XL",
+        "3XL",
+        "4XL"
+      ],
+      "tallas_texto_original": "2XL–4XL",
+      "colores": 1,
+      "fotos": [
+        "conjunto-blanco-palazzo.webp"
+      ],
+      "destacada": false,
+      "alt": "Conjunto Palazzo Blanco en blanco plus size, tallas 2XL–4XL — BOLEM El Salvador",
+      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Conjunto%20Palazzo%20Blanco.%20Mi%20talla%20es%3A%20"
+    }
+  ],
+  "categorias": {
+    "vestido": {
+      "etiqueta": "Vestidos",
+      "etiqueta_larga": "Vestidos",
+      "portada": "vestido-verano-rojo.webp",
+      "editorial": "El vestido no te tiene que quedar. <em>Te tiene que celebrar.</em>"
+    },
+    "blusa": {
+      "etiqueta": "Blusas",
+      "etiqueta_larga": "Blusas",
+      "portada": "chaleco-elegante-marfil.webp",
+      "editorial": "Combinala con todo. <em>O solo con actitud.</em>"
+    },
+    "pantalon": {
+      "etiqueta": "Jeans y Pantalones",
+      "etiqueta_larga": "Jeans y Pantalones",
+      "portada": "pantalon-lino.webp",
+      "editorial": "Comodidad que <em>no pide disculpas.</em>"
+    },
+    "conjunto": {
+      "etiqueta": "Conjuntos",
+      "etiqueta_larga": "Conjuntos",
+      "portada": "conjunto-burdeos.webp",
+      "editorial": ""
+    }
+  }
+}
