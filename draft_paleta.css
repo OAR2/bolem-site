@@ -1,0 +1,205 @@
+/* ============================================================
+   DRAFT v3 — "Blanco galería, paleta sutil" (2026-08-15)
+   Feedback v2: mucho negro y mucho rojo, sin conexión.
+   Principio v3: base blanca; la paleta de Mónica entra como
+   ACENTO DE CASA (crema durazno #FFE4B3) + naranja profundo
+   SOLO al interactuar (links, hovers). Cero bloques negros.
+   El color protagonista son las fotos, como en las referencias.
+   ============================================================ */
+
+:root {
+  --color-cream: #FFFFFF;
+  --color-warm: #FFFBF4;
+
+  /* Acento interactivo (links, hovers): naranja profundo legible */
+  --color-gold: #C93400;
+  --color-gold-dark: #A82B00;
+  /* Acentos de casa: cálidos, quietos */
+  --color-gold-light: #FFB61F;
+  --color-gold-soft: #FFE4B3;
+
+  --color-naranja: #FE470A;
+  --color-coral: #FA5857;
+  --color-durazno: #FA9562;
+  --color-rosa: #FF789F;
+  --color-fucsia: #FF66C3;
+}
+
+/* ---------- HERO blanco, tinta, y UN gesto de paleta ---------- */
+.home-hero {
+  background: linear-gradient(175deg, #FFFFFF 0%, #FFFBF4 70%, #FFF5E7 100%);
+}
+.home-hero::after {
+  background: radial-gradient(ellipse at 70% 40%, rgba(250,149,98,0.08) 0%, transparent 60%);
+}
+.home-hero__title { color: var(--color-ink); }
+/* La palabra en cursiva lleva "subrayador" crema durazno — tinta legible,
+   paleta presente, cero rojo */
+.home-hero__title em {
+  color: var(--color-ink);
+  background: linear-gradient(transparent 62%, var(--color-gold-soft) 62%);
+  padding: 0 0.08em;
+}
+.home-hero__subtitle { color: var(--color-ink-muted); }
+.home-hero__scroll-text { color: var(--color-ink-muted); }
+.home-hero__scroll-line { background: var(--color-ink-muted); }
+
+/* CTAs de galería: quietos, sin bloque negro */
+.home-hero__btn-primary {
+  background: transparent;
+  border: 1px solid var(--color-ink);
+  color: var(--color-ink);
+}
+.home-hero__btn-primary:hover {
+  background: var(--color-gold-soft);
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+  opacity: 1;
+}
+.home-hero__btn-secondary {
+  color: var(--color-ink-muted);
+  border-color: rgba(26,26,26,0.25);
+}
+.home-hero__btn-secondary:hover { opacity: 1; color: var(--color-ink); border-color: var(--color-ink); }
+
+.site-nav--dark { background: rgba(255,255,255,0.92); }
+.site-nav--dark .nav-link, .site-nav--dark .nav-logo { color: var(--color-ink); }
+
+/* ---------- Decorativo repetido: de "rojo" a taupe/crema quieto ---------- */
+.section-eyebrow,
+.home-editorial__eyebrow { color: #A08C7A; }
+.gold-line-long,
+.gold-line { background: var(--color-gold-soft); }
+.section-title::after,
+.home-section__title::after { background: var(--color-gold-soft); }
+
+/* Badges: mango con tinta — el único acento vivo permanente */
+.badge, .tag, .home-lookbook__tag {
+  background: var(--color-gold-light);
+  color: var(--color-ink);
+}
+
+/* ---------- VIP: de bloque negro a bloque crema durazno ---------- */
+.home-vip { background: var(--color-gold-soft); }
+.home-vip .home-vip__gradient { background: none; }
+.home-vip h2, .home-vip h3, .home-vip p, .home-vip label, .home-vip span {
+  color: var(--color-ink);
+}
+.home-vip .home-vip__input {
+  background: #FFFFFF;
+  color: var(--color-ink);
+  border: 1px solid rgba(26,26,26,0.2);
+}
+.home-vip button, .home-vip .home-vip__btn {
+  background: var(--color-ink);
+  color: #FFFFFF;
+  border-color: var(--color-ink);
+}
+.home-vip button:hover, .home-vip .home-vip__btn:hover { background: var(--color-gold); border-color: var(--color-gold); }
+
+/* ---------- Vestidor ---------- */
+.home-vestidor__swatch.is-active, .vestidor-swatch.active { outline-color: var(--color-gold); }
+.home-vestidor__cta {
+  background: transparent;
+  border: 1px solid var(--color-ink);
+  color: var(--color-ink);
+}
+.home-vestidor__cta:hover { background: var(--color-gold-soft); }
+
+/* ---------- Lookbook → carrusel horizontal (estilo referencia) ---------- */
+.home-lookbook__grid {
+  display: flex !important;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding-bottom: 1rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.home-lookbook__grid::-webkit-scrollbar { display: none; }
+.home-lookbook__grid .lookbook-item {
+  flex: 0 0 min(340px, 78vw);
+  scroll-snap-align: start;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+.home-lookbook__grid .lookbook-item--large { flex: 0 0 min(340px, 78vw); }
+.home-lookbook__grid .lookbook-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Flechas del carrusel */
+.lookbook-nav {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+.lookbook-nav button {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(26,26,26,0.25);
+  background: #FFFFFF;
+  color: var(--color-ink);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+.lookbook-nav button:hover { background: var(--color-gold-soft); border-color: var(--color-ink); }
+
+/* ============ v3.1 — matar los bloques negros restantes ============ */
+
+/* Vestidor: de negro editorial a galería blanca */
+.home-vestidor { background: #FFFFFF; }
+.home-vestidor .home-editorial__gradient { display: none; }
+.home-vestidor__title { color: var(--color-ink); }
+.home-vestidor__title em {
+  color: var(--color-ink);
+  background: linear-gradient(transparent 62%, var(--color-gold-soft) 62%);
+  padding: 0 0.08em;
+  font-style: italic;
+}
+.home-vestidor__info { color: var(--color-gold); }
+.home-vestidor__body { color: var(--color-ink-muted); }
+.home-vestidor__color-name { color: var(--color-ink-muted); }
+.home-vestidor__color-name span { color: var(--color-ink); }
+
+/* Marquee: la franja negra se vuelve LA franja de paleta */
+.home-marquee {
+  background: var(--color-gold-soft);
+  border-top: 1px solid rgba(254,71,10,0.12);
+  border-bottom: 1px solid rgba(254,71,10,0.12);
+}
+.home-marquee__text { color: rgba(26,26,26,0.5); }
+
+/* Stats: blanco con separadores suaves */
+.home-stats {
+  background: #FFFFFF;
+  border-top: 1px solid #F5EBDD;
+  border-bottom: 1px solid #F5EBDD;
+}
+.home-stats h2, .home-stats h3, .home-stats p, .home-stats span, .home-stats div {
+  color: var(--color-ink);
+}
+.home-stats .home-stats__label { color: var(--color-ink-muted); }
+.home-stats .home-stats__number { color: var(--color-gold); }
+
+/* Nav CTA: de bloque rojo a botón quieto */
+.nav-cta {
+  background: transparent;
+  border: 1px solid var(--color-ink);
+  color: var(--color-ink);
+}
+.nav-cta:hover { background: var(--color-gold-soft); opacity: 1; }
+
+/* El CTA final (contacto) y el footer se quedan oscuros a propósito:
+   el único momento de drama, como la barra negra de las referencias. */
+
+/* v3.2 — diagnóstico: hero sin animación de entrada */
+.home-hero .reveal, .home-hero .reveal-left, .home-hero .reveal-right {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}

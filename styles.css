@@ -19,6 +19,15 @@
   --color-gold-dark: #B8944F;
   --color-white: #FFFFFF;
 
+  /* Texto secundario — colores SÓLIDOS con contraste WCAG AA verificado.
+     Reemplazan la vieja convención de `opacity: 0.3–0.5` sobre texto real,
+     que fallaba AA (hasta ~2.5:1) en decenas de párrafos.
+     --color-ink-muted  sobre fondos claros: 5.07:1 (warm) · 5.38:1 (cream) · 5.74:1 (white)
+     --color-warm-muted sobre fondos oscuros: 7.64:1 (ink) · 8.20:1 (hero)
+     La opacidad baja queda reservada SOLO para elementos decorativos. */
+  --color-ink-muted: #666666;
+  --color-warm-muted: #B0ABA5;
+
   /* Typography */
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body: 'Outfit', sans-serif;
@@ -150,9 +159,8 @@ body::before {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-size: var(--text-small);
-  color: var(--color-ink);
-  opacity: 0.5;
-  transition: opacity var(--duration-fast) var(--ease-smooth), color var(--duration-fast);
+  color: var(--color-ink-muted);
+  transition: color var(--duration-fast) var(--ease-smooth);
   position: relative;
 }
 .nav-link::after {
@@ -165,9 +173,9 @@ body::before {
   background: var(--color-gold);
   transition: width var(--duration-mid) var(--ease-smooth);
 }
-.nav-link:hover { opacity: 1; color: var(--color-gold); }
+.nav-link:hover { color: var(--color-gold); }
 .nav-link:hover::after { width: 100%; }
-.nav-link.active { opacity: 1; color: var(--color-gold); }
+.nav-link.active { color: var(--color-gold); }
 
 .nav-cta {
   display: inline-flex;
@@ -217,6 +225,16 @@ body::before {
   left: 0;
   right: 0;
 }
+/* Abierto: la altura la manda el viewport, no un valor fijo en px.
+   Con overflow-y:auto ningún link queda recortado (zoom 200%, más ítems). */
+.nav-mobile.open {
+  max-height: calc(100vh - var(--nav-height-mobile));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+@supports (max-height: 100dvh) {
+  .nav-mobile.open { max-height: calc(100dvh - var(--nav-height-mobile)); }
+}
 .nav-mobile-inner {
   padding: 1.5rem var(--content-padding);
   display: flex;
@@ -228,8 +246,7 @@ body::before {
   font-size: var(--text-small);
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: var(--color-ink);
-  opacity: 0.7;
+  color: var(--color-ink-muted);
   padding: 0.75rem 0.5rem;
   border-bottom: 1px solid rgba(212, 168, 83, 0.1);
   transition: color var(--duration-fast);
@@ -237,17 +254,15 @@ body::before {
 .nav-mobile-link:hover { color: var(--color-gold); }
 
 /* Dark nav variant (for pages with dark hero) */
-.site-nav--dark .nav-logo,
-.site-nav--dark .nav-link { color: var(--color-white); }
+.site-nav--dark .nav-logo { color: var(--color-white); }
 .site-nav--dark .nav-logo .accent { color: var(--color-gold); }
-.site-nav--dark .nav-link { opacity: 0.6; }
-.site-nav--dark .nav-link:hover { opacity: 1; color: var(--color-gold); }
-.site-nav--dark .nav-link.active { opacity: 0.9; color: var(--color-gold); }
+.site-nav--dark .nav-link { color: var(--color-warm-muted); }
+.site-nav--dark .nav-link:hover { color: var(--color-gold); }
+.site-nav--dark .nav-link.active { color: var(--color-gold); }
 .site-nav--dark .nav-menu-btn span { background: var(--color-white); }
-.site-nav--dark.scrolled .nav-logo,
-.site-nav--dark.scrolled .nav-link { color: var(--color-ink); }
-.site-nav--dark.scrolled .nav-link { opacity: 0.5; }
-.site-nav--dark.scrolled .nav-link:hover { opacity: 1; color: var(--color-gold); }
+.site-nav--dark.scrolled .nav-logo { color: var(--color-ink); }
+.site-nav--dark.scrolled .nav-link { color: var(--color-ink-muted); }
+.site-nav--dark.scrolled .nav-link:hover { color: var(--color-gold); }
 .site-nav--dark.scrolled .nav-menu-btn span { background: var(--color-ink); }
 
 @media (max-width: 768px) {
@@ -276,10 +291,9 @@ body::before {
   font-weight: var(--weight-medium);
   font-size: 1.25rem;
   letter-spacing: 0.05em;
-  color: var(--color-ink);
-  opacity: 0.3;
+  color: var(--color-ink-muted);
 }
-.footer-logo .accent { color: var(--color-gold); opacity: 0.5; }
+.footer-logo .accent { color: var(--color-gold-dark); }
 
 .footer-links {
   display: flex;
@@ -290,33 +304,34 @@ body::before {
 .footer-copy {
   font-family: var(--font-body);
   font-size: var(--text-micro);
-  color: var(--color-ink);
-  opacity: 0.45;
+  color: var(--color-ink-muted);
   letter-spacing: 0.1em;
 }
 .footer-nav {
   display: flex;
   gap: 1rem;
   font-family: var(--font-body);
-  font-size: 10px;
-  color: var(--color-ink);
-  opacity: 0.35;
+  font-size: 11px;
+  color: var(--color-ink-muted);
   letter-spacing: 0.05em;
 }
-.footer-nav a { transition: color var(--duration-fast), opacity var(--duration-fast); }
-.footer-nav a:hover { color: var(--color-gold); opacity: 1; }
+.footer-nav a { transition: color var(--duration-fast); }
+.footer-nav a:hover { color: var(--color-gold-dark); }
 
 .footer-social {
   display: flex;
   gap: 0.75rem;
 }
+/* Tap target ≥44px: 0.875rem (14px) de padding + 20px de ícono = 48px */
 .footer-social a {
-  color: var(--color-ink);
-  opacity: 0.4;
-  padding: 0.5rem;
-  transition: color var(--duration-fast), opacity var(--duration-fast);
+  color: var(--color-ink-muted);
+  padding: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--duration-fast);
 }
-.footer-social a:hover { color: var(--color-gold); opacity: 1; }
+.footer-social a:hover { color: var(--color-gold-dark); }
 .footer-social svg { width: 1.25rem; height: 1.25rem; }
 
 @media (max-width: 768px) {
@@ -551,6 +566,46 @@ body::before {
     text-align: center;
     justify-content: center;
   }
+}
+
+/* ─── FOCUS VISIBLE ───
+   Outline sólido de alto contraste para navegación por teclado.
+   Base = fondo claro (tinta sobre crema/blanco/warm ≥ 12:1).
+   Los contextos oscuros lo invierten a blanco (ver home.css). */
+:focus-visible {
+  outline: 3px solid var(--color-ink);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+/* Sobre fondo dorado el outline dorado desaparecería → tinta (7.89:1) */
+.btn-primary:focus-visible,
+.nav-cta:focus-visible {
+  outline: 3px solid var(--color-ink);
+  outline-offset: 3px;
+}
+.btn-outline:focus-visible,
+.page-content a:focus-visible {
+  outline: 3px solid var(--color-ink);
+  outline-offset: 3px;
+}
+/* Nav oscuro sin scroll = sobre el hero negro → outline blanco */
+.site-nav--dark .nav-logo:focus-visible,
+.site-nav--dark .nav-link:focus-visible,
+.site-nav--dark .nav-menu-btn:focus-visible {
+  outline-color: var(--color-white);
+}
+/* …pero al scrollear el nav vuelve a fondo claro */
+.site-nav--dark.scrolled .nav-logo:focus-visible,
+.site-nav--dark.scrolled .nav-link:focus-visible,
+.site-nav--dark.scrolled .nav-menu-btn:focus-visible {
+  outline-color: var(--color-ink);
+}
+/* Footer oscuro */
+.site-footer--dark a:focus-visible { outline-color: var(--color-white); }
+/* Botón flotante verde de WhatsApp */
+.whatsapp-float:focus-visible {
+  outline: 3px solid var(--color-ink);
+  outline-offset: 4px;
 }
 
 /* ─── SVG ICONS ─── */
