@@ -78,16 +78,20 @@ ENLACES = [
 def construir_nav(prefijo, activo, atributos):
     esc = []
     mov = []
+    # `prefijo + './'` daria `.././` desde blog/ y coleccion/. Resuelve igual,
+    # pero se lee como un error; el inicio es './' en la raiz y '../' abajo.
+    inicio = prefijo or './'
     for clave, ruta, etiqueta in ENLACES:
         act = ' active' if clave == activo else ''
         aria = ' aria-current="page"' if clave == activo else ''
-        esc.append('    <a href="%s%s" class="nav-link%s"%s>%s</a>'
-                   % (prefijo, ruta, act, aria, etiqueta))
-        mov.append('        <a href="%s%s" class="nav-mobile-link%s"%s>%s</a>'
-                   % (prefijo, ruta, act, aria, etiqueta))
+        href = inicio if ruta == './' else prefijo + ruta
+        esc.append('    <a href="%s" class="nav-link%s"%s>%s</a>'
+                   % (href, act, aria, etiqueta))
+        mov.append('        <a href="%s" class="nav-mobile-link%s"%s>%s</a>'
+                   % (href, act, aria, etiqueta))
     return '\n'.join([
         '<nav %s>' % atributos,
-        '    <a href="%s./" class="nav-logo" aria-label="BOLEM — inicio">BOL<span class="accent">E</span>M</a>' % prefijo,
+        '    <a href="%s" class="nav-logo" aria-label="BOLEM — inicio">BOL<span class="accent">E</span>M</a>' % inicio,
         '    <div class="nav-links">',
         '\n'.join(esc),
         '    </div>',
@@ -140,13 +144,19 @@ def procesar(ruta, prefijo, activo, contenido):
         atributos = 'class="site-nav"'
     contenido = RE_NAV.sub(lambda m: construir_nav(prefijo, activo, atributos), contenido, count=1)
 
-    # 2 — fuera las copias del menu movil
+    # 2 — fuera las copias del menu movil.
+    # Idempotente: en la primera pasada cada pagina tiene exactamente una copia
+    # vieja; en pasadas siguientes ya no queda ninguna y `nav.js` esta puesto.
+    # Cualquier otro conteo si es sospechoso y aborta todo.
+    ya_migrada = bool(RE_NAVJS.search(contenido))
     quitados = 0
     for patron in VIEJO_JS:
         contenido, n = patron.subn('\n', contenido)
         quitados += n
-    if quitados != 1:
-        problemas.append('esperaba quitar 1 menu movil viejo, quite %d' % quitados)
+    esperado = 0 if ya_migrada else 1
+    if quitados != esperado:
+        problemas.append('esperaba quitar %d menu(s) movil(es) viejo(s), quite %d'
+                         % (esperado, quitados))
 
     # 3 — cargar el comportamiento compartido
     if not RE_NAVJS.search(contenido):
