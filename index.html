@@ -227,7 +227,7 @@
                 "name": "¿Las tallas son reales?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Nuestras tallas están diseñadas para cuerpos reales de mujeres curvy, no son adaptaciones de tallas pequeñas con centímetros extra. Consultá nuestra guía de tallas con medidas exactas en centímetros o escribinos por WhatsApp para asesoría personalizada."
+                    "text": "Sí. Elegimos marcas que cortan para cuerpos curvy, no que estiran una talla pequeña con centímetros extra. Consultá nuestra guía de tallas con medidas exactas en centímetros o escribinos por WhatsApp para asesoría personalizada."
                 }
             },
             {
@@ -259,7 +259,7 @@
                 "name": "¿Qué tipo de ropa vende BOLEM?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Vendemos vestidos, blusas, chalecos, pantalones, jeans y conjuntos en tallas XL a 4XL según la prenda. Todos nuestros diseños están pensados para el clima cálido de El Salvador: telas frescas como lino, algodón y viscosa, en cortes que celebran las curvas."
+                    "text": "Vendemos vestidos, blusas, chalecos, pantalones, jeans y conjuntos en tallas XL a 4XL según la prenda. Todo lo que traemos está elegido para el clima cálido de El Salvador: telas frescas como lino, algodón y viscosa, en cortes que celebran las curvas."
                 }
             },
             {
@@ -378,7 +378,7 @@
                         </svg>
                     </div>
                     <h3>Inclusividad Real</h3>
-                    <p>Tallas XL a 4XL. Cada pieza se diseña pensando en cuerpos reales, no en estándares imposibles.</p>
+                    <p>Tallas XL a 4XL. Cada pieza se elige pensando en cuerpos reales, no en estándares imposibles.</p>
                 </div>
 
                 <!-- Pilar 2 -->
@@ -554,7 +554,7 @@
             </div>
             <div class="reveal delay-4">
                 <span class="home-stats__value">SV</span>
-                <p class="home-stats__label">Hecho en El Salvador</p>
+                <p class="home-stats__label">Marca salvadoreña</p>
             </div>
         </div>
     </section>
@@ -755,7 +755,7 @@
                         ¿Qué tipo de ropa vende BOLEM?
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"/></svg>
                     </summary>
-                    <p>Vendemos <a href="coleccion/" style="color: var(--color-gold);">vestidos, blusas, chalecos, pantalones, jeans y conjuntos</a> en tallas XL a 4XL según la prenda. Todos nuestros diseños están pensados para el clima cálido de El Salvador: telas frescas como lino, algodón y viscosa.</p>
+                    <p>Vendemos <a href="coleccion/" style="color: var(--color-gold);">vestidos, blusas, chalecos, pantalones, jeans y conjuntos</a> en tallas XL a 4XL según la prenda. Todo lo que traemos está elegido para el clima cálido de El Salvador: telas frescas como lino, algodón y viscosa.</p>
                 </details>
 
                 <details>
@@ -763,7 +763,7 @@
                         ¿Las tallas son reales?
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"/></svg>
                     </summary>
-                    <p>Sí. Nuestras tallas están diseñadas para cuerpos reales de mujeres curvy, no son adaptaciones de tallas pequeñas. Consultá nuestra <a href="guia-de-tallas" style="color: var(--color-gold);">guía de tallas</a> o escribinos por WhatsApp y te ayudamos a elegir.</p>
+                    <p>Sí. Elegimos marcas que cortan para cuerpos curvy, no que estiran una talla pequeña. Consultá nuestra <a href="guia-de-tallas" style="color: var(--color-gold);">guía de tallas</a> o escribinos por WhatsApp y te ayudamos a elegir.</p>
                 </details>
 
                 <details>
@@ -1043,17 +1043,23 @@
 
         // (Se eliminó el parallax: el hero usa un gradiente sin background-image,
         //  así que mover backgroundPositionY no producía ningún efecto visual.)
-        window.addEventListener('scroll', () => {
-            const scrollY = window.pageYOffset;
-            const heroHeight = hero.offsetHeight;
-
-            // Toggle scrolled class
-            if (scrollY > heroHeight - 80) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
+        // El alto del hero se mide UNA vez (y al cambiar el tamaño de la ventana).
+        // Leerlo dentro del scroll obliga a recalcular layout en cada evento y es
+        // la causa principal de que la página se sintiera trabada al bajar.
+        let umbral = hero.offsetHeight - 80;
+        let pendiente = false, estabaScrolleado = null;
+        addEventListener('resize', () => { umbral = hero.offsetHeight - 80; }, { passive: true });
+        function pintarNav() {
+            pendiente = false;
+            const ahora = scrollY > umbral;
+            if (ahora === estabaScrolleado) return;   // solo tocamos el DOM al cambiar
+            estabaScrolleado = ahora;
+            nav.classList.toggle('scrolled', ahora);
+        }
+        addEventListener('scroll', () => {
+            if (!pendiente) { pendiente = true; requestAnimationFrame(pintarNav); }
         }, { passive: true });
+        pintarNav();
     </script>
 </body>
 </html>

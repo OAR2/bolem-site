@@ -103,6 +103,9 @@ body::before {
   z-index: 9999;
   pointer-events: none;
   opacity: 0.03;
+  /* tile fijo: el feTurbulence se rasteriza una vez, no al tamaño del viewport */
+  background-size: 256px 256px;
+  background-repeat: repeat;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -121,10 +124,9 @@ body::before {
   justify-content: space-between;
   padding: 0 var(--content-padding);
   background: rgba(250, 247, 243, 0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border-bottom: var(--border-thin);
-  transition: all var(--duration-mid) var(--ease-smooth);
+  transition: background-color var(--duration-mid) var(--ease-smooth),
+              border-color var(--duration-mid) var(--ease-smooth);
 }
 
 /* Transparent variant (for pages with dark hero) */
@@ -134,8 +136,6 @@ body::before {
 }
 .site-nav--transparent.scrolled {
   background: rgba(250, 247, 243, 0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border-bottom: var(--border-thin);
 }
 
@@ -219,7 +219,6 @@ body::before {
   max-height: 0;
   transition: max-height 0.5s var(--ease-smooth);
   background: rgba(250, 247, 243, 0.95);
-  backdrop-filter: blur(20px);
   position: absolute;
   top: 100%;
   left: 0;
@@ -469,7 +468,8 @@ body::before {
   padding: 1rem 2.5rem;
   background: var(--color-gold);
   color: var(--color-ink);
-  transition: all var(--duration-mid) var(--ease-smooth);
+  transition: background-color var(--duration-mid) var(--ease-smooth),
+              border-color var(--duration-mid) var(--ease-smooth);
 }
 .btn-primary:hover { background: var(--color-ink); color: var(--color-gold); }
 
@@ -485,7 +485,8 @@ body::before {
   border: 1px solid var(--color-gold);
   color: var(--color-ink);
   background: transparent;
-  transition: all var(--duration-mid) var(--ease-smooth);
+  transition: background-color var(--duration-mid) var(--ease-smooth),
+              border-color var(--duration-mid) var(--ease-smooth);
 }
 .btn-outline:hover { background: var(--color-gold); color: var(--color-ink); }
 

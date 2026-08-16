@@ -11,9 +11,12 @@
   --color-cream: #FFFFFF;
   --color-warm: #FFFBF4;
 
-  /* Acento interactivo (links, hovers): naranja profundo legible */
-  --color-gold: #C93400;
-  --color-gold-dark: #A82B00;
+  /* Acento interactivo (links, hovers, íconos): fucsia profundo.
+     v3.5 — el naranja profundo #C93400 seguía leyéndose como rojo.
+     Este desciende del Fucsia #FF66C3 de la tarjeta de Mónica, oscurecido
+     hasta ser legible como texto: 5.71:1 sobre blanco (AA con holgura). */
+  --color-gold: #A5427E;
+  --color-gold-dark: #7F3361;
   /* Acentos de casa: cálidos, quietos */
   --color-gold-light: #FFB61F;
   --color-gold-soft: #FFE4B3;
@@ -106,49 +109,6 @@
 }
 .home-vestidor__cta:hover { background: var(--color-gold-soft); }
 
-/* ---------- Lookbook → carrusel horizontal (estilo referencia) ---------- */
-.home-lookbook__grid {
-  display: flex !important;
-  gap: 1.25rem;
-  overflow-x: auto;
-  scroll-snap-type: x proximity;
-  padding-bottom: 1rem;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.home-lookbook__grid::-webkit-scrollbar { display: none; }
-.home-lookbook__grid .lookbook-item {
-  flex: 0 0 min(340px, 78vw);
-  scroll-snap-align: start;
-  aspect-ratio: 3 / 4;
-  overflow: hidden;
-}
-.home-lookbook__grid .lookbook-item--large { flex: 0 0 min(340px, 78vw); }
-.home-lookbook__grid .lookbook-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-/* Flechas del carrusel */
-.lookbook-nav {
-  display: flex;
-  gap: 0.5rem;
-  justify-content: flex-end;
-  margin-bottom: 1rem;
-}
-.lookbook-nav button {
-  width: 44px;
-  height: 44px;
-  border: 1px solid rgba(26,26,26,0.25);
-  background: #FFFFFF;
-  color: var(--color-ink);
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1.1rem;
-  line-height: 1;
-}
-.lookbook-nav button:hover { background: var(--color-gold-soft); border-color: var(--color-ink); }
-
 /* ============ v3.1 — matar los bloques negros restantes ============ */
 
 /* Vestidor: de negro editorial a galería blanca */
@@ -184,7 +144,6 @@
   color: var(--color-ink);
 }
 .home-stats .home-stats__label { color: var(--color-ink-muted); }
-.home-stats .home-stats__number { color: var(--color-gold); }
 
 /* Nav CTA: de bloque rojo a botón quieto */
 .nav-cta {
@@ -203,3 +162,203 @@
   transform: none !important;
   transition: none !important;
 }
+
+/* ============ v3.3 — cero palabras en rojo ============
+   La cursiva de cada titular era roja en TODA la página; el draft solo
+   había tratado hero y vestidor. Ahora la firma visual es una sola:
+   tinta negra + subrayador crema durazno. */
+.home-hero__title em,
+.home-vestidor__title em,
+.home-filosofia__title em,
+.home-vip__title em,
+.home-tallas__title em,
+.home-faq__title em,
+.home-comunidad__title em {
+  color: var(--color-ink);
+  background: linear-gradient(transparent 62%, var(--color-gold-soft) 62%);
+  padding: 0 0.08em;
+  font-style: italic;
+}
+/* El cierre oscuro es el único lugar donde la cursiva se aclara en vez de
+   subrayarse: sobre negro, el subrayador crema no se lee. */
+.home-cta__title em {
+  color: var(--color-gold-soft);
+  background: none;
+  font-style: italic;
+}
+/* La página actual en el menú: tinta subrayada, no una palabra roja */
+.nav-link.active,
+.site-nav--dark .nav-link.active,
+.site-nav--dark.scrolled .nav-link.active {
+  color: var(--color-ink);
+  background: linear-gradient(transparent 72%, var(--color-gold-soft) 72%);
+}
+/* Cifras de cabecera: tinta, no rojo */
+.home-stats__value,
+.home-stats__value svg { color: var(--color-ink); }
+/* Precio y talla del vestidor: dato, no alarma */
+.home-vestidor__info { color: var(--color-ink-muted); }
+/* El color elegido se marca con el mismo subrayador, no con rojo */
+.home-vestidor__color-name span {
+  color: var(--color-ink);
+  background: linear-gradient(transparent 60%, var(--color-gold-soft) 60%);
+  padding: 0 0.2em;
+}
+
+/* ============ v3.5 — WhatsApp verde + el acento deja de ser rojo ============ */
+
+/* El botón de cierre es de WhatsApp: que se vea de WhatsApp.
+   Verde de marca #25D366 con tinta encima (8.78:1); el blanco sobre ese
+   verde da 1.98:1 y sería ilegible. */
+.home-cta__btn-wa {
+  background: #25D366;
+  color: var(--color-ink);
+}
+.home-cta__btn-wa:hover { background: #1DB856; color: var(--color-ink); }
+
+/* Sobre el cierre oscuro, el fucsia profundo se apaga (3:1). Ahí el acento
+   vuelve a ser la crema durazno, que es la firma de toda la página. */
+.home-cta__btn-ig:hover {
+  border-color: var(--color-gold-soft);
+  color: var(--color-gold-soft);
+}
+.site-footer--dark .footer-nav a:hover,
+.site-footer--dark .footer-social a:hover { color: var(--color-gold-soft); }
+.site-footer--dark .footer-logo .accent { color: var(--color-gold-light); }
+
+/* El logotipo NO sigue al acento: el naranja BOLEM es la marca, no la paleta
+   de la página. Se fija con la misma especificidad que styles.css usa para
+   la variante clara del nav, o el cambio de acento se lo lleva. */
+.nav-logo .accent,
+.site-nav--dark .nav-logo .accent,
+.site-nav--dark.scrolled .nav-logo .accent { color: var(--color-naranja); }
+
+
+/* ============ v3.7 — el carrusel se muda al Lookbook ============
+   OAR, 16-ago: la banda continua le sirve más al Lookbook (muchas piezas,
+   ojeada ambiental) que al Vestidor, donde la decisión es deliberada y los
+   botones de color la expresan mejor. El Vestidor vuelve a su markup original. */
+
+.home-lookbook {
+  --lgap: 1.25rem;
+  --lcard: min(300px, calc((92vw - 2 * var(--lgap)) / 1.5));
+}
+@media (min-width: 768px) { .home-lookbook { --lcard: 300px; } }
+
+.home-lookbook__inner { max-width: 1200px; }
+
+.home-lookbook__grid {
+  display: flex !important;
+  width: max-content;
+  overflow: visible;
+  animation: lookbook-drift 84s linear infinite;
+}
+/* El respiro va como margen, no como gap: con gap, la mitad del recorrido no
+   cae en el inicio de una tarjeta y la banda salta cada vuelta. */
+.home-lookbook__grid > * { margin-right: var(--lgap); }
+@keyframes lookbook-drift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.home-lookbook__banda {
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+.home-lookbook__banda::before,
+.home-lookbook__banda::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: clamp(24px, 5vw, 72px);
+  z-index: 2;
+  pointer-events: none;
+}
+.home-lookbook__banda::before { left: 0;  background: linear-gradient(90deg,  #FFFFFF 0%, rgba(255,255,255,0) 100%); }
+.home-lookbook__banda::after  { right: 0; background: linear-gradient(270deg, #FFFFFF 0%, rgba(255,255,255,0) 100%); }
+
+.home-lookbook__banda:hover .home-lookbook__grid,
+.home-lookbook__banda:focus-within .home-lookbook__grid,
+.home-lookbook__grid.is-paused { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .home-lookbook__grid { animation: none; }
+}
+
+.home-lookbook__grid .lookbook-item {
+  flex: 0 0 var(--lcard);
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  position: relative;
+}
+.home-lookbook__grid .lookbook-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Nombre y precio siempre visibles: en celular no hay hover y el precio
+   es media decisión de compra. */
+.home-lookbook__grid .lookbook-item .overlay {
+  opacity: 1;
+  transform: none;
+  background: linear-gradient(transparent 45%, rgba(0,0,0,0.55) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+  position: absolute;
+  inset: 0;
+}
+.home-lookbook__grid .lookbook-item__name,
+.home-lookbook__grid .lookbook-item__price { color: #FFFFFF; }
+.home-lookbook__grid .lookbook-item__price { font-weight: 600; }
+
+.lookbook-item--todo {
+  flex: 0 0 var(--lcard);
+  aspect-ratio: 3 / 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: var(--color-gold-soft);
+  color: var(--color-ink);
+  text-align: center;
+  padding: 2rem;
+}
+.lookbook-item--todo strong {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 400;
+}
+.lookbook-item--todo span {
+  font-family: var(--font-body);
+  font-size: var(--text-micro);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.lookbook-item--todo:hover { background: var(--color-gold-light); }
+
+/* ---------- El Vestidor, de vuelta a botones de color ---------- */
+.home-vestidor__swatches { margin-top: 1.75rem; }
+.vestidor-swatch {
+  border: 2px solid rgba(26,26,26,0.15);
+}
+.vestidor-swatch:hover { border-color: rgba(26,26,26,0.45); }
+.vestidor-swatch.active {
+  border-color: var(--color-ink);
+  box-shadow: 0 0 0 3px var(--color-gold-soft);
+}
+.home-vestidor__image { position: relative; }
+
+/* ---------- Ninguna animación corre fuera de pantalla ----------
+   El marquee y la banda del lookbook seguían animando con la sección fuera
+   del viewport; el compositor pagaba por algo que nadie estaba viendo. */
+.anim-dormida,
+.anim-dormida * { animation-play-state: paused !important; }
+
+/* Secciones largas fuera de pantalla: el navegador puede saltarse su layout */
+.home-tallas,
+.home-faq,
+.home-instagram,
+.home-comunidad { content-visibility: auto; contain-intrinsic-size: auto 600px; }
