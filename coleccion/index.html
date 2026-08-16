@@ -1852,6 +1852,7 @@
 
   <!-- Shared Stylesheet -->
   <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../quickview.css">
 
   <!-- CDN Dependencies -->
   <script defer src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
@@ -2724,325 +2725,6 @@
       color: var(--color-gold);
     }
 
-    /* ─── QUICK VIEW MODAL ─── */
-    .qv-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(26, 26, 26, 0.6);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 9000;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity var(--duration-mid) var(--ease-smooth), visibility var(--duration-mid);
-    }
-
-    .qv-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .qv-modal {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.95);
-      z-index: 9001;
-      background: var(--color-cream);
-      max-width: 900px;
-      width: calc(100% - 2rem);
-      max-height: 90vh;
-      overflow-y: auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity var(--duration-mid) var(--ease-smooth),
-                  visibility var(--duration-mid),
-                  transform var(--duration-mid) var(--ease-smooth);
-    }
-
-    .qv-modal.active {
-      opacity: 1;
-      visibility: visible;
-      transform: translate(-50%, -50%) scale(1);
-    }
-
-    .qv-image {
-      aspect-ratio: 3 / 4;
-      background: linear-gradient(145deg, var(--color-warm) 0%, var(--color-cream) 100%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .qv-image img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity var(--duration-fast) var(--ease-smooth);
-    }
-
-    .qv-image img.active {
-      opacity: 1;
-    }
-
-    .qv-image-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.75rem;
-      color: var(--color-ink);
-      opacity: 0.2;
-    }
-
-    .qv-image-placeholder svg {
-      width: 64px;
-      height: 64px;
-    }
-
-    .qv-image-placeholder span {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: var(--text-body);
-    }
-
-    /* Gallery arrows */
-    .qv-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 40px;
-      height: 40px;
-      background: var(--color-cream);
-      border: var(--border-thin);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 2;
-      transition: background var(--duration-fast) var(--ease-smooth);
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    .qv-arrow.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .qv-arrow:hover {
-      background: var(--color-gold);
-    }
-
-    .qv-arrow svg {
-      width: 16px;
-      height: 16px;
-      color: var(--color-ink);
-    }
-
-    .qv-arrow--prev {
-      left: 0.75rem;
-    }
-
-    .qv-arrow--next {
-      right: 0.75rem;
-    }
-
-    /* Dot indicators */
-    .qv-dots {
-      position: absolute;
-      bottom: 0.75rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 0.5rem;
-      z-index: 2;
-    }
-
-    .qv-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--color-ink);
-      opacity: 0.2;
-      cursor: pointer;
-      transition: opacity var(--duration-fast), background var(--duration-fast);
-      border: none;
-      padding: 0;
-    }
-
-    .qv-dot.active {
-      opacity: 1;
-      background: var(--color-gold);
-    }
-
-    .qv-content {
-      padding: clamp(1.5rem, 4vw, 3rem);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .qv-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      width: 40px;
-      height: 40px;
-      background: var(--color-cream);
-      border: var(--border-thin);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 2;
-      transition: background var(--duration-fast) var(--ease-smooth);
-    }
-
-    .qv-close:hover {
-      background: var(--color-gold);
-    }
-
-    .qv-close svg {
-      width: 16px;
-      height: 16px;
-      color: var(--color-ink);
-    }
-
-    .qv-eyebrow {
-      font-family: var(--font-accent);
-      text-transform: uppercase;
-      letter-spacing: 0.3em;
-      font-size: var(--text-micro);
-      color: var(--color-gold);
-      margin-bottom: var(--space-tight);
-    }
-
-    .qv-name {
-      font-family: var(--font-display);
-      font-size: var(--text-title);
-      font-weight: var(--weight-semibold);
-      color: var(--color-ink);
-      line-height: 1.1;
-      margin-bottom: var(--space-element);
-    }
-
-    .qv-desc {
-      font-family: var(--font-body);
-      font-weight: var(--weight-light);
-      font-size: var(--text-body);
-      color: var(--color-ink);
-      opacity: 0.65;
-      line-height: 1.7;
-      margin-bottom: var(--space-element);
-    }
-
-    .qv-details {
-      display: flex;
-      gap: clamp(1rem, 3vw, 2rem);
-      margin-bottom: var(--space-block);
-      padding-top: var(--space-element);
-      border-top: 1px solid var(--color-gold-soft);
-    }
-
-    .qv-detail {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
-
-    .qv-detail-label {
-      font-family: var(--font-accent);
-      font-size: var(--text-micro);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--color-ink);
-      opacity: 0.4;
-    }
-
-    .qv-detail-value {
-      font-family: var(--font-accent);
-      font-size: var(--text-body);
-      font-weight: var(--weight-semibold);
-      color: var(--color-ink);
-    }
-
-    .qv-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      font-family: var(--font-accent);
-      font-size: var(--text-small);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      padding: 1.1rem 2.5rem;
-      background: var(--color-gold);
-      color: var(--color-ink);
-      transition: all var(--duration-mid) var(--ease-smooth);
-      cursor: pointer;
-      text-align: center;
-    }
-
-    .qv-cta:hover {
-      background: var(--color-ink);
-      color: var(--color-gold);
-    }
-
-    .qv-cta svg {
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
-    }
-
-    .qv-continue {
-      display: block;
-      text-align: center;
-      margin-top: var(--space-tight);
-      font-family: var(--font-accent);
-      font-size: var(--text-micro);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--color-ink);
-      opacity: 0.4;
-      cursor: pointer;
-      padding: 0.5rem;
-      background: none;
-      border: none;
-      transition: opacity var(--duration-fast);
-    }
-
-    .qv-continue:hover {
-      opacity: 0.8;
-    }
-
-    @media (max-width: 768px) {
-      .qv-modal {
-        grid-template-columns: 1fr;
-        max-height: 95vh;
-        width: calc(100% - 1rem);
-      }
-
-      .qv-image {
-        aspect-ratio: 4 / 3;
-      }
-
-      .qv-name {
-        font-size: var(--text-subtitle);
-      }
-
-      .qv-arrow {
-        width: 44px;
-        height: 44px;
-      }
-    }
-
     /* ─── PAGE LOADER ─── */
     .page-loader {
       position: fixed;
@@ -3306,7 +2988,7 @@
           <h3 class="product-name">Vestido Maxi Smocked</h3>
           <div class="product-meta">
             <span class="product-sizes">XL–2XL · 4 colores</span>
-            <span class="product-price">$74.5</span>
+            <span class="product-price">$74.50</span>
           </div>
           <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Maxi%20Smocked.%20Mi%20talla%20es%3A%20____%20y%20lo%20quiero%20en%20color%3A%20" class="product-cta" target="_blank" rel="noopener">Apartar</a>
         </div>
@@ -3343,7 +3025,7 @@
           <h3 class="product-name">Vestido de Verano</h3>
           <div class="product-meta">
             <span class="product-sizes">2XL–3XL</span>
-            <span class="product-price">$29.9</span>
+            <span class="product-price">$29.90</span>
           </div>
           <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20de%20Verano.%20Mi%20talla%20es%3A%20" class="product-cta" target="_blank" rel="noopener">Apartar</a>
         </div>
@@ -3361,7 +3043,7 @@
           <h3 class="product-name">Vestido Broderie</h3>
           <div class="product-meta">
             <span class="product-sizes">2XL–4XL</span>
-            <span class="product-price">$34.9</span>
+            <span class="product-price">$34.90</span>
           </div>
           <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Broderie.%20Mi%20talla%20es%3A%20" class="product-cta" target="_blank" rel="noopener">Apartar</a>
         </div>
@@ -3379,7 +3061,7 @@
           <h3 class="product-name">Vestido Utilitario</h3>
           <div class="product-meta">
             <span class="product-sizes">XL</span>
-            <span class="product-price">$35.9</span>
+            <span class="product-price">$35.90</span>
           </div>
           <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Utilitario.%20Mi%20talla%20es%3A%20" class="product-cta" target="_blank" rel="noopener">Apartar</a>
         </div>
@@ -3398,7 +3080,7 @@
           <h3 class="product-name">Vestido Midi de Algodón</h3>
           <div class="product-meta">
             <span class="product-sizes">1XL–3XL · 2 colores</span>
-            <span class="product-price">$44.9</span>
+            <span class="product-price">$44.90</span>
           </div>
           <a href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Midi%20de%20Algod%C3%B3n.%20Mi%20talla%20es%3A%20____%20y%20lo%20quiero%20en%20color%3A%20" class="product-cta" target="_blank" rel="noopener">Apartar</a>
         </div>
@@ -3974,51 +3656,6 @@
     <p class="vip-feedback" id="vipFeedback" role="status" aria-live="polite" hidden></p>
   </section>
 
-  <!-- QUICK VIEW MODAL -->
-  <div class="qv-overlay" id="qvOverlay" aria-hidden="true"></div>
-  <div class="qv-modal" id="qvModal" role="dialog" aria-modal="true" aria-labelledby="qvName" aria-hidden="true">
-    <button class="qv-close" id="qvClose" aria-label="Cerrar">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-    <div class="qv-image" id="qvImage">
-      <div class="qv-image-placeholder" id="qvPlaceholder">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-        <span>Foto próximamente</span>
-      </div>
-      <button class="qv-arrow qv-arrow--prev" id="qvPrev" aria-label="Foto anterior">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <button class="qv-arrow qv-arrow--next" id="qvNext" aria-label="Siguiente foto">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
-      <div class="qv-dots" id="qvDots"></div>
-    </div>
-    <div class="qv-content">
-      <span class="qv-eyebrow">SS26 Collection</span>
-      <h3 class="qv-name" id="qvName"></h3>
-      <p class="qv-desc" id="qvDesc"></p>
-      <div class="qv-details">
-        <div class="qv-detail">
-          <span class="qv-detail-label">Precio</span>
-          <span class="qv-detail-value" id="qvPrice"></span>
-        </div>
-        <div class="qv-detail">
-          <span class="qv-detail-label">Tallas</span>
-          <span class="qv-detail-value" id="qvSizes"></span>
-        </div>
-        <div class="qv-detail">
-          <span class="qv-detail-label">Categoría</span>
-          <span class="qv-detail-value" id="qvCategory"></span>
-        </div>
-      </div>
-      <a class="qv-cta" id="qvCta" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Apartar via WhatsApp
-      </a>
-      <button class="qv-continue" id="qvContinue">Seguir viendo</button>
-    </div>
-  </div>
-
   <!-- FOOTER -->
   <footer class="site-footer">
     <span class="footer-logo">BOL<span class="accent">E</span>M</span>
@@ -4149,248 +3786,6 @@
       });
     }
 
-    // ─── QUICK VIEW ───
-    function initQuickView() {
-      var overlay = document.getElementById('qvOverlay');
-      var modal = document.getElementById('qvModal');
-      var closeBtn = document.getElementById('qvClose');
-      var continueBtn = document.getElementById('qvContinue');
-      var qvName = document.getElementById('qvName');
-      var qvDesc = document.getElementById('qvDesc');
-      var qvPrice = document.getElementById('qvPrice');
-      var qvSizes = document.getElementById('qvSizes');
-      var qvCategory = document.getElementById('qvCategory');
-      var qvCta = document.getElementById('qvCta');
-      var qvImage = document.getElementById('qvImage');
-      var qvPlaceholder = document.getElementById('qvPlaceholder');
-      var qvPrev = document.getElementById('qvPrev');
-      var qvNext = document.getElementById('qvNext');
-      var qvDots = document.getElementById('qvDots');
-
-      var currentImages = [];
-      var currentIndex = 0;
-      var lastFocused = null;
-
-      var categoryLabels = {
-        vestido: 'Vestido',
-        blusa: 'Blusa',
-        pantalon: 'Jeans y Pantalón',
-        conjunto: 'Conjunto'
-      };
-
-      var descriptions = {
-        vestido: 'Diseñado para moverte con confianza. Tela fluida que abraza cada curva con intención — de un brunch a una cena, sin cambiarte.',
-        blusa: 'Versátil y femenina. Combinala con todo — jeans, palazzos, o sola con actitud.',
-        pantalon: 'Corte que estiliza y tela que se adapta. Pensado para que te sientas cómoda todo el día sin sacrificar estilo.',
-        conjunto: 'Look completo sin pensarlo. Dos piezas que funcionan juntas o por separado.'
-      };
-
-      function showImage(index) {
-        currentIndex = index;
-        var imgs = qvImage.querySelectorAll('img');
-        imgs.forEach(function(img, i) {
-          img.classList.toggle('active', i === index);
-        });
-        var dots = qvDots.querySelectorAll('.qv-dot');
-        dots.forEach(function(dot, i) {
-          dot.classList.toggle('active', i === index);
-        });
-      }
-
-      function buildGallery(imageSources, productName) {
-        // Clear previous images
-        qvImage.querySelectorAll('img').forEach(function(img) { img.remove(); });
-        qvDots.innerHTML = '';
-
-        if (!imageSources || imageSources.length === 0) {
-          // No images — show placeholder, hide arrows
-          qvPlaceholder.style.display = 'flex';
-          qvPrev.classList.remove('visible');
-          qvNext.classList.remove('visible');
-          currentImages = [];
-          return;
-        }
-
-        qvPlaceholder.style.display = 'none';
-        currentImages = imageSources;
-
-        // Create image elements
-        imageSources.forEach(function(src, i) {
-          var img = document.createElement('img');
-          img.src = src;
-          img.alt = productName + ' — foto ' + (i + 1);
-          img.loading = 'lazy';
-          if (i === 0) img.classList.add('active');
-          qvImage.appendChild(img);
-        });
-
-        // Show/hide arrows
-        if (imageSources.length > 1) {
-          qvPrev.classList.add('visible');
-          qvNext.classList.add('visible');
-
-          // Create dots
-          imageSources.forEach(function(_, i) {
-            var dot = document.createElement('button');
-            dot.className = 'qv-dot' + (i === 0 ? ' active' : '');
-            dot.setAttribute('aria-label', 'Foto ' + (i + 1));
-            dot.addEventListener('click', function(e) {
-              e.stopPropagation();
-              showImage(i);
-            });
-            qvDots.appendChild(dot);
-          });
-        } else {
-          qvPrev.classList.remove('visible');
-          qvNext.classList.remove('visible');
-        }
-
-        currentIndex = 0;
-      }
-
-      function openModal(card) {
-        var name = card.querySelector('.product-name').textContent;
-        var price = card.querySelector('.product-price').textContent;
-        var sizes = card.querySelector('.product-sizes').textContent;
-        var category = card.dataset.category;
-        var ctaLink = card.querySelector('.product-cta').href;
-
-        qvName.textContent = name;
-        qvPrice.textContent = price;
-        qvSizes.textContent = sizes;
-        qvCategory.textContent = categoryLabels[category] || category;
-        qvCta.href = ctaLink;
-        qvDesc.textContent = descriptions[category] || descriptions.vestido;
-
-        // Build gallery from data-images or single product-img
-        var imagesAttr = card.dataset.images;
-        var imageSources = [];
-
-        if (imagesAttr) {
-          // Multiple images: data-images="foto1.webp,foto2.webp,foto3.webp"
-          imageSources = imagesAttr.split(',').map(function(s) { return s.trim(); });
-        } else {
-          // Single image from <img> tag
-          var singleImg = card.querySelector('.product-img');
-          if (singleImg) {
-            imageSources = [singleImg.src];
-          }
-        }
-
-        buildGallery(imageSources, name);
-
-        lastFocused = card;
-        overlay.classList.add('active');
-        modal.classList.add('active');
-        modal.removeAttribute('aria-hidden');
-        document.body.style.overflow = 'hidden';
-        // Foco inicial en el boton de cerrar
-        window.setTimeout(function() { closeBtn.focus(); }, 0);
-      }
-
-      // Elementos enfocables visibles dentro del modal
-      function focusables() {
-        var sel = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
-        return Array.prototype.filter.call(modal.querySelectorAll(sel), function(el) {
-          if (el === document.activeElement) return true;
-          if (el.offsetParent === null) return false;
-          var cs = window.getComputedStyle(el);
-          return cs.visibility !== 'hidden' && cs.display !== 'none';
-        });
-      }
-
-      function trapTab(e) {
-        if (e.key !== 'Tab') return;
-        var list = focusables();
-        if (!list.length) { e.preventDefault(); return; }
-        var first = list[0], last = list[list.length - 1];
-        if (e.shiftKey && document.activeElement === first) {
-          e.preventDefault(); last.focus();
-        } else if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault(); first.focus();
-        } else if (!modal.contains(document.activeElement)) {
-          e.preventDefault(); first.focus();
-        }
-      }
-
-      function closeModal() {
-        overlay.classList.remove('active');
-        modal.classList.remove('active');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        if (lastFocused && typeof lastFocused.focus === 'function') {
-          lastFocused.focus();
-        }
-        lastFocused = null;
-      }
-
-      // Arrow navigation
-      qvPrev.addEventListener('click', function(e) {
-        e.stopPropagation();
-        if (currentImages.length < 2) return;
-        var newIndex = currentIndex <= 0 ? currentImages.length - 1 : currentIndex - 1;
-        showImage(newIndex);
-      });
-
-      qvNext.addEventListener('click', function(e) {
-        e.stopPropagation();
-        if (currentImages.length < 2) return;
-        var newIndex = currentIndex >= currentImages.length - 1 ? 0 : currentIndex + 1;
-        showImage(newIndex);
-      });
-
-      // Keyboard arrow navigation + focus trap when modal is open
-      document.addEventListener('keydown', function(e) {
-        if (!modal.classList.contains('active')) return;
-        trapTab(e);
-        if (e.key === 'ArrowLeft') {
-          qvPrev.click();
-        } else if (e.key === 'ArrowRight') {
-          qvNext.click();
-        } else if (e.key === 'Escape') {
-          closeModal();
-        }
-      });
-
-      // Touch swipe support
-      var touchStartX = 0;
-      qvImage.addEventListener('touchstart', function(e) {
-        touchStartX = e.changedTouches[0].clientX;
-      }, { passive: true });
-
-      qvImage.addEventListener('touchend', function(e) {
-        if (currentImages.length < 2) return;
-        var diff = touchStartX - e.changedTouches[0].clientX;
-        if (Math.abs(diff) > 40) {
-          if (diff > 0) {
-            qvNext.click(); // swipe left = next
-          } else {
-            qvPrev.click(); // swipe right = prev
-          }
-        }
-      }, { passive: true });
-
-      // Click / Enter / Space on product card opens modal
-      document.querySelectorAll('.product-card').forEach(function(card) {
-        card.addEventListener('click', function(e) {
-          if (e.target.closest('.product-cta')) return;
-          e.preventDefault();
-          openModal(card);
-        });
-        card.addEventListener('keydown', function(e) {
-          if (e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
-          if (e.target.closest('.product-cta')) return; // el link se activa solo
-          e.preventDefault();
-          openModal(card);
-        });
-      });
-
-      // Close modal
-      closeBtn.addEventListener('click', closeModal);
-      continueBtn.addEventListener('click', closeModal);
-      overlay.addEventListener('click', closeModal);
-    }
-
     // ─── LISTA VIP (M3) ───
     function initVipForm() {
       var form = document.getElementById('vipForm');
@@ -4468,6 +3863,39 @@
       });
     }
 
+    // ─── BAJAR AL CATÁLOGO ───
+    // Con Lenis activo hay que pedirselo a el: su bucle reimpone la posicion
+    // cada cuadro y devuelve a cero cualquier scroll nativo.
+    function irAlCatalogo(inmediato) {
+      var grid = document.getElementById('catalogo');
+      if (!grid) return;
+      var L = window.__lenis;
+      if (L && typeof L.scrollTo === 'function') {
+        L.scrollTo(grid, { offset: -80, immediate: !!inmediato });
+      } else {
+        grid.scrollIntoView({ behavior: inmediato ? 'auto' : 'smooth' });
+      }
+    }
+
+    // ─── LLEGAR YA FILTRADA DESDE OTRA PÁGINA ───
+    // El home manda a coleccion/#vestido, #blusa, #pantalon o #conjunto.
+    // Sin esto, la clienta que toca "Jeans" en el home aterriza en el catálogo
+    // completo y tiene que volver a filtrar.
+    function initFiltroDesdeHash() {
+      var cat = (location.hash || '').replace('#', '');
+      if (!cat) return;
+      var btn = document.querySelector('.filter-btn[data-filter="' + cat + '"]');
+      if (!btn) return;
+      btn.click();
+      // Dos cuadros de espera: el filtro acaba de ocultar tarjetas y hay que
+      // dejar que el layout se asiente antes de medir a donde bajar.
+      // Llegando desde otra pagina el salto es directo, no animado: nadie
+      // quiere ver 1800px de recorrido antes de encontrar lo que busca.
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { irAlCatalogo(true); });
+      });
+    }
+
     // ─── CATEGORY TILES → filtro ───
     function initCategoryTiles() {
       document.querySelectorAll('.category-tile').forEach(function(tile) {
@@ -4476,26 +3904,38 @@
           var target = tile.dataset.filterTarget;
           var btn = document.querySelector('.filter-btn[data-filter="' + target + '"]');
           if (btn) btn.click();
-          var grid = document.getElementById('catalogo');
-          if (grid) grid.scrollIntoView({ behavior: 'smooth' });
+          irAlCatalogo(false);
         });
       });
     }
 
     // ─── INIT ───
     document.addEventListener('DOMContentLoaded', function() {
-      var lenis = new Lenis({
-        duration: 1.4,
-        easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }
-      });
-      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-      requestAnimationFrame(raf);
+      // Lenis viene de un CDN. Si no carga, la excepcion se llevaria por
+      // delante todo lo que sigue (filtros, tarjetas, Quick View), asi que la
+      // pagina tiene que poder seguir sin el.
+      try {
+        var lenis = new Lenis({
+          duration: 1.4,
+          easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }
+        });
+        // se expone porque es el UNICO que puede mover el scroll: su bucle
+        // reimpone su posicion en cada cuadro y pisa cualquier scroll nativo
+        window.__lenis = lenis;
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+      } catch (e) {
+        console.warn('[BOLEM] Lenis no cargo; el scroll queda nativo', e);
+      }
 
       initMotion();
       initTypography();
       initFilters();
       initCategoryTiles();
-      initQuickView();
+      initFiltroDesdeHash();
+      // Cambiar de #vestido a #blusa no recarga la pagina: sin esto, la
+      // clienta que llega por un segundo enlace ve el filtro anterior.
+      window.addEventListener('hashchange', initFiltroDesdeHash);
       initVipForm();
 
       // Nav scroll
@@ -4531,5 +3971,6 @@
     });
   </script>
 
+  <script src="../quickview.js" defer></script>
 </body>
 </html>

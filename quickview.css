@@ -1,0 +1,337 @@
+/* Quick View — componente compartido entre el home y la colección.
+   Extraído de coleccion/index.html el 2026-08-16. Una sola copia:
+   lo que se arregle acá vale para las dos páginas. */
+
+/* ─── QUICK VIEW MODAL ─── */
+.qv-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 26, 26, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--duration-mid) var(--ease-smooth), visibility var(--duration-mid);
+}
+
+.qv-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.qv-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  z-index: 9001;
+  background: var(--color-cream);
+  max-width: 900px;
+  width: calc(100% - 2rem);
+  max-height: 90vh;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--duration-mid) var(--ease-smooth),
+              visibility var(--duration-mid),
+              transform var(--duration-mid) var(--ease-smooth);
+}
+
+.qv-modal.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.qv-image {
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(145deg, var(--color-warm) 0%, var(--color-cream) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.qv-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-smooth);
+}
+
+.qv-image img.active {
+  opacity: 1;
+}
+
+.qv-image-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-ink);
+  opacity: 0.2;
+}
+
+.qv-image-placeholder svg {
+  width: 64px;
+  height: 64px;
+}
+
+.qv-image-placeholder span {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-body);
+}
+
+/* Gallery arrows */
+.qv-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: var(--color-cream);
+  border: var(--border-thin);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: background var(--duration-fast) var(--ease-smooth);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.qv-arrow.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.qv-arrow:hover {
+  background: var(--color-gold);
+}
+
+.qv-arrow svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-ink);
+}
+
+.qv-arrow--prev {
+  left: 0.75rem;
+}
+
+.qv-arrow--next {
+  right: 0.75rem;
+}
+
+/* Dot indicators */
+.qv-dots {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.qv-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-ink);
+  opacity: 0.2;
+  cursor: pointer;
+  transition: opacity var(--duration-fast), background var(--duration-fast);
+  border: none;
+  padding: 0;
+}
+
+.qv-dot.active {
+  opacity: 1;
+  background: var(--color-gold);
+}
+
+.qv-content {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.qv-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  background: var(--color-cream);
+  border: var(--border-thin);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: background var(--duration-fast) var(--ease-smooth);
+}
+
+.qv-close:hover {
+  background: var(--color-gold);
+}
+
+.qv-close svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-ink);
+}
+
+.qv-eyebrow {
+  font-family: var(--font-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: var(--text-micro);
+  color: var(--color-gold);
+  margin-bottom: var(--space-tight);
+}
+
+.qv-name {
+  font-family: var(--font-display);
+  font-size: var(--text-title);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+  line-height: 1.1;
+  margin-bottom: var(--space-element);
+}
+
+.qv-desc {
+  font-family: var(--font-body);
+  font-weight: var(--weight-light);
+  font-size: var(--text-body);
+  color: var(--color-ink);
+  opacity: 0.65;
+  line-height: 1.7;
+  margin-bottom: var(--space-element);
+}
+
+.qv-details {
+  display: flex;
+  gap: clamp(1rem, 3vw, 2rem);
+  margin-bottom: var(--space-block);
+  padding-top: var(--space-element);
+  border-top: 1px solid var(--color-gold-soft);
+}
+
+.qv-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.qv-detail-label {
+  font-family: var(--font-accent);
+  font-size: var(--text-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-ink);
+  opacity: 0.4;
+}
+
+.qv-detail-value {
+  font-family: var(--font-accent);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+
+.qv-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-family: var(--font-accent);
+  font-size: var(--text-small);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 1.1rem 2.5rem;
+  background: var(--color-gold);
+  color: var(--color-ink);
+  transition: all var(--duration-mid) var(--ease-smooth);
+  cursor: pointer;
+  text-align: center;
+}
+
+.qv-cta:hover {
+  background: var(--color-ink);
+  color: var(--color-gold);
+}
+
+.qv-cta svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.qv-continue {
+  display: block;
+  text-align: center;
+  margin-top: var(--space-tight);
+  font-family: var(--font-accent);
+  font-size: var(--text-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-ink);
+  opacity: 0.4;
+  cursor: pointer;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  transition: opacity var(--duration-fast);
+}
+
+.qv-continue:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .qv-modal {
+    grid-template-columns: 1fr;
+    max-height: 95vh;
+    width: calc(100% - 1rem);
+  }
+
+  .qv-image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .qv-name {
+    font-size: var(--text-subtitle);
+  }
+
+  .qv-arrow {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* ─── El CTA es un botón de WhatsApp: que se vea de WhatsApp ───
+   Verde de marca #25D366 con tinta encima (8.78:1). El blanco sobre ese
+   verde da 1.98:1 y sería ilegible. Vale para las dos páginas, igual que
+   el botón del cierre del home. */
+.qv-cta {
+  background: #25D366;
+  color: var(--color-ink);
+  border-color: #25D366;
+}
+.qv-cta:hover {
+  background: #1DB856;
+  border-color: #1DB856;
+  color: var(--color-ink);
+}

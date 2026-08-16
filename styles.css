@@ -624,3 +624,100 @@ body::before {
     scroll-behavior: auto !important;
   }
 }
+
+
+/* ============================================================
+   Paleta v3 — "Blanco galería" (aplicada 2026-08-16)
+   Venía de draft_paleta.css, que era una capa sobre un preview
+   aparte. Se fusionó acá para que TODAS las páginas compartan
+   la misma paleta y el mismo logotipo.
+   ============================================================ */
+/* ============================================================
+   DRAFT v3 — "Blanco galería, paleta sutil" (2026-08-15)
+   Feedback v2: mucho negro y mucho rojo, sin conexión.
+   Principio v3: base blanca; la paleta de Mónica entra como
+   ACENTO DE CASA (crema durazno #FFE4B3) + naranja profundo
+   SOLO al interactuar (links, hovers). Cero bloques negros.
+   El color protagonista son las fotos, como en las referencias.
+   ============================================================ */
+:root {
+  --color-cream: #FFFFFF;
+  --color-warm: #FFFBF4;
+
+  /* Acento interactivo (links, hovers, íconos): fucsia profundo.
+     v3.5 — el naranja profundo #C93400 seguía leyéndose como rojo.
+     Este desciende del Fucsia #FF66C3 de la tarjeta de Mónica, oscurecido
+     hasta ser legible como texto: 5.71:1 sobre blanco (AA con holgura). */
+  --color-gold: #A5427E;
+  --color-gold-dark: #7F3361;
+  /* Acentos de casa: cálidos, quietos */
+  --color-gold-light: #FFB61F;
+  --color-gold-soft: #FFE4B3;
+
+  --color-naranja: #FE470A;
+  --color-coral: #FA5857;
+  --color-durazno: #FA9562;
+  --color-rosa: #FF789F;
+  --color-fucsia: #FF66C3;
+}
+.site-nav--dark { background: rgba(255,255,255,0.92); }
+.site-nav--dark .nav-link, .site-nav--dark .nav-logo { color: var(--color-ink); }
+.gold-line-long,
+.gold-line { background: var(--color-gold-soft); }
+/* Nav CTA: de bloque rojo a botón quieto */
+.nav-cta {
+  background: transparent;
+  border: 1px solid var(--color-ink);
+  color: var(--color-ink);
+}
+.nav-cta:hover { background: var(--color-gold-soft); opacity: 1; }
+/* La página actual en el menú: tinta subrayada, no una palabra roja */
+.nav-link.active,
+.site-nav--dark .nav-link.active,
+.site-nav--dark.scrolled .nav-link.active {
+  color: var(--color-ink);
+  background: linear-gradient(transparent 72%, var(--color-gold-soft) 72%);
+}
+.site-footer--dark .footer-nav a:hover,
+.site-footer--dark .footer-social a:hover { color: var(--color-gold-soft); }
+.site-footer--dark .footer-logo .accent { color: var(--color-gold-light); }
+/* El logotipo NO sigue al acento: el naranja BOLEM es la marca, no la paleta
+   de la página. Se fija con la misma especificidad que styles.css usa para
+   la variante clara del nav, o el cambio de acento se lo lleva. */
+.nav-logo .accent,
+.site-nav--dark .nav-logo .accent,
+.site-nav--dark.scrolled .nav-logo .accent { color: var(--color-naranja); }
+/* ---------- 2. El logotipo ----------
+   Estaba en la misma serif que los titulares, asi que en el nav competia con
+   ellos en vez de leerse como marca. En sans ancha y espaciada se lee como
+   logotipo, y la E vuelve a tinta: el color de la pagina vive en las fotos. */
+.nav-logo,
+.site-nav--dark .nav-logo,
+.footer-logo {
+  font-family: var(--font-body);
+  /* liviano a proposito: el contraste con la E es el guiño */
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.34em;
+  /* el espaciado agrega aire despues de la ultima letra: se descuenta */
+  margin-right: -0.34em;
+}
+.nav-logo,
+.site-nav--dark .nav-logo { font-size: clamp(1.35rem, 1.9vw, 1.75rem); color: var(--color-ink); }
+.footer-logo { font-size: 1.15rem; }
+/* El guiño a Bold + Fem, de donde sale el nombre: la E se marca con PESO y
+   con el subrayador crema que ya es la firma de la página — no con rojo.
+   Outfit trae hasta 600 cargado; más alto lo fingiría el navegador y se vería
+   sucio. 300 contra 600 ya es un golpe claro. */
+.nav-logo .accent,
+.site-nav--dark .nav-logo .accent,
+.site-nav--dark.scrolled .nav-logo .accent,
+.footer-logo .accent {
+  color: inherit;
+  font-weight: 600;
+  background: linear-gradient(transparent 74%, var(--color-gold-soft) 74%);
+  /* el aire entre letras vive DENTRO de la caja de la E, asi que el subrayador
+     salia corrido a la derecha: se saca del fondo y se devuelve como margen */
+  letter-spacing: 0;
+  margin-right: 0.34em;
+}
