@@ -1,0 +1,262 @@
+/* prenda.css — la ficha de una prenda.
+   La cargan SOLO las paginas de /prendas/. Todo lo global (colores, nav,
+   footer, logotipo) viene de styles.css, que cargan las 62 paginas. */
+
+.prenda-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: calc(var(--nav-height) + 1.5rem) var(--content-padding) 0;
+}
+
+/* ---------- migas ---------- */
+.prenda-migas {
+  font-family: var(--font-accent);
+  font-size: var(--text-micro);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  margin-bottom: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+}
+.prenda-migas a { color: var(--color-ink-muted); text-decoration: none; border-bottom: 1px solid transparent; }
+.prenda-migas a:hover { color: var(--color-gold); border-bottom-color: currentColor; }
+.prenda-migas span[aria-hidden] { opacity: 0.5; }
+
+/* ---------- bloque principal ---------- */
+.prenda-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+/* --- galeria --- */
+.prenda-fotos { display: flex; flex-direction: column; gap: 0.7rem; }
+.prenda-foto-grande {
+  position: relative;
+  background: var(--color-warm);
+  border: var(--border-thin);
+  overflow: hidden;
+}
+.prenda-foto-grande img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+.prenda-miniaturas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: 0.55rem;
+}
+.prenda-miniaturas button {
+  padding: 0;
+  border: var(--border-thin);
+  background: var(--color-warm);
+  cursor: pointer;
+  overflow: hidden;
+  line-height: 0;
+  transition: border-color var(--duration-fast);
+}
+.prenda-miniaturas button[aria-current="true"] { border-color: var(--color-gold); border-width: 2px; }
+.prenda-miniaturas button:hover { border-color: var(--color-gold); }
+.prenda-miniaturas img { width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; display: block; }
+.prenda-miniaturas button:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 2px; }
+
+/* --- datos --- */
+.prenda-datos { padding-top: 0.25rem; }
+.prenda-eyebrow {
+  font-family: var(--font-accent);
+  font-size: var(--text-micro);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  margin-bottom: 0.5rem;
+}
+.prenda-nombre {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 4vw, 2.9rem);
+  font-weight: var(--weight-regular);
+  line-height: 1.1;
+  margin: 0 0 0.6rem;
+  text-wrap: balance;
+}
+.prenda-precio {
+  font-family: var(--font-accent);
+  font-size: 1.6rem;
+  font-weight: var(--weight-medium);
+  font-variant-numeric: tabular-nums;
+  margin: 0 0 1.5rem;
+}
+
+.prenda-campo { margin-bottom: 1.4rem; }
+.prenda-campo h2 {
+  font-family: var(--font-accent);
+  font-size: var(--text-micro);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  margin: 0 0 0.55rem;
+}
+.prenda-tallas { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.prenda-talla {
+  font-family: var(--font-accent);
+  font-size: 0.9rem;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.04em;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--color-ink);
+  background: var(--color-white);
+}
+.prenda-nota {
+  font-size: 0.9rem;
+  color: var(--color-ink-muted);
+  margin: 0.6rem 0 0;
+  line-height: 1.55;
+}
+.prenda-nota a { color: var(--color-gold); }
+
+/* --- llamada --- */
+.prenda-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  width: 100%;
+  background: #25D366;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: var(--weight-semibold);
+  padding: 0.95rem 1.5rem;
+  border: none;
+  text-decoration: none;
+  transition: filter var(--duration-fast);
+  margin-top: 0.5rem;
+}
+.prenda-cta:hover { filter: brightness(0.94); color: var(--color-ink); border: none; }
+.prenda-cta:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 3px; }
+.prenda-cta svg { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
+
+.prenda-confianza {
+  list-style: none;
+  margin: 1.2rem 0 0;
+  padding: 1.1rem 0 0;
+  border-top: var(--border-thin);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-ink-muted);
+}
+.prenda-confianza li { display: flex; gap: 0.55rem; align-items: baseline; }
+.prenda-confianza b { color: var(--color-ink); font-weight: var(--weight-medium); }
+.prenda-confianza span[aria-hidden] { color: var(--color-gold); }
+
+/* ---------- descripcion ---------- */
+.prenda-detalle {
+  margin-top: clamp(3rem, 7vh, 5rem);
+  padding-top: clamp(2rem, 4vh, 3rem);
+  border-top: var(--border-thin);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: start;
+}
+.prenda-detalle h2 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: var(--weight-regular);
+  margin: 0 0 0.85rem;
+}
+.prenda-detalle p { font-size: 1rem; line-height: 1.7; margin: 0 0 0.9rem; }
+.prenda-detalle p:last-child { margin-bottom: 0; }
+.prenda-detalle .prenda-caja {
+  background: var(--color-warm);
+  border: var(--border-thin);
+  padding: 1.4rem 1.5rem;
+}
+.prenda-detalle dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.5rem 1.1rem; font-size: 0.95rem; }
+.prenda-detalle dt {
+  font-family: var(--font-accent);
+  font-size: var(--text-micro);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  padding-top: 0.15rem;
+}
+.prenda-detalle dd { margin: 0; }
+
+/* ---------- seguí viendo ---------- */
+.prenda-relacionadas { margin-top: clamp(3.5rem, 8vh, 6rem); }
+.prenda-relacionadas h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: var(--weight-regular);
+  margin: 0 0 1.4rem;
+}
+.prenda-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.1rem;
+}
+.prenda-mini { text-decoration: none; display: block; border: none; }
+.prenda-mini:hover { border: none; }
+.prenda-mini img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  display: block;
+  border: var(--border-thin);
+  background: var(--color-warm);
+}
+.prenda-mini strong {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  margin-top: 0.55rem;
+  line-height: 1.35;
+}
+.prenda-mini span {
+  display: block;
+  font-family: var(--font-accent);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-ink-muted);
+  margin-top: 0.1rem;
+}
+.prenda-mini:hover strong { color: var(--color-gold); }
+.prenda-mini:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; }
+
+.prenda-volver {
+  margin: clamp(3rem, 6vh, 4.5rem) 0 clamp(4rem, 8vh, 6rem);
+  text-align: center;
+}
+.prenda-volver a {
+  font-family: var(--font-accent);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  border-bottom: 1px solid var(--color-gold);
+  text-decoration: none;
+  padding-bottom: 2px;
+}
+.prenda-volver a:hover { color: var(--color-gold); }
+
+@media (max-width: 860px) {
+  .prenda-top { grid-template-columns: 1fr; gap: 1.5rem; }
+  .prenda-detalle { grid-template-columns: 1fr; }
+  .prenda-precio { font-size: 1.4rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .prenda-cta, .prenda-miniaturas button { transition: none; }
+}

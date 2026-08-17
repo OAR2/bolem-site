@@ -26,6 +26,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATOS = os.path.join(ROOT, "_data", "catalogo.json")
 WA = "50368590899"
+SITIO = "https://bolemsv.com"
 
 ETIQUETA_CAT = {
     "vestido": "Vestidos",
@@ -40,13 +41,21 @@ PORTADA_CAT = {
     "pantalon": "pantalon-lino.webp",
     "conjunto": "conjunto-burdeos.webp",
 }
-# orden de las dos bandas del home (editorial: arriba lo que se lleva puesto
-# completo, abajo lo que se combina). Los que no esten listados van al final.
-BANDA_1 = ["vestido-mangas-globo", "vestido-maxi-smocked", "vestido-cobalto", "jeans-flare",
-           "conjunto-blanco-palazzo", "vestido-batik", "conjunto-negro-satinado",
-           "vestido-eventos-sage", "conjunto-burdeos", "vestido-midi-algodon",
-           "pantalon-lino", "conjunto-chaleco-short", "vestido-broderie-rojo",
-           "blusa-denim-peplum", "blusa-peplum-gingham", "blusa-off-shoulder"]
+# Las dos bandas del home. El criterio es editorial y no cambia: arriba lo que
+# se lleva puesto completo (vestidos, conjuntos, pantalones), abajo lo que se
+# combina (blusas). Eso las mantiene parejas solo, porque el catalogo crece
+# parejo por los dos lados.
+#
+# Antes esto era una lista de ids escrita a mano, y se pudria cada vez que
+# entraba un producto: al pasar de 33 a 49 prendas quedo en 17 contra 33, o sea
+# las dos bandas girando a distinta velocidad. Ahora es una REGLA; la lista de
+# abajo solo dice que va PRIMERO dentro de la banda 1, no quien pertenece.
+BANDA_1_CATEGORIAS = ("vestido", "conjunto", "pantalon")
+BANDA_1_PRIMERO = ["vestido-mangas-globo", "vestido-maxi-smocked", "vestido-cobalto",
+                   "jeans-flare", "conjunto-blanco-palazzo", "vestido-batik",
+                   "conjunto-negro-satinado", "vestido-eventos-sage",
+                   "conjunto-burdeos", "vestido-midi-algodon", "pantalon-lino",
+                   "conjunto-chaleco-short", "vestido-broderie-rojo"]
 
 
 def cargar():
@@ -157,7 +166,7 @@ def tarjetas_de(prods, escala):
             '%s'
             '        </div>\n'
             '        <div class="product-info">\n'
-            '          <h3 class="product-name">%s</h3>\n'
+            '          <h3 class="product-name"><a href="../prendas/%s" class="product-link">%s</a></h3>\n'
             '          <div class="product-meta">\n'
             '            <span class="product-sizes">%s</span>\n'
             '            <span class="product-price">%s</span>\n'
@@ -167,7 +176,8 @@ def tarjetas_de(prods, escala):
             '      </div>\n'
             % (grande, p["categoria"], p["id"], imgs, p["nombre"], precio_txt(p["precio"]),
                b0, b0, b0, b0, tam, p["alt"], onerr, alt2,
-               p["nombre"], tallas_txt(p, escala), precio_txt(p["precio"]), wa_apartar(p["nombre"])))
+               p["id"], p["nombre"], tallas_txt(p, escala), precio_txt(p["precio"]),
+               wa_apartar(p["nombre"])))
     return "".join(fuera)
 
 
@@ -214,18 +224,26 @@ def azulejos(prods, para_home, cats):
 
 
 def bandas_home(prods, porid, escala):
-    orden1 = [i for i in BANDA_1 if i in porid]
+    # Banda 1 = lo que se lleva puesto completo. Banda 2 = lo que se combina.
+    # BANDA_1_PRIMERO solo fija el orden de arranque; la pertenencia sale de la
+    # categoria, asi que las bandas se mantienen parejas solas al crecer.
+    de_banda1 = [p["id"] for p in prods if p["categoria"] in BANDA_1_CATEGORIAS]
+    orden1 = ([i for i in BANDA_1_PRIMERO if i in porid and i in de_banda1] +
+              [i for i in de_banda1 if i not in BANDA_1_PRIMERO])
     orden2 = [p["id"] for p in prods if p["id"] not in orden1]
 
     # Las dos filas comparten la duracion de animacion del CSS. Si miden
     # distinto, se mueven a distinta velocidad y se nota. La fila de arriba
     # lleva ademas la tarjeta que va a la coleccion, asi que cuenta una mas.
     largo1, largo2 = len(orden1) + 1, len(orden2)
-    if largo1 != largo2:
+    if abs(largo1 - largo2) > 2:
         print("  AVISO: las bandas del home quedaron desparejas (%d vs %d tarjetas)."
               % (largo1, largo2))
-        print("         Van a girar a distinta velocidad. Emparejarlas moviendo ids")
-        print("         entre BANDA_1 y el resto, en este mismo archivo.")
+        print("         Van a girar a distinta velocidad. Se empareja moviendo una")
+        print("         categoria entre BANDA_1_CATEGORIAS y el resto.")
+    elif largo1 != largo2:
+        print("  bandas del home: %d vs %d tarjetas (diferencia tolerable)"
+              % (largo1, largo2))
 
     def tarjeta(pid, dup, prioritaria):
         p = porid[pid]
@@ -290,6 +308,81 @@ def region(texto, marca, contenido_nuevo, ancla_ini, ancla_fin, archivo):
     return texto[:a] + "\n" + ini + "\n" + contenido_nuevo + fin + "\n" + texto[b:], True
 
 
+def itemlist_jsonld(prods, cats):
+    """El ItemList de la coleccion: lo que lee Google Shopping.
+
+    Estaba escrito a mano y fuera del constructor, asi que se quedo en 33
+    productos mientras la pagina ya mostraba 49 — justo el bloque que no puede
+    mentir. Ahora se deriva igual que todo lo demas.
+
+    Cambio de fondo: `offers.url` apuntaba a wa.me para los 33. Un Offer tiene
+    que apuntar a la pagina donde se ve ESE producto; wa.me es un chat, no una
+    ficha. Por eso Merchant Center era inviable. Ahora apunta a /prendas/<id>.
+    """
+    items = []
+    for i, p in enumerate(prods, 1):
+        cat = cats.get(p["categoria"], {}).get("etiqueta_larga", p["categoria"])
+        url = "%s/prendas/%s" % (SITIO, p["id"])
+        color = " en %d colores." % p["colores"] if p.get("colores", 1) > 1 else ""
+        items.append({
+            "@type": "Product",
+            "position": i,
+            "name": p["nombre"],
+            "url": url,
+            "image": "%s/assets/productos/%s" % (SITIO, p["fotos"][0]),
+            "description": "%s plus size, tallas %s.%s" % (
+                p["nombre"], p["tallas_texto_original"], color),
+            "sku": p["id"],
+            "category": cat,
+            "brand": {"@type": "Brand", "@id": SITIO + "/#marca-bolem", "name": "BOLEM"},
+            "size": p["tallas"],
+            "offers": {
+                "@type": "Offer",
+                "url": url,
+                "price": "%.2f" % float(p["precio"]),
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "itemCondition": "https://schema.org/NewCondition",
+                "seller": {"@type": "ClothingStore", "@id": SITIO + "/#bolem", "name": "BOLEM"},
+                "shippingDetails": {
+                    "@type": "OfferShippingDetails",
+                    "shippingRate": {"@type": "MonetaryAmount", "value": "5.00", "currency": "USD"},
+                    "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "SV"},
+                    "deliveryTime": {"@type": "ShippingDeliveryTime",
+                                     "transitTime": {"@type": "QuantitativeValue", "minValue": 1,
+                                                     "maxValue": 3, "unitCode": "DAY"}},
+                },
+                "hasMerchantReturnPolicy": {
+                    "@type": "MerchantReturnPolicy",
+                    "applicableCountry": "SV",
+                    "returnPolicyCategory":
+                        "https://schema.org/MerchantReturnFiniteReturnWindow",
+                    "merchantReturnDays": 2,
+                    "returnMethod": "https://schema.org/ReturnByMail",
+                    "returnFees": "https://schema.org/FreeReturn",
+                },
+            },
+        })
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Colección BOLEM 2026",
+        "numberOfItems": len(prods),
+        "itemListElement": items,
+    }, ensure_ascii=False, indent=2)
+
+
+def poner_itemlist(html, prods, cats):
+    """Reemplaza el bloque JSON-LD que contiene el ItemList, entero."""
+    patron = re.compile(
+        r'(<script[^>]*type="application/ld\+json"[^>]*>\s*)(\{.*?"@type"\s*:\s*"ItemList".*?\})(\s*</script>)',
+        re.S)
+    m = patron.search(html)
+    assert m, "coleccion/index.html: no se encontro el bloque ItemList"
+    return patron.sub(lambda mm: mm.group(1) + itemlist_jsonld(prods, cats) + mm.group(3),
+                      html, count=1)
+
+
 def main():
     revisar = "--revisar" in sys.argv
     d, prods, porid = cargar()
@@ -305,9 +398,22 @@ def main():
                          '<div class="catalog-filters" data-reveal>', '\n    </div>', "coleccion")
     col, nuevo3 = region(col, "AZULEJOS", azulejos(prods, False, d.get("categorias", {})),
                          '<div class="category-tiles-inner" data-reveal-stagger>', '\n    </div>', "coleccion")
+    col = poner_itemlist(col, prods, d.get("categorias", {}))
     col = re.sub(r'"numberOfItems"\s*:\s*\d+', '"numberOfItems": %d' % len(prods), col)
-    # el titulo del catalogo tambien lleva el numero escrito
-    col = re.sub(r'(<h2 class="catalog-title">)\d+( Estilos)', r'\g<1>%d\g<2>' % len(prods), col)
+    # La cuenta de prendas y el rango de tallas estaban escritos a mano en SEIS
+    # lugares de esta pagina (titulo, descripcion, og:title, og:description,
+    # JSON-LD y el H1). Al pasar de 33 a 49 el H1 se quedo mintiendo porque el
+    # parche viejo buscaba un <h2> que el arreglo de SEO ya habia vuelto <h1>.
+    # Ahora se patchea por frase y sin depender de la etiqueta.
+    col = re.sub(r'\b\d+ (estilos|Estilos)\b', lambda m: '%d %s' % (len(prods), m.group(1)), col)
+    # El rango que la marca anuncia se declara a mano en catalogo.json, NO se
+    # deriva de escala_tallas: la L existe en 2 de 49 prendas que cruzan hacia
+    # abajo y no es el rango del catalogo. Derivarlo cambio el reclamo de marca
+    # a "L a 4XL" sin que nadie lo decidiera.
+    rango_pub = d.get("rango_publicado")
+    if rango_pub:
+        col = re.sub(r'([Tt]allas )[A-Z0-9]{1,3} a [A-Z0-9]{1,3}( seg)',
+                     lambda m: m.group(1) + rango_pub + m.group(2), col)
     if col != original_col:
         cambios.append(("coleccion/index.html", original_col, col))
 
@@ -326,8 +432,11 @@ def main():
     pl = os.path.join(ROOT, "llms.txt")
     if os.path.exists(pl):
         llms = original_llms = open(pl, encoding="utf-8").read()
-        lineas = ["- %s (%s) %s, tallas %s" % (p["nombre"], ETIQUETA_CAT[p["categoria"]],
-                                               precio_txt(p["precio"]), rango_txt(p["tallas"], escala))
+        # Cada linea lleva AHORA la direccion de su propia ficha. Un motor de IA
+        # que cite una prenda puede mandar a esa pagina y no al catalogo entero.
+        lineas = ["- %s (%s) %s, tallas %s — %s/prendas/%s"
+                  % (p["nombre"], ETIQUETA_CAT[p["categoria"]], precio_txt(p["precio"]),
+                     rango_txt(p["tallas"], escala), SITIO, p["id"])
                   for p in prods]
         bloque = "\n".join(lineas) + "\n"
         ini, fin = "<!-- BOLEM:PRODUCTOS -->", "<!-- /BOLEM:PRODUCTOS -->"
@@ -338,6 +447,45 @@ def main():
         else:
             llms = llms.rstrip() + "\n\n## Catalogo (%d piezas)\n%s\n%s%s\n" % (
                 len(prods), ini, bloque, fin)
+
+        # Los conteos escritos a mano en el texto de alrededor. Se quedaban en
+        # 33 mientras el bloque de abajo ya decia 49 — el archivo se contradecia
+        # a si mismo, y esto es justo lo que un motor de IA cita como hecho.
+        precios = sorted(float(p["precio"]) for p in prods)
+        rango_precio = "$%s a $%s USD" % (precio_txt(precios[0]).lstrip("$"),
+                                          precio_txt(precios[-1]).lstrip("$"))
+        llms = re.sub(r'Coleccion 2026: \d+ estilos',
+                      'Coleccion 2026: %d estilos' % len(prods), llms)
+        llms = re.sub(r'Precios de \$[\d.]+ a \$[\d.]+ USD',
+                      'Precios de %s' % rango_precio, llms)
+        llms = re.sub(r'## Catalogo \(\d+ piezas\)',
+                      '## Catalogo (%d piezas)' % len(prods), llms)
+        if d.get("rango_publicado"):
+            llms = re.sub(r'Tallas [A-Z0-9]{1,3} a [A-Z0-9]{1,3} segun la prenda',
+                          'Tallas %s segun la prenda' % d["rango_publicado"], llms)
+        # La lista por categoria que vivia escrita a mano arriba: se deriva.
+        por_cat = []
+        for k in ("vestido", "blusa", "pantalon", "conjunto"):
+            g = [p for p in prods if p["categoria"] == k]
+            if not g:
+                continue
+            piezas = "; ".join(
+                "%s %s (tallas %s%s)" % (p["nombre"], precio_txt(p["precio"]),
+                                         rango_txt(p["tallas"], escala),
+                                         (", %d colores" % p["colores"])
+                                         if p.get("colores", 1) > 1 else "")
+                for p in g)
+            por_cat.append("- %s (%d): %s" % (ETIQUETA_CAT[k], len(g), piezas))
+        llms = re.sub(
+            r'(## Productos \(catalogo completo, precios reales\)\n\n).*?(\n\n## Diferenciadores)',
+            lambda m: m.group(1) + "\n".join(por_cat) + m.group(2),
+            llms, flags=re.S)
+        # el articulo nuevo entra al indice editorial
+        art = "- Diferencia entre talla XL y 1XL: %s/blog/tallas-xl-1xl-plus-size" % SITIO
+        if art not in llms:
+            llms = llms.replace(
+                "- Guia de tallas plus size: %s/blog/guia-tallas-plus-size" % SITIO,
+                art + "\n- Guia de tallas plus size: %s/blog/guia-tallas-plus-size" % SITIO)
         if llms != original_llms:
             cambios.append(("llms.txt", original_llms, llms))
 

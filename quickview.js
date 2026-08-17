@@ -218,15 +218,19 @@
       if (Math.abs(dif) > 40) (dif > 0 ? qvNext : qvPrev).click();
     }, { passive: true });
 
+    // Un enlace de verdad dentro de la tarjeta NAVEGA; no abre el visor.
+    // Antes solo se dejaba pasar .product-cta, asi que al ponerle a cada
+    // tarjeta su enlace a /prendas/<id> el visor se lo tragaba y la ficha
+    // quedaba inalcanzable con el mouse (y para Google, que sigue enlaces).
     document.querySelectorAll('.product-card, [data-qv]').forEach(function (card) {
       card.addEventListener('click', function (e) {
-        if (e.target.closest('.product-cta')) return;
+        if (e.target.closest('a')) return;
         e.preventDefault();
         abrir(card);
       });
       card.addEventListener('keydown', function (e) {
         if (e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
-        if (e.target.closest('.product-cta')) return;
+        if (e.target.closest('a')) return;
         e.preventDefault();
         abrir(card);
       });
