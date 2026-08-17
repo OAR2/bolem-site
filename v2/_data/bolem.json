@@ -1,0 +1,1247 @@
+{
+ "_nota": "Copia de trabajo de la Hoja Madre. NO editar a mano: se sobrescribe entera cada vez que corre sincronizar_hoja.py. La fuente es la hoja.",
+ "_hoja": "1-fow67oGgzEw4OM2Pq_gu2sus-gl_kTHCfuZYobwWgQ",
+ "productos": [
+  {
+   "id": "vestido-largo-volantes",
+   "nombre": "Vestido Largo de Volantes",
+   "categoria": "vestido",
+   "precio": 28.0,
+   "tallas": [
+    "3XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "vestido-largo-volantes.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "vestido-shirtdress",
+   "nombre": "Vestido Shirtdress",
+   "categoria": "vestido",
+   "precio": 29.0,
+   "tallas": [
+    "XL",
+    "1XL"
+   ],
+   "colores": 2,
+   "fotos": [
+    "vestido-shirtdress-crema.webp",
+    "vestido-shirtdress-camel.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "vestido-verano-rojo",
+   "nombre": "Vestido de Verano",
+   "categoria": "vestido",
+   "precio": 29.9,
+   "tallas": [
+    "2XL",
+    "3XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "vestido-verano-rojo.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "vestido-broderie-rojo",
+   "nombre": "Vestido Broderie",
+   "categoria": "vestido",
+   "precio": 34.9,
+   "tallas": [
+    "2XL",
+    "3XL",
+    "4XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "vestido-broderie-rojo.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "vestido-negro-corte-a",
+   "nombre": "Vestido Corte A",
+   "categoria": "vestido",
+   "precio": 35.0,
+   "tallas": [
+    "2XL",
+    "3XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "vestido-negro-corte-a.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "vestido-utilitario-crema",
+   "nombre": "Vestido Utilitario",
+   "categoria": "vestido",
+   "precio": 35.9,
+   "tallas": [
+    "XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "vestido-utilitario-crema.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "vestido-midi-algodon",
+   "nombre": "Vestido Midi de Algodón",
+   "categoria": "vestido",
+   "precio": 44.9,
+   "tallas": [
+    "1XL",
+    "2XL",
+    "3XL"
+   ],
+   "colores": 2,
+   "fotos": [
+    "vestido-midi-algodon-indigo.webp",
+    "vestido-midi-algodon-beige.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "vestido-capas-gasa",
+   "nombre": "Vestido de Capas",
+   "categoria": "vestido",
+   "precio": 45.0,
+   "tallas": [
+    "2XL",
+    "3XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "vestido-capas-gasa.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "vestido-eventos-sage",
+   "nombre": "Vestido para Eventos",
+   "categoria": "vestido",
+   "precio": 45.0,
+   "tallas": [
+    "2XL",
+    "3XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "vestido-eventos-sage.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "vestido-batik",
+   "nombre": "Vestido Batik de Algodón",
+   "categoria": "vestido",
+   "precio": 55.0,
+   "tallas": [
+    "1XL",
+    "2XL",
+    "3XL"
+   ],
+   "colores": 2,
+   "fotos": [
+    "vestido-batik-coral.webp",
+    "vestido-batik-olivo.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "vestido-camisero-denim",
+   "nombre": "Vestido Camisero Denim",
+   "categoria": "vestido",
+   "precio": 55.0,
+   "tallas": [
+    "1XL",
+    "2XL",
+    "3XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "vestido-camisero-denim.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "vestido-cobalto",
+   "nombre": "Vestido Maxi Cobalto",
+   "categoria": "vestido",
+   "precio": 65.0,
+   "tallas": [
+    "XL",
+    "1XL",
+    "2XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "vestido-cobalto.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "vestido-maxi-smocked",
+   "nombre": "Vestido Maxi Smocked",
+   "categoria": "vestido",
+   "precio": 74.5,
+   "tallas": [
+    "XL",
+    "1XL",
+    "2XL"
+   ],
+   "colores": 4,
+   "fotos": [
+    "vestido-maxi-smocked-blanco.webp",
+    "vestido-maxi-smocked-crema.webp",
+    "vestido-maxi-smocked-fucsia.webp",
+    "vestido-maxi-smocked-lavanda.webp"
+   ],
+   "destacada": true,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "vestido-mangas-globo",
+   "nombre": "Vestido Mangas Globo",
+   "categoria": "vestido",
+   "precio": 85.0,
+   "tallas": [
+    "XL",
+    "1XL",
+    "2XL"
+   ],
+   "colores": 3,
+   "fotos": [
+    "vestido-mangas-globo-amarillo.webp",
+    "vestido-mangas-globo-celeste.webp",
+    "vestido-mangas-globo-beige.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "blusa-off-shoulder",
+   "nombre": "Blusa Off Shoulder",
+   "categoria": "blusa",
+   "precio": 22.0,
+   "tallas": [
+    "XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "blusa-off-shoulder.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "blusa-peplum-rayas",
+   "nombre": "Blusa Peplum de Rayas",
+   "categoria": "blusa",
+   "precio": 22.0,
+   "tallas": [
+    "XL",
+    "1XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "blusa-peplum-rayas.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "blusa-encaje-negro",
+   "nombre": "Blusa con Encaje",
+   "categoria": "blusa",
+   "precio": 23.0,
+   "tallas": [
+    "XL",
+    "1XL",
+    "2XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "blusa-encaje-negro.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "camisa-fucsia",
+   "nombre": "Camisa Oversize",
+   "categoria": "blusa",
+   "precio": 23.0,
+   "tallas": [
+    "XL",
+    "1XL",
+    "2XL",
+    "3XL",
+    "4XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "camisa-fucsia.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "camiseta-rayas-fucsia",
+   "nombre": "Camiseta de Rayas",
+   "categoria": "blusa",
+   "precio": 23.0,
+   "tallas": [
+    "2XL",
+    "3XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "camiseta-rayas-fucsia.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "blusa-blazer-negro",
+   "nombre": "Blusa Blazer",
+   "categoria": "blusa",
+   "precio": 24.0,
+   "tallas": [
+    "1XL",
+    "2XL",
+    "3XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "blusa-blazer-negro.webp",
+    "blusa-blazer-negro-2.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "halter-argolla-vino",
+   "nombre": "Halter de Argolla",
+   "categoria": "blusa",
+   "precio": 24.0,
+   "tallas": [
+    "L",
+    "XL",
+    "1XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "halter-argolla-vino.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "top-peplum-negro",
+   "nombre": "Top Peplum Elegante",
+   "categoria": "blusa",
+   "precio": 24.0,
+   "tallas": [
+    "XL",
+    "1XL",
+    "2XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "top-peplum-negro.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "blusa-balloon",
+   "nombre": "Blusa Balloon Halter",
+   "categoria": "blusa",
+   "precio": 25.0,
+   "tallas": [
+    "1XL",
+    "2XL",
+    "3XL",
+    "4XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "blusa-balloon.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "blusa-halter-olivo",
+   "nombre": "Blusa Halter",
+   "categoria": "blusa",
+   "precio": 25.0,
+   "tallas": [
+    "1XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "blusa-halter-olivo.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "blusa-negra-botones",
+   "nombre": "Blusa Manga Larga",
+   "categoria": "blusa",
+   "precio": 25.0,
+   "tallas": [
+    "XL",
+    "1XL",
+    "2XL",
+    "3XL",
+    "4XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "blusa-negra-botones.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "blusa-peplum-blush",
+   "nombre": "Blusa Peplum Blush",
+   "categoria": "blusa",
+   "precio": 25.0,
+   "tallas": [
+    "XL",
+    "1XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "blusa-peplum-blush.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "blusa-peplum-broches",
+   "nombre": "Blusa Peplum con Broches",
+   "categoria": "blusa",
+   "precio": 25.0,
+   "tallas": [
+    "XL",
+    "1XL",
+    "2XL",
+    "3XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "blusa-peplum-broches.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "blusa-vichy-lazos",
+   "nombre": "Blusa Vichy con Lazos",
+   "categoria": "blusa",
+   "precio": 25.0,
+   "tallas": [
+    "XL",
+    "1XL",
+    "2XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "blusa-vichy-lazos.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "blusa-wrap-marino",
+   "nombre": "Blusa Cruzada",
+   "categoria": "blusa",
+   "precio": 25.0,
+   "tallas": [
+    "1XL",
+    "2XL",
+    "3XL",
+    "4XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "blusa-wrap-marino.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "chaleco-cardigan-beige",
+   "nombre": "Chaleco Cardigan",
+   "categoria": "blusa",
+   "precio": 25.0,
+   "tallas": [
+    "XL",
+    "1XL",
+    "2XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "chaleco-cardigan-beige.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "halter-satin-encaje",
+   "nombre": "Halter Satín con Encaje",
+   "categoria": "blusa",
+   "precio": 25.0,
+   "tallas": [
+    "1XL",
+    "2XL",
+    "3XL",
+    "4XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "halter-satin-encaje.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "top-drapeado-marfil",
+   "nombre": "Top Drapeado",
+   "categoria": "blusa",
+   "precio": 25.0,
+   "tallas": [
+    "1XL",
+    "2XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "top-drapeado-marfil.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "blusa-peplum-crema",
+   "nombre": "Blusa Peplum",
+   "categoria": "blusa",
+   "precio": 26.0,
+   "tallas": [
+    "XL",
+    "1XL",
+    "2XL",
+    "3XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "blusa-peplum-crema.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "blusa-peplum-gingham",
+   "nombre": "Blusa Peplum Gingham",
+   "categoria": "blusa",
+   "precio": 26.0,
+   "tallas": [
+    "2XL",
+    "3XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "blusa-peplum-gingham.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "blusa-chambray",
+   "nombre": "Blusa Chambray",
+   "categoria": "blusa",
+   "precio": 29.0,
+   "tallas": [
+    "2XL",
+    "3XL",
+    "4XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "blusa-chambray.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "blusa-denim-peplum",
+   "nombre": "Blusa Denim Peplum",
+   "categoria": "blusa",
+   "precio": 29.0,
+   "tallas": [
+    "1XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "blusa-denim-peplum.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "chaleco-denim",
+   "nombre": "Chaleco Denim",
+   "categoria": "blusa",
+   "precio": 29.0,
+   "tallas": [
+    "L",
+    "XL",
+    "1XL",
+    "2XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "chaleco-denim.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "camisa-mantequilla",
+   "nombre": "Camisa Mantequilla",
+   "categoria": "blusa",
+   "precio": 32.5,
+   "tallas": [
+    "2XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "camisa-mantequilla.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "chaleco-sastre",
+   "nombre": "Chaleco Sastre",
+   "categoria": "blusa",
+   "precio": 45.0,
+   "tallas": [
+    "XL",
+    "1XL",
+    "2XL",
+    "3XL"
+   ],
+   "colores": 2,
+   "fotos": [
+    "chaleco-sastre-blanco.webp",
+    "chaleco-sastre-negro.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "chaleco-elegante-marfil",
+   "nombre": "Chaleco Elegante",
+   "categoria": "blusa",
+   "precio": 55.0,
+   "tallas": [
+    "XL",
+    "1XL",
+    "2XL",
+    "3XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "chaleco-elegante-marfil.webp"
+   ],
+   "destacada": true,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "pantalon-lino",
+   "nombre": "Pantalón de Lino",
+   "categoria": "pantalon",
+   "precio": 35.0,
+   "tallas": [
+    "1XL",
+    "2XL",
+    "3XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "pantalon-lino.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "pantalon-formal-negro",
+   "nombre": "Pantalón Formal Negro",
+   "categoria": "pantalon",
+   "precio": 37.5,
+   "tallas": [
+    "XL",
+    "1XL",
+    "2XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "pantalon-formal-negro.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "pantalon-formal-crema",
+   "nombre": "Pantalón Formal Palazzo",
+   "categoria": "pantalon",
+   "precio": 45.0,
+   "tallas": [
+    "XL",
+    "1XL",
+    "2XL",
+    "3XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "pantalon-formal-crema.webp"
+   ],
+   "destacada": true,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "pantalon-lunares",
+   "nombre": "Pantalón de Lunares",
+   "categoria": "pantalon",
+   "precio": 45.0,
+   "tallas": [
+    "4XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "pantalon-lunares.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "jeans-flare",
+   "nombre": "Jeans Flare",
+   "categoria": "pantalon",
+   "precio": 65.0,
+   "tallas": [
+    "1XL",
+    "2XL",
+    "3XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "jeans-flare.webp",
+    "jeans-flare-2.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "conjunto-chaleco-short",
+   "nombre": "Conjunto Chaleco + Short",
+   "categoria": "conjunto",
+   "precio": 35.0,
+   "tallas": [
+    "XL",
+    "1XL",
+    "2XL",
+    "3XL",
+    "4XL"
+   ],
+   "colores": 2,
+   "fotos": [
+    "conjunto-chaleco-short-crema.webp",
+    "conjunto-chaleco-short-chocolate.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "conjunto-burdeos",
+   "nombre": "Conjunto Palazzo Burdeos",
+   "categoria": "conjunto",
+   "precio": 45.0,
+   "tallas": [
+    "1XL",
+    "2XL",
+    "3XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "conjunto-burdeos.webp"
+   ],
+   "destacada": true,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "conjunto-blanco-palazzo",
+   "nombre": "Conjunto Palazzo Blanco",
+   "categoria": "conjunto",
+   "precio": 55.0,
+   "tallas": [
+    "2XL",
+    "3XL",
+    "4XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "conjunto-blanco-palazzo.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  },
+  {
+   "id": "conjunto-negro-satinado",
+   "nombre": "Conjunto Satinado",
+   "categoria": "conjunto",
+   "precio": 55.0,
+   "tallas": [
+    "1XL",
+    "2XL",
+    "3XL",
+    "4XL"
+   ],
+   "colores": 1,
+   "fotos": [
+    "conjunto-negro-satinado.webp"
+   ],
+   "destacada": false,
+   "tela": null,
+   "cuidado": null,
+   "calce": null,
+   "modelo_altura": null,
+   "modelo_talla": null,
+   "descripcion": null,
+   "por_que_la_elegi": null,
+   "medidas": [],
+   "resenas": []
+  }
+ ],
+ "resumen": {
+  "n_productos": 49,
+  "n_resenas": 0,
+  "n_con_medidas": 0,
+  "n_con_tela": 0,
+  "n_con_calce": 0,
+  "n_con_modelo": 0,
+  "n_clientas": 0,
+  "n_compras": 0,
+  "precio_min": 22.0,
+  "precio_max": 85.0
+ }
+}

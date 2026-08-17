@@ -1,0 +1,510 @@
+/* ============================================================================
+   BOLEM v2 — sistema de diseño
+   ----------------------------------------------------------------------------
+   Lo que se HEREDA de la versión actual, porque es decisión de Mónica y no mía:
+     · blanco galería — el color lo ponen las fotos, no el fondo
+     · Playfair Display (titulares) + Outfit (texto) + Inconsolata (datos)
+     · fucsia profundo #A5427E como único acento interactivo (5.71:1 sobre blanco)
+     · el naranja BOLEM queda SOLO para el logotipo, aparte del acento
+
+   Lo que se TIRA, y por qué:
+     · las 13 secciones del home de ~50 palabras cada una. Menos bloques,
+       más adentro de cada uno.
+     · la convención de opacity 0.3–0.5 como "texto secundario": fallaba
+       contraste. Acá el texto apagado es un color sólido medido.
+     · el ancho único. v2 tiene tres anchos según lo que se está mostrando:
+       lectura (65ch), contenido (1180px) y sangrado completo para foto.
+   ========================================================================= */
+
+:root {
+  /* --- tinta y papel --- */
+  --papel:        #FFFFFF;
+  --papel-2:      #FBF9F7;   /* respiro cálido, casi imperceptible */
+  --papel-3:      #F4F0EC;   /* cajas y marcos */
+  --tinta:        #1A1518;
+  --tinta-2:      #574C52;   /* 7.2:1 sobre papel */
+  --tinta-3:      #7D7177;   /* 4.7:1 — solo para etiquetas cortas */
+  --linea:        #E7E0E3;
+  --linea-2:      #D3C8CD;
+
+  /* --- acentos --- */
+  --acento:       #A5427E;   /* fucsia profundo: único color interactivo */
+  --acento-suave: #F7EBF2;
+  --acento-hondo: #7F3361;
+  --marca:        #FE470A;   /* naranja BOLEM — SOLO el logotipo */
+  --crema:        #FFE4B3;   /* el subrayador de la casa */
+  --verde-wa:     #25D366;
+
+  /* --- señales (no son el acento, son estado) --- */
+  --bien:         #2D6A4F;
+  --bien-fondo:   #E8F1EC;
+  --ojo:          #8A6212;
+  --ojo-fondo:    #FBF2DC;
+
+  /* --- tipografía --- */
+  --titular: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --texto:   'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --dato:    'Inconsolata', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+
+  /* --- escala --- */
+  --t-xs:    0.75rem;
+  --t-sm:    0.875rem;
+  --t-base:  1rem;
+  --t-md:    1.125rem;
+  --t-lg:    clamp(1.25rem, 1.8vw, 1.5rem);
+  --t-xl:    clamp(1.6rem, 3vw, 2.2rem);
+  --t-2xl:   clamp(2rem, 4.5vw, 3.2rem);
+  --t-3xl:   clamp(2.6rem, 7vw, 4.5rem);
+
+  /* --- espacio --- */
+  --e-1: 0.375rem;
+  --e-2: 0.75rem;
+  --e-3: 1.25rem;
+  --e-4: 2rem;
+  --e-5: clamp(2.5rem, 5vw, 4rem);
+  --e-6: clamp(4rem, 9vw, 7rem);
+
+  /* --- anchos: tres, según qué se muestra --- */
+  --ancho-lectura:   38rem;    /* prosa: ~65 caracteres */
+  --ancho-contenido: 74rem;
+  --borde: 1px solid var(--linea);
+  --nav-alto: 64px;
+}
+
+/* ---------------------------------------------------------------- base --- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--texto);
+  font-size: var(--t-base);
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3, h4 { font-family: var(--titular); font-weight: 400; line-height: 1.15; margin: 0; text-wrap: balance; }
+h1 { font-size: var(--t-2xl); letter-spacing: -0.015em; }
+h2 { font-size: var(--t-xl); letter-spacing: -0.01em; }
+h3 { font-size: var(--t-lg); }
+p  { margin: 0 0 var(--e-3); }
+
+a { color: var(--acento); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--acento-hondo); }
+:focus-visible { outline: 2px solid var(--acento); outline-offset: 3px; border-radius: 2px; }
+
+.leer   { max-width: var(--ancho-lectura); }
+.marco  { max-width: var(--ancho-contenido); margin-inline: auto; padding-inline: clamp(1.15rem, 4vw, 2.5rem); }
+.saltar { position: absolute; left: -9999px; }
+.saltar:focus { left: 1rem; top: 1rem; z-index: 100; background: var(--tinta); color: var(--papel); padding: 0.6rem 1rem; }
+
+/* etiqueta pequeña en versalita monoespaciada: se usa en TODO el sitio para
+   nombrar un dato. Es la voz de "esto es un hecho", no de "esto es copy". */
+.etiqueta {
+  font-family: var(--dato);
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tinta-3);
+  margin: 0 0 var(--e-2);
+}
+
+.subrayado { background: linear-gradient(transparent 62%, var(--crema) 62%); }
+
+/* ----------------------------------------------------------------- nav --- */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: saturate(1.2) blur(6px);
+  border-bottom: var(--borde);
+}
+.nav-in {
+  max-width: var(--ancho-contenido); margin-inline: auto;
+  padding: 0 clamp(1.15rem, 4vw, 2.5rem);
+  height: var(--nav-alto);
+  display: flex; align-items: center; gap: var(--e-4);
+}
+.logo {
+  font-family: var(--texto); font-weight: 300; font-size: 1.35rem;
+  letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--tinta); text-decoration: none; margin-right: auto;
+  white-space: nowrap;
+}
+.logo b { font-weight: 600; position: relative; }
+.logo b::after {
+  content: ''; position: absolute; left: 0; right: 0.34em; bottom: 0.05em;
+  height: 0.28em; background: var(--crema); z-index: -1;
+}
+.logo:hover { color: var(--tinta); }
+.nav-links { display: flex; gap: var(--e-3); }
+.nav-links a {
+  font-size: var(--t-sm); color: var(--tinta-2); text-decoration: none;
+  padding: 0.3rem 0; border-bottom: 2px solid transparent;
+}
+.nav-links a:hover, .nav-links a[aria-current] { color: var(--tinta); border-bottom-color: var(--acento); }
+.nav-wa {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: var(--verde-wa); color: var(--tinta);
+  font-size: var(--t-sm); font-weight: 600; padding: 0.5rem 0.9rem;
+  text-decoration: none; border-radius: 2px;
+}
+.nav-wa:hover { color: var(--tinta); filter: brightness(0.95); }
+.nav-wa svg { width: 16px; height: 16px; fill: currentColor; }
+.nav-btn { display: none; background: none; border: none; padding: 0.4rem; cursor: pointer; }
+.nav-btn span { display: block; width: 22px; height: 1.5px; background: var(--tinta); margin: 4px 0; }
+
+@media (max-width: 800px) {
+  .nav-links { display: none; }
+  .nav-btn { display: block; }
+  .nav.abierto .nav-links {
+    display: flex; flex-direction: column; gap: 0;
+    position: absolute; inset: var(--nav-alto) 0 auto 0;
+    background: var(--papel); border-bottom: var(--borde);
+    padding: var(--e-2) clamp(1.15rem, 4vw, 2.5rem) var(--e-3);
+  }
+  .nav.abierto .nav-links a { padding: 0.7rem 0; border-bottom: var(--borde); }
+  .nav-wa span.txt { display: none; }
+}
+
+/* -------------------------------------------------------------- fichas --- */
+/* La tarjeta de prenda. Un enlace de verdad — no un div con role=button.
+   En la version anterior la tarjeta era un div: sin JavaScript no llevaba a
+   ningun lado, y Google no sigue divs. */
+.rejilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%), 1fr));
+  gap: clamp(0.9rem, 2vw, 1.6rem) clamp(0.9rem, 2vw, 1.4rem);
+}
+.pieza { display: block; text-decoration: none; color: inherit; }
+.pieza:hover { color: inherit; }
+.pieza-foto {
+  position: relative; overflow: hidden;
+  background: var(--papel-3); aspect-ratio: 2 / 3;
+}
+.pieza-foto img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+.pieza:hover .pieza-foto img { transform: scale(1.03); }
+.pieza-nombre {
+  font-family: var(--texto); font-size: var(--t-sm); font-weight: 500;
+  margin: var(--e-2) 0 0.15rem; line-height: 1.35;
+}
+.pieza:hover .pieza-nombre { color: var(--acento); }
+.pieza-linea {
+  display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap;
+  font-family: var(--dato); font-size: var(--t-sm); color: var(--tinta-3);
+  font-variant-numeric: tabular-nums;
+}
+.pieza-precio { color: var(--tinta); font-weight: 500; }
+
+/* insignia sobre la foto: solo aparece si hay un dato REAL que mostrar */
+.insignia {
+  position: absolute; left: 0.5rem; bottom: 0.5rem;
+  font-family: var(--dato); font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  background: rgba(255,255,255,0.94); color: var(--tinta);
+  padding: 0.22rem 0.45rem; border-radius: 2px;
+}
+.insignia--calce { background: var(--bien-fondo); color: var(--bien); }
+
+/* --------------------------------------------------------- estrellitas --- */
+.estrellas { display: inline-flex; align-items: center; gap: 0.12rem; vertical-align: -0.1em; }
+.estrellas svg { width: 0.95em; height: 0.95em; }
+.estrellas .llena { fill: var(--acento); }
+.estrellas .vacia { fill: var(--linea-2); }
+.rating-linea {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  font-family: var(--dato); font-size: var(--t-sm); color: var(--tinta-2);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------- botones --- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  font-family: var(--texto); font-size: var(--t-base); font-weight: 600;
+  padding: 0.85rem 1.5rem; text-decoration: none; border: none;
+  border-radius: 2px; cursor: pointer; transition: filter 0.25s;
+}
+.btn:hover { filter: brightness(0.94); }
+.btn--wa { background: var(--verde-wa); color: var(--tinta); width: 100%; }
+.btn--wa:hover { color: var(--tinta); }
+.btn--wa svg { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
+.btn--linea { background: transparent; color: var(--tinta); border: 1px solid var(--tinta); }
+.btn--linea:hover { background: var(--tinta); color: var(--papel); filter: none; }
+
+/* --------------------------------------------------------------- cajas --- */
+.caja { background: var(--papel-2); border: var(--borde); padding: var(--e-3) var(--e-3); }
+.caja--acento { background: var(--acento-suave); border-color: transparent; }
+.caja--ojo { background: var(--ojo-fondo); border-left: 3px solid var(--ojo); }
+
+/* Lo que falta. Se usa cuando un dato NO existe todavia: en vez de callar o
+   inventar, el sitio DICE que falta y ofrece preguntarlo. Es honesto y ademas
+   convierte: manda a WhatsApp justo en el momento de la duda. */
+.falta {
+  font-size: var(--t-sm); color: var(--tinta-2);
+  background: var(--papel-2); border: 1px dashed var(--linea-2);
+  padding: var(--e-2) var(--e-3);
+}
+.falta a { font-weight: 500; }
+
+/* --------------------------------------------------------------- tabla --- */
+.tabla-marco { overflow-x: auto; border: var(--borde); }
+table.datos { border-collapse: collapse; width: 100%; min-width: 22rem; font-size: var(--t-sm); }
+table.datos th, table.datos td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: var(--borde); }
+table.datos thead th {
+  font-family: var(--dato); font-size: var(--t-xs); font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--tinta-3);
+  background: var(--papel-2); white-space: nowrap;
+}
+table.datos tbody tr:last-child td { border-bottom: none; }
+table.datos td.n { font-family: var(--dato); font-variant-numeric: tabular-nums; }
+table.datos th.talla, table.datos td.talla { font-family: var(--dato); font-weight: 600; }
+
+/* ---------------------------------------------------------------- pie ---- */
+.pie {
+  margin-top: var(--e-6);
+  border-top: var(--borde);
+  background: var(--papel-2);
+  padding: var(--e-5) 0 var(--e-4);
+}
+.pie-in {
+  max-width: var(--ancho-contenido); margin-inline: auto;
+  padding-inline: clamp(1.15rem, 4vw, 2.5rem);
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: var(--e-4);
+}
+.pie h4 { font-family: var(--dato); font-size: var(--t-xs); letter-spacing: 0.14em;
+          text-transform: uppercase; color: var(--tinta-3); margin-bottom: var(--e-2); }
+.pie ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+.pie a { color: var(--tinta-2); text-decoration: none; font-size: var(--t-sm); }
+.pie a:hover { color: var(--acento); }
+.pie-abajo {
+  max-width: var(--ancho-contenido); margin: var(--e-4) auto 0;
+  padding: var(--e-3) clamp(1.15rem, 4vw, 2.5rem) 0;
+  border-top: var(--borde);
+  font-size: var(--t-xs); color: var(--tinta-3);
+  display: flex; flex-wrap: wrap; gap: var(--e-2) var(--e-3); justify-content: space-between;
+}
+
+/* ==========================================================================
+   BLOQUES DE PÁGINA
+   ========================================================================== */
+
+.bloque-ancho { margin-top: var(--e-6); }
+.bloque-ancho > h2 { margin-bottom: var(--e-3); }
+
+.migas {
+  font-family: var(--dato); font-size: var(--t-xs); letter-spacing: 0.07em;
+  text-transform: uppercase; color: var(--tinta-3);
+  padding-top: var(--e-3); padding-bottom: 0;
+  display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center;
+}
+.migas a { color: var(--tinta-3); text-decoration: none; }
+.migas a:hover { color: var(--acento); }
+.migas span[aria-hidden] { opacity: 0.45; }
+
+/* ------------------------------------------------------------------ hero -- */
+.hero { padding: clamp(3rem, 9vh, 6rem) 0 clamp(2rem, 5vh, 3.5rem); }
+.hero h1 { font-size: var(--t-3xl); margin: 0 0 var(--e-3); }
+.hero-bajada { font-size: var(--t-md); color: var(--tinta-2); margin: 0; }
+
+/* --------------------------------------------------------------- puertas -- */
+/* La entrada por talla. Es LA función que v1 no tiene: la clienta no piensa
+   "quiero una blusa", piensa "soy 3XL, qué hay para mí". */
+.puertas-sec { padding: var(--e-5) 0; background: var(--papel-2); border-block: var(--borde); }
+.puertas-titulo { margin-bottom: var(--e-1); }
+.puertas-bajada { color: var(--tinta-2); margin-bottom: var(--e-4); }
+.puertas { display: grid; grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); gap: 0.75rem; }
+.puerta {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.2rem; padding: var(--e-3) var(--e-2);
+  background: var(--papel); border: var(--borde); text-decoration: none;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.puerta:hover { border-color: var(--acento); transform: translateY(-2px); }
+.puerta-talla {
+  font-family: var(--dato); font-size: 1.5rem; font-weight: 600;
+  letter-spacing: 0.02em; color: var(--tinta);
+}
+.puerta:hover .puerta-talla { color: var(--acento); }
+.puerta-n { font-size: var(--t-xs); color: var(--tinta-3); font-family: var(--dato); }
+
+/* -------------------------------------------------------------- promesas -- */
+.promesas { margin-top: var(--e-6); padding: var(--e-5) 0; background: var(--papel-2); border-block: var(--borde); }
+.promesa-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: var(--e-4); }
+.promesa-n {
+  font-family: var(--dato); font-size: 1.9rem; font-weight: 600; line-height: 1;
+  color: var(--acento); margin: 0 0 var(--e-2); font-variant-numeric: tabular-nums;
+}
+.promesa h3 { font-family: var(--texto); font-size: var(--t-base); font-weight: 600; margin-bottom: 0.4rem; }
+.promesa p { font-size: var(--t-sm); color: var(--tinta-2); margin: 0; }
+
+/* ------------------------------------------------------------- catálogo --- */
+.col-cabeza { padding-top: var(--e-5); }
+.col-cabeza h1 { margin-bottom: var(--e-2); }
+.col-bajada { color: var(--tinta-2); font-size: var(--t-md); }
+.filtros { margin-top: var(--e-4); display: flex; flex-wrap: wrap; gap: var(--e-4); }
+.filtro-grupo { flex: 1 1 16rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.chip {
+  display: inline-flex; align-items: baseline; gap: 0.35rem;
+  font-family: var(--dato); font-size: var(--t-sm); font-weight: 500;
+  padding: 0.4rem 0.7rem; border: var(--borde); background: var(--papel);
+  color: var(--tinta); text-decoration: none;
+}
+.chip small { color: var(--tinta-3); font-size: 0.75em; }
+.chip:hover { border-color: var(--acento); color: var(--acento); }
+.cat-bloque { margin-top: var(--e-6); scroll-margin-top: calc(var(--nav-alto) + 1rem); }
+.cat-cabeza {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: var(--e-2); flex-wrap: wrap; margin-bottom: var(--e-3);
+  padding-bottom: var(--e-2); border-bottom: var(--borde);
+}
+.cat-cabeza .etiqueta { margin: 0; }
+
+/* --------------------------------------------------------------- prenda -- */
+.prenda {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; margin-top: var(--e-3);
+}
+.prenda-gal { display: flex; flex-direction: column; gap: 0.6rem; position: sticky; top: calc(var(--nav-alto) + 1rem); }
+.gal-grande { background: var(--papel-3); border: var(--borde); }
+.gal-grande img { width: 100%; aspect-ratio: 2/3; object-fit: cover; }
+.gal-tira { display: grid; grid-template-columns: repeat(auto-fill, minmax(66px, 1fr)); gap: 0.45rem; }
+.gal-tira button { padding: 0; border: var(--borde); background: var(--papel-3); cursor: pointer; line-height: 0; }
+.gal-tira button[aria-current="true"] { border-color: var(--acento); border-width: 2px; }
+.gal-tira button:hover { border-color: var(--acento); }
+.gal-tira img { width: 100%; aspect-ratio: 2/3; object-fit: cover; }
+
+.prenda-info h1 { margin: 0 0 0.4rem; }
+.prenda-precio {
+  font-family: var(--dato); font-size: 1.6rem; font-weight: 500;
+  font-variant-numeric: tabular-nums; margin: 0 0 var(--e-3);
+}
+.bloque { margin-bottom: var(--e-3); }
+.bloque--calce { background: var(--papel-2); border: var(--borde); padding: var(--e-3); }
+.tallas-fila { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.talla-chip {
+  font-family: var(--dato); font-size: var(--t-sm); font-weight: 600;
+  padding: 0.35rem 0.7rem; border: 1px solid var(--tinta); background: var(--papel);
+}
+.nota-talla { font-size: var(--t-sm); color: var(--tinta-2); margin: var(--e-2) 0 0; }
+.calce-veredicto { font-size: var(--t-md); font-weight: 500; margin: 0 0 0.35rem; }
+.calce-modelo { font-size: var(--t-sm); color: var(--tinta-2); margin: 0; }
+.confianza {
+  list-style: none; margin: var(--e-3) 0 0; padding: var(--e-3) 0 0;
+  border-top: var(--borde); display: flex; flex-direction: column; gap: 0.45rem;
+  font-size: var(--t-sm); color: var(--tinta-2);
+}
+.confianza b { color: var(--tinta); font-weight: 600; }
+.nota-medida { font-size: var(--t-sm); color: var(--tinta-2); margin-top: var(--e-2); }
+.ficha { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.5rem 1.2rem; font-size: var(--t-sm); }
+.ficha dt {
+  font-family: var(--dato); font-size: var(--t-xs); letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--tinta-3); padding-top: 0.1rem;
+}
+.ficha dd { margin: 0; }
+.ficha-tecnica .falta { margin-top: var(--e-3); }
+
+/* --------------------------------------------------------- por qué la elegí */
+.porque { margin-top: var(--e-6); padding: var(--e-5) 0; background: var(--acento-suave); }
+.porque-cita {
+  font-family: var(--titular); font-size: clamp(1.2rem, 2.6vw, 1.7rem);
+  line-height: 1.4; margin: 0 0 var(--e-2); max-width: 40rem;
+  border: none; padding: 0; font-style: italic;
+}
+.porque-firma { font-size: var(--t-sm); color: var(--tinta-2); margin: 0; }
+
+/* -------------------------------------------------------------- reseñas --- */
+.resena-cabeza {
+  display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;
+  padding-bottom: var(--e-2); border-bottom: var(--borde); margin-bottom: var(--e-3);
+  font-family: var(--dato); font-size: var(--t-sm); color: var(--tinta-2);
+}
+.resena-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--e-3); }
+.resena { border-bottom: var(--borde); padding-bottom: var(--e-3); }
+.resena:last-child { border-bottom: none; padding-bottom: 0; }
+.resena-top { display: flex; align-items: center; gap: 0.55rem; flex-wrap: wrap; margin-bottom: 0.35rem; }
+.resena-autora { font-size: var(--t-sm); font-weight: 600; }
+.resena-verif {
+  font-family: var(--dato); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--bien-fondo); color: var(--bien); padding: 0.15rem 0.4rem;
+}
+.resena-titulo { font-weight: 600; margin: 0 0 0.2rem; }
+.resena-texto { margin: 0; color: var(--tinta-2); }
+.resena-calce { font-family: var(--dato); font-size: var(--t-xs); color: var(--tinta-3); margin: 0.4rem 0 0; }
+.res-resumen { margin-top: var(--e-3); }
+.res-prom { font-family: var(--dato); font-size: 2rem; font-weight: 600; margin: 0.3rem 0 0; }
+.res-bloque { margin-top: var(--e-5); }
+.res-cabeza { display: flex; gap: var(--e-3); align-items: center; margin-bottom: var(--e-3); }
+.res-cabeza img { width: 5rem; aspect-ratio: 2/3; object-fit: cover; border: var(--borde); }
+.res-cabeza h2 { font-size: var(--t-lg); margin: 0 0 0.25rem; }
+.res-cabeza a { text-decoration: none; }
+
+.voces { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: var(--e-3); }
+.voz { background: var(--papel-2); border: var(--borde); padding: var(--e-3); }
+.voz p { margin: 0.4rem 0; }
+.voz cite { font-size: var(--t-sm); color: var(--tinta-3); font-style: normal; }
+
+/* --------------------------------------------------------------- tallas --- */
+.escalas { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: var(--e-3); }
+.escala { background: var(--papel-2); border: var(--borde); padding: var(--e-3); }
+.escala-fila { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: var(--e-2); }
+.escala-fila b {
+  font-family: var(--dato); font-size: var(--t-sm); font-weight: 600;
+  padding: 0.3rem 0.55rem; border: 1px solid var(--linea-2); background: var(--papel);
+}
+.escala-fila b.borde { background: var(--crema); border-color: var(--crema); }
+.escala p { font-size: var(--t-sm); color: var(--tinta-2); margin: 0; }
+
+.dato-duro {
+  background: var(--tinta); color: var(--papel);
+  padding: var(--e-4) var(--e-3); text-align: center; margin-bottom: var(--e-3);
+}
+.dato-n {
+  font-family: var(--dato); font-size: clamp(2.2rem, 7vw, 3.4rem); font-weight: 600;
+  line-height: 1; color: var(--crema); margin: 0 0 var(--e-2); font-variant-numeric: tabular-nums;
+}
+.dato-txt { margin: 0 auto; max-width: 34rem; color: #E9E1E5; }
+.dato-txt strong { color: var(--papel); }
+
+.barra { display: block; height: 0.5rem; width: var(--p); background: var(--acento); opacity: 0.7; min-width: 2px; }
+.pasos { padding-left: 1.2rem; }
+.pasos li { margin-bottom: 0.5rem; }
+.lista-2col { columns: 2; column-gap: var(--e-4); padding-left: 1.1rem; }
+.lista-2col li { break-inside: avoid; margin-bottom: 0.3rem; }
+
+/* ------------------------------------------------------------------ faq --- */
+.faq-lista { border-top: var(--borde); }
+.faq { border-bottom: var(--borde); }
+.faq summary {
+  cursor: pointer; padding: var(--e-3) 0; font-weight: 500;
+  list-style: none; display: flex; justify-content: space-between; gap: var(--e-2);
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; font-family: var(--dato); color: var(--acento); font-size: 1.2rem; line-height: 1; }
+.faq[open] summary::after { content: '\2013'; }
+.faq p { margin: 0 0 var(--e-3); color: var(--tinta-2); }
+
+/* ---------------------------------------------------------------- cierre -- */
+.cierre { margin-top: var(--e-6); padding: var(--e-5) 0; background: var(--papel-3); text-align: center; }
+.cierre h2 { margin-bottom: var(--e-2); }
+.cierre .leer { margin-inline: auto; color: var(--tinta-2); }
+.cierre-btn { max-width: 22rem; margin-inline: auto; }
+
+@media (max-width: 900px) {
+  .prenda { grid-template-columns: 1fr; }
+  .prenda-gal { position: static; }
+  .lista-2col { columns: 1; }
+}
