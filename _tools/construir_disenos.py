@@ -72,6 +72,7 @@ def cabeza(titulo, css):
 <html lang="es-SV">
 <head>
 <meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>%s</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">

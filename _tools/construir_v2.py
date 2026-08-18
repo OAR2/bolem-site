@@ -104,6 +104,7 @@ def cabeza(prof, titulo, desc, url, og_img=None, jsonld=(), extra_css=''):
 <html lang="es-SV">
 <head>
   <meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>%s</title>
   <meta name="description" content="%s">
