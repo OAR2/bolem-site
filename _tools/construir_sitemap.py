@@ -12,7 +12,7 @@ Uso:
     python _tools/construir_sitemap.py --revisar
     python _tools/construir_sitemap.py [--fecha 2026-08-17]
 """
-import io, os, sys, json, datetime
+import io, os, re, sys, json, datetime
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
@@ -22,6 +22,25 @@ DESTINO = os.path.join(ROOT, 'sitemap.xml')
 
 # Paginas que NO van al mapa: no aportan nada a un buscador.
 FUERA = {'404.html'}
+
+# Carpetas enteras fuera del mapa. `v2/` es el sitio paralelo en borrador.
+CARPETAS_FUERA = {'v2'}
+
+# Regla de fondo, mas importante que la lista de arriba: una pagina que pide
+# `noindex` NUNCA puede ir al mapa. Pedirle a Google que indexe algo que dice
+# "no me indexes" es un error que Search Console reporta con nombre propio, y
+# se come el presupuesto de rastreo. Se comprueba leyendo el archivo, asi que
+# tambien cubre carpetas futuras que nadie se acuerde de agregar arriba.
+# (2026-08-18: el mapa publicado traia 129 direcciones y 63 eran de /v2/.)
+RE_NOINDEX = re.compile(r'<meta[^>]+robots[^>]*noindex', re.I)
+
+
+def pide_noindex(ruta):
+    try:
+        with open(ruta, encoding='utf-8') as fh:
+            return bool(RE_NOINDEX.search(fh.read(4000)))
+    except OSError:
+        return False
 
 # prioridad y frecuencia por tipo de pagina
 PERFIL = {
@@ -73,15 +92,23 @@ def tipo_de(rel):
 def main(revisar, fecha_fija):
     hoy = fecha_fija or datetime.date.today().isoformat()
     filas = []
+    omitidas = []
     for base, dirs, files in os.walk(ROOT):
-        dirs[:] = [d for d in dirs if not d.startswith(('.', '_')) and d != 'assets']
+        dirs[:] = [d for d in dirs
+                   if not d.startswith(('.', '_'))
+                   and d != 'assets'
+                   and d not in CARPETAS_FUERA]
         for f in sorted(files):
             if not f.endswith('.html'):
                 continue
-            rel = os.path.relpath(os.path.join(base, f), ROOT)
+            ruta = os.path.join(base, f)
+            rel = os.path.relpath(ruta, ROOT)
             if rel.replace(os.sep, '/') in FUERA:
                 continue
-            filas.append((rel, os.path.join(base, f)))
+            if pide_noindex(ruta):
+                omitidas.append(rel.replace(os.sep, '/'))
+                continue
+            filas.append((rel, ruta))
 
     orden = {'home': 0, 'coleccion': 1, 'prenda': 2, 'guia': 3,
              'pagina': 4, 'blog': 5, 'legal': 6}
@@ -119,6 +146,15 @@ def main(revisar, fecha_fija):
     for t in ('home', 'coleccion', 'prenda', 'guia', 'pagina', 'blog', 'legal'):
         if cuenta.get(t):
             print('   %-10s %d' % (t, cuenta[t]))
+    # Un recorte silencioso se lee como "cubri todo". Se dice lo que se dejo fuera.
+    if omitidas:
+        print(chr(10) + 'fuera del mapa por pedir noindex: %d' % len(omitidas))
+        for o in omitidas[:5]:
+            print('   %s' % o)
+        if len(omitidas) > 5:
+            print('   ... y %d mas' % (len(omitidas) - 5))
+    if CARPETAS_FUERA:
+        print('carpetas excluidas enteras: %s' % ', '.join(sorted(CARPETAS_FUERA)))
     if nuevo == viejo:
         print('\nsin cambios')
         return 0
