@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es-SV">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A · Catálogo denso</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&family=Outfit:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap">
+<style>
+
+:root{--tinta:#141414;--tinta2:#5C5C5C;--tinta3:#8C8C8C;--linea:#E6E6E6;
+      --acento:#A5427E;--verde:#25D366;--papel:#FFF;--papel2:#F7F6F5;}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--papel);color:var(--tinta);
+     font-family:'Outfit',system-ui,sans-serif;font-size:15px;line-height:1.5;-webkit-text-size-adjust:100%}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.aviso{background:#141414;color:#fff;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+       padding:.5rem 1rem;text-align:center;font-family:'Inconsolata',monospace}
+.aviso a{color:#FFD9A0;text-decoration:underline}
+.marco{max-width:1500px;margin-inline:auto;padding-inline:clamp(.75rem,2vw,1.5rem)}
+
+/* barra */
+.barra{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.97);border-bottom:1px solid var(--linea)}
+.barra-in{display:flex;align-items:center;gap:1.5rem;height:56px;max-width:1500px;margin-inline:auto;
+          padding-inline:clamp(.75rem,2vw,1.5rem)}
+.logo{font-weight:200;font-size:1.25rem;letter-spacing:.4em;margin-right:auto}
+.logo b{font-weight:700}
+.barra nav{display:flex;gap:1.2rem;font-size:.82rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em}
+.barra nav a:hover{color:var(--acento)}
+.wa{background:var(--verde);color:#111;font-weight:700;font-size:.78rem;text-transform:uppercase;
+    letter-spacing:.06em;padding:.5rem .9rem}
+@media(max-width:820px){.barra nav{display:none}}
+
+/* franja de campaña */
+.campana{position:relative;background:#EFEBE7}
+.campana img{width:100%;height:clamp(320px,52vh,520px);object-fit:cover;object-position:50% 22%}
+.campana-txt{position:absolute;left:0;right:0;bottom:0;padding:clamp(1rem,3vw,2rem);
+             background:linear-gradient(transparent,rgba(0,0,0,.55));color:#fff}
+.campana-txt p{margin:0 0 .3rem;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;opacity:.9}
+.campana-txt h1{margin:0;font-size:clamp(1.35rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.01em;line-height:1.15}
+
+/* tallas: tira horizontal pegada bajo la campaña */
+.tallas{display:flex;gap:0;border-bottom:1px solid var(--linea);overflow-x:auto}
+.tallas a{flex:1 0 auto;min-width:88px;text-align:center;padding:.85rem .4rem;
+          border-right:1px solid var(--linea);white-space:nowrap}
+.tallas a:last-child{border-right:none}
+.tallas b{display:block;font-size:1.05rem;font-weight:700;letter-spacing:.02em}
+.tallas span{display:block;font-size:.68rem;color:var(--tinta3);font-family:'Inconsolata',monospace}
+.tallas a:hover{background:var(--papel2);color:var(--acento)}
+
+/* rejilla densa */
+.tit{display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap;margin:2.2rem 0 .3rem}
+.tit h2{margin:0;font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.tit p{margin:0;font-size:.82rem;color:var(--tinta2)}
+.tit a{margin-left:auto;font-size:.75rem;font-weight:600;text-transform:uppercase;
+       letter-spacing:.08em;color:var(--acento)}
+.rej{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));
+     gap:.55rem;margin:.9rem 0 0}
+@media(min-width:900px){.rej{grid-template-columns:repeat(6,1fr)}}
+.p{display:block}
+.p-img{position:relative;background:var(--papel2);aspect-ratio:2/3;overflow:hidden}
+.p-img img{width:100%;height:100%;object-fit:cover}
+.p-img .alt{position:absolute;inset:0;opacity:0;transition:opacity .25s}
+.p:hover .alt{opacity:1}
+.p-n{font-size:.79rem;font-weight:500;margin:.4rem 0 .05rem;line-height:1.25}
+.p-d{display:flex;gap:.45rem;align-items:baseline;font-family:'Inconsolata',monospace;font-size:.78rem;color:var(--tinta3)}
+.p-d b{color:var(--tinta);font-weight:600}
+.p:hover .p-n{color:var(--acento)}
+
+.franja{background:var(--papel2);margin-top:2.5rem;padding:1.1rem 0;border-block:1px solid var(--linea)}
+.franja-in{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;font-size:.8rem;color:var(--tinta2)}
+.franja-in b{color:var(--tinta)}
+.pie{padding:2rem 0 3rem;font-size:.78rem;color:var(--tinta3);text-align:center}
+
+</style>
+</head>
+<body>
+<div class="aviso">Dirección <b>A</b> · maqueta con datos reales · <a href="../">comparar las tres</a></div>
+
+<header class="barra"><div class="barra-in">
+  <a class="logo" href="#">BOL<b>E</b>M</a>
+  <nav><a href="#">Vestidos</a><a href="#">Blusas</a><a href="#">Jeans</a><a href="#">Conjuntos</a><a href="#">Tu talla</a></nav>
+  <a class="wa" href="https://wa.me/50368590899?text=Hola%2C%20vi%20la%20pagina%20de%20BOLEM">WhatsApp</a>
+</div></header>
+
+<div class="campana">
+  <img src="../../../assets/productos/vestido-cobalto-800.webp" srcset="../../../assets/productos/vestido-cobalto-480.webp 480w, ../../../assets/productos/vestido-cobalto-800.webp 800w, ../../../assets/productos/vestido-cobalto.webp 1200w" sizes="100vw" alt="Vestido Maxi Cobalto" fetchpriority="high">
+  <div class="campana-txt">
+    <p>Colección 2026 · El Salvador</p>
+    <h1>49 piezas de la XL a la 4XL</h1>
+  </div>
+</div>
+
+<nav class="tallas" aria-label="Comprar por talla"><a href="#"><b>L</b><span>2 piezas</span></a><a href="#"><b>XL</b><span>23 piezas</span></a><a href="#"><b>1XL</b><span>35 piezas</span></a><a href="#"><b>2XL</b><span>39 piezas</span></a><a href="#"><b>3XL</b><span>29 piezas</span></a><a href="#"><b>4XL</b><span>11 piezas</span></a></nav>
+
+<section class="marco">
+  <div class="tit"><h2>Vestidos</h2><p>Midi, maxi y de evento. De la XL a la 4XL.</p><a href="#">Ver las 14 &rarr;</a></div>
+  <div class="rej"><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/vestido-largo-volantes-480.webp" srcset="../../../assets/productos/vestido-largo-volantes-480.webp 480w, ../../../assets/productos/vestido-largo-volantes-800.webp 800w, ../../../assets/productos/vestido-largo-volantes.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Vestido Largo de Volantes" loading="lazy"></div>
+  <p class="p-n">Vestido Largo de Volantes</p>
+  <p class="p-d"><b>$28.00</b><span>3XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/vestido-shirtdress-crema-480.webp" srcset="../../../assets/productos/vestido-shirtdress-crema-480.webp 480w, ../../../assets/productos/vestido-shirtdress-crema-800.webp 800w, ../../../assets/productos/vestido-shirtdress-crema.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Vestido Shirtdress" loading="lazy"><img class="alt" src="../../../assets/productos/vestido-shirtdress-camel-480.webp" srcset="../../../assets/productos/vestido-shirtdress-camel-480.webp 480w, ../../../assets/productos/vestido-shirtdress-camel-800.webp 800w, ../../../assets/productos/vestido-shirtdress-camel.webp 1200w" sizes="16vw" alt="" loading="lazy"></div>
+  <p class="p-n">Vestido Shirtdress</p>
+  <p class="p-d"><b>$29.00</b><span>XL 1XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/vestido-verano-rojo-480.webp" srcset="../../../assets/productos/vestido-verano-rojo-480.webp 480w, ../../../assets/productos/vestido-verano-rojo-800.webp 800w, ../../../assets/productos/vestido-verano-rojo.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Vestido de Verano" loading="lazy"></div>
+  <p class="p-n">Vestido de Verano</p>
+  <p class="p-d"><b>$29.90</b><span>2XL 3XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/vestido-broderie-rojo-480.webp" srcset="../../../assets/productos/vestido-broderie-rojo-480.webp 480w, ../../../assets/productos/vestido-broderie-rojo-800.webp 800w, ../../../assets/productos/vestido-broderie-rojo.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Vestido Broderie" loading="lazy"></div>
+  <p class="p-n">Vestido Broderie</p>
+  <p class="p-d"><b>$34.90</b><span>2XL 3XL 4XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/vestido-negro-corte-a-480.webp" srcset="../../../assets/productos/vestido-negro-corte-a-480.webp 480w, ../../../assets/productos/vestido-negro-corte-a-800.webp 800w, ../../../assets/productos/vestido-negro-corte-a.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Vestido Corte A" loading="lazy"></div>
+  <p class="p-n">Vestido Corte A</p>
+  <p class="p-d"><b>$35.00</b><span>2XL 3XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/vestido-utilitario-crema-480.webp" srcset="../../../assets/productos/vestido-utilitario-crema-480.webp 480w, ../../../assets/productos/vestido-utilitario-crema-800.webp 800w, ../../../assets/productos/vestido-utilitario-crema.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Vestido Utilitario" loading="lazy"></div>
+  <p class="p-n">Vestido Utilitario</p>
+  <p class="p-d"><b>$35.90</b><span>XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/vestido-midi-algodon-indigo-480.webp" srcset="../../../assets/productos/vestido-midi-algodon-indigo-480.webp 480w, ../../../assets/productos/vestido-midi-algodon-indigo-800.webp 800w, ../../../assets/productos/vestido-midi-algodon-indigo.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Vestido Midi de Algodón" loading="lazy"><img class="alt" src="../../../assets/productos/vestido-midi-algodon-beige-480.webp" srcset="../../../assets/productos/vestido-midi-algodon-beige-480.webp 480w, ../../../assets/productos/vestido-midi-algodon-beige-800.webp 800w, ../../../assets/productos/vestido-midi-algodon-beige.webp 1200w" sizes="16vw" alt="" loading="lazy"></div>
+  <p class="p-n">Vestido Midi de Algodón</p>
+  <p class="p-d"><b>$44.90</b><span>1XL 2XL 3XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/vestido-capas-gasa-480.webp" srcset="../../../assets/productos/vestido-capas-gasa-480.webp 480w, ../../../assets/productos/vestido-capas-gasa-800.webp 800w, ../../../assets/productos/vestido-capas-gasa.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Vestido de Capas" loading="lazy"></div>
+  <p class="p-n">Vestido de Capas</p>
+  <p class="p-d"><b>$45.00</b><span>2XL 3XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/vestido-eventos-sage-480.webp" srcset="../../../assets/productos/vestido-eventos-sage-480.webp 480w, ../../../assets/productos/vestido-eventos-sage-800.webp 800w, ../../../assets/productos/vestido-eventos-sage.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Vestido para Eventos" loading="lazy"></div>
+  <p class="p-n">Vestido para Eventos</p>
+  <p class="p-d"><b>$45.00</b><span>2XL 3XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/vestido-batik-coral-480.webp" srcset="../../../assets/productos/vestido-batik-coral-480.webp 480w, ../../../assets/productos/vestido-batik-coral-800.webp 800w, ../../../assets/productos/vestido-batik-coral.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Vestido Batik de Algodón" loading="lazy"><img class="alt" src="../../../assets/productos/vestido-batik-olivo-480.webp" srcset="../../../assets/productos/vestido-batik-olivo-480.webp 480w, ../../../assets/productos/vestido-batik-olivo-800.webp 800w, ../../../assets/productos/vestido-batik-olivo.webp 1200w" sizes="16vw" alt="" loading="lazy"></div>
+  <p class="p-n">Vestido Batik de Algodón</p>
+  <p class="p-d"><b>$55.00</b><span>1XL 2XL 3XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/vestido-camisero-denim-480.webp" srcset="../../../assets/productos/vestido-camisero-denim-480.webp 480w, ../../../assets/productos/vestido-camisero-denim-800.webp 800w, ../../../assets/productos/vestido-camisero-denim.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Vestido Camisero Denim" loading="lazy"></div>
+  <p class="p-n">Vestido Camisero Denim</p>
+  <p class="p-d"><b>$55.00</b><span>1XL 2XL 3XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/vestido-cobalto-480.webp" srcset="../../../assets/productos/vestido-cobalto-480.webp 480w, ../../../assets/productos/vestido-cobalto-800.webp 800w, ../../../assets/productos/vestido-cobalto.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Vestido Maxi Cobalto" loading="lazy"></div>
+  <p class="p-n">Vestido Maxi Cobalto</p>
+  <p class="p-d"><b>$65.00</b><span>XL 1XL 2XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/vestido-maxi-smocked-blanco-480.webp" srcset="../../../assets/productos/vestido-maxi-smocked-blanco-480.webp 480w, ../../../assets/productos/vestido-maxi-smocked-blanco-800.webp 800w, ../../../assets/productos/vestido-maxi-smocked-blanco.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Vestido Maxi Smocked" loading="lazy"><img class="alt" src="../../../assets/productos/vestido-maxi-smocked-crema-480.webp" srcset="../../../assets/productos/vestido-maxi-smocked-crema-480.webp 480w, ../../../assets/productos/vestido-maxi-smocked-crema-800.webp 800w, ../../../assets/productos/vestido-maxi-smocked-crema.webp 1200w" sizes="16vw" alt="" loading="lazy"></div>
+  <p class="p-n">Vestido Maxi Smocked</p>
+  <p class="p-d"><b>$74.50</b><span>XL 1XL 2XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/vestido-mangas-globo-amarillo-480.webp" srcset="../../../assets/productos/vestido-mangas-globo-amarillo-480.webp 480w, ../../../assets/productos/vestido-mangas-globo-amarillo-800.webp 800w, ../../../assets/productos/vestido-mangas-globo-amarillo.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Vestido Mangas Globo" loading="lazy"><img class="alt" src="../../../assets/productos/vestido-mangas-globo-celeste-480.webp" srcset="../../../assets/productos/vestido-mangas-globo-celeste-480.webp 480w, ../../../assets/productos/vestido-mangas-globo-celeste-800.webp 800w, ../../../assets/productos/vestido-mangas-globo-celeste.webp 1200w" sizes="16vw" alt="" loading="lazy"></div>
+  <p class="p-n">Vestido Mangas Globo</p>
+  <p class="p-d"><b>$85.00</b><span>XL 1XL 2XL</span></p>
+</a></div>
+</section><section class="marco">
+  <div class="tit"><h2>Blusas y chalecos</h2><p>Peplum, halter, chalecos y camisas oversize.</p><a href="#">Ver las 26 &rarr;</a></div>
+  <div class="rej"><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/blusa-off-shoulder-480.webp" srcset="../../../assets/productos/blusa-off-shoulder-480.webp 480w, ../../../assets/productos/blusa-off-shoulder-800.webp 800w, ../../../assets/productos/blusa-off-shoulder.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Blusa Off Shoulder" loading="lazy"></div>
+  <p class="p-n">Blusa Off Shoulder</p>
+  <p class="p-d"><b>$22.00</b><span>XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/blusa-peplum-rayas-480.webp" srcset="../../../assets/productos/blusa-peplum-rayas-480.webp 480w, ../../../assets/productos/blusa-peplum-rayas-800.webp 800w, ../../../assets/productos/blusa-peplum-rayas.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Blusa Peplum de Rayas" loading="lazy"></div>
+  <p class="p-n">Blusa Peplum de Rayas</p>
+  <p class="p-d"><b>$22.00</b><span>XL 1XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/blusa-encaje-negro-480.webp" srcset="../../../assets/productos/blusa-encaje-negro-480.webp 480w, ../../../assets/productos/blusa-encaje-negro-800.webp 800w, ../../../assets/productos/blusa-encaje-negro.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Blusa con Encaje" loading="lazy"></div>
+  <p class="p-n">Blusa con Encaje</p>
+  <p class="p-d"><b>$23.00</b><span>XL 1XL 2XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/camisa-fucsia-480.webp" srcset="../../../assets/productos/camisa-fucsia-480.webp 480w, ../../../assets/productos/camisa-fucsia-800.webp 800w, ../../../assets/productos/camisa-fucsia.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Camisa Oversize" loading="lazy"></div>
+  <p class="p-n">Camisa Oversize</p>
+  <p class="p-d"><b>$23.00</b><span>XL 1XL 2XL 3XL 4XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/camiseta-rayas-fucsia-480.webp" srcset="../../../assets/productos/camiseta-rayas-fucsia-480.webp 480w, ../../../assets/productos/camiseta-rayas-fucsia-800.webp 800w, ../../../assets/productos/camiseta-rayas-fucsia.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Camiseta de Rayas" loading="lazy"></div>
+  <p class="p-n">Camiseta de Rayas</p>
+  <p class="p-d"><b>$23.00</b><span>2XL 3XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/blusa-blazer-negro-480.webp" srcset="../../../assets/productos/blusa-blazer-negro-480.webp 480w, ../../../assets/productos/blusa-blazer-negro-800.webp 800w, ../../../assets/productos/blusa-blazer-negro.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Blusa Blazer" loading="lazy"><img class="alt" src="../../../assets/productos/blusa-blazer-negro-2-480.webp" srcset="../../../assets/productos/blusa-blazer-negro-2-480.webp 480w, ../../../assets/productos/blusa-blazer-negro-2-800.webp 800w, ../../../assets/productos/blusa-blazer-negro-2.webp 1200w" sizes="16vw" alt="" loading="lazy"></div>
+  <p class="p-n">Blusa Blazer</p>
+  <p class="p-d"><b>$24.00</b><span>1XL 2XL 3XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/halter-argolla-vino-480.webp" srcset="../../../assets/productos/halter-argolla-vino-480.webp 480w, ../../../assets/productos/halter-argolla-vino-800.webp 800w, ../../../assets/productos/halter-argolla-vino.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Halter de Argolla" loading="lazy"></div>
+  <p class="p-n">Halter de Argolla</p>
+  <p class="p-d"><b>$24.00</b><span>L XL 1XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/top-peplum-negro-480.webp" srcset="../../../assets/productos/top-peplum-negro-480.webp 480w, ../../../assets/productos/top-peplum-negro-800.webp 800w, ../../../assets/productos/top-peplum-negro.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Top Peplum Elegante" loading="lazy"></div>
+  <p class="p-n">Top Peplum Elegante</p>
+  <p class="p-d"><b>$24.00</b><span>XL 1XL 2XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/blusa-balloon-480.webp" srcset="../../../assets/productos/blusa-balloon-480.webp 480w, ../../../assets/productos/blusa-balloon-800.webp 800w, ../../../assets/productos/blusa-balloon.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Blusa Balloon Halter" loading="lazy"></div>
+  <p class="p-n">Blusa Balloon Halter</p>
+  <p class="p-d"><b>$25.00</b><span>1XL 2XL 3XL 4XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/blusa-halter-olivo-480.webp" srcset="../../../assets/productos/blusa-halter-olivo-480.webp 480w, ../../../assets/productos/blusa-halter-olivo-800.webp 800w, ../../../assets/productos/blusa-halter-olivo.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Blusa Halter" loading="lazy"></div>
+  <p class="p-n">Blusa Halter</p>
+  <p class="p-d"><b>$25.00</b><span>1XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/blusa-negra-botones-480.webp" srcset="../../../assets/productos/blusa-negra-botones-480.webp 480w, ../../../assets/productos/blusa-negra-botones-800.webp 800w, ../../../assets/productos/blusa-negra-botones.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Blusa Manga Larga" loading="lazy"></div>
+  <p class="p-n">Blusa Manga Larga</p>
+  <p class="p-d"><b>$25.00</b><span>XL 1XL 2XL 3XL 4XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/blusa-peplum-blush-480.webp" srcset="../../../assets/productos/blusa-peplum-blush-480.webp 480w, ../../../assets/productos/blusa-peplum-blush-800.webp 800w, ../../../assets/productos/blusa-peplum-blush.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Blusa Peplum Blush" loading="lazy"></div>
+  <p class="p-n">Blusa Peplum Blush</p>
+  <p class="p-d"><b>$25.00</b><span>XL 1XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/blusa-peplum-broches-480.webp" srcset="../../../assets/productos/blusa-peplum-broches-480.webp 480w, ../../../assets/productos/blusa-peplum-broches-800.webp 800w, ../../../assets/productos/blusa-peplum-broches.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Blusa Peplum con Broches" loading="lazy"></div>
+  <p class="p-n">Blusa Peplum con Broches</p>
+  <p class="p-d"><b>$25.00</b><span>XL 1XL 2XL 3XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/blusa-vichy-lazos-480.webp" srcset="../../../assets/productos/blusa-vichy-lazos-480.webp 480w, ../../../assets/productos/blusa-vichy-lazos-800.webp 800w, ../../../assets/productos/blusa-vichy-lazos.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Blusa Vichy con Lazos" loading="lazy"></div>
+  <p class="p-n">Blusa Vichy con Lazos</p>
+  <p class="p-d"><b>$25.00</b><span>XL 1XL 2XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/blusa-wrap-marino-480.webp" srcset="../../../assets/productos/blusa-wrap-marino-480.webp 480w, ../../../assets/productos/blusa-wrap-marino-800.webp 800w, ../../../assets/productos/blusa-wrap-marino.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Blusa Cruzada" loading="lazy"></div>
+  <p class="p-n">Blusa Cruzada</p>
+  <p class="p-d"><b>$25.00</b><span>1XL 2XL 3XL 4XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/chaleco-cardigan-beige-480.webp" srcset="../../../assets/productos/chaleco-cardigan-beige-480.webp 480w, ../../../assets/productos/chaleco-cardigan-beige-800.webp 800w, ../../../assets/productos/chaleco-cardigan-beige.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Chaleco Cardigan" loading="lazy"></div>
+  <p class="p-n">Chaleco Cardigan</p>
+  <p class="p-d"><b>$25.00</b><span>XL 1XL 2XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/halter-satin-encaje-480.webp" srcset="../../../assets/productos/halter-satin-encaje-480.webp 480w, ../../../assets/productos/halter-satin-encaje-800.webp 800w, ../../../assets/productos/halter-satin-encaje.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Halter Satín con Encaje" loading="lazy"></div>
+  <p class="p-n">Halter Satín con Encaje</p>
+  <p class="p-d"><b>$25.00</b><span>1XL 2XL 3XL 4XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/top-drapeado-marfil-480.webp" srcset="../../../assets/productos/top-drapeado-marfil-480.webp 480w, ../../../assets/productos/top-drapeado-marfil-800.webp 800w, ../../../assets/productos/top-drapeado-marfil.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Top Drapeado" loading="lazy"></div>
+  <p class="p-n">Top Drapeado</p>
+  <p class="p-d"><b>$25.00</b><span>1XL 2XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/blusa-peplum-crema-480.webp" srcset="../../../assets/productos/blusa-peplum-crema-480.webp 480w, ../../../assets/productos/blusa-peplum-crema-800.webp 800w, ../../../assets/productos/blusa-peplum-crema.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Blusa Peplum" loading="lazy"></div>
+  <p class="p-n">Blusa Peplum</p>
+  <p class="p-d"><b>$26.00</b><span>XL 1XL 2XL 3XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/blusa-peplum-gingham-480.webp" srcset="../../../assets/productos/blusa-peplum-gingham-480.webp 480w, ../../../assets/productos/blusa-peplum-gingham-800.webp 800w, ../../../assets/productos/blusa-peplum-gingham.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Blusa Peplum Gingham" loading="lazy"></div>
+  <p class="p-n">Blusa Peplum Gingham</p>
+  <p class="p-d"><b>$26.00</b><span>2XL 3XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/blusa-chambray-480.webp" srcset="../../../assets/productos/blusa-chambray-480.webp 480w, ../../../assets/productos/blusa-chambray-800.webp 800w, ../../../assets/productos/blusa-chambray.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Blusa Chambray" loading="lazy"></div>
+  <p class="p-n">Blusa Chambray</p>
+  <p class="p-d"><b>$29.00</b><span>2XL 3XL 4XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/blusa-denim-peplum-480.webp" srcset="../../../assets/productos/blusa-denim-peplum-480.webp 480w, ../../../assets/productos/blusa-denim-peplum-800.webp 800w, ../../../assets/productos/blusa-denim-peplum.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Blusa Denim Peplum" loading="lazy"></div>
+  <p class="p-n">Blusa Denim Peplum</p>
+  <p class="p-d"><b>$29.00</b><span>1XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/chaleco-denim-480.webp" srcset="../../../assets/productos/chaleco-denim-480.webp 480w, ../../../assets/productos/chaleco-denim-800.webp 800w, ../../../assets/productos/chaleco-denim.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Chaleco Denim" loading="lazy"></div>
+  <p class="p-n">Chaleco Denim</p>
+  <p class="p-d"><b>$29.00</b><span>L XL 1XL 2XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/camisa-mantequilla-480.webp" srcset="../../../assets/productos/camisa-mantequilla-480.webp 480w, ../../../assets/productos/camisa-mantequilla-800.webp 800w, ../../../assets/productos/camisa-mantequilla.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Camisa Mantequilla" loading="lazy"></div>
+  <p class="p-n">Camisa Mantequilla</p>
+  <p class="p-d"><b>$32.50</b><span>2XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/chaleco-sastre-blanco-480.webp" srcset="../../../assets/productos/chaleco-sastre-blanco-480.webp 480w, ../../../assets/productos/chaleco-sastre-blanco-800.webp 800w, ../../../assets/productos/chaleco-sastre-blanco.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Chaleco Sastre" loading="lazy"><img class="alt" src="../../../assets/productos/chaleco-sastre-negro-480.webp" srcset="../../../assets/productos/chaleco-sastre-negro-480.webp 480w, ../../../assets/productos/chaleco-sastre-negro-800.webp 800w, ../../../assets/productos/chaleco-sastre-negro.webp 1200w" sizes="16vw" alt="" loading="lazy"></div>
+  <p class="p-n">Chaleco Sastre</p>
+  <p class="p-d"><b>$45.00</b><span>XL 1XL 2XL 3XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/chaleco-elegante-marfil-480.webp" srcset="../../../assets/productos/chaleco-elegante-marfil-480.webp 480w, ../../../assets/productos/chaleco-elegante-marfil-800.webp 800w, ../../../assets/productos/chaleco-elegante-marfil.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Chaleco Elegante" loading="lazy"></div>
+  <p class="p-n">Chaleco Elegante</p>
+  <p class="p-d"><b>$55.00</b><span>XL 1XL 2XL 3XL</span></p>
+</a></div>
+</section><section class="marco">
+  <div class="tit"><h2>Jeans y pantalones</h2><p>Palazzo, lino, jeans flare y de lunares.</p><a href="#">Ver las 5 &rarr;</a></div>
+  <div class="rej"><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/pantalon-lino-480.webp" srcset="../../../assets/productos/pantalon-lino-480.webp 480w, ../../../assets/productos/pantalon-lino-800.webp 800w, ../../../assets/productos/pantalon-lino.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Pantalón de Lino" loading="lazy"></div>
+  <p class="p-n">Pantalón de Lino</p>
+  <p class="p-d"><b>$35.00</b><span>1XL 2XL 3XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/pantalon-formal-negro-480.webp" srcset="../../../assets/productos/pantalon-formal-negro-480.webp 480w, ../../../assets/productos/pantalon-formal-negro-800.webp 800w, ../../../assets/productos/pantalon-formal-negro.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Pantalón Formal Negro" loading="lazy"></div>
+  <p class="p-n">Pantalón Formal Negro</p>
+  <p class="p-d"><b>$37.50</b><span>XL 1XL 2XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/pantalon-formal-crema-480.webp" srcset="../../../assets/productos/pantalon-formal-crema-480.webp 480w, ../../../assets/productos/pantalon-formal-crema-800.webp 800w, ../../../assets/productos/pantalon-formal-crema.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Pantalón Formal Palazzo" loading="lazy"></div>
+  <p class="p-n">Pantalón Formal Palazzo</p>
+  <p class="p-d"><b>$45.00</b><span>XL 1XL 2XL 3XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/pantalon-lunares-480.webp" srcset="../../../assets/productos/pantalon-lunares-480.webp 480w, ../../../assets/productos/pantalon-lunares-800.webp 800w, ../../../assets/productos/pantalon-lunares.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Pantalón de Lunares" loading="lazy"></div>
+  <p class="p-n">Pantalón de Lunares</p>
+  <p class="p-d"><b>$45.00</b><span>4XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/jeans-flare-480.webp" srcset="../../../assets/productos/jeans-flare-480.webp 480w, ../../../assets/productos/jeans-flare-800.webp 800w, ../../../assets/productos/jeans-flare.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Jeans Flare" loading="lazy"><img class="alt" src="../../../assets/productos/jeans-flare-2-480.webp" srcset="../../../assets/productos/jeans-flare-2-480.webp 480w, ../../../assets/productos/jeans-flare-2-800.webp 800w, ../../../assets/productos/jeans-flare-2.webp 1200w" sizes="16vw" alt="" loading="lazy"></div>
+  <p class="p-n">Jeans Flare</p>
+  <p class="p-d"><b>$65.00</b><span>1XL 2XL 3XL</span></p>
+</a></div>
+</section><section class="marco">
+  <div class="tit"><h2>Conjuntos</h2><p>Dos piezas que ya combinan entre si.</p><a href="#">Ver las 4 &rarr;</a></div>
+  <div class="rej"><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/conjunto-chaleco-short-crema-480.webp" srcset="../../../assets/productos/conjunto-chaleco-short-crema-480.webp 480w, ../../../assets/productos/conjunto-chaleco-short-crema-800.webp 800w, ../../../assets/productos/conjunto-chaleco-short-crema.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Conjunto Chaleco + Short" loading="lazy"><img class="alt" src="../../../assets/productos/conjunto-chaleco-short-chocolate-480.webp" srcset="../../../assets/productos/conjunto-chaleco-short-chocolate-480.webp 480w, ../../../assets/productos/conjunto-chaleco-short-chocolate-800.webp 800w, ../../../assets/productos/conjunto-chaleco-short-chocolate.webp 1200w" sizes="16vw" alt="" loading="lazy"></div>
+  <p class="p-n">Conjunto Chaleco + Short</p>
+  <p class="p-d"><b>$35.00</b><span>XL 1XL 2XL 3XL 4XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/conjunto-burdeos-480.webp" srcset="../../../assets/productos/conjunto-burdeos-480.webp 480w, ../../../assets/productos/conjunto-burdeos-800.webp 800w, ../../../assets/productos/conjunto-burdeos.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Conjunto Palazzo Burdeos" loading="lazy"></div>
+  <p class="p-n">Conjunto Palazzo Burdeos</p>
+  <p class="p-d"><b>$45.00</b><span>1XL 2XL 3XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/conjunto-blanco-palazzo-480.webp" srcset="../../../assets/productos/conjunto-blanco-palazzo-480.webp 480w, ../../../assets/productos/conjunto-blanco-palazzo-800.webp 800w, ../../../assets/productos/conjunto-blanco-palazzo.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Conjunto Palazzo Blanco" loading="lazy"></div>
+  <p class="p-n">Conjunto Palazzo Blanco</p>
+  <p class="p-d"><b>$55.00</b><span>2XL 3XL 4XL</span></p>
+</a><a class="p" href="#">
+  <div class="p-img"><img src="../../../assets/productos/conjunto-negro-satinado-480.webp" srcset="../../../assets/productos/conjunto-negro-satinado-480.webp 480w, ../../../assets/productos/conjunto-negro-satinado-800.webp 800w, ../../../assets/productos/conjunto-negro-satinado.webp 1200w" sizes="(max-width:900px) 45vw, 16vw" alt="Conjunto Satinado" loading="lazy"></div>
+  <p class="p-n">Conjunto Satinado</p>
+  <p class="p-d"><b>$55.00</b><span>1XL 2XL 3XL 4XL</span></p>
+</a></div>
+</section>
+
+<div class="franja"><div class="franja-in">
+  <span><b>Pagás al recibir</b> — no adelantás nada</span>
+  <span><b>Envío $5</b> a todo el país</span>
+  <span><b>Cambios</b> en 2 días</span>
+  <span><b>Medidas reales</b> de cada prenda</span>
+</div></div>
+<p class="pie">Dirección A · densa, sans-serif, el producto manda. La ruta de colettecurve y thedress.</p>
+</body></html>

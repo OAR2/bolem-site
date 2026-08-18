@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es-SV">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C · Vitrina de Mónica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&family=Outfit:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap">
+<style>
+
+:root{--tinta:#17141A;--tinta2:#57505A;--tinta3:#8B838E;--linea:#EAE5EC;
+      --acento:#A5427E;--verde:#25D366;--papel:#FFF;--papel2:#FAF7F9;--crema:#FFE4B3}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--papel);color:var(--tinta);
+     font-family:'Outfit',system-ui,sans-serif;font-size:16px;line-height:1.7;-webkit-text-size-adjust:100%}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.aviso{background:#17141A;color:#fff;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+       padding:.5rem 1rem;text-align:center;font-family:'Inconsolata',monospace}
+.aviso a{color:var(--crema);text-decoration:underline}
+.marco{max-width:1160px;margin-inline:auto;padding-inline:clamp(1.15rem,5vw,3rem)}
+.barra{display:flex;align-items:center;gap:1.5rem;height:76px;max-width:1160px;margin-inline:auto;
+       padding-inline:clamp(1.15rem,5vw,3rem)}
+.logo{font-weight:200;font-size:1.3rem;letter-spacing:.42em;margin-right:auto}
+.logo b{font-weight:600}
+.barra nav{display:flex;gap:1.4rem;font-size:.85rem;color:var(--tinta2)}
+@media(max-width:760px){.barra nav{display:none}}
+
+.intro{padding:clamp(2rem,6vh,4.5rem) 0 clamp(1.5rem,4vh,3rem);max-width:40rem}
+.rot{font-family:'Inconsolata',monospace;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+     color:var(--tinta3);margin:0 0 .8rem}
+.intro h1{margin:0 0 1rem;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-style:italic;
+          font-size:clamp(1.7rem,4vw,2.7rem);line-height:1.25;letter-spacing:-.01em}
+.intro p{margin:0;color:var(--tinta2);font-size:1.08rem}
+
+/* bloques alternados */
+.b{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center;
+   padding:clamp(2rem,5vh,3.5rem) 0;border-top:1px solid var(--linea)}
+.b:nth-child(even) .b-foto{order:2}
+@media(max-width:820px){.b{grid-template-columns:1fr}.b:nth-child(even) .b-foto{order:0}}
+.b-foto{background:var(--papel2)}
+.b-foto img{width:100%;aspect-ratio:2/3;object-fit:cover}
+.b-txt h2{margin:0 0 .5rem;font-family:'Playfair Display',Georgia,serif;font-weight:400;
+          font-size:clamp(1.4rem,3vw,2rem);line-height:1.15}
+.b-precio{font-family:'Inconsolata',monospace;font-size:1.15rem;font-weight:600;margin:0 0 1rem}
+.b-cita{margin:0 0 1.2rem;color:var(--tinta2);font-size:1.02rem}
+.b-cita em{font-family:'Playfair Display',Georgia,serif;font-style:italic}
+.b-datos{list-style:none;margin:0 0 1.4rem;padding:0;display:flex;flex-direction:column;gap:.4rem;
+         font-size:.9rem;color:var(--tinta2);border-top:1px solid var(--linea);padding-top:1rem}
+.b-datos b{color:var(--tinta);font-family:'Inconsolata',monospace;font-size:.82rem;
+           letter-spacing:.08em;text-transform:uppercase;margin-right:.5rem}
+.b-falta{border:1px dashed var(--linea);padding:.6rem .8rem;font-size:.86rem;color:var(--tinta3)}
+.bt{display:inline-flex;align-items:center;gap:.5rem;background:var(--verde);color:#111;
+    font-weight:600;padding:.75rem 1.4rem;font-size:.95rem}
+.tallas-c{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 1.2rem}
+.tallas-c span{font-family:'Inconsolata',monospace;font-size:.82rem;font-weight:600;
+               border:1px solid var(--tinta);padding:.25rem .6rem}
+.cierre{background:var(--papel2);margin-top:3rem;padding:clamp(2rem,5vh,3.5rem) 0;text-align:center}
+.pie{padding:2.5rem 0;font-size:.82rem;color:var(--tinta3)}
+
+</style>
+</head>
+<body>
+<div class="aviso">Dirección <b>C</b> · maqueta con datos reales · <a href="../">comparar las tres</a></div>
+
+<header class="barra">
+  <a class="logo" href="#">BOL<b>E</b>M</a>
+  <nav><a href="#">La colección</a><a href="#">Tu talla</a><a href="#">Lo que dicen</a><a href="#">Nosotras</a></nav>
+</header>
+
+<section class="marco intro">
+  <p class="rot">49 piezas · elegidas una por una</p>
+  <h1>No fabrico ropa. Busco la que sí está cortada para nosotras — y traigo solo la que me pondría yo.</h1>
+  <p>Mónica, fundadora de BOLEM</p>
+</section>
+
+<div class="marco">
+<article class="b">
+  <div class="b-foto"><img src="../../../assets/productos/vestido-maxi-smocked-blanco-800.webp" srcset="../../../assets/productos/vestido-maxi-smocked-blanco-480.webp 480w, ../../../assets/productos/vestido-maxi-smocked-blanco-800.webp 800w, ../../../assets/productos/vestido-maxi-smocked-blanco.webp 1200w" sizes="(max-width:820px) 100vw, 50vw" alt="Vestido Maxi Smocked" loading="lazy"></div>
+  <div class="b-txt">
+    <h2>Vestido Maxi Smocked</h2>
+    <p class="b-precio">$74.50</p>
+    <p class="b-cita"><em>&laquo;La espalda es toda elástica. Por eso le queda a cuerpos muy distintos y por eso lo traje en cuatro colores en vez de uno.&raquo;</em></p>
+    <div class="tallas-c"><span>XL</span><span>1XL</span><span>2XL</span></div>
+    <p class="b-falta">Todavía no publicamos la tela ni cómo queda esta prenda. Estamos midiéndolas una por una.</p>
+    <a class="bt" href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Maxi%20Smocked">Apartar por WhatsApp</a>
+  </div>
+</article><article class="b">
+  <div class="b-foto"><img src="../../../assets/productos/chaleco-elegante-marfil-800.webp" srcset="../../../assets/productos/chaleco-elegante-marfil-480.webp 480w, ../../../assets/productos/chaleco-elegante-marfil-800.webp 800w, ../../../assets/productos/chaleco-elegante-marfil.webp 1200w" sizes="(max-width:820px) 100vw, 50vw" alt="Chaleco Elegante" loading="lazy"></div>
+  <div class="b-txt">
+    <h2>Chaleco Elegante</h2>
+    <p class="b-precio">$55.00</p>
+    <p class="b-cita"><em>&laquo;Lo vi y pensé en mi hermana yendo a una boda sin querer usar vestido. Se lleva con jeans o con pantalón de vestir.&raquo;</em></p>
+    <div class="tallas-c"><span>XL</span><span>1XL</span><span>2XL</span><span>3XL</span></div>
+    <p class="b-falta">Todavía no publicamos la tela ni cómo queda esta prenda. Estamos midiéndolas una por una.</p>
+    <a class="bt" href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Chaleco%20Elegante">Apartar por WhatsApp</a>
+  </div>
+</article><article class="b">
+  <div class="b-foto"><img src="../../../assets/productos/conjunto-burdeos-800.webp" srcset="../../../assets/productos/conjunto-burdeos-480.webp 480w, ../../../assets/productos/conjunto-burdeos-800.webp 800w, ../../../assets/productos/conjunto-burdeos.webp 1200w" sizes="(max-width:820px) 100vw, 50vw" alt="Conjunto Palazzo Burdeos" loading="lazy"></div>
+  <div class="b-txt">
+    <h2>Conjunto Palazzo Burdeos</h2>
+    <p class="b-precio">$45.00</p>
+    <p class="b-cita"><em>&laquo;Dos piezas que ya combinan es media hora menos frente al clóset. El vino no es fácil de encontrar en talla grande.&raquo;</em></p>
+    <div class="tallas-c"><span>1XL</span><span>2XL</span><span>3XL</span></div>
+    <p class="b-falta">Todavía no publicamos la tela ni cómo queda esta prenda. Estamos midiéndolas una por una.</p>
+    <a class="bt" href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Conjunto%20Palazzo%20Burdeos">Apartar por WhatsApp</a>
+  </div>
+</article><article class="b">
+  <div class="b-foto"><img src="../../../assets/productos/pantalon-formal-crema-800.webp" srcset="../../../assets/productos/pantalon-formal-crema-480.webp 480w, ../../../assets/productos/pantalon-formal-crema-800.webp 800w, ../../../assets/productos/pantalon-formal-crema.webp 1200w" sizes="(max-width:820px) 100vw, 50vw" alt="Pantalón Formal Palazzo" loading="lazy"></div>
+  <div class="b-txt">
+    <h2>Pantalón Formal Palazzo</h2>
+    <p class="b-precio">$45.00</p>
+    <p class="b-cita"><em>&laquo;Encontrar un palazzo que caiga bien y no se transparente me costó tres proveedores. Éste es el que pasó.&raquo;</em></p>
+    <div class="tallas-c"><span>XL</span><span>1XL</span><span>2XL</span><span>3XL</span></div>
+    <p class="b-falta">Todavía no publicamos la tela ni cómo queda esta prenda. Estamos midiéndolas una por una.</p>
+    <a class="bt" href="https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Pantal%C3%B3n%20Formal%20Palazzo">Apartar por WhatsApp</a>
+  </div>
+</article>
+</div>
+
+<div class="cierre"><div class="marco">
+  <p class="rot">Y hay 45 más</p>
+  <a class="bt" href="#">Ver toda la colección</a>
+</div></div>
+<p class="marco pie">Dirección C · la vitrina. Pocas prendas, cada una con por qué está acá.</p>
+</body></html>
