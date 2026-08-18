@@ -139,23 +139,97 @@ def footer():
   </footer>""" % (SVG_IG, WA_GENERAL, SVG_WA)
 
 
-def descripcion(p, cats):
-    """Lo que se puede decir con lo que el catalogo SABE. Nada inventado."""
-    if p.get('descripcion'):
-        return '<p>%s</p>' % esc(p['descripcion'])
-    cat = cats[p['categoria']]['etiqueta_larga'].lower().rstrip('s')
-    tallas = p['tallas']
-    trozos = []
-    if p.get('colores', 1) > 1:
-        trozos.append('Viene en %d colores.' % p['colores'])
-    if len(tallas) == 1:
-        trozos.append('Nos queda en talla <strong>%s</strong>.' % tallas[0])
+def detalle_alt(p):
+    """El trozo descriptivo del `alt`, sin el nombre ni la cola de SEO.
+
+    Es la unica fuente de detalle fisico que el catalogo tiene escrita y
+    revisada (color, corte, avios). Es distinta en las 49, y por eso es lo
+    que hace que las 49 fichas no digan lo mismo. 7 prendas no traen nada:
+    esas se quedan sin esa frase en vez de inventarsela.
+    """
+    a = p.get('alt') or ''
+    a = re.sub(r'\s*—\s*BOLEM.*$', '', a)
+    a = re.sub(r'\s*plus size,?\s*tallas[^,]*$', '', a).strip().rstrip(',')
+    nom = p.get('nombre', '')
+    if nom and a.lower().startswith(nom.lower()):
+        a = a[len(nom):].strip()
+    a = a.lstrip(',').strip()
+    return a
+
+
+def frase_tallas(p):
+    """La corrida, dicha en terminos de la escala que ESTA prenda usa."""
+    t = p['tallas']
+    if len(t) == 1:
+        return 'Nos queda solo en <strong>%s</strong>.' % t[0]
+    cruza = ('XL' in t and '1XL' in t) or ('L' in t and ('XL' in t or '1XL' in t))
+    base = 'Va de la <strong>%s</strong> a la <strong>%s</strong>' % (t[0], t[-1])
+    if cruza:
+        return base + ', o sea que cruza de la escala recta a la plus.'
+    return base + '.'
+
+
+def frase_precio(p, prods):
+    """El precio situado contra la distribucion REAL del catalogo.
+
+    No es adorno: a la clienta que llega por un enlace suelto, un numero sin
+    referencia no le dice nada. Los cortes se calculan de los 49 precios, asi
+    que la frase sigue siendo cierta cuando entren o salgan prendas.
+    """
+    precios = sorted(x['precio'] for x in prods)
+    n = len(precios)
+    if n < 4:
+        return ''
+    q1 = precios[n // 4]
+    med = precios[n // 2]
+    q3 = precios[(3 * n) // 4]
+    v = p['precio']
+    if v <= q1:
+        donde = 'es de las más accesibles del catálogo'
+    elif v <= med:
+        donde = 'está en la mitad baja de precios'
+    elif v <= q3:
+        donde = 'está en la mitad alta'
     else:
-        trozos.append('Va de la <strong>%s</strong> a la <strong>%s</strong>.'
-                      % (tallas[0], tallas[-1]))
-    return ('<p>%s Es una pieza que Mónica eligió a mano para el catálogo de BOLEM. %s</p>'
-            % (('Este %s' % cat).capitalize() + ' es parte de la colección.',
-               ' '.join(trozos)))
+        donde = 'es de las de precio más alto'
+    return 'A <strong>$%s</strong> %s.' % (fmt_precio(v), donde)
+
+
+def fmt_precio(v):
+    return ('%.2f' % v)
+
+
+def descripcion(p, cats, prods=None):
+    """Lo que se puede decir con lo que el catalogo SABE. Nada inventado.
+
+    Deliberadamente NO dice tela, calce ni ocasion: el catalogo no los tiene
+    y son justo las cuatro cosas que la hoja de descripciones le pide a
+    Monica por nota de voz. Inventarlas aca seria escribir en la ficha de
+    producto —lo que Google cita como hecho— algo que nadie verifico.
+    """
+    if p.get('descripcion'):
+        return '<p data-auto="0">%s</p>' % esc(p['descripcion'])
+    prods = prods or [p]
+    partes = []
+    det = detalle_alt(p)
+    if det:
+        partes.append('<strong>%s</strong>, %s.' % (esc(p['nombre']), det))
+    else:
+        partes.append('<strong>%s</strong>.' % esc(p['nombre']))
+    if p.get('colores', 1) > 1:
+        partes.append('Viene en %d colores.' % p['colores'])
+    partes.append(frase_tallas(p))
+    pr = frase_precio(p, prods)
+    if pr:
+        partes.append(pr)
+    cierre = (cats.get(p['categoria'], {}) or {}).get('editorial') or ''
+    bloque = '<p data-auto="1">%s</p>' % ' '.join(partes)
+    if cierre:
+        bloque += '\n<p data-auto="1" class="prenda-desc-editorial">%s</p>' % cierre
+    bloque += ('\n<p data-auto="1" class="prenda-desc-falta">La tela y cómo cae '
+               'te los contamos por WhatsApp — <a href="%s" target="_blank" '
+               'rel="noopener">preguntanos por esta pieza</a>.</p>' % p['wa'])
+    return bloque
 
 
 def escala_nota(p):
@@ -177,8 +251,14 @@ def escala_nota(p):
 def json_ld(p, cats):
     url = '%s/prendas/%s' % (SITIO, p['id'])
     cat = cats[p['categoria']]['etiqueta_larga']
-    desc = ('%s plus size. Tallas %s. $%s. BOLEM El Salvador.'
-            % (p['nombre'], p['tallas_texto_original'], precio_txt(p)))
+    # El detalle del `alt` entra aca a proposito: `description` es lo que lee
+    # Merchant Center y lo que puede salir en un resultado enriquecido. Con
+    # solo nombre+tallas+precio las 49 se parecen entre si; el color y el
+    # corte son lo unico que las distingue, y ya estan escritos y revisados.
+    det = detalle_alt(p)
+    desc = ('%s plus size%s. Tallas %s. $%s. BOLEM El Salvador.'
+            % (p['nombre'], (', ' + det) if det else '',
+               p['tallas_texto_original'], precio_txt(p)))
     prod = {
         '@context': 'https://schema.org',
         '@type': 'Product',
@@ -405,7 +485,7 @@ def pagina(p, prods, cats):
            nombre=esc(p['nombre']), precio=precio_txt(p), tallas=tallas,
            tallas_txt=esc(p['tallas_texto_original']),
            nota_tallas=escala_nota(p), wa=esc(wa_prenda(p)), svgwa=SVG_WA,
-           descripcion=descripcion(p, cats), id=p['id'],
+           descripcion=descripcion(p, cats, prods), id=p['id'],
            colores=('%d colores' % p['colores']) if p.get('colores', 1) > 1 else 'Un color',
            relacionadas=relacionadas)
 
@@ -424,7 +504,11 @@ def main(revisar):
             h = open(os.path.join(SALIDA, f), encoding='utf-8').read()
             m = re.search(r'<!-- BOLEM:DESC:%s -->(.*?)<!-- /BOLEM:DESC:%s -->'
                           % (re.escape(pid), re.escape(pid)), h, re.S)
-            if m:
+            if m and 'data-auto="1"' not in m.group(1):
+                # Solo se conserva lo que NO genero este script. Sin esta
+                # comprobacion el hueco conservaba su propia salida y el texto
+                # quedaba congelado en la primera corrida: mejorar
+                # descripcion() no cambiaba ni una ficha ya escrita.
                 previas[pid] = m.group(1)
 
     os.makedirs(SALIDA, exist_ok=True)
