@@ -164,6 +164,60 @@ for p in [os.path.join(ROOT, 'coleccion', 'index.html'),
                               % (rel(p), donde, m.group(1), n_cat))
 print('   %d numeros desactualizados' % malos_num)
 
+# ---------- 6b. el rango de PRECIOS que anuncia el sitio ----------
+# Agregado 2026-08-18. Se probo el caso real: al ponerle $99 a una prenda, el
+# precio llego bien a su ficha y a su schema, pero el home, la coleccion y
+# llms.txt siguieron diciendo "$22-$85" — y este chequeo dijo "0 numeros
+# desactualizados", porque solo miraba conteos. El hueco importa mas que los
+# conteos: el rango depende de DOS prendas concretas, y basta que la de $22 se
+# agote para que el sitio publique un precio de entrada que ya no existe.
+#
+# A diferencia del rango de TALLAS (que se declara a mano, porque el reclamo de
+# marca no tiene por que seguir a la escala interna), el de precios SI se
+# deriva: el rango de precios del sitio es, por definicion, el minimo y el
+# maximo de lo que vende.
+#
+# Solo se barren los 3 archivos que hablan del catalogo COMPLETO. Las tarjetas
+# de producto dicen "$22" sueltos y son correctas; por eso ningun patron matchea
+# un precio solo — todos exigen "desde", "de X a Y" o un guion entre dos cifras.
+print('6b. Rango de precios anunciado')
+precios_cat = sorted(float(p['precio']) for p in d['productos'])
+p_min, p_max = precios_cat[0], precios_cat[-1]
+
+
+def _fmt(v):
+    return ('%.2f' % v).rstrip('0').rstrip('.')
+
+
+RANGOS = [
+    (re.compile(r'[Dd]esde \$(\d+(?:\.\d+)?)'), 'min', 'desde $%s'),
+    (re.compile(r'de \$(\d+(?:\.\d+)?) a \$(\d+(?:\.\d+)?)'), 'ambos', 'de $%s a $%s'),
+    (re.compile(r'\$(\d+(?:\.\d+)?)\s*[-–—]\s*\$?(\d+(?:\.\d+)?)'), 'ambos', '$%s-$%s'),
+]
+malos_precio = 0
+for ruta in [os.path.join(ROOT, 'index.html'),
+             os.path.join(ROOT, 'coleccion', 'index.html'),
+             os.path.join(ROOT, 'llms.txt')]:
+    if not os.path.exists(ruta):
+        continue
+    h = open(ruta, encoding='utf-8').read()
+    for rx, clase, molde in RANGOS:
+        for m in rx.finditer(h):
+            if clase == 'min':
+                if abs(float(m.group(1)) - p_min) > 0.005:
+                    malos_precio += 1
+                    fallos.append('%s dice "%s" y la prenda mas barata cuesta $%s'
+                                  % (rel(ruta), molde % m.group(1), _fmt(p_min)))
+            else:
+                lo, hi = float(m.group(1)), float(m.group(2))
+                if abs(lo - p_min) > 0.005 or abs(hi - p_max) > 0.005:
+                    malos_precio += 1
+                    fallos.append('%s anuncia "%s" y el catalogo va de $%s a $%s'
+                                  % (rel(ruta), molde % (m.group(1), m.group(2)),
+                                     _fmt(p_min), _fmt(p_max)))
+print('   catalogo: $%s a $%s - %d reclamos que no cuadran'
+      % (_fmt(p_min), _fmt(p_max), malos_precio))
+
 # El rango de tallas NO se chequea contra escala_tallas. Se intento y gritaba
 # en falso: "tallas XL a 2XL" en una ficha es el rango de ESA prenda y esta
 # bien, y el reclamo de marca "XL a 4XL" tampoco tiene por que seguir a la
