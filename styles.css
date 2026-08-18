@@ -28,10 +28,23 @@
   --color-ink-muted: #666666;
   --color-warm-muted: #B0ABA5;
 
-  /* Typography */
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'Outfit', sans-serif;
-  --font-accent: 'Inconsolata', monospace;
+  /* Typography
+     Las tres fuentes vienen de Google. Con `display=swap` el texto se ve desde
+     el primer cuadro con la de respaldo, asi que el respaldo NO es decorativo:
+     es lo que lee la clienta con mala senal, y en ese medio segundo la pagina
+     no se puede descuadrar. Por eso las listas nombran fuentes que existen de
+     verdad en Windows, Android e iOS, en vez de dejar el generico solo.
+     Medido 2026-08-17 sirviendo el sitio con los tres hosts externos apuntados
+     a un host muerto. Lo que el cambio SI hace: el sustituto en Windows pasa de
+     Arial (329.09px para una frase patron) a Segoe UI (311.34px) -- 5% mas
+     angosto, mas cerca de la proporcion de Outfit -- y en Android/iOS nombra una
+     cara real en vez de dejar el generico del sistema. Lo que NO hace, y conviene
+     no creer: el alto total de la pagina se movio igual, 31px de 8,993 en
+     390x844 (0.34%), antes y despues. O sea que esto ordena el sustituto, no
+     elimina el salto. */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', 'Noto Serif', serif;
+  --font-body: 'Outfit', 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-accent: 'Inconsolata', 'Consolas', 'DejaVu Sans Mono', 'Courier New', monospace;
 
   /* Type Scale */
   --text-hero: clamp(3.5rem, 8vw, 7rem);
@@ -721,3 +734,29 @@ body::before {
   letter-spacing: 0;
   margin-right: 0.34em;
 }
+
+/* ─── Enlaces a las páginas de categoría ───────────────────────────────
+   Viven bajo la fila de filtros de la colección. Son enlaces de verdad, no
+   botones: el filtro cambia lo que se ve en ESTA página, el enlace lleva a
+   una dirección propia que Google puede indexar. Las dos cosas conviven a
+   propósito — el filtro es para quien ya está acá, el enlace es para quien
+   todavía no llegó. */
+.filter-links {
+  width: 100%;
+  margin: 0.9rem 0 0;
+  font-family: var(--font-accent);
+  font-size: var(--text-micro);
+  letter-spacing: 0.04em;
+  color: var(--color-ink-muted);
+}
+.filter-link {
+  color: var(--color-ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-warm-muted);
+  padding-bottom: 1px;
+  margin: 0 0.15rem;
+  white-space: nowrap;
+  transition: border-color var(--duration-fast), color var(--duration-fast);
+}
+.filter-link:hover,
+.filter-link:focus-visible { color: var(--color-gold); border-bottom-color: currentColor; }
