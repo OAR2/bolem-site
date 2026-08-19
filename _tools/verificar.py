@@ -181,7 +181,10 @@ print('   %d numeros desactualizados' % malos_num)
 # de producto dicen "$22" sueltos y son correctas; por eso ningun patron matchea
 # un precio solo — todos exigen "desde", "de X a Y" o un guion entre dos cifras.
 print('6b. Rango de precios anunciado')
-precios_cat = sorted(float(p['precio']) for p in d['productos'])
+# Solo las disponibles: si la prenda de $22 se agoto, el precio de entrada que
+# el sitio anuncia dejo de existir y eso es justo lo que hay que cazar.
+_comprables = [p for p in d['productos'] if not p.get('agotada')] or d['productos']
+precios_cat = sorted(float(p['precio']) for p in _comprables)
 p_min, p_max = precios_cat[0], precios_cat[-1]
 
 
@@ -217,6 +220,31 @@ for ruta in [os.path.join(ROOT, 'index.html'),
                                      _fmt(p_min), _fmt(p_max)))
 print('   catalogo: $%s a $%s - %d reclamos que no cuadran'
       % (_fmt(p_min), _fmt(p_max), malos_precio))
+
+# ---------- 6c. agotadas ----------
+# Una prenda agotada tiene que decirlo en los DOS lugares: en la pagina (para
+# la clienta) y en el JSON-LD (para Google). Si solo lo dice en uno, alguien
+# recibe el dato viejo — y a Google mentirle sobre disponibilidad es de las
+# cosas que castiga en Merchant Center.
+agotadas = [p for p in d['productos'] if p.get('agotada')]
+print('6c. Prendas agotadas')
+print('   %d marcadas agotadas de %d' % (len(agotadas), n_cat))
+for p in agotadas:
+    fp = os.path.join(ROOT, 'prendas', p['id'] + '.html')
+    if not os.path.exists(fp):
+        continue
+    hp = open(fp, encoding='utf-8').read()
+    if 'OutOfStock' not in hp:
+        fallos.append('prendas/%s.html: la prenda esta agotada pero su JSON-LD '
+                      'sigue diciendo InStock' % p['id'])
+col_html = os.path.join(ROOT, 'coleccion', 'index.html')
+if agotadas and os.path.exists(col_html):
+    hc = open(col_html, encoding='utf-8').read()
+    for p in agotadas:
+        if ('data-id="%s"' % p['id']) in hc and 'product-card--agotada' not in hc:
+            fallos.append('coleccion: %s esta agotada y su tarjeta no lo muestra'
+                          % p['id'])
+            break
 
 # El rango de tallas NO se chequea contra escala_tallas. Se intento y gritaba
 # en falso: "tallas XL a 2XL" en una ficha es el rango de ESA prenda y esta

@@ -5288,6 +5288,35 @@
 
     // ─── LISTA VIP (M3) ───
     function initVipForm() {
+      // ── Lista VIP: a donde van los datos ──────────────────────────────
+      // Receptor: _tools/apps-script-lista-vip.gs (instalar en la Hoja Madre).
+      // Mientras VIP_ENDPOINT este vacio, esto no hace nada y el formulario se
+      // comporta como antes: abre WhatsApp. Nunca falla por no estar puesto.
+      var VIP_ENDPOINT = '';           // pegar aca la URL que termina en /exec
+      var VIP_SECRETO  = 'CAMBIAR-ESTO';
+
+      function guardarVIP(nombre, telefono) {
+        if (!VIP_ENDPOINT) return;
+        try {
+          var cuerpo = JSON.stringify({
+            secreto: VIP_SECRETO,
+            nombre: nombre,
+            whatsapp: telefono,
+            pagina: location.pathname
+          });
+          // sendBeacon sobrevive a que la pestana se vaya a WhatsApp, que es
+          // justo lo que pasa un instante despues. fetch normal se cancelaria.
+          if (navigator.sendBeacon) {
+            navigator.sendBeacon(VIP_ENDPOINT, new Blob([cuerpo], { type: 'text/plain' }));
+          } else {
+            fetch(VIP_ENDPOINT, { method: 'POST', mode: 'no-cors', keepalive: true,
+                                  headers: { 'Content-Type': 'text/plain' }, body: cuerpo });
+          }
+        } catch (err) {
+          // Guardar el dato nunca puede romperle la experiencia a la clienta.
+        }
+      }
+
       var form = document.getElementById('vipForm');
       var feedback = document.getElementById('vipFeedback');
       if (!form || !feedback) return;
@@ -5323,6 +5352,8 @@
           return;
         }
         telEl.removeAttribute('aria-invalid');
+
+        guardarVIP(nombre, digits);
 
         var texto = 'Hola! Soy ' + nombre + ' y quiero unirme a la lista VIP de BOLEM. Mi WhatsApp: +503 ' + digits;
         window.open('https://wa.me/50368590899?text=' + encodeURIComponent(texto), '_blank', 'noopener');

@@ -760,3 +760,21 @@ body::before {
 }
 .filter-link:hover,
 .filter-link:focus-visible { color: var(--color-gold); border-bottom-color: currentColor; }
+
+/* ── Prenda agotada ───────────────────────────────────────────────────────
+   Se marca con "agotada": true en _data/catalogo.json. La prenda NO se
+   esconde: conserva su pagina y su direccion, y el boton cambia a "avisame
+   cuando vuelva" — una clienta que queria algo agotado es una venta futura,
+   no una visita perdida. */
+.product-card--agotada .product-img { filter: grayscale(1); opacity: 0.55; }
+.product-card--agotada .product-price { text-decoration: line-through; opacity: 0.6; }
+.product-agotada {
+  position: absolute; top: 0.75rem; left: 0.75rem; z-index: 3;
+  background: var(--color-ink); color: var(--color-white);
+  font-family: var(--font-accent); font-size: 0.66rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.28rem 0.6rem;
+}
+.product-card--agotada .product-cta {
+  background: transparent; border: 1px solid var(--color-ink); color: var(--color-ink);
+}

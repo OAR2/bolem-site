@@ -55,7 +55,11 @@ def plural(n, uno, varios):
 def intro(items, todos):
     """El parrafo de la categoria, calculado. Ni una cifra escrita a mano."""
     n = len(items)
-    precios = sorted(float(x['precio']) for x in items)
+    # Solo lo disponible: un rango de precios describe lo que se puede pagar
+    # hoy, no lo que hubo. Si no queda nada, se cae al catalogo completo para
+    # no escribir un rango vacio.
+    _hay = [x for x in items if not x.get('agotada')] or items
+    precios = sorted(float(x['precio']) for x in _hay)
     etiquetas = set()
     for x in items:
         etiquetas.update(x['tallas'])
@@ -129,7 +133,11 @@ def json_ld(cat, slug, titular, items, meta):
 def pagina(cat, slug, titular, items, cats_todas, todos):
     url = '%s/coleccion/%s' % (SITIO, slug)
     titulo = '%s Plus Size El Salvador — BOLEM' % titular
-    precios = sorted(float(x['precio']) for x in items)
+    # Solo lo disponible: un rango de precios describe lo que se puede pagar
+    # hoy, no lo que hubo. Si no queda nada, se cae al catalogo completo para
+    # no escribir un rango vacio.
+    _hay = [x for x in items if not x.get('agotada')] or items
+    precios = sorted(float(x['precio']) for x in _hay)
     meta = ('%d %s plus size en El Salvador, de $%.2f a $%.2f. Tallas XL a 4XL, '
             'envío a todo el país y pagás al recibir.'
             % (len(items), titular.lower(), precios[0], precios[-1]))

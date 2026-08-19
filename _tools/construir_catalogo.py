@@ -89,9 +89,33 @@ def tallas_txt(p, escala):
     return base
 
 
-def wa_apartar(nombre):
+def wa_apartar(nombre, agotada=False):
+    if agotada:
+        return "https://wa.me/%s?text=%s" % (
+            WA, quote("Hola, vi que el %s aparece agotado. Me avisan cuando vuelva?" % nombre))
     return "https://wa.me/%s?text=%s" % (
         WA, quote("Hola, quiero apartar el %s. Mi talla es: ____ y lo quiero en color: " % nombre))
+
+
+# --- existencias --------------------------------------------------------------
+# Una prenda se marca agotada con `"agotada": true` en catalogo.json. El campo es
+# OPCIONAL: si no esta, la prenda esta disponible, asi que las 49 entradas viejas
+# siguen valiendo sin tocarlas.
+#
+# Tres reglas, cada una con su razon:
+#   1. Una prenda agotada SIGUE VISIBLE, con su pagina y su direccion. Borrarla
+#      tira el SEO que ya gano y le quita a Monica la chance de anotar a quien la
+#      queria.
+#   2. SI cuenta en "N estilos": ese numero describe lo que hay en pantalla, y la
+#      tarjeta esta en pantalla.
+#   3. NO cuenta en el RANGO DE PRECIOS: ese describe lo que se puede pagar hoy.
+#      Es exactamente el caso de las dos prendas de $22 que sostienen el reclamo
+#      "$22-$85" en tres archivos. Si se agotaron, el precio de entrada miente.
+
+
+def disponible(p):
+    """True si la prenda se puede comprar hoy."""
+    return not p.get('agotada')
 
 
 def base(foto):
@@ -141,6 +165,11 @@ def tarjetas_de(prods, escala):
         pre = "../assets/productos/"
         imgs = ",".join(pre + f for f in p["fotos"])
         grande = ' product-card--large' if p["destacada"] else ''
+        hay = disponible(p)
+        agot_clase = '' if hay else ' product-card--agotada'
+        agot_cinta = '' if hay else (
+            '          <span class="product-agotada">Agotada</span>\n')
+        agot_cta = 'Apartar' if hay else 'Avisame cuando vuelva'
         tam = '(max-width: 1024px) 100vw, 66vw' if p["destacada"] else '(max-width: 1024px) 50vw, 33vw'
         b0 = pre + base(p["fotos"][0])
         onerr = ('onerror="var w=this.closest(&quot;.product-image-wrap&quot;); '
@@ -152,7 +181,7 @@ def tarjetas_de(prods, escala):
                     'sizes="%s" alt="" aria-hidden="true" class="product-img product-img--alt" '
                     'width="600" height="900" loading="lazy">\n' % (b1, b1, b1, b1, tam))
         fuera.append(
-            '      <div class="product-card%s" data-category="%s" data-id="%s" data-images="%s" '
+            '      <div class="product-card%s%s" data-category="%s" data-id="%s" data-images="%s" '
             'tabindex="0" role="button" aria-label="Ver detalles de %s, ropa plus size — %s">\n'
             '        <div class="product-image-wrap">\n'
             '          <div class="product-placeholder">\n'
@@ -164,6 +193,7 @@ def tarjetas_de(prods, escala):
             '          <img src="%s.webp" srcset="%s-480.webp 480w, %s-800.webp 800w, %s.webp 1200w" '
             'sizes="%s" alt="%s" class="product-img" width="600" height="900" loading="lazy" %s>\n'
             '%s'
+            '%s'
             '        </div>\n'
             '        <div class="product-info">\n'
             '          <h3 class="product-name"><a href="../prendas/%s" class="product-link">%s</a></h3>\n'
@@ -171,13 +201,14 @@ def tarjetas_de(prods, escala):
             '            <span class="product-sizes">%s</span>\n'
             '            <span class="product-price">%s</span>\n'
             '          </div>\n'
-            '          <a href="%s" class="product-cta" target="_blank" rel="noopener">Apartar</a>\n'
+            '          <a href="%s" class="product-cta" target="_blank" rel="noopener">%s</a>\n'
             '        </div>\n'
             '      </div>\n'
-            % (grande, p["categoria"], p["id"], imgs, p["nombre"], precio_txt(p["precio"]),
-               b0, b0, b0, b0, tam, p["alt"], onerr, alt2,
+            % (grande, agot_clase, p["categoria"], p["id"], imgs, p["nombre"],
+               precio_txt(p["precio"]),
+               b0, b0, b0, b0, tam, p["alt"], onerr, alt2, agot_cinta,
                p["id"], p["nombre"], tallas_txt(p, escala), precio_txt(p["precio"]),
-               wa_apartar(p["nombre"])))
+               wa_apartar(p["nombre"], not disponible(p)), agot_cta))
     return "".join(fuera)
 
 
@@ -341,7 +372,8 @@ def itemlist_jsonld(prods, cats):
                 "url": url,
                 "price": "%.2f" % float(p["precio"]),
                 "priceCurrency": "USD",
-                "availability": "https://schema.org/InStock",
+                "availability": ("https://schema.org/InStock" if disponible(p)
+                                 else "https://schema.org/OutOfStock"),
                 "itemCondition": "https://schema.org/NewCondition",
                 "seller": {"@type": "ClothingStore", "@id": SITIO + "/#bolem", "name": "BOLEM"},
                 "shippingDetails": {

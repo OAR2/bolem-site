@@ -67,6 +67,27 @@ FUENTES = ('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;50
            '&display=swap')
 
 
+# --- existencias --------------------------------------------------------------
+# Una prenda se marca agotada con `"agotada": true` en catalogo.json. El campo es
+# OPCIONAL: si no esta, la prenda esta disponible, asi que las 49 entradas viejas
+# siguen valiendo sin tocarlas.
+#
+# Tres reglas, cada una con su razon:
+#   1. Una prenda agotada SIGUE VISIBLE, con su pagina y su direccion. Borrarla
+#      tira el SEO que ya gano y le quita a Monica la chance de anotar a quien la
+#      queria.
+#   2. SI cuenta en "N estilos": ese numero describe lo que hay en pantalla, y la
+#      tarjeta esta en pantalla.
+#   3. NO cuenta en el RANGO DE PRECIOS: ese describe lo que se puede pagar hoy.
+#      Es exactamente el caso de las dos prendas de $22 que sostienen el reclamo
+#      "$22-$85" en tres archivos. Si se agotaron, el precio de entrada miente.
+
+
+def disponible(p):
+    """True si la prenda se puede comprar hoy."""
+    return not p.get('agotada')
+
+
 def esc(s):
     return (str(s).replace('&', '&amp;').replace('<', '&lt;')
             .replace('>', '&gt;').replace('"', '&quot;'))
@@ -82,6 +103,10 @@ def srcset(foto):
 
 
 def wa_prenda(p):
+    if not disponible(p):
+        return 'https://wa.me/%s?text=%s' % (WA, quote(
+            'Hola, vi que el %s aparece agotado. Me avisan cuando vuelva?' % p['nombre'],
+            safe=''))
     t = 'Hola, quiero apartar el %s ($%s). Mi talla es: ' % (p['nombre'], precio_txt(p))
     if p.get('colores', 1) > 1:
         t += ' y lo quiero en color: '
@@ -275,7 +300,8 @@ def json_ld(p, cats):
             'url': url,
             'price': precio_txt(p),
             'priceCurrency': 'USD',
-            'availability': 'https://schema.org/InStock',
+            'availability': ('https://schema.org/InStock' if disponible(p)
+                             else 'https://schema.org/OutOfStock'),
             'itemCondition': 'https://schema.org/NewCondition',
             'seller': {'@type': 'ClothingStore', '@id': SITIO + '/#bolem', 'name': 'BOLEM'},
             'shippingDetails': {
