@@ -1,0 +1,34 @@
+name: Notify search engines after publishing
+on:
+  page_build:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    if: github.event_name == 'workflow_dispatch' || github.event.build.status == 'built'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.build.commit || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/cache/restore@v4
+        with:
+          path: ${{ runner.temp }}/indexnow-state.json
+          key: indexnow-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: indexnow-v1-
+      - name: Notify only changed public pages
+        run: python _tools/notificar_indexnow.py --state "$RUNNER_TEMP/indexnow-state.json" --submit
+      - uses: actions/cache/save@v4
+        with:
+          path: ${{ runner.temp }}/indexnow-state.json
+          key: indexnow-v1-${{ github.run_id }}-${{ github.run_attempt }}
