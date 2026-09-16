@@ -54,6 +54,8 @@ def metadata(text, route, schemas=None):
     if schemas:
         tags += '<script type="application/ld+json">'+json.dumps(schemas, ensure_ascii=False).replace('</','<\\/')+'</script>'
     extra=[]
+    if not route:
+        tags += '<meta name="msvalidate.01" content="CC386785533FC1B29F9E98A5F495B799">'
     if route:
         crumbs=[('Inicio','')]
         if route.startswith('prendas/') or (route.startswith('coleccion/') and route!='coleccion/'): crumbs.append(('Colección','coleccion/'))
