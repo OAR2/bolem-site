@@ -1,15 +1,15 @@
 # BOLEM — sitio público
 
 Diseño editorial de septiembre de 2026, publicado con GitHub Pages desde `master`.
-URL actual: https://oar2.github.io/bolem-site/
-Dominio previsto: bolemsv.com (pendiente de conexión DNS; no crear CNAME antes de coordinarla).
+URL principal: https://bolemsv.com/
+GitHub Pages redirige https://oar2.github.io/bolem-site/ al dominio principal.
 
 ## Mantener el sitio
 
 Fuente única de prendas: `_data/catalogo.json`. Confirmar inventario antes de cambiar disponibilidad.
 
 ```powershell
-python _tools/publicar_v3.py --origin https://oar2.github.io/bolem-site
+python _tools/publicar_v3.py --origin https://bolemsv.com
 python _tools/verificar.py
 python v3/_source/verify.py
 python _tools/verificar_publicacion.py
@@ -25,12 +25,12 @@ Paleta: naranja #FE470A, coral #FA5857, acento interactivo #A5427E. Los neutros 
 
 Revisar el diff y las comprobaciones; commit de archivos específicos y push a master. GitHub Pages publica automáticamente. Verificar el resultado remoto después.
 
-Para conectar bolemsv.com: configurar DNS hacia GitHub Pages, asociar el dominio en Pages, generar con `--origin https://bolemsv.com`, y comprobar HTTPS antes de anunciar el dominio. Conservar la URL de GitHub en los metadatos mientras el dominio no esté operativo.
+El dominio está asociado a GitHub Pages mediante CNAME y cuatro registros A en Cloudflare. www apunta a oar2.github.io. La generación usa automáticamente CNAME como origen; --origin permite una previsualización explícita. Mantener HTTPS habilitado cuando el certificado esté emitido.
 
 ## Ecosistema
 
 - Landing: este repositorio, OAR2/bolem-site.
-- WhatsApp SaaS: `C:/Users/othma/dev/projects/whatsapp-saas/`, independiente del sitio.
-- Content Engine: `G:/My Drive/00 - TOOLS/content/bolem/`.
+- WhatsApp SaaS: C:/Users/othma/dev/projects/whatsapp-saas/, independiente del sitio.
+- Content Engine: G:/My Drive/00 - TOOLS/content/bolem/.
 
 La compra se coordina por WhatsApp; elegir talla/foto prepara un mensaje, no confirma un pedido. No se inventan existencias ni se envían mensajes en las pruebas.

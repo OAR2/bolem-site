@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://oar2.github.io/bolem-site/sitemap.xml
+Sitemap: https://bolemsv.com/sitemap.xml

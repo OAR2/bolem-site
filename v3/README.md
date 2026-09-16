@@ -37,4 +37,4 @@ Revisar visualmente con Mónica la paleta digital, el tratamiento del nombre y l
 
 ## Lanzamiento de septiembre
 
-El sitio principal se genera con `python _tools/publicar_v3.py --origin https://oar2.github.io/bolem-site`. Esta carpeta conserva noindex como vista de revisión. La raíz es indexable. La paleta comparativa se retiró; el naranja y coral oficiales quedan fijos.
+El sitio principal se genera con `python _tools/publicar_v3.py --origin https://bolemsv.com`. Esta carpeta conserva noindex como vista de revisión. La raíz es indexable. La paleta comparativa se retiró; el naranja y coral oficiales quedan fijos.

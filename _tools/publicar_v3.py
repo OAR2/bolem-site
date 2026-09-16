@@ -14,7 +14,8 @@ from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser()
-parser.add_argument('--origin', default='https://oar2.github.io/bolem-site')
+default_origin = 'https://' + (ROOT/'CNAME').read_text().strip() if (ROOT/'CNAME').exists() else 'https://oar2.github.io/bolem-site'
+parser.add_argument('--origin', default=default_origin)
 args = parser.parse_args()
 origin = args.origin.rstrip('/')
 if urlsplit(origin).scheme != 'https':
@@ -55,7 +56,7 @@ for source in sorted((ROOT/'v3').rglob('*.html')):
     if any(part.startswith('_') for part in relative.parts):
         continue
     route = relative.as_posix().removesuffix('index.html') if relative.name == 'index.html' else relative.with_suffix('').as_posix()
-    text = source.read_text(encoding='utf-8')
+    text = '\n'.join(line.rstrip() for line in source.read_text(encoding='utf-8').splitlines())
     # v3 sits one level below the public root; shared photography moves up with it.
     text = text.replace('../assets/', 'assets/') if len(relative.parts)==1 else text.replace('../../assets/', '../assets/')
     schemas = None
