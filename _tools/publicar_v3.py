@@ -11,6 +11,7 @@ import shutil
 import subprocess
 import sys
 from urllib.parse import urlsplit
+from seo_bolem import CATEGORIES, metadata_for, enrich, category_page
 
 ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser()
@@ -37,9 +38,13 @@ def product_schema(p):
                        'availability': 'https://schema.org/'+('OutOfStock' if p.get('agotada') else 'InStock')}}
 
 def metadata(text, route, schemas=None):
+    text = enrich(text, route)
+    for key, category in CATEGORIES.items():
+        text = text.replace('coleccion/?categoria='+key, 'coleccion/'+category[0])
     text = re.sub(r'<meta name="robots"[^>]*>', '<meta name="robots" content="index,follow">', text)
-    title = re.search(r'<title>(.*?)</title>', text, re.S).group(1)
-    desc = re.search(r'<meta name="description" content="([^"]*)"', text).group(1)
+    title, desc = [html.escape(v, quote=True) for v in metadata_for(route, products)]
+    text = re.sub(r'<title>.*?</title>', lambda m:'<title>'+title+'</title>', text, flags=re.S)
+    text = re.sub(r'<meta name="description"[^>]*>', lambda m:f'<meta name="description" content="{desc}">', text)
     image = url('assets/productos/'+products.get(Path(route).name, products['vestido-cobalto'])['fotos'][0])
     tags = (f'<link rel="canonical" href="{html.escape(url(route), quote=True)}">'
             f'<meta property="og:type" content="website"><meta property="og:locale" content="es_SV">'
@@ -48,6 +53,18 @@ def metadata(text, route, schemas=None):
             f'<meta property="og:image" content="{image}"><meta name="twitter:card" content="summary_large_image">')
     if schemas:
         tags += '<script type="application/ld+json">'+json.dumps(schemas, ensure_ascii=False).replace('</','<\\/')+'</script>'
+    extra=[]
+    if route:
+        crumbs=[('Inicio','')]
+        if route.startswith('prendas/') or (route.startswith('coleccion/') and route!='coleccion/'): crumbs.append(('Colección','coleccion/'))
+        if route.startswith('blog/') and route!='blog/': crumbs.append(('Guías','blog/'))
+        crumbs.append((html.unescape(title).split(' | ')[0],route))
+        extra.append({'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':i+1,'name':name,'item':url(path)} for i,(name,path) in enumerate(crumbs)]})
+    if route.startswith('blog/') and route!='blog/':
+        headline=html.unescape(re.sub('<[^>]+>','',re.search(r'<h1[^>]*>(.*?)</h1>',text,re.S).group(1)))
+        extra.append({'@context':'https://schema.org','@type':'Article','headline':headline,'description':html.unescape(desc),'mainEntityOfPage':url(route),'image':image,'dateModified':'2026-09-15','author':{'@type':'Organization','name':'BOLEM','url':url('nosotras')},'publisher':{'@type':'Organization','name':'BOLEM','url':url('')}})
+    for item in extra:
+        tags += '<script type="application/ld+json">'+json.dumps(item,ensure_ascii=False).replace('</','<\\/')+'</script>'
     return text.replace('</head>', tags+'</head>')
 
 routes = []
@@ -63,6 +80,7 @@ for source in sorted((ROOT/'v3').rglob('*.html')):
     if relative.parts[0] == 'prendas':
         schemas = product_schema(products[relative.stem])
     elif route == 'coleccion/':
+        collection_source = text
         schemas = {'@context':'https://schema.org', '@type':'ItemList',
                    'itemListElement':[{'@type':'ListItem','position':i+1,'item':product_schema(p)} for i,p in enumerate(products.values())]}
     elif route == '':
@@ -74,12 +92,15 @@ for source in sorted((ROOT/'v3').rglob('*.html')):
     routes.append(route)
 shutil.copytree(ROOT/'v3/ui', ROOT/'ui', dirs_exist_ok=True)
 
+for key, category in CATEGORIES.items():
+    route='coleccion/'+category[0]
+    text, subset=category_page(collection_source,key,products)
+    schema={'@context':'https://schema.org','@type':'ItemList','itemListElement':[{'@type':'ListItem','position':i+1,'url':url('prendas/'+p['id']),'name':p['nombre']} for i,p in enumerate(subset)]}
+    (ROOT/(route+'.html')).write_text(metadata(text,route,schema),encoding='utf-8')
+    routes.append(route)
+
 # Old links keep working, including clients that don't execute JavaScript.
-aliases = {'nosotros.html':'nosotras', 'guia-de-tallas.html':'tallas',
-           'coleccion/vestidos-plus-size.html':'coleccion/?categoria=vestido',
-           'coleccion/blusas-plus-size.html':'coleccion/?categoria=blusa',
-           'coleccion/jeans-y-pantalones-plus-size.html':'coleccion/?categoria=pantalon',
-           'coleccion/conjuntos-plus-size.html':'coleccion/?categoria=conjunto'}
+aliases = {'nosotros.html':'nosotras', 'guia-de-tallas.html':'tallas'}
 for old, target in aliases.items():
     relative_target = ('../' if '/' in old else '')+target
     (ROOT/old).write_text(f'<!doctype html><html lang="es-SV"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BOLEM</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="{url(target)}"><meta http-equiv="refresh" content="0;url={relative_target}"></head><body><h1>BOLEM</h1><p><a href="{relative_target}">Continuar a la página actualizada</a></p></body></html>', encoding='utf-8')

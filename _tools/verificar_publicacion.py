@@ -26,6 +26,7 @@ locations=[e.text for e in sitemap.iter('{http://www.sitemaps.org/schemas/sitema
 origin=locations[0].split('/blog')[0].rstrip('/') if '/blog' in locations[0] else None
 home=Page((ROOT/'index.html').read_text(encoding='utf-8'))
 origin=home.canonical.rstrip('/')
+seen_titles={}; seen_descriptions={}
 for location in locations:
     route=location.removeprefix(origin+'/')
     path=ROOT/(route+'index.html' if not route or route.endswith('/') else route+'.html')
@@ -33,6 +34,21 @@ for location in locations:
     if 'noindex' in page.robots: errors.append(f'{route}: production is noindex')
     if page.canonical!=location: errors.append(f'{route}: canonical mismatch')
     if 'property="og:image"' not in text: errors.append(f'{route}: missing sharing image')
+    for pattern, seen in [(r'<title>(.*?)</title>',seen_titles),(r'<meta name="description" content="([^"]+)"',seen_descriptions)]:
+        value=re.search(pattern,text).group(1)
+        if value in seen: errors.append(f'{route}: duplicate metadata with {seen[value]}')
+        seen[value]=route
+    schemas=[json.loads(s) for s in re.findall(r'<script type="application/ld\+json">(.*?)</script>',text)]
+    types=[s.get('@type') for s in schemas]
+    if route and 'BreadcrumbList' not in types: errors.append(f'{route}: missing breadcrumbs')
+    if route.startswith('blog/') and route!='blog/' and ('Article' not in types or 'article-byline' not in text): errors.append(f'{route}: incomplete article')
+    if route.startswith('coleccion/') and route!='coleccion/':
+        from seo_bolem import CATEGORIES
+        key=next(k for k,v in CATEGORIES.items() if route.endswith(v[0]))
+        categories=re.findall(r'data-category="([^"]+)"',text)
+        catalog=json.loads((ROOT/'_data/catalogo.json').read_text(encoding='utf-8'))['productos']
+        expected=sum(p['categoria']==key for p in catalog)
+        if len(categories)!=expected or set(categories)!={key}: errors.append(f'{route}: wrong category products')
     for ref in page.refs:
         u=urlsplit(ref)
         if u.scheme or u.netloc or not u.path: continue
@@ -41,7 +57,7 @@ for location in locations:
 for css in (ROOT/'ui').glob('*.css'):
     for ref in re.findall(r'url\([\'"]?([^\)\'\"]+)',css.read_text(encoding='utf-8')):
         if not urlsplit(ref).scheme and not (css.parent/ref).exists(): errors.append('Missing font/asset '+ref)
-for alias in ['nosotros','guia-de-tallas','coleccion/vestidos-plus-size','coleccion/blusas-plus-size','coleccion/jeans-y-pantalones-plus-size','coleccion/conjuntos-plus-size']:
+for alias in ['nosotros','guia-de-tallas']:
     text=(ROOT/(alias+'.html')).read_text(encoding='utf-8')
     if 'http-equiv="refresh"' not in text: errors.append('Missing historic route '+alias)
 for p in json.loads((ROOT/'_data/catalogo.json').read_text(encoding='utf-8'))['productos']:
