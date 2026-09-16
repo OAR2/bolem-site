@@ -204,6 +204,8 @@ for ruta in [os.path.join(ROOT, 'index.html'),
     if not os.path.exists(ruta):
         continue
     h = open(ruta, encoding='utf-8').read()
+    # La tarifa de envio no es un precio de prenda.
+    h = re.sub(r'Env[ií]os a todo el pa[ií]s · desde \$[0-9.]+', '', h)
     for rx, clase, molde in RANGOS:
         for m in rx.finditer(h):
             if clase == 'min':
