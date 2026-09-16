@@ -43,6 +43,9 @@ def metadata_for(route, products):
         p = products[route.split('/')[-1]]
         sizes = ', '.join(p['tallas'])
         price = f"{p['precio']:.2f}".removesuffix('.00')
+        if p.get('descripcion'):
+            return (f"{p['nombre']} plus size en El Salvador | BOLEM",
+                    f"{p['descripcion'].split('. ')[0].rstrip('.')}. ${price} USD. Tallas {sizes}. Consultá disponibilidad en BOLEM; envíos en El Salvador.")
         return (f"{p['nombre']} plus size en El Salvador | BOLEM",
                 f"{p['nombre']} por ${price}. Tallas {sizes}. Mirá las fotos y consultá medidas, color y disponibilidad por WhatsApp. Envíos en El Salvador.")
     for cat in CATEGORIES.values():
@@ -50,6 +53,12 @@ def metadata_for(route, products):
     return PAGES[route]
 
 def enrich(text, route):
+    if route.startswith('prendas/vestido-'):
+        guides='<nav class="dress-guides" aria-label="Ayuda para elegir un vestido"><p>Antes de elegir tu vestido</p><a href="../blog/guia-tallas-plus-size">Cómo comparar las medidas</a><a href="../blog/tallas-xl-1xl-plus-size">Diferencias entre XL y 1XL</a><a href="../coleccion/vestidos-plus-size">Comparar todos los vestidos</a></nav>'
+        text=text.replace('<p class="sku">',guides+'<p class="sku">',1)
+    if route=='tallas' or route in ['blog/guia-tallas-plus-size','blog/tallas-xl-1xl-plus-size','blog/por-que-casi-no-existe-la-4xl','blog/looks-plus-size-clima-calido']:
+        base='' if route=='tallas' else '../'
+        text=text.replace('</main>',f'<nav class="wrap dress-guide-category" aria-label="Explorar vestidos"><a class="text-link" href="{base}coleccion/vestidos-plus-size">Ver vestidos plus size: fotos, tallas y precios</a></nav></main>')
     if route.startswith('blog/') and route!='blog/':
         extra=ARTICLES[route.split('/')[-1]]
         byline='<p class="article-byline">Por el equipo de BOLEM · Actualizado el <time datetime="2026-09-15">15 de septiembre de 2026</time></p>'
@@ -67,5 +76,22 @@ def category_page(collection, key, products):
     text=re.sub(r'<header class="catalog-heading wrap">.*?</header>',f'<header class="catalog-heading wrap"><p class="eyebrow">LA COLECCIÓN BOLEM</p><h1>{title}</h1><p class="category-intro">{intro}</p></header>',text,flags=re.S)
     text=re.sub(r'<p id="result-count".*?</p>',f'<p id="result-count">{len(subset)} prendas en esta categoría</p>',text,flags=re.S)
     advice_html=f'<div class="category-advice"><h2>{subtitle}</h2><p>{advice}</p><p><a class="text-link" href="../tallas">Guía de tallas</a> · <a class="text-link" href="../coleccion/">Ver toda la colección y filtrar por talla</a></p></div>'
+    if key=='vestido':
+        money=lambda value: ('$'+f'{value:.2f}').removesuffix('.00')
+        active=[p for p in subset if not p.get('agotada')]
+        prices=([p['precio'] for p in active])
+        price_answer=(f"Los vestidos no marcados como agotados van de {money(min(prices))} a {money(max(prices))} USD, sin incluir envío. Cada ficha muestra el precio de esa referencia. Confirmamos disponibilidad antes de apartar." if prices else 'Consultanos por reposiciones y precios antes de apartar.')
+        sizes=[s for s in ['L','XL','1XL','2XL','3XL','4XL'] if any(s in p['tallas'] for p in subset)]
+        size_links=''.join(f'<a href="../coleccion/?talla={s}&amp;categoria=vestido">{s}</a>' for s in sizes)
+        quick=f'<nav class="dress-size-links" aria-label="Buscar vestidos por talla"><span>Explorá por talla</span>{size_links}</nav><p class="dress-size-note">Las tallas corresponden al catálogo. Confirmá existencias por WhatsApp.</p>'
+        text=text.replace('<div class="catalog-count">',quick+'<div class="catalog-count">',1)
+        faqs=[
+          ('¿Qué tallas tienen los vestidos?',f'En esta categoría encontrás {", ".join(sizes)} según el modelo. Cada vestido tiene sus propias opciones; XL y 1XL no son equivalentes automáticas. <a href="../blog/tallas-xl-1xl-plus-size">Mirá cómo comparar XL y 1XL</a>.'),
+          ('¿Cuánto cuestan?',price_answer),
+          ('¿Cómo pido un vestido?', 'Abrí su ficha, elegí una talla y, si hay varias fotos, seleccioná la del color que te interesa. Tocá «Consultar por WhatsApp». El mensaje incluye la referencia; confirmamos talla, color, disponibilidad, pago y entrega antes de apartar.'),
+          ('¿Hacen envíos en El Salvador?', 'Sí. El envío cuesta $3.50 en el área metropolitana y $5 en el resto del país, con entrega de 1 a 3 días hábiles. Podés pagar en efectivo contra entrega o por transferencia. <a href="../cambios">Consultá las condiciones de envío y cambios</a>.'),
+          ('¿Cómo elijo la talla si no puedo probarme el vestido?', 'Compará con un vestido que ya te quede bien y compartinos sus medidas de busto, cintura y largo, indicando si mediste ancho plano o contorno. Consultá las medidas de la pieza que te gusta. <a href="../blog/guia-tallas-plus-size">Seguí esta guía para medir una prenda</a>.'),
+          ('¿Puedo solicitar un cambio de talla?', 'Podés solicitarlo dentro de los 2 días de recibir la prenda, sin uso y con etiquetas, sujeto a disponibilidad. <a href="../cambios">Revisá la política completa antes de comprar</a>.')]
+        advice_html += '<section class="dress-faq" aria-labelledby="dress-faq-title"><h2 id="dress-faq-title">Antes de pedir tu vestido</h2>'+''.join(f'<details><summary>{question}</summary><p>{answer}</p></details>' for question,answer in faqs)+'</section>'
     text=text.replace('<div class="catalog-help">',advice_html+'<div class="catalog-help">')
     return text,subset

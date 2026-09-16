@@ -13,6 +13,7 @@
   "productos": [
     {
       "id": "vestido-largo-volantes",
+      "descripcion": "Vestido largo negro con cinturón de lazo y un volante en cascada como detalle protagonista. Una opción para quienes buscan un vestido largo con movimiento visual y cintura marcada por el lazo.",
       "nombre": "Vestido Largo de Volantes",
       "categoria": "vestido",
       "precio": 28.0,
@@ -30,6 +31,7 @@
     },
     {
       "id": "vestido-shirtdress",
+      "descripcion": "Vestido estilo camisa en dos tonos del catálogo: crema y camel. Si te gustan los colores neutros, compará ambas fotos para elegir el que mejor combine con tus zapatos y accesorios.",
       "nombre": "Vestido Shirtdress",
       "categoria": "vestido",
       "precio": 29.0,
@@ -49,6 +51,7 @@
     },
     {
       "id": "vestido-verano-rojo",
+      "descripcion": "Vestido rojo estampado para armar un look con color. El estampado lo distingue de las opciones lisas de la colección; podés acompañarlo con accesorios sencillos para darle protagonismo.",
       "nombre": "Vestido de Verano",
       "categoria": "vestido",
       "precio": 29.9,
@@ -67,6 +70,7 @@
     },
     {
       "id": "vestido-broderie-rojo",
+      "descripcion": "Vestido Broderie en rojo, con opciones de talla que incluyen 4XL. Una alternativa para quienes buscan este estilo en un color intenso; revisá la foto y consultá el ajuste de tu talla antes de apartarlo.",
       "nombre": "Vestido Broderie",
       "categoria": "vestido",
       "precio": 34.9,
@@ -86,6 +90,7 @@
     },
     {
       "id": "vestido-negro-corte-a",
+      "descripcion": "Vestido negro midi de manga corta y corte A. Combina un largo intermedio con una silueta que se abre hacia el ruedo; podés cambiar el look con tus zapatos y accesorios favoritos.",
       "nombre": "Vestido Corte A",
       "categoria": "vestido",
       "precio": 35.0,
@@ -104,6 +109,7 @@
     },
     {
       "id": "vestido-utilitario-crema",
+      "descripcion": "Vestido Utilitario en crema, en talla XL en el catálogo. Su tono neutro permite combinarlo con accesorios de color o mantener el look en tonos suaves.",
       "nombre": "Vestido Utilitario",
       "categoria": "vestido",
       "precio": 35.9,
@@ -121,6 +127,7 @@
     },
     {
       "id": "vestido-midi-algodon",
+      "descripcion": "Vestido Midi de Algodón en las variantes índigo y beige del catálogo. Compará el tono oscuro con el claro en la galería y elegí según las combinaciones que ya disfrutás usar.",
       "nombre": "Vestido Midi de Algodón",
       "categoria": "vestido",
       "precio": 44.9,
@@ -141,6 +148,7 @@
     },
     {
       "id": "vestido-capas-gasa",
+      "descripcion": "Vestido negro en gasa con falda de capas. Las capas son el detalle que lo diferencia del vestido negro de corte A de la colección; compará ambas opciones si buscás un vestido negro.",
       "nombre": "Vestido de Capas",
       "categoria": "vestido",
       "precio": 45.0,
@@ -159,6 +167,7 @@
     },
     {
       "id": "vestido-eventos-sage",
+      "descripcion": "Vestido para Eventos en verde salvia. Una opción de color suave para considerar cuando buscás una prenda para una celebración; confirmá las medidas y el largo para el ajuste que querés.",
       "nombre": "Vestido para Eventos",
       "categoria": "vestido",
       "precio": 45.0,
@@ -177,6 +186,7 @@
     },
     {
       "id": "vestido-batik",
+      "descripcion": "Vestido Batik de Algodón en coral y olivo. La galería muestra las dos variantes para que compares su color y elijas cómo combinarlo con las piezas que ya tenés.",
       "nombre": "Vestido Batik de Algodón",
       "categoria": "vestido",
       "precio": 55.0,
@@ -197,6 +207,7 @@
     },
     {
       "id": "vestido-camisero-denim",
+      "descripcion": "Vestido camisero en mezclilla con cinturón de lazo. Combina el estilo de camisa con una cintura que podés destacar con el lazo; una alternativa al Shirtdress en tonos crema y camel.",
       "nombre": "Vestido Camisero Denim",
       "categoria": "vestido",
       "precio": 55.0,
@@ -216,6 +227,7 @@
     },
     {
       "id": "vestido-cobalto",
+      "descripcion": "Vestido maxi en azul cobalto. Su largo y su color intenso lo convierten en una opción para quienes quieren que el vestido sea el protagonista de la combinación.",
       "nombre": "Vestido Maxi Cobalto",
       "categoria": "vestido",
       "precio": 65.0,
@@ -235,6 +247,7 @@
     },
     {
       "id": "vestido-maxi-smocked",
+      "descripcion": "Vestido Maxi Smocked con cuatro variantes en la galería: blanco, crema, fucsia y lavanda. Compará los tonos claros con el fucsia y elegí la foto del color que querés consultar.",
       "nombre": "Vestido Maxi Smocked",
       "categoria": "vestido",
       "precio": 74.5,
@@ -257,6 +270,7 @@
     },
     {
       "id": "vestido-mangas-globo",
+      "descripcion": "Vestido con mangas globo en amarillo, celeste y beige. El volumen de las mangas define el estilo; recorré las tres fotos para comparar las variantes de color antes de elegir.",
       "nombre": "Vestido Mangas Globo",
       "categoria": "vestido",
       "precio": 85.0,
