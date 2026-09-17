@@ -24,6 +24,11 @@ if urlsplit(origin).scheme != 'https':
 subprocess.run([sys.executable, str(ROOT/'v3/_source/build.py')], check=True)
 data = json.loads((ROOT/'_data/catalogo.json').read_text(encoding='utf-8'))
 products = {p['id']: p for p in data['productos']}
+public_product_dir = ROOT/'prendas'
+if public_product_dir.exists():
+    for stale in public_product_dir.glob('*.html'):
+        if stale.stem not in products:
+            stale.unlink()
 
 def url(path):
     return origin + '/' + path
@@ -116,6 +121,6 @@ not_found = re.sub(r'<title>.*?</title>', '<title>Página no encontrada — BOLE
 (ROOT/'404.html').write_text(not_found,encoding='utf-8')
 (ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{html.escape(url(route))}</loc></url>\n' for route in routes)+'</urlset>\n',encoding='utf-8')
 (ROOT/'robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: '+url('sitemap.xml')+'\n',encoding='utf-8')
-(ROOT/'llms.txt').write_text('# BOLEM\n\nModa plus size en El Salvador. Mónica elige e importa las prendas.\n\n'+f'- [Colección]({url("coleccion/")})\n- [Guía de tallas]({url("tallas")})\n- [Envíos y cambios]({url("cambios")})\n- [Historia]({url("nosotras")})\n\nTallas XL a 4XL según la prenda; algunas incluyen L. Confirmar disponibilidad por WhatsApp antes de apartar. Envío $3.50 área metropolitana y $5 resto del país, 1–3 días hábiles.\n',encoding='utf-8')
+(ROOT/'llms.txt').write_text('# BOLEM\n\nModa plus size en El Salvador. Mónica elige e importa las prendas.\n\n'+f'- [Colección]({url("coleccion/")})\n- [Guía de tallas]({url("tallas")})\n- [Envíos y cambios]({url("cambios")})\n- [Historia]({url("nosotras")})\n\nTallas XL a 4XL según la prenda; algunas incluyen L y algunos jeans usan tallas 15–21 o 16W–20W. Confirmar disponibilidad por WhatsApp antes de apartar. Envío $3.50 área metropolitana y $5 resto del país, 1–3 días hábiles.\n',encoding='utf-8')
 (ROOT/'.nojekyll').touch()
 print(f'Built {len(routes)} public pages, {len(aliases)} historic routes. Origin: {origin}')

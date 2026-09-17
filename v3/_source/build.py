@@ -72,5 +72,9 @@ def journal():
   editorial(title,'DIARIO BOLEM · '+tag,f'<p class="lead">{intro}</p><h2>{sub}</h2><p>{text}</p><a class="text-link" href="../tallas">Nuestra guía de tallas {ARROW}</a><div class="prose-callout"><h2>Encontrá algo que te guste.</h2><a class="button button-ink" href="../coleccion/">Ver la colección {ARROW}</a></div>','blog','blog/'+slug+'.html','../')
  write('blog/index.html',shell('Diario BOLEM','<header class="editorial-header wrap"><p class="eyebrow">DIARIO BOLEM</p><h1>Moda, historias<br>y <em>conversaciones.</em></h1></header><section class="journal-grid wrap">'+''.join(cards)+'</section>','../','blog'))
 home();collection();support();journal()
+product_dir=OUT/'prendas'
+if product_dir.exists():
+ for stale in product_dir.glob('*.html'):
+  if stale.stem not in BYID: stale.unlink()
 for p in PRODUCTS:product(p)
 print(f'BOLEM v3: {len(list(OUT.rglob("*.html")))} páginas, {N} prendas. Fuente: _data/catalogo.json. Todas noindex.')

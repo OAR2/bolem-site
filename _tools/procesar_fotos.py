@@ -25,8 +25,10 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 try:
     from PIL import Image, ImageOps
+    from pillow_heif import register_heif_opener
+    register_heif_opener()
 except ImportError:
-    print("Falta Pillow.  Instalar con:  pip install pillow")
+    print("Falta Pillow o pillow-heif. Instalar con: pip install pillow pillow-heif")
     sys.exit(1)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -34,7 +36,7 @@ DESTINO = os.path.join(ROOT, "assets", "productos")
 ANCHOS = [1200, 800, 480]
 PROPORCION = 2 / 3          # ancho / alto
 CALIDAD = 82
-ENTRADAS = ('.jpg', '.jpeg', '.png', '.webp', '.heic', '.tif', '.tiff', '.bmp')
+ENTRADAS = ('.jpg', '.jpeg', '.png', '.webp', '.heic', '.heif', '.tif', '.tiff', '.bmp')
 
 
 def slug(nombre):

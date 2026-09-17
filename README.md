@@ -17,7 +17,7 @@ python _tools/verificar_publicacion.py
 
 El generador reconstruye la propuesta en `v3/` y publica el HTML en la raíz. La fuente visual está en `v3/_source/build.py` y `v3/ui/`; los textos legales preservados están en `v3/_source/legal/`. No editar manualmente los HTML generados ni usar los generadores antiguos de v1 para reconstruir producción.
 
-Las rutas de las 49 prendas se mantienen. `nosotros` y `guia-de-tallas`, y las antiguas páginas de categorías, redirigen a sus destinos nuevos. La colección acepta enlaces antiguos con `#vestido`, etc. Las carpetas v2/v3 conservan `noindex`.
+Las rutas vigentes de las 67 prendas se generan desde `_data/catalogo.json`. `nosotros` y `guia-de-tallas`, y las antiguas páginas de categorías, redirigen a sus destinos nuevos. La colección acepta enlaces antiguos con `#vestido`, etc. Las carpetas v2/v3 conservan `noindex`.
 
 Paleta: naranja #FE470A, coral #FA5857, acento interactivo #A5427E. Los neutros de pantalla son #FFFDF9 y #F4EEE3. Tipografía Playfair Display + DM Sans, con fuentes locales. No hay selector público de variantes de marca.
 

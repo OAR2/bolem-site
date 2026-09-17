@@ -1,317 +1,212 @@
 {
-  "_nota": "Fuente unica del catalogo. Se edita ESTE archivo y se reconstruye el HTML con _tools/construir_catalogo.py — nunca al reves. Las lineas editoriales y las portadas de categoria son texto escrito a mano: viven aca, no se derivan. | AGOTADAS: para marcar una prenda sin existencia, agregarle \"agotada\": true. El campo es opcional (sin el, la prenda esta disponible). La prenda NO se esconde: conserva su pagina y su direccion, la tarjeta sale en gris con la cinta \"Agotada\", el boton cambia a \"Avisame cuando vuelva\" y el JSON-LD pasa a OutOfStock. SIGUE contando en \"N estilos\" (esta en pantalla) pero NO cuenta en el rango de precios (ese dice lo que se puede pagar hoy). Despues de marcarla hay que correr construir_catalogo.py, construir_prendas.py y construir_categorias.py.",
+  "_nota": "Fuente única del catálogo, sincronizada con la carpeta de Google Drive compartida por Mónica el 17 de septiembre de 2026. Cada producto separa variantes cuando cambian precio o tallas; las fotos agrupadas comparten exactamente el mismo precio y rango de tallas.",
   "escala_tallas": [
     "L",
     "XL",
     "1XL",
     "2XL",
     "3XL",
-    "4XL"
+    "4XL",
+    "15",
+    "17",
+    "19",
+    "21",
+    "16W",
+    "18W",
+    "20W"
   ],
   "rango_publicado": "XL a 4XL",
-  "_nota_rango": "El rango que la MARCA anuncia. No se deriva de escala_tallas: la L existe en 2 prendas que cruzan hacia abajo y no es el rango del catalogo. Se cambia a mano, a proposito.",
+  "_nota_rango": "Rango central de la marca. Algunas prendas incluyen L y algunos jeans usan tallas 15–21 o 16W–20W; cada ficha muestra el dato exacto de Drive.",
   "productos": [
     {
-      "id": "vestido-largo-volantes",
-      "descripcion": "Vestido largo negro con cinturón de lazo y un volante en cascada como detalle protagonista. Una opción para quienes buscan un vestido largo con movimiento visual y cintura marcada por el lazo.",
-      "nombre": "Vestido Largo de Volantes",
-      "categoria": "vestido",
-      "precio": 28.0,
-      "tallas": [
-        "3XL"
-      ],
-      "tallas_texto_original": "3XL",
-      "colores": 1,
-      "fotos": [
-        "vestido-largo-volantes.webp"
-      ],
-      "destacada": false,
-      "alt": "Vestido Largo de Volantes negro con cinturón de lazo y volante en cascada plus size, tallas 3XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Largo%20de%20Volantes.%20Mi%20talla%20es%3A%20"
-    },
-    {
-      "id": "vestido-shirtdress",
-      "descripcion": "Vestido estilo camisa en dos tonos del catálogo: crema y camel. Si te gustan los colores neutros, compará ambas fotos para elegir el que mejor combine con tus zapatos y accesorios.",
-      "nombre": "Vestido Shirtdress",
-      "categoria": "vestido",
-      "precio": 29.0,
-      "tallas": [
-        "XL",
-        "1XL"
-      ],
-      "tallas_texto_original": "XL–1XL · 2 colores",
-      "colores": 2,
-      "fotos": [
-        "vestido-shirtdress-crema.webp",
-        "vestido-shirtdress-camel.webp"
-      ],
-      "destacada": false,
-      "alt": "Vestido Shirtdress plus size, tallas XL–1XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Shirtdress.%20Mi%20talla%20es%3A%20____%20y%20lo%20quiero%20en%20color%3A%20"
-    },
-    {
-      "id": "vestido-verano-rojo",
-      "descripcion": "Vestido rojo estampado para armar un look con color. El estampado lo distingue de las opciones lisas de la colección; podés acompañarlo con accesorios sencillos para darle protagonismo.",
-      "nombre": "Vestido de Verano",
-      "categoria": "vestido",
-      "precio": 29.9,
-      "tallas": [
-        "2XL",
-        "3XL"
-      ],
-      "tallas_texto_original": "2XL–3XL",
-      "colores": 1,
-      "fotos": [
-        "vestido-verano-rojo.webp"
-      ],
-      "destacada": false,
-      "alt": "Vestido de Verano en rojo estampado plus size, tallas 2XL–3XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20de%20Verano.%20Mi%20talla%20es%3A%20"
-    },
-    {
-      "id": "vestido-broderie-rojo",
-      "descripcion": "Vestido Broderie en rojo, con opciones de talla que incluyen 4XL. Una alternativa para quienes buscan este estilo en un color intenso; revisá la foto y consultá el ajuste de tu talla antes de apartarlo.",
-      "nombre": "Vestido Broderie",
-      "categoria": "vestido",
-      "precio": 34.9,
+      "id": "camisa-mantequilla",
+      "descripcion": "Camisa Mantequilla de BOLEM en tallas 2XL, 3XL, 4XL. Precio $29.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Camisa Mantequilla",
+      "categoria": "blusa",
+      "precio": 29,
       "tallas": [
         "2XL",
         "3XL",
         "4XL"
       ],
-      "tallas_texto_original": "2XL–4XL",
+      "tallas_texto_original": "2XL–3XL–4XL",
       "colores": 1,
       "fotos": [
-        "vestido-broderie-rojo.webp"
+        "camisa-mantequilla.webp"
       ],
       "destacada": false,
-      "alt": "Vestido Broderie en rojo plus size, tallas 2XL–4XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Broderie.%20Mi%20talla%20es%3A%20"
+      "alt": "Camisa Mantequilla — BOLEM El Salvador"
     },
     {
-      "id": "vestido-negro-corte-a",
-      "descripcion": "Vestido negro midi de manga corta y corte A. Combina un largo intermedio con una silueta que se abre hacia el ruedo; podés cambiar el look con tus zapatos y accesorios favoritos.",
-      "nombre": "Vestido Corte A",
-      "categoria": "vestido",
-      "precio": 35.0,
-      "tallas": [
-        "2XL",
-        "3XL"
-      ],
-      "tallas_texto_original": "2XL–3XL",
-      "colores": 1,
-      "fotos": [
-        "vestido-negro-corte-a.webp"
-      ],
-      "destacada": false,
-      "alt": "Vestido Corte A negro midi de manga corta plus size, tallas 2XL–3XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Corte%20A.%20Mi%20talla%20es%3A%20"
-    },
-    {
-      "id": "vestido-utilitario-crema",
-      "descripcion": "Vestido Utilitario en crema, en talla XL en el catálogo. Su tono neutro permite combinarlo con accesorios de color o mantener el look en tonos suaves.",
-      "nombre": "Vestido Utilitario",
-      "categoria": "vestido",
-      "precio": 35.9,
-      "tallas": [
-        "XL"
-      ],
-      "tallas_texto_original": "XL",
-      "colores": 1,
-      "fotos": [
-        "vestido-utilitario-crema.webp"
-      ],
-      "destacada": false,
-      "alt": "Vestido Utilitario en crema plus size, tallas XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Utilitario.%20Mi%20talla%20es%3A%20"
-    },
-    {
-      "id": "vestido-midi-algodon",
-      "descripcion": "Vestido Midi de Algodón en las variantes índigo y beige del catálogo. Compará el tono oscuro con el claro en la galería y elegí según las combinaciones que ya disfrutás usar.",
-      "nombre": "Vestido Midi de Algodón",
-      "categoria": "vestido",
-      "precio": 44.9,
+      "id": "blusa-encaje-roja",
+      "descripcion": "Blusa Encaje Roja de BOLEM en tallas 1XL, 2XL. Precio $23.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Blusa Encaje Roja",
+      "categoria": "blusa",
+      "precio": 23,
       "tallas": [
         "1XL",
-        "2XL",
-        "3XL"
+        "2XL"
       ],
-      "tallas_texto_original": "1XL–3XL · 2 colores",
-      "colores": 2,
-      "fotos": [
-        "vestido-midi-algodon-indigo.webp",
-        "vestido-midi-algodon-beige.webp"
-      ],
-      "destacada": false,
-      "alt": "Vestido Midi de Algodón plus size, tallas 1XL–3XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Midi%20de%20Algod%C3%B3n.%20Mi%20talla%20es%3A%20____%20y%20lo%20quiero%20en%20color%3A%20"
-    },
-    {
-      "id": "vestido-capas-gasa",
-      "descripcion": "Vestido negro en gasa con falda de capas. Las capas son el detalle que lo diferencia del vestido negro de corte A de la colección; compará ambas opciones si buscás un vestido negro.",
-      "nombre": "Vestido de Capas",
-      "categoria": "vestido",
-      "precio": 45.0,
-      "tallas": [
-        "2XL",
-        "3XL"
-      ],
-      "tallas_texto_original": "2XL–3XL",
+      "tallas_texto_original": "1XL–2XL",
       "colores": 1,
       "fotos": [
-        "vestido-capas-gasa.webp"
+        "blusa-encaje-roja.webp"
       ],
       "destacada": false,
-      "alt": "Vestido de Capas negro en gasa con falda de capas plus size, tallas 2XL–3XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20de%20Capas.%20Mi%20talla%20es%3A%20"
+      "alt": "Blusa Encaje Roja — BOLEM El Salvador"
     },
     {
-      "id": "vestido-eventos-sage",
-      "descripcion": "Vestido para Eventos en verde salvia. Una opción de color suave para considerar cuando buscás una prenda para una celebración; confirmá las medidas y el largo para el ajuste que querés.",
-      "nombre": "Vestido para Eventos",
-      "categoria": "vestido",
-      "precio": 45.0,
+      "id": "blusa-encaje-rosa",
+      "descripcion": "Blusa Encaje Rosa de BOLEM en tallas 2XL. Precio $23.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Blusa Encaje Rosa",
+      "categoria": "blusa",
+      "precio": 23,
       "tallas": [
-        "2XL",
-        "3XL"
+        "2XL"
       ],
-      "tallas_texto_original": "2XL–3XL",
+      "tallas_texto_original": "2XL",
       "colores": 1,
       "fotos": [
-        "vestido-eventos-sage.webp"
+        "blusa-encaje-rosa.webp"
       ],
       "destacada": false,
-      "alt": "Vestido para Eventos en verde salvia plus size, tallas 2XL–3XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20para%20Eventos.%20Mi%20talla%20es%3A%20"
+      "alt": "Blusa Encaje Rosa — BOLEM El Salvador"
     },
     {
-      "id": "vestido-batik",
-      "descripcion": "Vestido Batik de Algodón en coral y olivo. La galería muestra las dos variantes para que compares su color y elijas cómo combinarlo con las piezas que ya tenés.",
-      "nombre": "Vestido Batik de Algodón",
-      "categoria": "vestido",
-      "precio": 55.0,
+      "id": "blusa-encaje-celeste",
+      "descripcion": "Blusa Encaje Celeste de BOLEM en tallas 1XL. Precio $23.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Blusa Encaje Celeste",
+      "categoria": "blusa",
+      "precio": 23,
       "tallas": [
-        "1XL",
-        "2XL",
-        "3XL"
+        "1XL"
       ],
-      "tallas_texto_original": "1XL–3XL · 2 colores",
-      "colores": 2,
-      "fotos": [
-        "vestido-batik-coral.webp",
-        "vestido-batik-olivo.webp"
-      ],
-      "destacada": false,
-      "alt": "Vestido Batik de Algodón plus size, tallas 1XL–3XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Batik%20de%20Algod%C3%B3n.%20Mi%20talla%20es%3A%20____%20y%20lo%20quiero%20en%20color%3A%20"
-    },
-    {
-      "id": "vestido-camisero-denim",
-      "descripcion": "Vestido camisero en mezclilla con cinturón de lazo. Combina el estilo de camisa con una cintura que podés destacar con el lazo; una alternativa al Shirtdress en tonos crema y camel.",
-      "nombre": "Vestido Camisero Denim",
-      "categoria": "vestido",
-      "precio": 55.0,
-      "tallas": [
-        "1XL",
-        "2XL",
-        "3XL"
-      ],
-      "tallas_texto_original": "1XL–3XL",
+      "tallas_texto_original": "1XL",
       "colores": 1,
       "fotos": [
-        "vestido-camisero-denim.webp"
+        "blusa-encaje-celeste.webp"
       ],
       "destacada": false,
-      "alt": "Vestido Camisero Denim en mezclilla con cinturón de lazo plus size, tallas 1XL–3XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Camisero%20Denim.%20Mi%20talla%20es%3A%20"
+      "alt": "Blusa Encaje Celeste — BOLEM El Salvador"
     },
     {
-      "id": "vestido-cobalto",
-      "descripcion": "Vestido maxi en azul cobalto. Su largo y su color intenso lo convierten en una opción para quienes quieren que el vestido sea el protagonista de la combinación.",
-      "nombre": "Vestido Maxi Cobalto",
-      "categoria": "vestido",
-      "precio": 65.0,
+      "id": "top-rayas-vino",
+      "descripcion": "Top de Rayas Vino de BOLEM en tallas L, XL, 1XL. Precio $23.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Top de Rayas Vino",
+      "categoria": "blusa",
+      "precio": 23,
+      "tallas": [
+        "L",
+        "XL",
+        "1XL"
+      ],
+      "tallas_texto_original": "L–XL–1XL",
+      "colores": 1,
+      "fotos": [
+        "top-rayas-vino.webp"
+      ],
+      "destacada": false,
+      "alt": "Top de Rayas Vino — BOLEM El Salvador"
+    },
+    {
+      "id": "chaleco-sastre",
+      "descripcion": "Chaleco Sastre de BOLEM en tallas XL, 1XL, 2XL. Precio $35.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Chaleco Sastre",
+      "categoria": "blusa",
+      "precio": 35,
       "tallas": [
         "XL",
         "1XL",
         "2XL"
       ],
-      "tallas_texto_original": "XL–2XL",
-      "colores": 1,
+      "tallas_texto_original": "XL–1XL–2XL",
+      "colores": 2,
       "fotos": [
-        "vestido-cobalto.webp"
+        "chaleco-sastre-blanco.webp",
+        "chaleco-sastre-negro.webp"
       ],
       "destacada": false,
-      "alt": "Vestido Maxi Cobalto en azul cobalto plus size, tallas XL–2XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Maxi%20Cobalto.%20Mi%20talla%20es%3A%20"
+      "alt": "Chaleco Sastre — BOLEM El Salvador"
     },
     {
-      "id": "vestido-maxi-smocked",
-      "descripcion": "Vestido Maxi Smocked con cuatro variantes en la galería: blanco, crema, fucsia y lavanda. Compará los tonos claros con el fucsia y elegí la foto del color que querés consultar.",
-      "nombre": "Vestido Maxi Smocked",
-      "categoria": "vestido",
-      "precio": 74.5,
+      "id": "chaleco-elegante-marfil",
+      "descripcion": "Chaleco Elegante de BOLEM en tallas XL, 1XL, 2XL. Precio $35.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Chaleco Elegante",
+      "categoria": "blusa",
+      "precio": 35,
       "tallas": [
         "XL",
         "1XL",
         "2XL"
       ],
-      "tallas_texto_original": "XL–2XL · 4 colores",
-      "colores": 4,
+      "tallas_texto_original": "XL–1XL–2XL",
+      "colores": 1,
       "fotos": [
-        "vestido-maxi-smocked-blanco.webp",
-        "vestido-maxi-smocked-crema.webp",
-        "vestido-maxi-smocked-fucsia.webp",
-        "vestido-maxi-smocked-lavanda.webp"
+        "chaleco-elegante-marfil.webp"
       ],
       "destacada": true,
-      "alt": "Vestido Maxi Smocked plus size, tallas XL–2XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Maxi%20Smocked.%20Mi%20talla%20es%3A%20____%20y%20lo%20quiero%20en%20color%3A%20"
+      "alt": "Chaleco Elegante — BOLEM El Salvador"
     },
     {
-      "id": "vestido-mangas-globo",
-      "descripcion": "Vestido con mangas globo en amarillo, celeste y beige. El volumen de las mangas define el estilo; recorré las tres fotos para comparar las variantes de color antes de elegir.",
-      "nombre": "Vestido Mangas Globo",
-      "categoria": "vestido",
-      "precio": 85.0,
-      "tallas": [
-        "XL",
-        "1XL",
-        "2XL"
-      ],
-      "tallas_texto_original": "XL–2XL · 3 colores",
-      "colores": 3,
-      "fotos": [
-        "vestido-mangas-globo-amarillo.webp",
-        "vestido-mangas-globo-celeste.webp",
-        "vestido-mangas-globo-beige.webp"
-      ],
-      "destacada": false,
-      "alt": "Vestido Mangas Globo plus size, tallas XL–2XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Vestido%20Mangas%20Globo.%20Mi%20talla%20es%3A%20____%20y%20lo%20quiero%20en%20color%3A%20"
-    },
-    {
-      "id": "blusa-off-shoulder",
-      "nombre": "Blusa Off Shoulder",
+      "id": "halter-satin-encaje",
+      "descripcion": "Halter Satín con Encaje de BOLEM en tallas 2XL, 3XL, 4XL. Precio $25.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Halter Satín con Encaje",
       "categoria": "blusa",
-      "precio": 22.0,
+      "precio": 25,
       "tallas": [
-        "XL"
+        "2XL",
+        "3XL",
+        "4XL"
       ],
-      "tallas_texto_original": "XL",
+      "tallas_texto_original": "2XL–3XL–4XL",
       "colores": 1,
       "fotos": [
-        "blusa-off-shoulder.webp"
+        "halter-satin-encaje.webp"
       ],
       "destacada": false,
-      "alt": "Blusa Off Shoulder en rojo plus size, tallas XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Off%20Shoulder.%20Mi%20talla%20es%3A%20"
+      "alt": "Halter Satín con Encaje — BOLEM El Salvador"
     },
     {
-      "id": "blusa-peplum-rayas",
-      "nombre": "Blusa Peplum de Rayas",
+      "id": "blusa-wrap-marino",
+      "descripcion": "Blusa Cruzada de BOLEM en tallas 1XL. Precio $25.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Blusa Cruzada",
       "categoria": "blusa",
-      "precio": 22.0,
+      "precio": 25,
+      "tallas": [
+        "1XL"
+      ],
+      "tallas_texto_original": "1XL",
+      "colores": 1,
+      "fotos": [
+        "blusa-wrap-marino.webp"
+      ],
+      "destacada": false,
+      "alt": "Blusa Cruzada — BOLEM El Salvador"
+    },
+    {
+      "id": "blusa-amarilla-contraste",
+      "descripcion": "Blusa Amarilla con Contraste de BOLEM en tallas 2XL, 3XL. Precio $24.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Blusa Amarilla con Contraste",
+      "categoria": "blusa",
+      "precio": 24,
+      "tallas": [
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "2XL–3XL",
+      "colores": 1,
+      "fotos": [
+        "blusa-amarilla-contraste.webp"
+      ],
+      "destacada": false,
+      "alt": "Blusa Amarilla con Contraste — BOLEM El Salvador"
+    },
+    {
+      "id": "blusa-encaje-negro",
+      "descripcion": "Blusa con Encaje de BOLEM en tallas XL, 1XL. Precio $23.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Blusa con Encaje",
+      "categoria": "blusa",
+      "precio": 23,
       "tallas": [
         "XL",
         "1XL"
@@ -319,57 +214,92 @@
       "tallas_texto_original": "XL–1XL",
       "colores": 1,
       "fotos": [
-        "blusa-peplum-rayas.webp"
+        "blusa-encaje-negro.webp"
       ],
       "destacada": false,
-      "alt": "Blusa Peplum de Rayas en blanco · rosa plus size, tallas XL–1XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Peplum%20de%20Rayas.%20Mi%20talla%20es%3A%20"
+      "alt": "Blusa con Encaje — BOLEM El Salvador"
     },
     {
-      "id": "blusa-encaje-negro",
-      "nombre": "Blusa con Encaje",
+      "id": "blusa-peplum-broches",
+      "descripcion": "Blusa Peplum con Broches de BOLEM en tallas XL, 1XL, 2XL, 3XL. Precio $25.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Blusa Peplum con Broches",
       "categoria": "blusa",
-      "precio": 23.0,
+      "precio": 25,
+      "tallas": [
+        "XL",
+        "1XL",
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "XL–1XL–2XL–3XL",
+      "colores": 1,
+      "fotos": [
+        "blusa-peplum-broches.webp"
+      ],
+      "destacada": false,
+      "alt": "Blusa Peplum con Broches — BOLEM El Salvador"
+    },
+    {
+      "id": "blusa-denim-peplum",
+      "descripcion": "Blusa Denim Peplum de BOLEM en tallas 1XL. Precio $29.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Blusa Denim Peplum",
+      "categoria": "blusa",
+      "precio": 29,
+      "tallas": [
+        "1XL"
+      ],
+      "tallas_texto_original": "1XL",
+      "colores": 1,
+      "fotos": [
+        "blusa-denim-peplum.webp"
+      ],
+      "destacada": false,
+      "alt": "Blusa Denim Peplum — BOLEM El Salvador"
+    },
+    {
+      "id": "halter-argolla-vino",
+      "descripcion": "Halter de Argolla de BOLEM en tallas L, XL, 1XL. Precio $24.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Halter de Argolla",
+      "categoria": "blusa",
+      "precio": 24,
+      "tallas": [
+        "L",
+        "XL",
+        "1XL"
+      ],
+      "tallas_texto_original": "L–XL–1XL",
+      "colores": 1,
+      "fotos": [
+        "halter-argolla-vino.webp"
+      ],
+      "destacada": false,
+      "alt": "Halter de Argolla — BOLEM El Salvador"
+    },
+    {
+      "id": "blusa-blazer-negro",
+      "descripcion": "Blusa Blazer de BOLEM en tallas XL, 1XL, 2XL. Precio $25.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Blusa Blazer",
+      "categoria": "blusa",
+      "precio": 25,
       "tallas": [
         "XL",
         "1XL",
         "2XL"
       ],
-      "tallas_texto_original": "XL–2XL",
+      "tallas_texto_original": "XL–1XL–2XL",
       "colores": 1,
       "fotos": [
-        "blusa-encaje-negro.webp"
+        "blusa-blazer-negro.webp"
       ],
       "destacada": false,
-      "alt": "Blusa con Encaje negra con ruedo de encaje floral plus size, tallas XL–2XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20con%20Encaje.%20Mi%20talla%20es%3A%20"
-    },
-    {
-      "id": "camisa-fucsia",
-      "nombre": "Camisa Oversize",
-      "categoria": "blusa",
-      "precio": 23.0,
-      "tallas": [
-        "XL",
-        "1XL",
-        "2XL",
-        "3XL",
-        "4XL"
-      ],
-      "tallas_texto_original": "XL–4XL",
-      "colores": 1,
-      "fotos": [
-        "camisa-fucsia.webp"
-      ],
-      "destacada": false,
-      "alt": "Camisa Oversize en fucsia plus size, tallas XL–4XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Camisa%20Oversize.%20Mi%20talla%20es%3A%20"
+      "alt": "Blusa Blazer — BOLEM El Salvador"
     },
     {
       "id": "camiseta-rayas-fucsia",
+      "descripcion": "Camiseta de Rayas de BOLEM en tallas 2XL, 3XL. Precio $23.00 USD. Consultá disponibilidad por WhatsApp.",
       "nombre": "Camiseta de Rayas",
       "categoria": "blusa",
-      "precio": 23.0,
+      "precio": 23,
       "tallas": [
         "2XL",
         "3XL"
@@ -380,246 +310,70 @@
         "camiseta-rayas-fucsia.webp"
       ],
       "destacada": false,
-      "alt": "Camiseta de Rayas en rayas rosa y fucsia plus size, tallas 2XL–3XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Camiseta%20de%20Rayas.%20Mi%20talla%20es%3A%20"
+      "alt": "Camiseta de Rayas — BOLEM El Salvador"
     },
     {
-      "id": "blusa-blazer-negro",
-      "nombre": "Blusa Blazer",
+      "id": "camisa-fucsia",
+      "descripcion": "Camisa Oversize de BOLEM en tallas 2XL. Precio $23.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Camisa Oversize",
       "categoria": "blusa",
-      "precio": 24.0,
+      "precio": 23,
       "tallas": [
-        "1XL",
-        "2XL",
-        "3XL"
-      ],
-      "tallas_texto_original": "1XL–3XL",
-      "colores": 1,
-      "fotos": [
-        "blusa-blazer-negro.webp",
-        "blusa-blazer-negro-2.webp"
-      ],
-      "destacada": false,
-      "alt": "Blusa Blazer en negro plus size, tallas 1XL–3XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Blazer.%20Mi%20talla%20es%3A%20"
-    },
-    {
-      "id": "halter-argolla-vino",
-      "nombre": "Halter de Argolla",
-      "categoria": "blusa",
-      "precio": 24.0,
-      "tallas": [
-        "L",
-        "XL",
-        "1XL"
-      ],
-      "tallas_texto_original": "L–1XL",
-      "colores": 1,
-      "fotos": [
-        "halter-argolla-vino.webp"
-      ],
-      "destacada": false,
-      "alt": "Halter de Argolla en vino con argolla dorada al cuello plus size, tallas L–1XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Halter%20de%20Argolla.%20Mi%20talla%20es%3A%20"
-    },
-    {
-      "id": "top-peplum-negro",
-      "nombre": "Top Peplum Elegante",
-      "categoria": "blusa",
-      "precio": 24.0,
-      "tallas": [
-        "XL",
-        "1XL",
         "2XL"
       ],
-      "tallas_texto_original": "XL–2XL",
+      "tallas_texto_original": "2XL",
       "colores": 1,
       "fotos": [
-        "top-peplum-negro.webp"
+        "camisa-fucsia.webp"
       ],
       "destacada": false,
-      "alt": "Top Peplum Elegante en negro plus size, tallas XL–2XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Top%20Peplum%20Elegante.%20Mi%20talla%20es%3A%20"
-    },
-    {
-      "id": "blusa-balloon",
-      "nombre": "Blusa Balloon Halter",
-      "categoria": "blusa",
-      "precio": 25.0,
-      "tallas": [
-        "1XL",
-        "2XL",
-        "3XL",
-        "4XL"
-      ],
-      "tallas_texto_original": "1XL–4XL",
-      "colores": 1,
-      "fotos": [
-        "blusa-balloon.webp"
-      ],
-      "destacada": false,
-      "alt": "Blusa Balloon Halter en champagne plus size, tallas 1XL–4XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Balloon%20Halter.%20Mi%20talla%20es%3A%20"
-    },
-    {
-      "id": "blusa-halter-olivo",
-      "nombre": "Blusa Halter",
-      "categoria": "blusa",
-      "precio": 25.0,
-      "tallas": [
-        "1XL"
-      ],
-      "tallas_texto_original": "1XL",
-      "colores": 1,
-      "fotos": [
-        "blusa-halter-olivo.webp"
-      ],
-      "destacada": false,
-      "alt": "Blusa Halter en verde olivo plus size, tallas 1XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Halter.%20Mi%20talla%20es%3A%20"
-    },
-    {
-      "id": "blusa-negra-botones",
-      "nombre": "Blusa Manga Larga",
-      "categoria": "blusa",
-      "precio": 25.0,
-      "tallas": [
-        "XL",
-        "1XL",
-        "2XL",
-        "3XL",
-        "4XL"
-      ],
-      "tallas_texto_original": "XL–4XL",
-      "colores": 1,
-      "fotos": [
-        "blusa-negra-botones.webp"
-      ],
-      "destacada": false,
-      "alt": "Blusa Manga Larga en negro plus size, tallas XL–4XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Manga%20Larga.%20Mi%20talla%20es%3A%20"
-    },
-    {
-      "id": "blusa-peplum-blush",
-      "nombre": "Blusa Peplum Blush",
-      "categoria": "blusa",
-      "precio": 25.0,
-      "tallas": [
-        "XL",
-        "1XL"
-      ],
-      "tallas_texto_original": "XL–1XL",
-      "colores": 1,
-      "fotos": [
-        "blusa-peplum-blush.webp"
-      ],
-      "destacada": false,
-      "alt": "Blusa Peplum Blush en rosa claro plus size, tallas XL–1XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Peplum%20Blush.%20Mi%20talla%20es%3A%20"
-    },
-    {
-      "id": "blusa-peplum-broches",
-      "nombre": "Blusa Peplum con Broches",
-      "categoria": "blusa",
-      "precio": 25.0,
-      "tallas": [
-        "XL",
-        "1XL",
-        "2XL",
-        "3XL"
-      ],
-      "tallas_texto_original": "XL–3XL",
-      "colores": 1,
-      "fotos": [
-        "blusa-peplum-broches.webp"
-      ],
-      "destacada": false,
-      "alt": "Blusa Peplum con Broches en marfil sin mangas con broches plateados plus size, tallas XL–3XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Peplum%20con%20Broches.%20Mi%20talla%20es%3A%20"
+      "alt": "Camisa Oversize — BOLEM El Salvador"
     },
     {
       "id": "blusa-vichy-lazos",
+      "descripcion": "Blusa Vichy con Lazos de BOLEM en tallas XL, 1XL, 2XL. Precio $25.00 USD. Consultá disponibilidad por WhatsApp.",
       "nombre": "Blusa Vichy con Lazos",
       "categoria": "blusa",
-      "precio": 25.0,
+      "precio": 25,
       "tallas": [
         "XL",
         "1XL",
         "2XL"
       ],
-      "tallas_texto_original": "XL–2XL",
+      "tallas_texto_original": "XL–1XL–2XL",
       "colores": 1,
       "fotos": [
         "blusa-vichy-lazos.webp"
       ],
       "destacada": false,
-      "alt": "Blusa Vichy con Lazos en cuadro vichy blanco y negro con lazos de terciopelo plus size, tallas XL–2XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Vichy%20con%20Lazos.%20Mi%20talla%20es%3A%20"
+      "alt": "Blusa Vichy con Lazos — BOLEM El Salvador"
     },
     {
-      "id": "blusa-wrap-marino",
-      "nombre": "Blusa Cruzada",
+      "id": "chaleco-denim",
+      "descripcion": "Chaleco Denim de BOLEM en tallas L, XL, 1XL, 2XL. Precio $29.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Chaleco Denim",
       "categoria": "blusa",
-      "precio": 25.0,
+      "precio": 29,
       "tallas": [
-        "1XL",
-        "2XL",
-        "3XL",
-        "4XL"
-      ],
-      "tallas_texto_original": "1XL–4XL",
-      "colores": 1,
-      "fotos": [
-        "blusa-wrap-marino.webp"
-      ],
-      "destacada": false,
-      "alt": "Blusa Cruzada en azul marino plus size, tallas 1XL–4XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Cruzada.%20Mi%20talla%20es%3A%20"
-    },
-    {
-      "id": "chaleco-cardigan-beige",
-      "nombre": "Chaleco Cardigan",
-      "categoria": "blusa",
-      "precio": 25.0,
-      "tallas": [
+        "L",
         "XL",
         "1XL",
         "2XL"
       ],
-      "tallas_texto_original": "XL–2XL",
+      "tallas_texto_original": "L–XL–1XL–2XL",
       "colores": 1,
       "fotos": [
-        "chaleco-cardigan-beige.webp"
+        "chaleco-denim.webp"
       ],
       "destacada": false,
-      "alt": "Chaleco Cardigan en beige plus size, tallas XL–2XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Chaleco%20Cardigan.%20Mi%20talla%20es%3A%20"
-    },
-    {
-      "id": "halter-satin-encaje",
-      "nombre": "Halter Satín con Encaje",
-      "categoria": "blusa",
-      "precio": 25.0,
-      "tallas": [
-        "1XL",
-        "2XL",
-        "3XL",
-        "4XL"
-      ],
-      "tallas_texto_original": "1XL–4XL",
-      "colores": 1,
-      "fotos": [
-        "halter-satin-encaje.webp"
-      ],
-      "destacada": false,
-      "alt": "Halter Satín con Encaje negro con ruedo asimétrico de encaje plus size, tallas 1XL–4XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Halter%20Sat%C3%ADn%20con%20Encaje.%20Mi%20talla%20es%3A%20"
+      "alt": "Chaleco Denim — BOLEM El Salvador"
     },
     {
       "id": "top-drapeado-marfil",
+      "descripcion": "Top Drapeado de BOLEM en tallas 1XL, 2XL. Precio $25.00 USD. Consultá disponibilidad por WhatsApp.",
       "nombre": "Top Drapeado",
       "categoria": "blusa",
-      "precio": 25.0,
+      "precio": 25,
       "tallas": [
         "1XL",
         "2XL"
@@ -630,34 +384,34 @@
         "top-drapeado-marfil.webp"
       ],
       "destacada": false,
-      "alt": "Top Drapeado en marfil con escote drapeado asimétrico plus size, tallas 1XL–2XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Top%20Drapeado.%20Mi%20talla%20es%3A%20"
+      "alt": "Top Drapeado — BOLEM El Salvador"
     },
     {
-      "id": "blusa-peplum-crema",
-      "nombre": "Blusa Peplum",
+      "id": "blusa-peplum-blush",
+      "descripcion": "Blusa Peplum Blush de BOLEM en tallas XL, 1XL, 2XL, 3XL. Precio $26.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Blusa Peplum Blush",
       "categoria": "blusa",
-      "precio": 26.0,
+      "precio": 26,
       "tallas": [
         "XL",
         "1XL",
         "2XL",
         "3XL"
       ],
-      "tallas_texto_original": "XL–3XL",
+      "tallas_texto_original": "XL–1XL–2XL–3XL",
       "colores": 1,
       "fotos": [
-        "blusa-peplum-crema.webp"
+        "blusa-peplum-blush.webp"
       ],
       "destacada": false,
-      "alt": "Blusa Peplum en crema plus size, tallas XL–3XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Peplum.%20Mi%20talla%20es%3A%20"
+      "alt": "Blusa Peplum Blush — BOLEM El Salvador"
     },
     {
       "id": "blusa-peplum-gingham",
+      "descripcion": "Blusa Peplum Gingham de BOLEM en tallas 2XL, 3XL. Precio $26.00 USD. Consultá disponibilidad por WhatsApp.",
       "nombre": "Blusa Peplum Gingham",
       "categoria": "blusa",
-      "precio": 26.0,
+      "precio": 26,
       "tallas": [
         "2XL",
         "3XL"
@@ -667,145 +421,235 @@
       "fotos": [
         "blusa-peplum-gingham.webp"
       ],
-      "destacada": false,
-      "alt": "Blusa Peplum Gingham en fucsia vichy plus size, tallas 2XL–3XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Peplum%20Gingham.%20Mi%20talla%20es%3A%20"
+      "destacada": true,
+      "alt": "Blusa Peplum Gingham — BOLEM El Salvador"
     },
     {
-      "id": "blusa-chambray",
-      "nombre": "Blusa Chambray",
+      "id": "blusa-negra-botones",
+      "descripcion": "Blusa Manga Larga de BOLEM en tallas XL, 1XL, 2XL, 3XL, 4XL. Precio $25.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Blusa Manga Larga",
       "categoria": "blusa",
-      "precio": 29.0,
+      "precio": 25,
       "tallas": [
+        "XL",
+        "1XL",
         "2XL",
         "3XL",
         "4XL"
       ],
-      "tallas_texto_original": "2XL–4XL",
+      "tallas_texto_original": "XL–1XL–2XL–3XL–4XL",
       "colores": 1,
       "fotos": [
-        "blusa-chambray.webp"
+        "blusa-negra-botones.webp"
       ],
       "destacada": false,
-      "alt": "Blusa Chambray en mezclilla suave con mangas globo y cintura ajustable plus size, tallas 2XL–4XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Chambray.%20Mi%20talla%20es%3A%20"
+      "alt": "Blusa Manga Larga — BOLEM El Salvador"
     },
     {
-      "id": "blusa-denim-peplum",
-      "nombre": "Blusa Denim Peplum",
+      "id": "blusa-balloon",
+      "descripcion": "Blusa Balloon Halter de BOLEM en tallas 1XL, 2XL, 3XL, 4XL. Precio $25.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Blusa Balloon Halter",
       "categoria": "blusa",
-      "precio": 29.0,
+      "precio": 25,
       "tallas": [
-        "1XL"
+        "1XL",
+        "2XL",
+        "3XL",
+        "4XL"
       ],
-      "tallas_texto_original": "1XL",
+      "tallas_texto_original": "1XL–2XL–3XL–4XL",
       "colores": 1,
       "fotos": [
-        "blusa-denim-peplum.webp"
+        "blusa-balloon.webp"
       ],
       "destacada": false,
-      "alt": "Blusa Denim Peplum en denim azul plus size, tallas 1XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Blusa%20Denim%20Peplum.%20Mi%20talla%20es%3A%20"
+      "alt": "Blusa Balloon Halter — BOLEM El Salvador"
     },
     {
-      "id": "chaleco-denim",
-      "nombre": "Chaleco Denim",
-      "categoria": "blusa",
-      "precio": 29.0,
+      "id": "pantalon-lino",
+      "descripcion": "Pantalón de Lino de BOLEM en tallas L, XL, 1XL. Precio $35.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Pantalón de Lino",
+      "categoria": "pantalon",
+      "precio": 35,
       "tallas": [
         "L",
         "XL",
-        "1XL",
-        "2XL"
+        "1XL"
       ],
-      "tallas_texto_original": "L–2XL",
+      "tallas_texto_original": "L–XL–1XL",
       "colores": 1,
       "fotos": [
-        "chaleco-denim.webp"
+        "pantalon-lino.webp"
       ],
       "destacada": false,
-      "alt": "Chaleco Denim en mezclilla con botones dorados plus size, tallas L–2XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Chaleco%20Denim.%20Mi%20talla%20es%3A%20"
+      "alt": "Pantalón de Lino — BOLEM El Salvador"
     },
     {
-      "id": "camisa-mantequilla",
-      "nombre": "Camisa Mantequilla",
-      "categoria": "blusa",
-      "precio": 32.5,
+      "id": "palazzo-taupe",
+      "descripcion": "Pantalón Palazzo Taupe de BOLEM en tallas XL, 1XL. Precio $28.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Pantalón Palazzo Taupe",
+      "categoria": "pantalon",
+      "precio": 28,
+      "tallas": [
+        "XL",
+        "1XL"
+      ],
+      "tallas_texto_original": "XL–1XL",
+      "colores": 1,
+      "fotos": [
+        "palazzo-taupe.webp"
+      ],
+      "destacada": false,
+      "alt": "Pantalón Palazzo Taupe — BOLEM El Salvador"
+    },
+    {
+      "id": "palazzo-gris",
+      "descripcion": "Pantalón Palazzo Gris de BOLEM en tallas 2XL. Precio $28.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Pantalón Palazzo Gris",
+      "categoria": "pantalon",
+      "precio": 28,
       "tallas": [
         "2XL"
       ],
       "tallas_texto_original": "2XL",
       "colores": 1,
       "fotos": [
-        "camisa-mantequilla.webp"
+        "palazzo-gris.webp"
       ],
       "destacada": false,
-      "alt": "Camisa Mantequilla amarillo mantequilla, corte oversize plus size, tallas 2XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Camisa%20Mantequilla.%20Mi%20talla%20es%3A%20"
+      "alt": "Pantalón Palazzo Gris — BOLEM El Salvador"
     },
     {
-      "id": "chaleco-sastre",
-      "nombre": "Chaleco Sastre",
-      "categoria": "blusa",
-      "precio": 45.0,
+      "id": "palazzo-negro",
+      "descripcion": "Pantalón Palazzo Negro de BOLEM en tallas XL, 1XL. Precio $28.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Pantalón Palazzo Negro",
+      "categoria": "pantalon",
+      "precio": 28,
       "tallas": [
         "XL",
-        "1XL",
-        "2XL",
-        "3XL"
+        "1XL"
       ],
-      "tallas_texto_original": "XL–3XL · 2 colores",
-      "colores": 2,
-      "fotos": [
-        "chaleco-sastre-blanco.webp",
-        "chaleco-sastre-negro.webp"
-      ],
-      "destacada": false,
-      "alt": "Chaleco Sastre plus size, tallas XL–3XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Chaleco%20Sastre.%20Mi%20talla%20es%3A%20____%20y%20lo%20quiero%20en%20color%3A%20"
-    },
-    {
-      "id": "chaleco-elegante-marfil",
-      "nombre": "Chaleco Elegante",
-      "categoria": "blusa",
-      "precio": 55.0,
-      "tallas": [
-        "XL",
-        "1XL",
-        "2XL",
-        "3XL"
-      ],
-      "tallas_texto_original": "XL–3XL",
+      "tallas_texto_original": "XL–1XL",
       "colores": 1,
       "fotos": [
-        "chaleco-elegante-marfil.webp"
+        "palazzo-negro.webp"
+      ],
+      "destacada": false,
+      "alt": "Pantalón Palazzo Negro — BOLEM El Salvador"
+    },
+    {
+      "id": "palazzo-crema",
+      "descripcion": "Pantalón Palazzo Crema de BOLEM en tallas XL, 1XL. Precio $28.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Pantalón Palazzo Crema",
+      "categoria": "pantalon",
+      "precio": 28,
+      "tallas": [
+        "XL",
+        "1XL"
+      ],
+      "tallas_texto_original": "XL–1XL",
+      "colores": 1,
+      "fotos": [
+        "palazzo-crema.webp"
+      ],
+      "destacada": false,
+      "alt": "Pantalón Palazzo Crema — BOLEM El Salvador"
+    },
+    {
+      "id": "palazzo-azul-marino",
+      "descripcion": "Pantalón Palazzo Azul Marino de BOLEM en tallas 3XL. Precio $34.90 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Pantalón Palazzo Azul Marino",
+      "categoria": "pantalon",
+      "precio": 34.9,
+      "tallas": [
+        "3XL"
+      ],
+      "tallas_texto_original": "3XL",
+      "colores": 1,
+      "fotos": [
+        "palazzo-azul-marino.webp"
+      ],
+      "destacada": false,
+      "alt": "Pantalón Palazzo Azul Marino — BOLEM El Salvador"
+    },
+    {
+      "id": "jeans-flare-most-wanted",
+      "descripcion": "Jeans Flare Most Wanted de BOLEM en tallas 15, 19, 21. Precio $45.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Jeans Flare Most Wanted",
+      "categoria": "pantalon",
+      "precio": 45,
+      "tallas": [
+        "15",
+        "19",
+        "21"
+      ],
+      "tallas_texto_original": "15–19–21",
+      "colores": 1,
+      "fotos": [
+        "jeans-flare-most-wanted.webp"
+      ],
+      "destacada": false,
+      "alt": "Jeans Flare Most Wanted — BOLEM El Salvador"
+    },
+    {
+      "id": "jeans-rectos-most-wanted",
+      "descripcion": "Jeans Rectos Most Wanted de BOLEM en tallas 17, 21. Precio $45.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Jeans Rectos Most Wanted",
+      "categoria": "pantalon",
+      "precio": 45,
+      "tallas": [
+        "17",
+        "21"
+      ],
+      "tallas_texto_original": "17–21",
+      "colores": 1,
+      "fotos": [
+        "jeans-rectos-most-wanted.webp"
+      ],
+      "destacada": false,
+      "alt": "Jeans Rectos Most Wanted — BOLEM El Salvador"
+    },
+    {
+      "id": "jeans-flare",
+      "descripcion": "Jeans Flare de BOLEM en tallas 16W, 18W, 20W. Precio $54.90 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Jeans Flare",
+      "categoria": "pantalon",
+      "precio": 54.9,
+      "tallas": [
+        "16W",
+        "18W",
+        "20W"
+      ],
+      "tallas_texto_original": "16W–18W–20W",
+      "colores": 1,
+      "fotos": [
+        "jeans-flare.webp"
       ],
       "destacada": true,
-      "alt": "Chaleco Elegante en marfil plus size, tallas XL–3XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Chaleco%20Elegante.%20Mi%20talla%20es%3A%20"
+      "alt": "Jeans Flare — BOLEM El Salvador"
     },
     {
-      "id": "pantalon-lino",
-      "nombre": "Pantalón de Lino",
+      "id": "jeans-petite",
+      "descripcion": "Jeans Petite de BOLEM en tallas XL, 1XL, 2XL. Precio $54.90 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Jeans Petite",
       "categoria": "pantalon",
-      "precio": 35.0,
+      "precio": 54.9,
       "tallas": [
+        "XL",
         "1XL",
-        "2XL",
-        "3XL"
+        "2XL"
       ],
-      "tallas_texto_original": "1XL–3XL",
+      "tallas_texto_original": "XL–1XL–2XL",
       "colores": 1,
       "fotos": [
-        "pantalon-lino.webp"
+        "jeans-petite.webp"
       ],
       "destacada": false,
-      "alt": "Pantalón de Lino en crema plus size, tallas 1XL–3XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Pantal%C3%B3n%20de%20Lino.%20Mi%20talla%20es%3A%20"
+      "alt": "Jeans Petite — BOLEM El Salvador"
     },
     {
       "id": "pantalon-formal-negro",
+      "descripcion": "Pantalón Formal Negro de BOLEM en tallas XL, 1XL, 2XL. Precio $37.50 USD. Consultá disponibilidad por WhatsApp.",
       "nombre": "Pantalón Formal Negro",
       "categoria": "pantalon",
       "precio": 37.5,
@@ -814,158 +658,612 @@
         "1XL",
         "2XL"
       ],
-      "tallas_texto_original": "XL–2XL",
+      "tallas_texto_original": "XL–1XL–2XL",
       "colores": 1,
       "fotos": [
         "pantalon-formal-negro.webp"
       ],
       "destacada": false,
-      "alt": "Pantalón Formal Negro de pierna ancha con cinturón plus size, tallas XL–2XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Pantal%C3%B3n%20Formal%20Negro.%20Mi%20talla%20es%3A%20"
+      "alt": "Pantalón Formal Negro — BOLEM El Salvador"
     },
     {
       "id": "pantalon-formal-crema",
-      "nombre": "Pantalón Formal Palazzo",
+      "descripcion": "Pantalón Formal Crema de BOLEM en tallas XL, 1XL, 2XL. Precio $37.50 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Pantalón Formal Crema",
       "categoria": "pantalon",
-      "precio": 45.0,
+      "precio": 37.5,
       "tallas": [
         "XL",
         "1XL",
-        "2XL",
-        "3XL"
+        "2XL"
       ],
-      "tallas_texto_original": "XL–3XL",
+      "tallas_texto_original": "XL–1XL–2XL",
       "colores": 1,
       "fotos": [
         "pantalon-formal-crema.webp"
       ],
-      "destacada": true,
-      "alt": "Pantalón Formal Palazzo en crema plus size, tallas XL–3XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Pantal%C3%B3n%20Formal%20Palazzo.%20Mi%20talla%20es%3A%20"
-    },
-    {
-      "id": "pantalon-lunares",
-      "nombre": "Pantalón de Lunares",
-      "categoria": "pantalon",
-      "precio": 45.0,
-      "tallas": [
-        "4XL"
-      ],
-      "tallas_texto_original": "4XL",
-      "colores": 1,
-      "fotos": [
-        "pantalon-lunares.webp"
-      ],
       "destacada": false,
-      "alt": "Pantalón de Lunares crema con lunares negros, pierna ancha plus size, tallas 4XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Pantal%C3%B3n%20de%20Lunares.%20Mi%20talla%20es%3A%20"
+      "alt": "Pantalón Formal Crema — BOLEM El Salvador"
     },
     {
-      "id": "jeans-flare",
-      "nombre": "Jeans Flare",
-      "categoria": "pantalon",
-      "precio": 65.0,
-      "tallas": [
-        "1XL",
-        "2XL",
-        "3XL"
-      ],
-      "tallas_texto_original": "1XL–3XL",
-      "colores": 1,
-      "fotos": [
-        "jeans-flare.webp",
-        "jeans-flare-2.webp"
-      ],
-      "destacada": false,
-      "alt": "Jeans Flare en azul oscuro plus size, tallas 1XL–3XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Jeans%20Flare.%20Mi%20talla%20es%3A%20"
-    },
-    {
-      "id": "conjunto-chaleco-short",
-      "nombre": "Conjunto Chaleco + Short",
+      "id": "conjunto-bandana-vino",
+      "descripcion": "Conjunto con Bandana Vino de BOLEM en tallas XL, 1XL. Precio $32.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Conjunto con Bandana Vino",
       "categoria": "conjunto",
-      "precio": 35.0,
+      "precio": 32,
       "tallas": [
         "XL",
-        "1XL",
-        "2XL",
-        "3XL",
-        "4XL"
+        "1XL"
       ],
-      "tallas_texto_original": "XL–4XL · 2 colores",
-      "colores": 2,
+      "tallas_texto_original": "XL–1XL",
+      "colores": 1,
       "fotos": [
-        "conjunto-chaleco-short-crema.webp",
-        "conjunto-chaleco-short-chocolate.webp"
+        "conjunto-bandana-vino.webp"
       ],
       "destacada": false,
-      "alt": "Conjunto Chaleco + Short plus size, tallas XL–4XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Conjunto%20Chaleco%20%2B%20Short.%20Mi%20talla%20es%3A%20____%20y%20lo%20quiero%20en%20color%3A%20"
+      "alt": "Conjunto con Bandana Vino — BOLEM El Salvador"
+    },
+    {
+      "id": "conjunto-bandana-azul",
+      "descripcion": "Conjunto con Bandana Azul de BOLEM en tallas XL, 1XL. Precio $32.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Conjunto con Bandana Azul",
+      "categoria": "conjunto",
+      "precio": 32,
+      "tallas": [
+        "XL",
+        "1XL"
+      ],
+      "tallas_texto_original": "XL–1XL",
+      "colores": 1,
+      "fotos": [
+        "conjunto-bandana-azul.webp"
+      ],
+      "destacada": false,
+      "alt": "Conjunto con Bandana Azul — BOLEM El Salvador"
     },
     {
       "id": "conjunto-burdeos",
+      "descripcion": "Conjunto Palazzo Burdeos de BOLEM en tallas 1XL, 2XL. Precio $45.00 USD. Consultá disponibilidad por WhatsApp.",
       "nombre": "Conjunto Palazzo Burdeos",
       "categoria": "conjunto",
-      "precio": 45.0,
+      "precio": 45,
       "tallas": [
         "1XL",
-        "2XL",
-        "3XL"
+        "2XL"
       ],
-      "tallas_texto_original": "1XL–3XL",
+      "tallas_texto_original": "1XL–2XL",
       "colores": 1,
       "fotos": [
         "conjunto-burdeos.webp"
       ],
       "destacada": true,
-      "alt": "Conjunto Palazzo Burdeos en burdeos plus size, tallas 1XL–3XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Conjunto%20Palazzo%20Burdeos.%20Mi%20talla%20es%3A%20"
+      "alt": "Conjunto Palazzo Burdeos — BOLEM El Salvador"
     },
     {
-      "id": "conjunto-blanco-palazzo",
-      "nombre": "Conjunto Palazzo Blanco",
+      "id": "conjunto-terracota",
+      "descripcion": "Conjunto Terracota de BOLEM en tallas 3XL. Precio $29.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Conjunto Terracota",
       "categoria": "conjunto",
-      "precio": 55.0,
+      "precio": 29,
       "tallas": [
-        "2XL",
-        "3XL",
-        "4XL"
+        "3XL"
       ],
-      "tallas_texto_original": "2XL–4XL",
+      "tallas_texto_original": "3XL",
       "colores": 1,
       "fotos": [
-        "conjunto-blanco-palazzo.webp"
+        "conjunto-terracota.webp"
       ],
       "destacada": false,
-      "alt": "Conjunto Palazzo Blanco en blanco plus size, tallas 2XL–4XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Conjunto%20Palazzo%20Blanco.%20Mi%20talla%20es%3A%20"
+      "alt": "Conjunto Terracota — BOLEM El Salvador"
+    },
+    {
+      "id": "conjunto-asimetrico-taupe",
+      "descripcion": "Conjunto Asimétrico Taupe de BOLEM en tallas 3XL. Precio $29.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Conjunto Asimétrico Taupe",
+      "categoria": "conjunto",
+      "precio": 29,
+      "tallas": [
+        "3XL"
+      ],
+      "tallas_texto_original": "3XL",
+      "colores": 1,
+      "fotos": [
+        "conjunto-asimetrico-taupe.webp"
+      ],
+      "destacada": false,
+      "alt": "Conjunto Asimétrico Taupe — BOLEM El Salvador"
+    },
+    {
+      "id": "conjunto-asimetrico-olivo",
+      "descripcion": "Conjunto Asimétrico Olivo de BOLEM en tallas 2XL. Precio $29.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Conjunto Asimétrico Olivo",
+      "categoria": "conjunto",
+      "precio": 29,
+      "tallas": [
+        "2XL"
+      ],
+      "tallas_texto_original": "2XL",
+      "colores": 1,
+      "fotos": [
+        "conjunto-asimetrico-olivo.webp"
+      ],
+      "destacada": false,
+      "alt": "Conjunto Asimétrico Olivo — BOLEM El Salvador"
+    },
+    {
+      "id": "conjunto-asimetrico-negro",
+      "descripcion": "Conjunto Asimétrico Negro de BOLEM en tallas 2XL. Precio $29.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Conjunto Asimétrico Negro",
+      "categoria": "conjunto",
+      "precio": 29,
+      "tallas": [
+        "2XL"
+      ],
+      "tallas_texto_original": "2XL",
+      "colores": 1,
+      "fotos": [
+        "conjunto-asimetrico-negro.webp"
+      ],
+      "destacada": false,
+      "alt": "Conjunto Asimétrico Negro — BOLEM El Salvador"
+    },
+    {
+      "id": "conjunto-chocolate",
+      "descripcion": "Conjunto Chocolate de BOLEM en tallas 1XL. Precio $29.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Conjunto Chocolate",
+      "categoria": "conjunto",
+      "precio": 29,
+      "tallas": [
+        "1XL"
+      ],
+      "tallas_texto_original": "1XL",
+      "colores": 1,
+      "fotos": [
+        "conjunto-chocolate.webp"
+      ],
+      "destacada": false,
+      "alt": "Conjunto Chocolate — BOLEM El Salvador"
     },
     {
       "id": "conjunto-negro-satinado",
+      "descripcion": "Conjunto Satinado de BOLEM en tallas 1XL. Precio $55.00 USD. Consultá disponibilidad por WhatsApp.",
       "nombre": "Conjunto Satinado",
       "categoria": "conjunto",
-      "precio": 55.0,
+      "precio": 55,
       "tallas": [
-        "1XL",
-        "2XL",
-        "3XL",
-        "4XL"
+        "1XL"
       ],
-      "tallas_texto_original": "1XL–4XL",
+      "tallas_texto_original": "1XL",
       "colores": 1,
       "fotos": [
         "conjunto-negro-satinado.webp"
       ],
       "destacada": false,
-      "alt": "Conjunto Satinado en negro plus size, tallas 1XL–4XL — BOLEM El Salvador",
-      "wa": "https://wa.me/50368590899?text=Hola%2C%20quiero%20apartar%20el%20Conjunto%20Satinado.%20Mi%20talla%20es%3A%20"
+      "alt": "Conjunto Satinado — BOLEM El Salvador"
+    },
+    {
+      "id": "conjunto-blanco-palazzo",
+      "descripcion": "Conjunto Palazzo Blanco de BOLEM en tallas 2XL, 3XL, 4XL. Precio $55.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Conjunto Palazzo Blanco",
+      "categoria": "conjunto",
+      "precio": 55,
+      "tallas": [
+        "2XL",
+        "3XL",
+        "4XL"
+      ],
+      "tallas_texto_original": "2XL–3XL–4XL",
+      "colores": 1,
+      "fotos": [
+        "conjunto-blanco-palazzo.webp"
+      ],
+      "destacada": false,
+      "alt": "Conjunto Palazzo Blanco — BOLEM El Salvador"
+    },
+    {
+      "id": "conjunto-chaleco-short-crema",
+      "descripcion": "Conjunto Chaleco + Short Crema de BOLEM en tallas XL, 1XL, 2XL, 3XL, 4XL. Precio $35.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Conjunto Chaleco + Short Crema",
+      "categoria": "conjunto",
+      "precio": 35,
+      "tallas": [
+        "XL",
+        "1XL",
+        "2XL",
+        "3XL",
+        "4XL"
+      ],
+      "tallas_texto_original": "XL–1XL–2XL–3XL–4XL",
+      "colores": 1,
+      "fotos": [
+        "conjunto-chaleco-short-crema.webp"
+      ],
+      "destacada": false,
+      "alt": "Conjunto Chaleco + Short Crema — BOLEM El Salvador"
+    },
+    {
+      "id": "conjunto-chaleco-short-chocolate",
+      "descripcion": "Conjunto Chaleco + Short Chocolate de BOLEM en tallas XL, 2XL. Precio $35.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Conjunto Chaleco + Short Chocolate",
+      "categoria": "conjunto",
+      "precio": 35,
+      "tallas": [
+        "XL",
+        "2XL"
+      ],
+      "tallas_texto_original": "XL–2XL",
+      "colores": 1,
+      "fotos": [
+        "conjunto-chaleco-short-chocolate.webp"
+      ],
+      "destacada": false,
+      "alt": "Conjunto Chaleco + Short Chocolate — BOLEM El Salvador"
+    },
+    {
+      "id": "vestido-mangas-globo-amarillo",
+      "descripcion": "Vestido Mangas Globo Amarillo de BOLEM en tallas XL, 1XL. Precio $85.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Vestido Mangas Globo Amarillo",
+      "categoria": "vestido",
+      "precio": 85,
+      "tallas": [
+        "XL",
+        "1XL"
+      ],
+      "tallas_texto_original": "XL–1XL",
+      "colores": 1,
+      "fotos": [
+        "vestido-mangas-globo-amarillo.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido Mangas Globo Amarillo — BOLEM El Salvador"
+    },
+    {
+      "id": "vestido-mangas-globo-celeste",
+      "descripcion": "Vestido Mangas Globo Celeste de BOLEM en tallas XL, 1XL, 2XL. Precio $85.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Vestido Mangas Globo Celeste",
+      "categoria": "vestido",
+      "precio": 85,
+      "tallas": [
+        "XL",
+        "1XL",
+        "2XL"
+      ],
+      "tallas_texto_original": "XL–1XL–2XL",
+      "colores": 1,
+      "fotos": [
+        "vestido-mangas-globo-celeste.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido Mangas Globo Celeste — BOLEM El Salvador"
+    },
+    {
+      "id": "vestido-mangas-globo-beige",
+      "descripcion": "Vestido Mangas Globo Beige de BOLEM en tallas XL, 1XL, 2XL. Precio $85.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Vestido Mangas Globo Beige",
+      "categoria": "vestido",
+      "precio": 85,
+      "tallas": [
+        "XL",
+        "1XL",
+        "2XL"
+      ],
+      "tallas_texto_original": "XL–1XL–2XL",
+      "colores": 1,
+      "fotos": [
+        "vestido-mangas-globo-beige.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido Mangas Globo Beige — BOLEM El Salvador"
+    },
+    {
+      "id": "vestido-verde-midi",
+      "descripcion": "Vestido Verde Midi de BOLEM en tallas 2XL, 3XL. Precio $28.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Vestido Verde Midi",
+      "categoria": "vestido",
+      "precio": 28,
+      "tallas": [
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "2XL–3XL",
+      "colores": 1,
+      "fotos": [
+        "vestido-verde-midi.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido Verde Midi — BOLEM El Salvador"
+    },
+    {
+      "id": "vestido-maxi-smocked",
+      "descripcion": "Vestido Maxi Smocked de BOLEM en tallas XL, 1XL, 2XL. Precio $65.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Vestido Maxi Smocked",
+      "categoria": "vestido",
+      "precio": 65,
+      "tallas": [
+        "XL",
+        "1XL",
+        "2XL"
+      ],
+      "tallas_texto_original": "XL–1XL–2XL",
+      "colores": 4,
+      "fotos": [
+        "vestido-maxi-smocked-fucsia.webp",
+        "vestido-maxi-smocked-crema.webp",
+        "vestido-maxi-smocked-blanco.webp",
+        "vestido-maxi-smocked-lavanda.webp"
+      ],
+      "destacada": true,
+      "alt": "Vestido Maxi Smocked — BOLEM El Salvador"
+    },
+    {
+      "id": "vestido-capas-gasa",
+      "descripcion": "Vestido de Capas de BOLEM en tallas 2XL, 3XL. Precio $44.90 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Vestido de Capas",
+      "categoria": "vestido",
+      "precio": 44.9,
+      "tallas": [
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "2XL–3XL",
+      "colores": 1,
+      "fotos": [
+        "vestido-capas-gasa.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido de Capas — BOLEM El Salvador"
+    },
+    {
+      "id": "vestido-tiered",
+      "descripcion": "Vestido Tiered de BOLEM en tallas XL, 1XL. Precio $28.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Vestido Tiered",
+      "categoria": "vestido",
+      "precio": 28,
+      "tallas": [
+        "XL",
+        "1XL"
+      ],
+      "tallas_texto_original": "XL–1XL",
+      "colores": 2,
+      "fotos": [
+        "vestido-tiered-lavanda.webp",
+        "vestido-tiered-verde.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido Tiered — BOLEM El Salvador"
+    },
+    {
+      "id": "vestido-batik-olivo",
+      "descripcion": "Vestido Batik Olivo de BOLEM en tallas 1XL, 2XL, 3XL. Precio $44.90 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Vestido Batik Olivo",
+      "categoria": "vestido",
+      "precio": 44.9,
+      "tallas": [
+        "1XL",
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "1XL–2XL–3XL",
+      "colores": 1,
+      "fotos": [
+        "vestido-batik-olivo.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido Batik Olivo — BOLEM El Salvador"
+    },
+    {
+      "id": "vestido-floral-rosa",
+      "descripcion": "Vestido Floral Rosa de BOLEM en tallas 2XL, 3XL. Precio $44.90 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Vestido Floral Rosa",
+      "categoria": "vestido",
+      "precio": 44.9,
+      "tallas": [
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "2XL–3XL",
+      "colores": 1,
+      "fotos": [
+        "vestido-floral-rosa.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido Floral Rosa — BOLEM El Salvador"
+    },
+    {
+      "id": "vestido-blanco-manga-larga",
+      "descripcion": "Vestido Blanco Manga Larga de BOLEM en tallas XL, 1XL, 2XL, 3XL, 4XL. Precio $39.90 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Vestido Blanco Manga Larga",
+      "categoria": "vestido",
+      "precio": 39.9,
+      "tallas": [
+        "XL",
+        "1XL",
+        "2XL",
+        "3XL",
+        "4XL"
+      ],
+      "tallas_texto_original": "XL–1XL–2XL–3XL–4XL",
+      "colores": 1,
+      "fotos": [
+        "vestido-blanco-manga-larga.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido Blanco Manga Larga — BOLEM El Salvador"
+    },
+    {
+      "id": "vestido-camisero-denim",
+      "descripcion": "Vestido Camisero Denim de BOLEM en tallas 1XL, 2XL. Precio $55.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Vestido Camisero Denim",
+      "categoria": "vestido",
+      "precio": 55,
+      "tallas": [
+        "1XL",
+        "2XL"
+      ],
+      "tallas_texto_original": "1XL–2XL",
+      "colores": 1,
+      "fotos": [
+        "vestido-camisero-denim.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido Camisero Denim — BOLEM El Salvador"
+    },
+    {
+      "id": "falda-maxi-blanca",
+      "descripcion": "Falda Maxi Blanca de BOLEM en tallas XL, 1XL, 2XL, 3XL, 4XL. Precio $28.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Falda Maxi Blanca",
+      "categoria": "vestido",
+      "precio": 28,
+      "tallas": [
+        "XL",
+        "1XL",
+        "2XL",
+        "3XL",
+        "4XL"
+      ],
+      "tallas_texto_original": "XL–1XL–2XL–3XL–4XL",
+      "colores": 1,
+      "fotos": [
+        "falda-maxi-blanca.webp"
+      ],
+      "destacada": false,
+      "alt": "Falda Maxi Blanca — BOLEM El Salvador"
+    },
+    {
+      "id": "vestido-largo-volantes",
+      "descripcion": "Vestido Largo de Volantes de BOLEM en tallas 3XL. Precio $28.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Vestido Largo de Volantes",
+      "categoria": "vestido",
+      "precio": 28,
+      "tallas": [
+        "3XL"
+      ],
+      "tallas_texto_original": "3XL",
+      "colores": 1,
+      "fotos": [
+        "vestido-largo-volantes.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido Largo de Volantes — BOLEM El Salvador"
+    },
+    {
+      "id": "vestido-negro-corte-a",
+      "descripcion": "Vestido Corte A Negro de BOLEM en tallas 2XL, 3XL. Precio $35.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Vestido Corte A Negro",
+      "categoria": "vestido",
+      "precio": 35,
+      "tallas": [
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "2XL–3XL",
+      "colores": 1,
+      "fotos": [
+        "vestido-negro-corte-a.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido Corte A Negro — BOLEM El Salvador"
+    },
+    {
+      "id": "vestido-broderie-rojo",
+      "descripcion": "Vestido Broderie Rojo de BOLEM en tallas 2XL, 3XL, 4XL. Precio $34.90 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Vestido Broderie Rojo",
+      "categoria": "vestido",
+      "precio": 34.9,
+      "tallas": [
+        "2XL",
+        "3XL",
+        "4XL"
+      ],
+      "tallas_texto_original": "2XL–3XL–4XL",
+      "colores": 1,
+      "fotos": [
+        "vestido-broderie-rojo.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido Broderie Rojo — BOLEM El Salvador"
+    },
+    {
+      "id": "vestido-cobalto",
+      "descripcion": "Vestido Maxi Cobalto de BOLEM en tallas XL, 1XL, 2XL. Precio $65.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Vestido Maxi Cobalto",
+      "categoria": "vestido",
+      "precio": 65,
+      "tallas": [
+        "XL",
+        "1XL",
+        "2XL"
+      ],
+      "tallas_texto_original": "XL–1XL–2XL",
+      "colores": 1,
+      "fotos": [
+        "vestido-cobalto.webp"
+      ],
+      "destacada": true,
+      "alt": "Vestido Maxi Cobalto — BOLEM El Salvador"
+    },
+    {
+      "id": "vestido-midi-algodon",
+      "descripcion": "Vestido Midi de Algodón de BOLEM en tallas 1XL, 2XL, 3XL. Precio $44.90 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Vestido Midi de Algodón",
+      "categoria": "vestido",
+      "precio": 44.9,
+      "tallas": [
+        "1XL",
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "1XL–2XL–3XL",
+      "colores": 2,
+      "fotos": [
+        "vestido-midi-algodon-indigo.webp",
+        "vestido-midi-algodon-beige.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido Midi de Algodón — BOLEM El Salvador"
+    },
+    {
+      "id": "vestido-eventos-sage",
+      "descripcion": "Vestido para Eventos de BOLEM en tallas 2XL, 3XL. Precio $45.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Vestido para Eventos",
+      "categoria": "vestido",
+      "precio": 45,
+      "tallas": [
+        "2XL",
+        "3XL"
+      ],
+      "tallas_texto_original": "2XL–3XL",
+      "colores": 1,
+      "fotos": [
+        "vestido-eventos-sage.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido para Eventos — BOLEM El Salvador"
+    },
+    {
+      "id": "vestido-shirtdress",
+      "descripcion": "Vestido Shirtdress de BOLEM en tallas L, XL. Precio $29.00 USD. Consultá disponibilidad por WhatsApp.",
+      "nombre": "Vestido Shirtdress",
+      "categoria": "vestido",
+      "precio": 29,
+      "tallas": [
+        "L",
+        "XL"
+      ],
+      "tallas_texto_original": "L–XL",
+      "colores": 1,
+      "fotos": [
+        "vestido-shirtdress.webp"
+      ],
+      "destacada": false,
+      "alt": "Vestido Shirtdress — BOLEM El Salvador"
     }
   ],
   "categorias": {
     "vestido": {
-      "etiqueta": "Vestidos",
-      "etiqueta_larga": "Vestidos",
-      "portada": "vestido-verano-rojo.webp",
+      "etiqueta": "Vestidos y Faldas",
+      "etiqueta_larga": "Vestidos y Faldas",
+      "portada": "vestido-cobalto.webp",
       "editorial": "El vestido no te tiene que quedar. <em>Te tiene que celebrar.</em>"
     },
     "blusa": {
