@@ -1,5 +1,5 @@
 {
-  "_nota": "Fuente única del catálogo, sincronizada con la carpeta de Google Drive compartida por Mónica el 17 de septiembre de 2026. Cada producto separa variantes cuando cambian precio o tallas; las fotos agrupadas comparten exactamente el mismo precio y rango de tallas.",
+  "_nota": "Fuente única del catálogo, sincronizada desde la hoja maestra BOLEM. Precios, tallas, estado y fotografías se validan antes de generar el sitio.",
   "escala_tallas": [
     "L",
     "XL",

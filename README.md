@@ -8,6 +8,19 @@ GitHub Pages redirige https://oar2.github.io/bolem-site/ al dominio principal.
 
 Fuente única de prendas: `_data/catalogo.json`. Confirmar inventario antes de cambiar disponibilidad.
 
+Para una actualización normal, editar **Catálogo maestro BOLEM**, descargar la pestaña
+`Inventario` como CSV y ejecutar:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File _tools/actualizar_catalogo.ps1 -Csv "C:\ruta\Inventario.csv"
+```
+
+Si también hay fotografías nuevas, agregar `-Fotos "C:\ruta\fotos"`. El actualizador
+valida códigos, categorías, precios, tallas y las tres variantes de cada fotografía;
+después reconstruye el sitio y ejecuta todas las comprobaciones. La eliminación de
+productos se bloquea hasta usar explícitamente `-PermitirRetirados`, para poder revisar
+redirecciones antes de retirar URLs.
+
 ```powershell
 python _tools/publicar_v3.py --origin https://bolemsv.com
 python _tools/verificar.py

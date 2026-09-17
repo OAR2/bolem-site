@@ -22,6 +22,12 @@ olvidara quedaba mintiendo.
 
 **Nunca se edita el HTML de productos a mano. Se edita el JSON y se reconstruye.**
 
+El flujo recomendado ya no requiere editar el JSON manualmente: actualizar la hoja
+**Catálogo maestro BOLEM**, descargar la pestaña `Inventario` como CSV y ejecutar
+`_tools/actualizar_catalogo.ps1`. El JSON sigue siendo la fuente técnica del generador,
+pero el script lo deriva de la hoja y bloquea datos incompletos o eliminaciones no
+revisadas.
+
 ### 1. Las fotos
 
 ```
